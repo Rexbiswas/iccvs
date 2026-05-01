@@ -297,7 +297,7 @@ const Student = () => {
             {/* Campus Experience Section - High Fidelity Collage */}
             <section className="section-py bg-white overflow-hidden relative">
                 <div className="container mx-auto container-px">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:grid-rows-3 auto-rows-fr">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-fr">
 
                         {/* Top Row */}
                         <motion.div
@@ -306,7 +306,7 @@ const Student = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/3184302/pexels-photo-3184302.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02557.JPG?updatedAt=1777556820463" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -315,7 +315,7 @@ const Student = () => {
                             transition={{ delay: 0.1 }}
                             className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02550.JPG?updatedAt=1777556820407" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -324,7 +324,7 @@ const Student = () => {
                             transition={{ delay: 0.2 }}
                             className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/1181311/pexels-photo-1181311.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02471.JPG?updatedAt=1777556820198" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -333,7 +333,7 @@ const Student = () => {
                             transition={{ delay: 0.3 }}
                             className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02490.JPG?updatedAt=1777556819960" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -342,7 +342,7 @@ const Student = () => {
                             transition={{ delay: 0.4 }}
                             className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02501.JPG?updatedAt=1777556819689" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
                         {/* Middle Row */}
@@ -352,7 +352,7 @@ const Student = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-3 lg:row-span-1 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02555.JPG?updatedAt=1777556819602" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
                         {/* Central Text Block */}
@@ -376,7 +376,7 @@ const Student = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-3 lg:row-span-1 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/159844/science-fair-school-education-learning-159844.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02483.JPG?updatedAt=1777556819492" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
                         {/* Bottom Row */}
@@ -386,7 +386,7 @@ const Student = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02492.JPG?updatedAt=1777556819275" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -395,7 +395,7 @@ const Student = () => {
                             transition={{ delay: 0.1 }}
                             className="lg:col-span-4 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/256417/pexels-photo-256417.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02554.JPG?updatedAt=1777556819183" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -404,7 +404,7 @@ const Student = () => {
                             transition={{ delay: 0.2 }}
                             className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/301703/pexels-photo-301703.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02476.JPG?updatedAt=1777556818378" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -413,7 +413,44 @@ const Student = () => {
                             transition={{ delay: 0.3 }}
                             className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=800" className="w-full h-full object-cover transition-all duration-700" alt="Campus" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02486.JPG?updatedAt=1777556818363" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+
+                        {/* Extra Row for More Images */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02484.JPG?updatedAt=1777556817796" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02494.JPG?updatedAt=1777556817711" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02481.JPG?updatedAt=1777556817558" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02485.JPG?updatedAt=1777556814042" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
                     </div>
