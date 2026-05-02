@@ -1,6 +1,6 @@
 import express from 'express';
 import PartnerLead from '../models/PartnerLead.js';
-import { sendSMS, sendWelcomeEmail } from '../utils/notifications.js';
+import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
@@ -47,7 +47,8 @@ router.post('/leads', async (req, res) => {
         // Send notifications
         Promise.allSettled([
             sendWelcomeEmail(email, name, 'Franchise/Partnership'),
-            sendSMS(mobile || phone || contact || '', name)
+            sendSMS(mobile || phone || contact || '', name),
+            sendAdminLeadEmail('insd.franchiseleads@gmail.com', req.body, 'Franchise Inquiry')
         ]).catch(err => console.error('[Partner Notification Error]', err.message));
 
         res.json({ success: true, message: 'Partner inquiry submitted successfully!', data: lead });

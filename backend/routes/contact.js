@@ -1,6 +1,6 @@
 import express from 'express';
 import ContactLead from '../models/ContactLead.js';
-import { sendSMS, sendWelcomeEmail } from '../utils/notifications.js';
+import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
@@ -22,7 +22,8 @@ router.post('/', async (req, res) => {
         // Send notifications
         Promise.allSettled([
             sendWelcomeEmail(email, name, subject || 'General Inquiry'),
-            sendSMS(phone || '', name)
+            sendSMS(phone || '', name),
+            sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Contact Form Inquiry')
         ]).catch(err => console.error('[Contact Notification Error]', err.message));
 
         res.status(201).json({ 

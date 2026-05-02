@@ -87,6 +87,45 @@ export const sendSMS = async (phone, name) => {
 };
 
 /**
+ * Sends a notification email to the Admin with lead details
+ */
+export const sendAdminLeadEmail = async (adminEmail, leadData, type = "General Inquiry") => {
+    try {
+        const transporter = await getGoogleTransporter();
+        
+        // Build a readable list of lead details
+        const detailsHtml = Object.entries(leadData)
+            .filter(([key, value]) => value && typeof value !== 'object')
+            .map(([key, value]) => `<li><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</li>`)
+            .join('');
+
+        const mailOptions = {
+            from: `"INSD Lead System" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
+            to: adminEmail,
+            subject: `[NEW LEAD] ${type} - ${leadData.name || leadData.fullName || 'Unknown'}`,
+            html: `
+                <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+                    <h2 style="color: #db3436; border-bottom: 2px solid #db3436; padding-bottom: 10px;">New ${type} Submission</h2>
+                    <p>A new lead has been captured on the INSD website.</p>
+                    <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                        <ul style="list-style: none; padding: 0;">
+                            ${detailsHtml}
+                        </ul>
+                    </div>
+                    <p style="font-size: 12px; color: #777;">Captured on: ${new Date().toLocaleString()}</p>
+                </div>
+            `
+        };
+        await transporter.sendMail(mailOptions);
+        console.log(`[Admin Email] Lead notification sent to ${adminEmail}`);
+        return true;
+    } catch (err) {
+        console.error(`[Admin Email Error] Failed to send to ${adminEmail}:`, err.message);
+        return false;
+    }
+};
+
+/**
  * Sends a WhatsApp message via Fast2SMS
  */
 export const sendWhatsApp = async (phone, name) => {

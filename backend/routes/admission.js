@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import AdmissionLead from '../models/AdmissionLead.js';
 
-import { sendSMS, sendWelcomeEmail, sendWhatsApp } from '../utils/notifications.js';
+import { sendSMS, sendWelcomeEmail, sendWhatsApp, sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
@@ -63,7 +63,8 @@ router.post('/', async (req, res) => {
         // Fire off notifications async
         Promise.allSettled([
             sendWelcomeEmail(email, name, course || program || 'Design Course'),
-            sendSMS(phone || mobile || '', name)
+            sendSMS(phone || mobile || '', name),
+            sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Admission Inquiry')
         ]).then(() => {
             console.log(`[Notifications] Processed for ${name}`);
         }).catch(err => console.error('[Notification Error]', err.message));

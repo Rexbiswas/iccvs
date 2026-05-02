@@ -1,6 +1,6 @@
 import express from 'express';
 import StepLead from '../models/StepLead.js';
-import { sendSMS, sendWelcomeEmail } from '../utils/notifications.js';
+import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
@@ -27,7 +27,16 @@ router.post('/', async (req, res) => {
         // Send notifications
         Promise.allSettled([
             sendWelcomeEmail(email, name, "Career Roadmap"),
-            sendSMS(mobile, name)
+            sendSMS(mobile, name),
+            sendAdminLeadEmail("insd.admissionleads@gmail.com", {
+                source: "Multi-Step Lead Form",
+                name,
+                email,
+                phone: mobile,
+                city,
+                inquiryType,
+                readyToStart: readyToStart === 'yes' ? "Expert Talk" : "Career Decide"
+            })
         ]).then(() => {
             console.log(`[Notifications] Processed for ${name}`);
         }).catch(err => console.error('[Notification Error]', err.message));

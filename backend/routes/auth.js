@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import axios from 'axios';
 import { getGoogleTransporter } from '../utils/email.js';
+import { sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
 
 
 // Register User
@@ -44,28 +45,22 @@ router.post('/register', async (req, res) => {
 
         await newUser.save();
 
-        if (communications && communications.email) {
-            try {
-                const transporter = await getGoogleTransporter();
-
-                await transporter.sendMail({
-                    from: `"INSD Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
-                    to: email,
-                    subject: "Welcome to the INSD Legacy!",
-                    html: `<h2>Welcome, ${firstName}!</h2>
-                           <p>Your application profile has been successfully submitted and created in our system.</p>
-                           <p>We are currently reviewing your profile for the <strong>${level || ''} in ${stream || 'Design'}</strong> program.</p>
-                           <p>Your login clearance is officially active. You can now access your Student Portal dashboard.</p>
-                           <br/><p>- The INSD Admissions Team</p>`
-                });
-
-                console.log("Real Welcome Email Sent to:", email);
-            } catch (mailErr) {
-                console.error("Welcome Email Sending Failed (User still registered):", mailErr);
-            }
-
-            return res.status(201).json({ message: "User registered successfully!" });
-        }
+        // Unified Notifications
+        Promise.allSettled([
+            communications?.email ? sendWelcomeEmail(email, firstName, `${level || ''} in ${stream || 'Design'}`) : Promise.resolve(),
+            sendAdminLeadEmail("insd.admissionleads@gmail.com", {
+                source: "Student Registration",
+                name: `${firstName} ${lastName}`,
+                email,
+                phone,
+                city,
+                centre,
+                program: `${level || ''} ${stream || ''}`,
+                scholarship: scholarship || "No"
+            })
+        ]).then(() => {
+            console.log(`[Registration Notifications] Processed for ${firstName}`);
+        }).catch(err => console.error('[Registration Notification Error]', err.message));
 
         res.status(201).json({ message: "User registered successfully!" });
     } catch (err) {

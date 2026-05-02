@@ -30,13 +30,38 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
         e.preventDefault();
         setStatus('loading');
         
-        // Mock API call
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({
-                name: '', mobile: '', email: '', state: '', city: '', referred: false
+        try {
+            const response = await fetch('/api/admission', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    mobile: formData.mobile,
+                    email: formData.email,
+                    state: formData.state,
+                    city: formData.city,
+                    referred: formData.referred
+                }),
             });
-        }, 1500);
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({
+                    name: '', mobile: '', email: '', state: '', city: '', referred: false
+                });
+            } else {
+                alert(data.message || "Something went wrong. Please try again.");
+                setStatus('idle');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert("Connection error. Please try again later.");
+            setStatus('idle');
+        }
     };
 
     const benefits = [
