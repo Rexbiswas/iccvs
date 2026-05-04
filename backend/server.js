@@ -78,14 +78,23 @@ const checkInternet = () => {
     });
 };
 
+let isConnected = false;
+
 // Database Connection Logic with Persistent Retries and Auto-Sync
 const connectDB = async () => {
+    if (isConnected && mongoose.connection.readyState === 1) {
+        return;
+    }
+
     const cloudURI = process.env.MONGO_URI;
     const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/insd';
-    const hasInternet = await checkInternet();
+    
+    // Skip internet check in production (Vercel) to save time
+    const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
+    const hasInternet = isProd ? true : await checkInternet();
 
     const options = {
-        serverSelectionTimeoutMS: 5000,
+        serverSelectionTimeoutMS: 10000, // Higher timeout for serverless cold starts
         socketTimeoutMS: 45000,
     };
 
@@ -98,31 +107,30 @@ const connectDB = async () => {
         syncBackups(models);
     };
 
-    if (hasInternet) {
+    if (hasInternet && cloudURI) {
         try {
-            console.log('📡 Internet Detected: Connecting to Cloud Database...');
+            console.log('📡 Connecting to Cloud Database...');
             await mongoose.connect(cloudURI, options);
-            console.log('✅ MongoDB Cloud Connected successfully');
+            console.log('✅ MongoDB Cloud Connected');
+            isConnected = true;
             runSync();
             return;
         } catch (cloudErr) {
-            console.warn('⚠️ Cloud Connection failed despite being online. Trying Local...');
+            console.warn('⚠️ Cloud Connection failed. Trying Local...');
         }
-    } else {
-        console.log('🌐 Offline Mode: Skipping Cloud and using Local Database...');
     }
 
-    // Attempt Local Connection
-    try {
-        await mongoose.connect(localURI, options);
-        console.log('✅ Local MongoDB Connected successfully');
-        runSync();
-    } catch (localErr) {
-        console.error('🛑 No database found locally or online. Entering "Buffer Mode".');
-        console.log('ℹ️  Data will be saved to local JSON files and synced later.');
-        
-        // Retry connection every 30 seconds
-        setTimeout(connectDB, 30000);
+    // Attempt Local Connection (Only in Dev)
+    if (!isProd) {
+        try {
+            await mongoose.connect(localURI, options);
+            console.log('✅ Local MongoDB Connected');
+            isConnected = true;
+            runSync();
+        } catch (localErr) {
+            console.error('🛑 No database found. Entering Buffer Mode.');
+            setTimeout(connectDB, 30000);
+        }
     }
 };
 
