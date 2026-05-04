@@ -106,29 +106,7 @@ const InsdDifference = () => {
                                 </motion.div>
                             ))}
                         </div>
-                        {/* CTA Section */}
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="pt-10 flex flex-col sm:flex-row items-center gap-6"
-                        >
-                            <button 
-                                onClick={() => openAdmissionModal({
-                                    title: 'Talk to Experts',
-                                    subtitle: 'Get professional guidance for your design career.'
-                                })}
-                                className="group relative px-8 py-5 bg-primary text-white rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs overflow-hidden shadow-2xl hover:shadow-primary/40 transition-all duration-500 hover:-translate-y-1"
-                            >
-                                <span className="relative z-10 flex items-center gap-3">
-                                    Talk to our career experts
-                                    <Rocket className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                </span>
-                                <div className="absolute inset-0 bg-slate-950 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                            </button>
-                            
-                        </motion.div>
+
                     </div>
 
                     {/* Right Side: Video Content (40%) */}
