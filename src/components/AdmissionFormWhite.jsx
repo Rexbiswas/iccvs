@@ -111,9 +111,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
 
             {/* Left Content - Marketing */}
             <div className={`w-full md:w-[45%] bg-gradient-to-br from-[#134a84] to-[#db3436] text-white flex flex-col justify-between relative overflow-hidden ${isModal ? 'h-[200px] md:h-auto' : 'min-h-[200px] md:min-h-[650px]'}`}>
-                {/* Background Decoration */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#db3436] opacity-10 rounded-full blur-[80px] -mr-32 -mt-32" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#db3436] opacity-10 rounded-full blur-[80px] -ml-32 -mb-32" />
+                {/* Background decorative glows removed */}
 
                 <div className="p-4 md:p-10 relative z-10 flex flex-col h-full items-center text-center justify-center">
                     <div className="space-y-3 md:space-y-8 flex flex-col items-center">

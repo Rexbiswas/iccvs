@@ -310,27 +310,27 @@ const Home = () => {
             <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-12 lg:pt-0 cursor-default">
 
                 {/* Left Side: Content & Headlines */}
-                <div className="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
+                <div className="w-full lg:w-[55%] flex flex-col justify-center items-center text-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="space-y-5 lg:mt-12"
+                        className="space-y-5 lg:mt-12 flex flex-col items-center"
                     >
 
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
 
-                            <h1 className="text-clamp-3xl font-black text-slate-900 tracking-tighter leading-[0.95]">
+                            <h1 className="text-clamp-3xl font-black text-slate-900 tracking-tighter leading-[0.95] text-center">
                                 20 Lakh Professionals <br />
                                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-slate-400 italic text-[0.9em]">Needed by 2030.</span>
                             </h1>
-                            <p className="text-clamp-lg font-bold text-slate-600 tracking-tight max-w-xl">
-                                Start a high-impact career in Fashion, Interior,Graphic Design ui/ux animation, jewellery, textile photography or make-up with INSD 
+                            <p className="text-clamp-lg font-bold text-slate-600 tracking-tight max-w-xl mx-auto text-justify">
+                                Start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation, Jewellery, Textile, Photography or Make-up with INSD 
                             </p>
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
 
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
@@ -345,47 +345,11 @@ const Home = () => {
                                 Talk to a Expert
                                 <ArrowRight size={18} />
                             </motion.button>
-                            <motion.a
-                                href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-                                download="INSD-Prospectus-2026.pdf"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="group relative w-full sm:w-auto h-16 md:h-20 px-10 bg-white border-2 border-slate-100 text-slate-600 rounded-full font-black uppercase tracking-widest text-[11px] overflow-hidden transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/20 hover:border-primary/30"
-                            >
-                                {/* Animated Gradient Background */}
-                                <div className="absolute inset-0 bg-linear-to-r from-primary to-slate-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-                                
-                                {/* Shimmer */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                    <div className="absolute top-0 -left-full w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] group-hover:animate-shimmer" />
-                                </div>
-                                
-                                
-                            </motion.a>
+
 
                         </div>
 
-                        {/* Transformation Vision - Pills */}
-                        <div className="flex flex-wrap items-center gap-4 pt-4">
-                            {[
-                                { text: "Design Industry", icon: <Sparkles size={16} className="text-primary" /> },
-                                { text: "Retail Industry", icon: <Rocket size={16} className="text-primary" /> },
-                                { text: "Hospitality Industry", icon: <Briefcase size={16} className="text-primary" /> }
-                            ].map((pill, i) => (
-                                <div key={i} className="flex items-center gap-3 px-6 py-2.5 bg-slate-50/50 border border-slate-100 rounded-full hover:bg-white hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 transition-all duration-500 group/pill cursor-default">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm group-hover/pill:rotate-12 transition-transform duration-500">
-                                        {pill.icon}
-                                    </div>
-                                    <span className="text-[11px] md:text-sm font-black uppercase tracking-[0.15em] text-slate-800 transition-colors">
-                                        {pill.text.split(' ').map((word, index) => (
-                                            <span key={index} className={word.toLowerCase() === 'industry' ? 'text-primary' : 'group-hover/pill:text-primary'}>
-                                                {word}{index === 0 ? ' ' : ''}
-                                            </span>
-                                        ))}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+                        {/* Transformation Vision - Pills removed */}
 
 
                     </motion.div>
