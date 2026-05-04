@@ -309,15 +309,15 @@ const Home = () => {
 
 
             {/* Hero Split Section */}
-            <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-24 lg:pt-0 cursor-default items-center">
+            <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-28 lg:pt-12 cursor-default items-center">
 
                 {/* Left Side: Content & Headlines */}
-                <div className="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
+                <div className="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20 text-center lg:text-left items-center lg:items-start">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="space-y-5"
+                        className="space-y-5 flex flex-col items-center lg:items-start"
                     >
 
                         <div className="space-y-4">
@@ -327,12 +327,12 @@ const Home = () => {
                                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-slate-400 italic text-[0.9em]">Needed by 2030.</span>
                             </h1>
                             <p className="text-clamp-lg font-bold text-slate-600 tracking-tight max-w-xl">
-                               Study with INSD to start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation & VFX, Jewellery, Textile, Photography or Make-up
+                                Study with INSD to start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation & VFX, Jewellery, Textile, Photography or Make-up
                             </p>
                         </div>
 
-                        {/* CTA Buttons - Centered */}
-                        <div className="w-full flex justify-start pt-6">
+                        {/* CTA Buttons */}
+                        <div className="w-full flex justify-center lg:justify-start pt-6">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -349,18 +349,18 @@ const Home = () => {
                         </div>
 
                         {/* Stats Highlights */}
-                        <div className="flex flex-wrap items-center gap-8 md:gap-12 pt-8">
-                            <div className="flex flex-col">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 md:gap-12 pt-8">
+                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                                 <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">15+</span>
                                 <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Years Legacy</span>
                             </div>
                             <div className="w-px h-10 bg-slate-100 hidden sm:block" />
-                            <div className="flex flex-col">
+                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                                 <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">75+</span>
                                 <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Centres</span>
                             </div>
                             <div className="w-px h-10 bg-slate-100 hidden sm:block" />
-                            <div className="flex flex-col">
+                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                                 <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">30,000+</span>
                                 <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Students Trained</span>
                             </div>

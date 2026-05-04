@@ -110,7 +110,7 @@ const Undergraduate = () => {
     ));
 
     return (
-        <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white pt-20">
+        <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white pt-28">
             <SEO 
                 title="Undergraduate Design Degrees | B.Des India - Fashion, Interior, Graphic"
                 description="Elevate your creative career with INSD's world-class B.Des and undergraduate degrees. Master your craft in India's top design college with industry-standard protocols."
