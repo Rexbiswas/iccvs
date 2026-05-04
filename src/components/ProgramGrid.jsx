@@ -310,7 +310,7 @@ const ProgramGrid = () => {
 
                     <div className="space-y-4 max-w-2xl mx-auto pt-2">
                         <p className="text-clamp-xl font-bold text-slate-800 tracking-tight leading-relaxed">
-                            Pick the creative career that excites you — <span className="text-primary italic">we’ll help you build it.</span>
+                            Pick the creative career that excites you—<span className="text-primary italic whitespace-nowrap">we’ll help you build it.</span>
                         </p>
                         <div className="flex items-center justify-center gap-3">
                             <div className="w-8 h-px bg-slate-100" />
