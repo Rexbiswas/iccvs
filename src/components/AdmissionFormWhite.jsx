@@ -278,7 +278,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="w-full h-16 md:h-20 bg-linear-to-r from-[#134a84] to-[#db3436] hover:brightness-110 disabled:opacity-50 text-white font-black uppercase tracking-[0.25em] text-sm md:text-base rounded-full transition-all shadow-2xl hover:shadow-[0_10px_40px_-10px_rgba(219,52,54,0.6)] active:scale-[0.95] mt-4 flex items-center justify-center gap-3"
+                            className="w-full h-12 md:h-14 bg-linear-to-r from-[#134a84] to-[#db3436] hover:brightness-110 disabled:opacity-50 text-white font-black uppercase tracking-[0.25em] text-sm md:text-base rounded-full transition-all shadow-2xl hover:shadow-[0_10px_40px_-10px_rgba(219,52,54,0.6)] active:scale-[0.95] mt-4 flex items-center justify-center gap-3"
                         >
                             {status === 'loading' ? (
                                 <>

@@ -44,16 +44,16 @@ const PlacementPartners = () => {
     return (
         <div className="pt-8 md:pt-20 space-y-8 md:space-y-12 w-full overflow-hidden">
             <div className="space-y-4 md:space-y-6">
-                <div className="flex items-center justify-center gap-2 px-4 mb-12 md:mb-16">
+                <div className="flex items-center justify-start gap-2 px-4 mb-12 md:mb-16">
                     <span className="text-clamp-xl font-bold text-slate-800 tracking-tight">Placement & Training Partners</span>
                 </div>
                 <div className="relative flex overflow-hidden scroller group">
-                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-3 md:pr-4 pointer-events-auto">
+                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-2 md:pr-2 pointer-events-auto">
                         {hospitalityLogos.map((logo, i) => (
                             <LogoCard key={`h1-${i}`} logo={logo} />
                         ))}
                     </div>
-                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-3 md:pr-4 pointer-events-auto">
+                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-2 md:pr-2 pointer-events-auto">
                         {hospitalityLogos.map((logo, i) => (
                             <LogoCard key={`h2-${i}`} logo={logo} />
                         ))}

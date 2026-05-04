@@ -237,9 +237,9 @@ const Undergraduate = () => {
                                     ctaText: 'Request Call',
                                     successMsg: 'Thank you! A counselor will reach out to you shortly.'
                                 })}
-                                className="relative group overflow-hidden h-16 md:h-20 px-16 py-7 bg-slate-900 text-white rounded-full font-black uppercase text-[10px] tracking-[0.4em] transition-all hover:pr-24 shadow-2xl shadow-slate-900/20"
+                                className="relative group overflow-hidden h-12 md:h-14 px-12 md:px-20 bg-slate-900 text-white rounded-full font-black uppercase text-[10px] tracking-[0.4em] transition-all hover:pr-24 shadow-2xl shadow-slate-900/20"
                             >
-                                <span className="relative z-10">Talk to a Counsellor</span>
+                                <span className="relative z-10">TALK TO OUR EXPERTS</span>
                                 <div className="absolute inset-0 bg-primary translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500" />
                                 <ArrowRight className="absolute right-10 top-1/2 -translate-y-1/2 w-7 h-7 opacity-0 group-hover:opacity-100 transition-all text-white" />
                             </button>
@@ -454,7 +454,7 @@ const Undergraduate = () => {
                                 subtitle: 'Take the first step towards your creative career.',
                                 ctaText: 'Apply Now'
                             })}
-                            className="w-full sm:w-auto h-16 md:h-20 px-12 bg-white text-slate-950 rounded-full font-black uppercase text-[10px] tracking-[0.5em] shadow-[0_30px_70px_rgba(255,255,255,0.1)] hover:bg-primary hover:text-white transition-all transform hover:scale-105 flex items-center justify-center"
+                            className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-20 bg-white text-slate-950 rounded-full font-black uppercase text-[10px] tracking-[0.5em] shadow-[0_30px_70px_rgba(255,255,255,0.1)] hover:bg-primary hover:text-white transition-all transform hover:scale-105 flex items-center justify-center"
                         >
                             Apply Admission
                         </button>
@@ -464,7 +464,7 @@ const Undergraduate = () => {
                                 subtitle: 'Request detailed curriculum for our undergraduate programs.',
                                 ctaText: 'Request Access'
                             })}
-                            className="w-full sm:w-auto h-16 md:h-20 px-12 border-2 border-white/20 text-white rounded-full font-black uppercase text-[10px] tracking-[0.5em] hover:bg-white hover:text-slate-950 transition-all transform hover:scale-105 flex items-center justify-center"
+                            className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-20 border-2 border-white/20 text-white rounded-full font-black uppercase text-[10px] tracking-[0.5em] hover:bg-white hover:text-slate-950 transition-all transform hover:scale-105 flex items-center justify-center"
                         >
                             Curriculum Access
                         </button>
@@ -480,7 +480,7 @@ const Undergraduate = () => {
                 <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                     <button 
                         onClick={() => navigate('/apply')}
-                        className="px-12 h-16 md:h-20 bg-primary text-white font-bold uppercase tracking-widest rounded-full hover:bg-[#a61517] shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
+                        className="px-12 md:px-20 h-12 md:h-14 bg-primary text-white font-bold uppercase tracking-widest rounded-full hover:bg-[#a61517] shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
                     >
                         Apply Now
                     </button>
@@ -491,7 +491,7 @@ const Undergraduate = () => {
                             ctaText: 'Download Now',
                             successMsg: 'successful! The brochure link has been sent to your email.'
                         })}
-                        className="px-12 h-16 md:h-20 border border-white text-white font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-3"
+                        className="px-12 md:px-20 h-12 md:h-14 border border-white text-white font-bold uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-colors duration-300 flex items-center justify-center gap-3"
                     >
                         Download Brochure
                     </button>

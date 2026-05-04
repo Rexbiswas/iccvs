@@ -152,14 +152,14 @@ const AwardsRecognition = () => {
                 </div>
 
             </section>
-            <div className="flex justify-center items-center pb-24 relative z-10">
+            <div className="flex justify-start items-center pb-24 relative z-10 px-6 md:px-12 lg:px-24">
                 <motion.button
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group relative px-12 py-6 bg-slate-900 text-white rounded-full font-black uppercase text-xs tracking-[0.3em] shadow-2xl overflow-hidden transition-all duration-500"
+                    className="group relative h-12 md:h-14 px-12 md:px-20 bg-slate-900 text-white rounded-full font-black uppercase text-[10px] tracking-[0.3em] shadow-2xl overflow-hidden transition-all duration-500 flex items-center justify-center"
                 >
                     <span className="relative z-10 flex items-center gap-4">
-                        Talk to a Counsellor
+                        TALK TO OUR EXPERTS
                         <Sparkles size={18} className="text-primary group-hover:rotate-12 transition-transform" />
                     </span>
                     <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />

@@ -332,7 +332,7 @@ const Home = () => {
                         </div>
 
                         {/* CTA Buttons - Centered */}
-                        <div className="w-full flex justify-center pt-6">
+                        <div className="w-full flex justify-start pt-6">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -341,11 +341,29 @@ const Home = () => {
                                     subtitle: 'Get professional guidance for your design career.',
                                     ctaText: 'Connect Now'
                                 })}
-                                className="w-full sm:w-auto h-16 md:h-20 px-10 bg-primary text-white rounded-full font-black uppercase tracking-widest text-[11px] shadow-xl flex items-center justify-center gap-3 transition-all hover:bg-slate-950"
+                                className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-16 bg-primary text-white rounded-full font-black uppercase tracking-widest text-[11px] shadow-xl flex items-center justify-center gap-3 transition-all hover:bg-slate-950"
                             >
-                                Talk to a Expert
+                                TALK TO OUR EXPERTS
                                 <ArrowRight size={18} />
                             </motion.button>
+                        </div>
+
+                        {/* Stats Highlights */}
+                        <div className="flex flex-wrap items-center gap-8 md:gap-12 pt-8">
+                            <div className="flex flex-col">
+                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">15+</span>
+                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Years Legacy</span>
+                            </div>
+                            <div className="w-px h-10 bg-slate-100 hidden sm:block" />
+                            <div className="flex flex-col">
+                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">75+</span>
+                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Centres</span>
+                            </div>
+                            <div className="w-px h-10 bg-slate-100 hidden sm:block" />
+                            <div className="flex flex-col">
+                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">30,000+</span>
+                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Students Trained</span>
+                            </div>
                         </div>
 
                         {/* Transformation Vision - Pills removed */}
