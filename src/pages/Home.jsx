@@ -374,38 +374,6 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="section-py">
-                {/* Creative Path Transition */}
-                <div className="mt-16 md:mt-24 mb-12 md:mb-16 text-center container-px">
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="space-y-6"
-                    >
-                        <h2 className="text-clamp-4xl font-black uppercase tracking-tighter leading-[0.9] text-slate-950">
-                            Your future, <br />
-                            <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary to-slate-500 italic py-2 inline-block">our dream.</span>
-                        </h2>
-
-                        <div className="space-y-4 max-w-2xl mx-auto pt-2">
-                            <p className="text-clamp-xl font-bold text-slate-800 tracking-tight leading-relaxed">
-                                Pick the creative career that excites you— <span className="text-primary italic">we’ll help you build it.</span>
-                            </p>
-                            <div className="flex items-center justify-center gap-3">
-                                <div className="w-8 h-px bg-slate-100" />
-                                <p className="text-[10px] md:text-sm font-black uppercase tracking-[0.25em] text-slate-400">
-                                    Skill-based programs designed for real careers
-                                </p>
-                                <div className="w-8 h-px bg-slate-100" />
-                            </div>
-
-                        </div>
-
-                    </motion.div>
-                </div>
-            </div>
 
             <NetworkCounter />
             <InsdDifference />

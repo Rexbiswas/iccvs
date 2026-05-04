@@ -271,12 +271,12 @@ const ProgramGrid = () => {
             {/* Multi-layer overlay for maximum readability */}
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-700 z-0" />
             <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-black/40 opacity-100 z-0" />
-            
+
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
                 <h3 className="text-white font-black text-[32px] md:text-[38px] lg:text-[44px] leading-none uppercase tracking-tighter transition-all duration-700 group-hover:scale-110 group-hover:text-primary drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
                     {program.title}
                 </h3>
-                
+
                 <div className="overflow-hidden h-0 group-hover:h-auto transition-all duration-700">
                     {program.headline && (
                         <p className="text-white font-black text-[10px] md:text-xs uppercase tracking-[0.4em] mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
@@ -294,15 +294,43 @@ const ProgramGrid = () => {
     );
 
     return (
-        <section id="programs-grid" className="py-12 md:py-16 bg-slate-50 overflow-hidden relative">
+        <section id="programs-grid" className="py-20 md:py-24 bg-white overflow-hidden relative">
+            <div className="container mx-auto px-6 mb-16 md:mb-20 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="space-y-6"
+                >
+                    <h2 className="text-clamp-4xl font-black uppercase tracking-tighter leading-[0.9] text-slate-950">
+                        Turn passion, <br />
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary to-slate-500 italic py-2 inline-block">into profession.</span>
+                    </h2>
+
+                    <div className="space-y-4 max-w-2xl mx-auto pt-2">
+                        <p className="text-clamp-xl font-bold text-slate-800 tracking-tight leading-relaxed">
+                            Pick the creative career that excites you— <span className="text-primary italic">we’ll help you build it.</span>
+                        </p>
+                        <div className="flex items-center justify-center gap-3">
+                            <div className="w-8 h-px bg-slate-100" />
+                            <p className="text-[10px] md:text-sm font-black uppercase tracking-[0.25em] text-slate-400">
+                                Skill-based programs designed for real careers
+                            </p>
+                            <div className="w-8 h-px bg-slate-100" />
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                     {programs.slice(0, 9).map((program, index) => (
-                        <ProgramCard 
-                            key={index} 
-                            program={program} 
-                            index={index} 
-                            onClick={() => setSelectedProgram(program)} 
+                        <ProgramCard
+                            key={index}
+                            program={program}
+                            index={index}
+                            onClick={() => setSelectedProgram(program)}
                         />
                     ))}
                 </div>
@@ -312,14 +340,14 @@ const ProgramGrid = () => {
             {typeof document !== 'undefined' && createPortal(
                 <AnimatePresence mode="wait">
                     {selectedProgram && (
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             className="fixed inset-0 z-[100000] flex items-center justify-center p-4 md:p-6 lg:p-12 pointer-events-auto"
                         >
                             {/* Backdrop */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
@@ -328,14 +356,14 @@ const ProgramGrid = () => {
                             />
 
                             {/* Modal Content */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ scale: 0.9, opacity: 0, y: 30 }}
                                 animate={{ scale: 1, opacity: 1, y: 0 }}
                                 exit={{ scale: 0.9, opacity: 0, y: 30 }}
                                 className="relative w-full max-w-5xl h-full max-h-[95vh] md:max-h-[90vh] lg:max-h-[92vh] bg-white rounded-[2rem] md:rounded-[3rem] lg:rounded-[4xl] shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col lg:flex-row"
                             >
                                 {/* Mobile Close Button - Visible only on mobile, placed outside hidden panels */}
-                                <button 
+                                <button
                                     onClick={() => setSelectedProgram(null)}
                                     className="lg:hidden absolute top-4 right-4 p-2.5 rounded-full bg-slate-900/60 backdrop-blur-xl text-white border border-white/20 z-[110000] shadow-2xl active:scale-95 transition-all"
                                 >
@@ -345,12 +373,12 @@ const ProgramGrid = () => {
                                 {/* Left Side: Program Branding */}
                                 <div className="hidden lg:flex lg:w-1/3 relative overflow-hidden bg-slate-900 group/modal">
                                     <div className="absolute inset-0 bg-slate-950/60 z-10" />
-                                    <img 
-                                        src={selectedProgram.img} 
-                                        className="absolute inset-0 w-full h-full object-cover -50 group-hover/modal:-0 group-hover/modal:scale-110 transition-all duration-1000" 
-                                        alt={selectedProgram.title} 
+                                    <img
+                                        src={selectedProgram.img}
+                                        className="absolute inset-0 w-full h-full object-cover -50 group-hover/modal:-0 group-hover/modal:scale-110 transition-all duration-1000"
+                                        alt={selectedProgram.title}
                                     />
-                                    
+
                                     <div className="relative z-20 p-10 flex flex-col justify-end h-full">
                                         <motion.div
                                             initial={{ opacity: 0, x: -20 }}
@@ -368,7 +396,7 @@ const ProgramGrid = () => {
                                 {/* Right Side: Career Data */}
                                 <div className="flex-1 lg:w-2/3 flex flex-col bg-white relative">
                                     {/* Desktop Close Button */}
-                                    <button 
+                                    <button
                                         onClick={() => setSelectedProgram(null)}
                                         className="hidden lg:flex absolute top-6 right-6 p-3 rounded-full bg-slate-50 shadow-lg hover:bg-primary hover:text-white transition-all duration-300 border border-slate-100 group z-50"
                                     >
@@ -388,15 +416,15 @@ const ProgramGrid = () => {
                                                     exit={{ opacity: 0, x: -20 }}
                                                     className="w-full"
                                                 >
-                                                    <button 
+                                                    <button
                                                         onClick={() => setShowLeadForm(false)}
                                                         className="mb-6 flex items-center gap-2 text-slate-400 hover:text-primary transition-colors font-bold uppercase tracking-widest text-[10px] touch-target"
                                                     >
                                                         <ArrowLeft size={14} />
                                                         Back to Program Details
                                                     </button>
-                                                    <StepLeadForm 
-                                                        isModal={true} 
+                                                    <StepLeadForm
+                                                        isModal={true}
                                                         showClose={false}
                                                         title={`Apply for ${selectedProgram.title}`}
                                                     />
@@ -416,7 +444,7 @@ const ProgramGrid = () => {
                                                             {highlightTitle(selectedProgram.careerPath.title)}
                                                             <span className="text-slate-400 not-italic font-medium opacity-60 ml-3">be part of a larger industry</span>
                                                         </h3>
-                                                        
+
                                                         {selectedProgram.careerPath.salaries && (
                                                             <div className="flex flex-wrap gap-2 mb-6">
                                                                 <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 border border-slate-200 rounded-full">
