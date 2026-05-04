@@ -144,9 +144,6 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
-                        {/* Name Field */}
-                        <div className="space-y-1">
-                            <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">Full Name</label>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             {/* Name Field */}
                             <div className="space-y-1">
