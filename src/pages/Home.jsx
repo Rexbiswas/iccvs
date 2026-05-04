@@ -400,11 +400,11 @@ const Home = () => {
             <InsdDifference />
             <CelebritySlider />
             <SuccessStory />
-            <InstagramGallery />
+            {/* <InstagramGallery /> */}
 
 
             {/* Section 2: Interactive Gallery - Now More Compact */}
-            <div ref={galleryContainerRef} className="relative z-10 bg-white py-12 lg:py-24 overflow-hidden pointer-events-auto">
+            {/* <div ref={galleryContainerRef} className="relative z-10 bg-white py-12 lg:py-24 overflow-hidden pointer-events-auto">
                 <div className="max-w-7xl mx-auto px-6 h-[500px] md:h-[600px] flex flex-col lg:flex-row gap-6">
                     {
                         galleryItems.map((item, index) => (
@@ -413,7 +413,6 @@ const Home = () => {
                                 to={item.link || "#"}
                                 className="gallery-item relative flex-1 group transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-2 cursor-pointer border border-slate-100 rounded-[2rem] overflow-hidden shadow-2xl"
                             >
-                                {/* Image Background */}
                                 <div className="absolute inset-0 z-0">
                                     <img
                                         src={item.img}
@@ -440,14 +439,14 @@ const Home = () => {
                         ))
                     }
                 </div>
-            </div>
+            </div> */}
 
-            <WhyInsd />
-            <StepLeadForm />
-            <ProgramSearch />
-            <NationalAwards />
-            <AiFutureDesign />
-            <TestimonialSlider />
+            {/* <WhyInsd /> */}
+            {/* <StepLeadForm /> */}
+            {/* <ProgramSearch /> */}
+            {/* <NationalAwards /> */}
+            {/* <AiFutureDesign /> */}
+            {/* <TestimonialSlider /> */}
 
 
             {/* Student Spotlight Section - High Fashion Editorial Style */}
@@ -510,8 +509,8 @@ const Home = () => {
 
 
 
-            <FeaturedIn />
-            <EventBlogs />
+            {/* <FeaturedIn /> */}
+            {/* <EventBlogs /> */}
             <InsdiansByDesign />
             <div className="relative z-50">
                 <Footer />
