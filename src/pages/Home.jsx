@@ -312,7 +312,7 @@ const Home = () => {
             <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-12 lg:pt-0 cursor-default items-center">
 
                 {/* Left Side: Content & Headlines */}
-                <div className="w-full lg:w-[55%] flex flex-col px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
+                <div className="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -327,7 +327,7 @@ const Home = () => {
                                 <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-slate-400 italic text-[0.9em]">Needed by 2030.</span>
                             </h1>
                             <p className="text-clamp-lg font-bold text-slate-600 tracking-tight max-w-xl">
-                                Start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation & VFX, Jewellery, Textile, Photography or Make-up with INSD
+                               Study with INSD to start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation & VFX, Jewellery, Textile, Photography or Make-up
                             </p>
                         </div>
 
@@ -356,7 +356,7 @@ const Home = () => {
 
 
                 {/* Right Side: Visual Elements */}
-                <div className="w-full lg:w-[45%] h-[50vh] lg:h-[95vh] lg:pr-12 lg:py-16 relative overflow-hidden bg-white">
+                <div className="w-full lg:w-[45%] h-[50vh] lg:h-[95vh] lg:pr-12 lg:py-16 relative overflow-hidden bg-white flex flex-col justify-center">
                     <HeroSlider />
 
                     {/* Visual Overlay removed to let the card stand out */}

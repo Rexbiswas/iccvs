@@ -44,9 +44,8 @@ const PlacementPartners = () => {
     return (
         <div className="pt-8 md:pt-20 space-y-8 md:space-y-12 w-full overflow-hidden">
             <div className="space-y-4 md:space-y-6">
-                <div className="flex items-center justify-center gap-2 opacity-50 px-4">
-                    <Briefcase size={10} className="text-slate-900 md:w-3 md:h-3 text-slate-900" />
-                    <span className="text-clamp-xs md:text-clamp-xs font-black uppercase tracking-[0.3em] md:tracking-[0.4em] text-slate-900">Placement & Training Partners</span>
+                <div className="flex items-center justify-center gap-2 px-4 mb-4">
+                    <span className="text-clamp-xl font-bold text-slate-800 tracking-tight">Placement & Training Partners</span>
                 </div>
                 <div className="relative flex overflow-hidden scroller group">
                     <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-3 md:pr-4 pointer-events-auto">
