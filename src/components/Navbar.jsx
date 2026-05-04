@@ -145,9 +145,9 @@ const Navbar = () => {
     const scrollProgress = scrollY;
     const transitionRange = [0, 50]; // Quicker transition range
 
-    const navWidth = useTransform(scrollProgress, transitionRange, ["100%", "96%"]);
-    const navTop = useTransform(scrollProgress, transitionRange, ["40px", "20px"]);
-    const navRadius = useTransform(scrollProgress, transitionRange, ["0px", "50px"]);
+    const navWidth = useTransform(scrollProgress, transitionRange, ["100%", "100%"]);
+    const navTop = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
+    const navRadius = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
 
     // Frosted Glass Effect Transformations
     const navBackground = useTransform(scrollProgress, transitionRange, ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.75)"]);
@@ -156,10 +156,10 @@ const Navbar = () => {
     const navShadow = useTransform(scrollProgress, transitionRange, ["none", "0 10px 40px -10px rgba(0, 0, 0, 0.1)"]);
 
     // Mobile Dynamic Island Animations
-    const mobileWidth = useTransform(scrollProgress, transitionRange, ["100%", "360px"]);
-    const mobileHeight = useTransform(scrollProgress, transitionRange, ["72px", "60px"]);
-    const mobileTop = useTransform(scrollProgress, transitionRange, ["20px", "10px"]);
-    const mobileRadius = useTransform(scrollProgress, transitionRange, ["0px", "20px"]);
+    const mobileWidth = useTransform(scrollProgress, transitionRange, ["100%", "100%"]);
+    const mobileHeight = useTransform(scrollProgress, transitionRange, ["72px", "72px"]);
+    const mobileTop = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
+    const mobileRadius = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
     const mobileBackground = useTransform(scrollProgress, transitionRange, ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.4)"]);
     const mobileBackdrop = useTransform(scrollProgress, transitionRange, ["blur(0px) saturate(100%)", "blur(20px) saturate(180%)"]);
     const mobileShadow = useTransform(scrollProgress, transitionRange, ["none", "0 10px 25px -5px rgba(0, 0, 0, 0.1)"]);
@@ -287,26 +287,6 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Top Announcement Bar */}
-            <div className="w-full bg-linear-to-r from-primary to-secondary text-white py-1.5 md:py-2.5 px-3 md:px-6 text-center relative z-1001 flex items-center justify-center gap-2 md:gap-4 overflow-hidden shadow-2xl transition-all duration-500">
-                {/* Premium Shine Effect */}
-                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer" />
-
-                <div className="flex items-center gap-1.5 md:gap-3 relative z-10 overflow-hidden">
-                    <GraduationCap size={12} className="md:w-5 md:h-5 text-white/90 animate-bounce shrink-0" />
-                    <span className="text-[8px] md:text-xs lg:text-sm font-black tracking-wide md:tracking-widest uppercase whitespace-nowrap">
-                        Admission Open 2026<span className="hidden sm:inline">, Limited Seat Available</span>
-                    </span>
-                </div>
-
-                <Link
-                    to="/apply"
-                    className="relative z-10 px-2.5 py-0.5 md:px-4 md:py-1.5 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full text-[8px] md:text-xs font-black uppercase tracking-widest border border-white/30 transition-all duration-300 flex items-center gap-1 group/apply shadow-lg"
-                >
-                    Apply Now
-                    <ArrowRight size={10} className="md:w-3.5 md:h-3.5 group-hover/apply:translate-x-1 transition-transform" />
-                </Link>
-            </div>
 
             <motion.nav
                 style={{
@@ -320,10 +300,9 @@ const Navbar = () => {
                     boxShadow: navShadow,
                     borderWidth: "1px",
                     borderStyle: "solid",
-                    x: "-50%",
                 }}
                 ref={navRef}
-                className="hidden lg:flex fixed left-1/2 z-1000 px-6 lg:px-8 xl:px-10 py-4 items-center justify-between pointer-events-auto w-full"
+                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-4 items-center justify-between pointer-events-auto w-full"
             >
                 {/* Left: Logo */}
                 <Link to="/" className="nav-logo relative z-50 shrink-0 block h-16 overflow-hidden" onClick={() => setIsOpen(false)}>
@@ -588,10 +567,9 @@ const Navbar = () => {
                     borderColor: isOpen ? "transparent" : mobileBorder,
                     borderWidth: "1px",
                     borderStyle: "solid",
-                    x: "-50%",
                 }}
                 ref={mobileNavRef}
-                className="lg:hidden fixed left-1/2 z-50 flex items-center pointer-events-none"
+                className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center pointer-events-none"
             >
                 <div className="relative w-full h-full flex items-center justify-center px-4 pointer-events-auto">
                     <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">

@@ -13,7 +13,7 @@ import StepLeadForm from '../components/StepLeadForm';
 import ProgramSearch from '../components/ProgramSearch';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FeaturedIn from '../components/FeaturedIn';
-import AdmissionScroller from '../components/AdmissionScroller';
+
 import StepVisual from '../components/StepVisual';
 import EventBlogs from '../components/EventBlogs';
 import InstagramGallery from '../components/InstagramGallery';
@@ -309,7 +309,7 @@ const Home = () => {
 
 
             {/* Hero Split Section */}
-            <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-12 lg:pt-0 cursor-default items-center">
+            <div ref={heroRef} className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row bg-white overflow-hidden pt-24 lg:pt-0 cursor-default items-center">
 
                 {/* Left Side: Content & Headlines */}
                 <div className="w-full lg:w-[55%] flex flex-col justify-center px-6 md:px-16 lg:px-24 py-8 md:py-16 space-y-6 md:space-y-8 relative z-20">
@@ -368,8 +368,8 @@ const Home = () => {
             <ProgramGrid />
 
 
-            <div className="w-full bg-white py-12 container-px">
-                <div className="max-w-7xl mx-auto">
+            <div className="w-full bg-white py-16 md:py-24 container-px">
+                <div className="max-w-7xl mx-auto mb-16 md:mb-24">
                     <PlacementPartners />
                     {/* <TrainingPartners /> */}
                 </div>
@@ -422,7 +422,7 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <AdmissionScroller />
+
             <WhyInsd />
             <StepLeadForm />
             <ProgramSearch />
