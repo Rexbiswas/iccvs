@@ -27,7 +27,7 @@ const FloatingActionPanel = () => {
                     exit={{ opacity: 0, x: 20 }}
                     className="fixed bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-center gap-4"
                 >
-                    <StepLeadCTA isFloatingPanel />
+                    {/* <StepLeadCTA isFloatingPanel /> */}
                     <BackToTop isFloatingPanel />
                     <WhatsappCTA isFloatingPanel />
                     <AIChatbot isFloatingPanel />
