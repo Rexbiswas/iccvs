@@ -168,19 +168,30 @@ const connectDB = async () => {
 connectDB();
 
 
-// Routes
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'active', message: 'INSD Core Backend is running', dbReady: mongoose.connection.readyState });
+// API Routes Sub-router
+const apiRouter = express.Router();
+
+apiRouter.get('/health', (req, res) => {
+    res.json({ 
+        status: 'active', 
+        message: 'INSD Core Backend is running', 
+        dbReady: mongoose.connection.readyState,
+        timestamp: new Date().toISOString()
+    });
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/leads', leadRoutes);
-app.use('/api/step-leads', stepLeadRoutes);
-app.use('/api/admission', admissionRoutes);
-app.use('/api/paris', parisRoutes);
-app.use('/api/partner', partnerRoutes);
-app.use('/api/contact', contactRoutes);
-app.use('/api/blogs', blogRoutes);
+apiRouter.use('/auth', authRoutes);
+apiRouter.use('/leads', leadRoutes);
+apiRouter.use('/step-leads', stepLeadRoutes);
+apiRouter.use('/admission', admissionRoutes);
+apiRouter.use('/paris', parisRoutes);
+apiRouter.use('/partner', partnerRoutes);
+apiRouter.use('/contact', contactRoutes);
+apiRouter.use('/blogs', blogRoutes);
+
+// Mount the router at both /api and / to be safe on Vercel
+app.use('/api', apiRouter);
+app.use('/', apiRouter);
 
 // Catch-all for missing API routes
 app.all('/api/*', (req, res) => {

@@ -1,6 +1,7 @@
 import express from 'express';
 import StepLead from '../models/StepLead.js';
 import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
+import { backupOfflineData } from '../utils/offlineLogger.js';
 
 const router = express.Router();
 
@@ -33,7 +34,7 @@ router.post('/', async (req, res) => {
         }
 
         // Always Backup data locally to JSON (Fail-Safe)
-        import('../utils/offlineLogger.js').then(m => m.backupOfflineData('step-leads', req.body));
+        backupOfflineData('step-leads', req.body);
 
         // Send notifications
         Promise.allSettled([
