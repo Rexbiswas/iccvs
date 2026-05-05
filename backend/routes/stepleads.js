@@ -26,32 +26,48 @@ router.post('/', async (req, res) => {
         // --- TRIPLE REDUNDANCY SAVING ---
         let savedLead = null;
         try {
-            savedLead = await newLead.save();
-            console.log(`✅ [DB Success] Multi-step lead saved to MongoDB: ${name}`);
+            // Attempt Database Save with a hard timeout for Vercel
+            const mongoose = (await import('mongoose')).default;
+            if (mongoose.connection.readyState === 1) {
+                savedLead = await Promise.race([
+                    newLead.save(),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('Database Save Timeout')), 5000))
+                ]);
+                console.log(`✅ [DB Success] Multi-step lead saved to MongoDB: ${name}`);
+            } else {
+                throw new Error('Database not connected');
+            }
         } catch (dbErr) {
-            console.warn(`⚠️ [DB Offline] Could not save multi-step lead yet. Data is buffered.`);
+            console.warn(`⚠️ [DB Offline/Timeout] Data buffered locally. Reason: ${dbErr.message}`);
             savedLead = newLead;
         }
 
         // Always Backup data locally to JSON (Fail-Safe)
         backupOfflineData('step-leads', req.body);
 
-        // Send notifications
-        Promise.allSettled([
-            sendWelcomeEmail(email, name, "Career Roadmap"),
-            sendSMS(mobile, name),
-            sendAdminLeadEmail("insd.admissionleads@gmail.com", {
-                source: "Multi-Step Lead Form",
-                name,
-                email,
-                phone: mobile,
-                city,
-                inquiryType,
-                readyToStart: readyToStart === 'yes' ? "Expert Talk" : "Career Decide"
-            })
-        ]).then(() => {
-            console.log(`[Notifications] Processed for ${name}`);
-        }).catch(err => console.error('[Notification Error]', err.message));
+        // Send notifications async - don't await to prevent timeout
+        const processNotifications = async () => {
+            try {
+                await Promise.allSettled([
+                    sendWelcomeEmail(email, name, "Career Roadmap"),
+                    sendSMS(mobile, name),
+                    sendAdminLeadEmail("insd.admissionleads@gmail.com", {
+                        source: "Multi-Step Lead Form",
+                        name,
+                        email,
+                        phone: mobile,
+                        city,
+                        inquiryType,
+                        readyToStart: readyToStart === 'yes' ? "Expert Talk" : "Career Decide"
+                    }, "Step Lead Inquiry")
+                ]);
+                console.log(`[Notifications] Processed for ${name}`);
+            } catch (err) {
+                console.error('[Notification Error]', err.message);
+            }
+        };
+
+        processNotifications();
 
         res.status(201).json({ success: true, lead: savedLead });
     } catch (err) {

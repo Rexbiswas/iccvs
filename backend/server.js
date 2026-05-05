@@ -44,12 +44,15 @@ app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://va.vercel-scripts.com"],
-            imgSrc: ["'self'", "https://insd.edu.in", "data:"],
-            connectSrc: ["'self'", "https://*.vercel-scripts.com", "https://*.vercel.sh", "https://www.googletagmanager.com"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://www.googletagmanager.com", "https://va.vercel-scripts.com"],
+            imgSrc: ["'self'", "https://insd.edu.in", "https://*.insd.edu.in", "https://*.google.com", "data:", "blob:"],
+            connectSrc: ["'self'", "https://*.vercel-scripts.com", "https://*.vercel.sh", "https://www.googletagmanager.com", "https://*.mongodb.net"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com"],
             objectSrc: ["'none'"],
         }
-    }
+    },
+    crossOriginEmbedderPolicy: false
 }));
 
 // Rate Limiter: Prevent DDOS and Brute Force
@@ -179,17 +182,26 @@ const connectDB = async () => {
 // Global Connection Hook for Vercel
 app.use(async (req, res, next) => {
     if (req.url.startsWith('/api')) {
-        try {
-            await connectDB();
-        } catch (err) {
-            console.error('Database connection middleware error:', err.message);
+        // Check if DB is already connected
+        if (mongoose.connection.readyState !== 1) {
+            try {
+                // Set a timeout for the connection attempt to prevent function timeout
+                await Promise.race([
+                    connectDB(),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('DB Timeout')), 8000))
+                ]);
+            } catch (err) {
+                console.error('Database connection middleware error:', err.message);
+                // We continue anyway; the route handlers will handle the missing connection via fail-safes
+            }
+            // Non-blocking connection check
+            connectDB().catch(err => console.error('Database connection middleware error:', err.message));
         }
     }
     next();
 });
 
-connectDB();
-
+// Initialize connection
 connectDB();
 
 

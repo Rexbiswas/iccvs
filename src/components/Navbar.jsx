@@ -230,7 +230,7 @@ const Navbar = () => {
             icon: Phone,
             section: 'OVERVIEW',
             subItems: [
-                { title: 'Call Us Now', path: 'tel:+917701933935', icon: Phone, desc: 'Direct support line' },
+                { title: 'Call Us Now', path: 'tel:+919804443300', icon: Phone, desc: 'Direct support line' },
                 { title: 'Apply Now', path: '/apply', icon: UserPlus, desc: 'Start your application' },
                 { title: 'Career Counselling', path: '/apply', icon: Calendar, desc: 'Book a session' },
                 { title: 'Download Brochure', path: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', icon: FileDown, desc: 'Course catalogues', isDownload: true }
@@ -783,11 +783,11 @@ const Navbar = () => {
                                     <div className="mt-12 p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-6">
                                         <div className="space-y-4">
                                             <h4 className="text-[10px] font-black tracking-widest text-slate-400 uppercase">Emergency Help</h4>
-                                            <a href="tel:+917701933935" className="flex items-center gap-4 text-xs font-bold text-slate-800 hover:text-primary transition-colors">
+                                            <a href="tel:+919804443300" className="flex items-center gap-4 text-xs font-bold text-slate-800 hover:text-primary transition-colors">
                                                 <div className="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-primary shadow-sm">
                                                     <Phone size={14} />
                                                 </div>
-                                                +91 7701933935
+                                                +91 9804443300
                                             </a>
                                         </div>
 
@@ -820,7 +820,7 @@ const Navbar = () => {
                             className="fixed inset-0 z-1001 bg-linear-to-br from-primary to-secondary text-white overflow-hidden flex flex-col"
                         >
                             {/* 0. PREMIUM TEXTURE OVERLAY */}
-                            <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] brightness-100 contrast-150" />
+                            <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-50 bg-slate-900/10 brightness-100 contrast-150" />
 
                             {/* 1. PREMIUM HEADER */}
                             <motion.div
@@ -858,7 +858,7 @@ const Navbar = () => {
                                 <div className="hidden md:flex w-full md:w-[65%] p-6 md:p-8 lg:p-12 md:flex-col justify-center relative z-10 overflow-y-auto dropdown-scrollbar">
                                     <div className="space-y-4 md:space-y-6">
                                         {[
-                                            { title: 'Call Us Now', sub: '+91 7701933935', icon: Phone, href: 'tel:+917701933935' },
+                                            { title: 'Call Us Now', sub: '+91 9804443300', icon: Phone, href: 'tel:+919804443300' },
                                             { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '/apply' },
                                             { title: 'Book Counselling', sub: 'Free Expert Session', icon: Calendar, action: 'modal' },
                                             { title: 'Download Brochure', sub: 'Detailed Course Guide', icon: FileDown, href: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', isDownload: true },
@@ -943,11 +943,8 @@ const Navbar = () => {
                                     <motion.div variants={itemVariants}>
                                         <h4 className="text-[9px] md:text-[10px] font-black tracking-[0.4em] text-primary uppercase mb-4 md:mb-6">Direct Lines</h4>
                                         <div className="space-y-3">
-                                            <a href="tel:+917701933935" className="block text-lg md:text-xl lg:text-2xl font-bold hover:text-primary transition-all group">
-                                                <span className="inline-block group-hover:translate-x-2 transition-transform">+91 7701933935</span>
-                                            </a>
-                                            <a href="tel:+917827066618" className="block text-lg md:text-xl lg:text-2xl font-bold hover:text-primary transition-all group">
-                                                <span className="inline-block group-hover:translate-x-2 transition-transform">+91 7827066618</span>
+                                            <a href="tel:+919804443300" className="block text-lg md:text-xl lg:text-2xl font-bold hover:text-primary transition-all group">
+                                                <span className="inline-block group-hover:translate-x-2 transition-transform">+91 9804443300</span>
                                             </a>
                                         </div>
                                     </motion.div>
