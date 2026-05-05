@@ -214,20 +214,26 @@ app.use(async (req, res, next) => {
 // --- API ROUTES REGISTRATION ---
 const apiRouter = express.Router();
 
-// Diagnostic Endpoint
-apiRouter.get('/diagnostic', (req, res) => {
-    res.json({
-        success: true,
-        message: "API Gateway is active",
-        dbStatus: mongoose.connection.readyState === 1 ? 'Connected' : 'Offline/Connecting'
+// --- DIRECT TEST ROUTES (Bypass Router) ---
+app.get('/api/test-direct', (req, res) => {
+    res.json({ 
+        success: true, 
+        message: "Direct App route is functional!",
+        env: {
+            node: process.version,
+            hasMongo: !!process.env.MONGO_URI,
+            hasEmail: !!process.env.GOOGLE_EMAIL,
+            isVercel: !!process.env.VERCEL
+        }
     });
 });
 
-apiRouter.get('/health', (req, res) => {
-    res.json({ 
-        status: 'active', 
-        message: 'INSD Core Backend is running', 
-        dbReady: mongoose.connection.readyState,
+// Diagnostic Endpoint
+app.get('/api/diagnostic', (req, res) => {
+    res.json({
+        success: true,
+        message: "API Gateway is active",
+        dbStatus: mongoose.connection.readyState === 1 ? 'Connected' : 'Offline/Connecting',
         timestamp: new Date().toISOString()
     });
 });
