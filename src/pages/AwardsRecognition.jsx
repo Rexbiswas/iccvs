@@ -6,10 +6,12 @@ import { Award, Star, ShieldCheck, Trophy, Sparkles, ArrowDown } from 'lucide-re
 import TOICertification from '../components/TOICertification';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import { useAdmissionModal } from '../context/AdmissionModalContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AwardsRecognition = () => {
+    const { openAdmissionModal } = useAdmissionModal();
     const containerRef = useRef(null);
     const heroRef = useRef(null);
     const statsRef = useRef(null);
@@ -156,11 +158,15 @@ const AwardsRecognition = () => {
                 <motion.button
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => openAdmissionModal({
+                        title: 'TALK TO OUR EXPERTS',
+                        subtitle: 'Get professional guidance for your design career.',
+                        ctaText: 'Connect Now'
+                    })}
                     className="group relative h-12 md:h-14 px-12 md:px-20 bg-slate-900 text-white rounded-full font-black uppercase text-[10px] tracking-[0.3em] shadow-2xl overflow-hidden transition-all duration-500 flex items-center justify-center"
                 >
                     <span className="relative z-10 flex items-center gap-4">
                         TALK TO OUR EXPERTS
-                        <Sparkles size={18} className="text-primary group-hover:rotate-12 transition-transform" />
                     </span>
                     <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                 </motion.button>
