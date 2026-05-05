@@ -125,10 +125,16 @@ const connectDB = async () => {
     
     const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
     
-    const options = {
-        serverSelectionTimeoutMS: 10000, // Reduced to stay within Vercel hobby limits
+    const cloudOptions = {
+        serverSelectionTimeoutMS: 5000,
         socketTimeoutMS: 45000,
-        family: 4 // Force IPv4 to avoid some DNS resolution hangs
+        family: 4 // Force IPv4 for Cloud (Atlas)
+    };
+
+    const localOptions = {
+        serverSelectionTimeoutMS: 2000,
+        socketTimeoutMS: 45000
+        // No family restriction for local
     };
 
     const runSync = () => {
@@ -148,17 +154,15 @@ const connectDB = async () => {
     if (cloudURI) {
         try {
             console.log('📡 Connecting to Cloud Database...');
-            const conn = await mongoose.connect(cloudURI, options);
+            const conn = await mongoose.connect(cloudURI, cloudOptions);
             console.log('✅ MongoDB Cloud Connected');
             isConnected = true;
-            // Only run sync if not in a serverless environment to avoid overhead
             if (!process.env.VERCEL) runSync();
             return conn;
         } catch (cloudErr) {
             console.warn(`⚠️ Cloud Connection failed: ${cloudErr.message}`);
             if (isProd) {
                 console.error('🛑 Critical: Production database connection failed.');
-                // In production we don't fallback to local
             }
         }
     }
@@ -166,13 +170,16 @@ const connectDB = async () => {
     // Attempt Local Connection (Only in Dev)
     if (!isProd) {
         try {
-            const conn = await mongoose.connect(localURI, options);
+            console.log(`🏠 Attempting Local Connection: ${localURI}...`);
+            const conn = await mongoose.connect(localURI, localOptions);
             console.log('✅ Local MongoDB Connected');
             isConnected = true;
             runSync();
             return conn;
         } catch (localErr) {
-            console.error('🛑 No database found. Entering Buffer Mode.');
+            console.error(`🛑 No database found at ${localURI}.`);
+            console.info('💡 Ensure MongoDB is running locally (run "mongod" in terminal).');
+            console.info('💡 Entering Buffer Mode (Data will be saved to local JSON backups).');
             // We don't await the retry
             setTimeout(connectDB, 30000);
         }
@@ -226,8 +233,8 @@ apiRouter.use('/partner', partnerRoutes);
 apiRouter.use('/contact', contactRoutes);
 apiRouter.use('/blogs', blogRoutes);
 
-// Mount the router at both /api and / to be safe on Vercel
-app.use('/api', apiRouter);
+// Mount the router at the root level for Direct Routing
+// Vercel's /api prefix is already handled by the entry point mapping in vercel.json
 app.use('/', apiRouter);
 
 // Catch-all for missing API routes
