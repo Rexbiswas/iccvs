@@ -533,7 +533,8 @@ const Navbar = () => {
                         </span>
                     </motion.button>
 
-                    {/* Profile Component */}
+                    {/* Profile Component - Commented Out */}
+                    {/* 
                     {user ? (
                         <Link
                             to="/profile"
@@ -549,7 +550,8 @@ const Navbar = () => {
                         >
                             <User size={18} strokeWidth={2.5} />
                         </button>
-                    )}
+                    )} 
+                    */}
                 </div>
             </motion.nav>
 
@@ -667,6 +669,8 @@ const Navbar = () => {
                                 {/* Header */}
 
                                 <div className="p-5 flex items-center justify-between bg-gradient-to-r from-primary to-secondary text-white">
+                                    {/* User Profile Section - Commented Out */}
+                                    {/* 
                                     <button
                                         onClick={() => {
                                             setIsOpen(false);
@@ -690,6 +694,7 @@ const Navbar = () => {
                                             </span>
                                         </div>
                                     </button>
+                                    */}
                                     <button onClick={() => setIsOpen(false)} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all">
                                         <X size={20} />
                                     </button>
