@@ -227,6 +227,8 @@ apiRouter.get('/health', (req, res) => {
     });
 });
 
+// --- API ROUTES REGISTRATION ---
+// Define routes on the apiRouter
 apiRouter.use('/auth', authRoutes);
 apiRouter.use('/leads', leadRoutes);
 apiRouter.use('/step-leads', stepLeadRoutes);
@@ -236,17 +238,34 @@ apiRouter.use('/partner', partnerRoutes);
 apiRouter.use('/contact', contactRoutes);
 apiRouter.use('/blogs', blogRoutes);
 
-// Mount the router at both /api and / to ensure Direct Routing works everywhere
-// This handles both local requests (http://localhost:5001/api/...) and Vercel functions
+// Compatibility Aliases for external systems and variation handling
+apiRouter.use('/leadauth', leadRoutes);
+apiRouter.use('/stepleads', stepLeadRoutes);
+apiRouter.use('/blog', blogRoutes);
+
+// Health check inside apiRouter as well
+apiRouter.get('/status', (req, res) => res.json({ status: 'ok', time: new Date() }));
+
+// Mount the apiRouter at both /api and /
+// This ensures http://localhost:5001/api/admission and http://localhost:5001/admission both work
 app.use('/api', apiRouter);
 app.use('/', apiRouter);
 
-// Catch-all for missing API routes
+// Strict 404 handler for any unmatched /api/* calls
 app.all('/api/*', (req, res) => {
     console.warn(`⚠️ [404] API Route not found: ${req.method} ${req.url}`);
     res.status(404).json({
         success: false,
-        message: `API endpoint ${req.method} ${req.url} not found on this server.`
+        message: `API Route not found: ${req.method} ${req.url}. Check your endpoint path.`,
+        availableEndpoints: [
+            '/api/auth/register',
+            '/api/admission',
+            '/api/step-leads',
+            '/api/paris/lead',
+            '/api/partner/leads',
+            '/api/contact',
+            '/api/blogs'
+        ]
     });
 });
 
