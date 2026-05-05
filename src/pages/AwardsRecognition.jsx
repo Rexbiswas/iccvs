@@ -52,7 +52,7 @@ const AwardsRecognition = () => {
     }, []);
 
     const timelineAchievements = [
-        { year: "2024", event: "National Design Excellence Award", icon: <Trophy className="text-primary" /> },
+        { year: "2025", event: "National Design Excellence Award", icon: <Trophy className="text-primary" /> },
         { year: "2023", event: "Best Placement Record in Northern India", icon: <Star className="text-secondary" /> },
         { year: "2021", event: "International College of the Year (IBSW)", icon: <Globe className="text-primary" /> },
         { year: "15+", event: "Years of Academic Leadership", icon: <ShieldCheck className="text-secondary" /> }
