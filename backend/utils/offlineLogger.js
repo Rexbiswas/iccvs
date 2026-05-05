@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const BACKUP_DIR = path.join(__dirname, '../backups');
 
 /**
  * Saves a backup of data to a local JSON file.
@@ -11,12 +12,11 @@ const __dirname = path.dirname(__filename);
  */
 export const backupOfflineData = async (collectionName, data) => {
     try {
-        const backupDir = path.join(__dirname, '../backups');
-        if (!fs.existsSync(backupDir)) {
-            fs.mkdirSync(backupDir, { recursive: true });
+        if (!fs.existsSync(BACKUP_DIR)) {
+            fs.mkdirSync(BACKUP_DIR, { recursive: true });
         }
 
-        const filePath = path.join(backupDir, `${collectionName}_backup.json`);
+        const filePath = path.join(BACKUP_DIR, `${collectionName}_backup.json`);
         
         const backupEntry = {
             timestamp: new Date().toISOString(),
@@ -58,7 +58,7 @@ export const syncBackups = async (models) => {
             
             if (!model) continue;
 
-            const filePath = path.join(backupDir, file);
+            const filePath = path.join(BACKUP_DIR, file);
             const content = fs.readFileSync(filePath, 'utf8');
             const backups = JSON.parse(content || '[]');
 

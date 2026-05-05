@@ -256,23 +256,23 @@ const Home = () => {
         };
     }, []);
 
-    const galleryItems = [
-        {
-            title: "Industry",
-            img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
-            link: "/industry-potential"
-        },
-        {
-            title: "INSD",
-            img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_u2ubidu2ubidu2ub.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
-            link: "/student"
-        },
-        {
-            title: "Required Professional",
-            img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_hzzhu5hzzhu5hzzh.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
-            link: "/placement"
-        }
-    ];
+    // const galleryItems = [
+    //     {
+    //         title: "Industry",
+    //         img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
+    //         link: "/industry-potential"
+    //     },
+    //     {
+    //         title: "INSD",
+    //         img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_u2ubidu2ubidu2ub.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
+    //         link: "/student"
+    //     },
+    //     {
+    //         title: "Required Professional",
+    //         img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_hzzhu5hzzhu5hzzh.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
+    //         link: "/placement"
+    //     }
+    // ];
 
 
 
