@@ -70,7 +70,13 @@ app.use(hpp());
 
 // Core Middleware
 app.use(express.json());
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors({ 
+    origin: (origin, callback) => {
+        // Allow all origins for now but return the origin itself to satisfy credentials: true
+        callback(null, true);
+    }, 
+    credentials: true 
+}));
 
 // Debug Middleware for Vercel
 app.use((req, res, next) => {
@@ -106,20 +112,20 @@ let isConnected = false;
 
 // Database Connection Logic with Persistent Retries and Auto-Sync
 const connectDB = async () => {
-    if (isConnected && mongoose.connection.readyState === 1) {
-        return;
+    // Return existing connection if ready
+    if (mongoose.connection.readyState === 1) {
+        return mongoose.connection;
     }
 
     const cloudURI = process.env.MONGO_URI;
     const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/insd';
     
-    // Skip internet check in production (Vercel) to save time
     const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
-    const hasInternet = isProd ? true : await checkInternet();
-
+    
     const options = {
-        serverSelectionTimeoutMS: 15000, // Increased for serverless cold starts
+        serverSelectionTimeoutMS: 10000, // Reduced to stay within Vercel hobby limits
         socketTimeoutMS: 45000,
+        family: 4 // Force IPv4 to avoid some DNS resolution hangs
     };
 
     const runSync = () => {
@@ -136,34 +142,53 @@ const connectDB = async () => {
         syncBackups(models);
     };
 
-    if (hasInternet && cloudURI) {
+    if (cloudURI) {
         try {
             console.log('📡 Connecting to Cloud Database...');
-            await mongoose.connect(cloudURI, options);
+            const conn = await mongoose.connect(cloudURI, options);
             console.log('✅ MongoDB Cloud Connected');
             isConnected = true;
-            runSync();
-            return;
+            // Only run sync if not in a serverless environment to avoid overhead
+            if (!process.env.VERCEL) runSync();
+            return conn;
         } catch (cloudErr) {
-            console.warn('⚠️ Cloud Connection failed. Trying Local...');
+            console.warn(`⚠️ Cloud Connection failed: ${cloudErr.message}`);
+            if (isProd) {
+                console.error('🛑 Critical: Production database connection failed.');
+                // In production we don't fallback to local
+            }
         }
     }
 
     // Attempt Local Connection (Only in Dev)
     if (!isProd) {
         try {
-            await mongoose.connect(localURI, options);
+            const conn = await mongoose.connect(localURI, options);
             console.log('✅ Local MongoDB Connected');
             isConnected = true;
             runSync();
+            return conn;
         } catch (localErr) {
             console.error('🛑 No database found. Entering Buffer Mode.');
+            // We don't await the retry
             setTimeout(connectDB, 30000);
         }
-    } else {
-        console.warn('⚠️ Production database connection skipped/failed. Ensure MONGO_URI is set.');
     }
 };
+
+// Global Connection Hook for Vercel
+app.use(async (req, res, next) => {
+    if (req.url.startsWith('/api')) {
+        try {
+            await connectDB();
+        } catch (err) {
+            console.error('Database connection middleware error:', err.message);
+        }
+    }
+    next();
+});
+
+connectDB();
 
 connectDB();
 

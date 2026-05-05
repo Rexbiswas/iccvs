@@ -14,7 +14,8 @@ export const getGoogleTransporter = async () => {
     }
 
     if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET || !process.env.GOOGLE_REFRESH_TOKEN) {
-        throw new Error("Missing Google API setup credentials.");
+        console.warn("⚠️ Missing Google API setup credentials. Email functionality will be limited.");
+        return null; 
     }
     const OAuth2 = google.auth.OAuth2;
     const oauth2Client = new OAuth2(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET, "https://developers.google.com/oauthplayground");

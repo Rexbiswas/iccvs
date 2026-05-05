@@ -78,8 +78,9 @@ router.post('/', async (req, res) => {
         console.error('AdmissionLead Submission Error:', err.message);
         res.status(500).json({
             success: false,
-            message: 'Internal Server Error',
-            error: err.message
+            message: 'Internal Server Error: ' + err.message,
+            error: err.message,
+            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
         });
     }
 });

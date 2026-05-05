@@ -7,6 +7,7 @@ import { getGoogleTransporter } from './email.js';
 export const sendWelcomeEmail = async (email, name, course) => {
     try {
         const transporter = await getGoogleTransporter();
+        if (!transporter) return false;
         const mailOptions = {
             from: `"INSD Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
             to: email,
@@ -92,6 +93,7 @@ export const sendSMS = async (phone, name) => {
 export const sendAdminLeadEmail = async (adminEmail, leadData, type = "General Inquiry") => {
     try {
         const transporter = await getGoogleTransporter();
+        if (!transporter) return false;
         
         // Build a readable list of lead details
         const detailsHtml = Object.entries(leadData)

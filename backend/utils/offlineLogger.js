@@ -11,6 +11,11 @@ const BACKUP_DIR = path.join(__dirname, '../backups');
  * This ensures data is never lost even if MongoDB is completely unavailable.
  */
 export const backupOfflineData = async (collectionName, data) => {
+    // Skip if on Vercel or in Production (Read-only FS usually)
+    if (process.env.VERCEL || process.env.NODE_ENV === 'production') {
+        return;
+    }
+    
     try {
         if (!fs.existsSync(BACKUP_DIR)) {
             fs.mkdirSync(BACKUP_DIR, { recursive: true });

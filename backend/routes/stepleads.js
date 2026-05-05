@@ -56,7 +56,11 @@ router.post('/', async (req, res) => {
         res.status(201).json({ success: true, lead: savedLead });
     } catch (err) {
         console.error('StepLead Error:', err.message);
-        res.status(500).json({ success: false, message: 'Server Error' });
+        res.status(500).json({ 
+            success: false, 
+            message: 'Server Error: ' + err.message,
+            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+        });
     }
 });
 
