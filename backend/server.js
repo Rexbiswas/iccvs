@@ -69,7 +69,7 @@ const apiLimiter = rateLimit({
         });
     }
 });
-app.use('/api/', apiLimiter);
+app.use('/api', apiLimiter);
 
 // Protect against HTTP Parameter Pollution
 app.use(hpp());
@@ -211,12 +211,17 @@ app.use(async (req, res, next) => {
     next();
 });
 
-// Initialize connection
-connectDB();
-
-
-// API Routes Sub-router
+// --- API ROUTES REGISTRATION ---
 const apiRouter = express.Router();
+
+// Diagnostic Endpoint
+apiRouter.get('/diagnostic', (req, res) => {
+    res.json({
+        success: true,
+        message: "API Gateway is active",
+        dbStatus: mongoose.connection.readyState === 1 ? 'Connected' : 'Offline/Connecting'
+    });
+});
 
 apiRouter.get('/health', (req, res) => {
     res.json({ 
@@ -227,17 +232,16 @@ apiRouter.get('/health', (req, res) => {
     });
 });
 
-// Diagnostic Endpoint
-apiRouter.get('/diagnostic', (req, res) => {
-    res.json({
-        success: true,
-        message: "API Gateway is active",
-        endpoints: ['/api/auth/register', '/api/admission', '/api/step-leads', '/api/paris/lead', '/api/partner/leads', '/api/contact', '/api/blogs']
-    });
+// --- MOUNTING & CORS PREFLIGHT ---
+app.options('*', cors()); // Enable pre-flight for all routes
+
+// Path Normalizer & Debugger
+apiRouter.use((req, res, next) => {
+    console.log(`📡 [Router Entry] ${req.method} ${req.path}`);
+    next();
 });
 
-// --- API ROUTES REGISTRATION ---
-// Define routes on the apiRouter
+// Define sub-routes
 apiRouter.use('/auth', authRoutes);
 apiRouter.use('/leads', leadRoutes);
 apiRouter.use('/step-leads', stepLeadRoutes);
@@ -247,46 +251,35 @@ apiRouter.use('/partner', partnerRoutes);
 apiRouter.use('/contact', contactRoutes);
 apiRouter.use('/blogs', blogRoutes);
 
-// Compatibility Aliases for external systems and variation handling
+// Compatibility Aliases
 apiRouter.use('/leadauth', leadRoutes);
 apiRouter.use('/stepleads', stepLeadRoutes);
 apiRouter.use('/blog', blogRoutes);
 
-// Health check inside apiRouter as well
-apiRouter.get('/status', (req, res) => res.json({ status: 'ok', time: new Date() }));
-
-// Mount the apiRouter at both /api and /
-// This ensures http://localhost:5001/api/admission and http://localhost:5001/admission both work
+// Main Application Mounting
+// This ensures that http://domain.com/api/admission AND http://domain.com/admission both work
 app.use('/api', apiRouter);
 app.use('/', apiRouter);
 
-// Global Logger for all requests to help debug 404s
-app.use((req, res, next) => {
-    if (req.url.startsWith('/api')) {
-        console.log(`🔍 [DEBUG LOG] ${req.method} ${req.url} arriving at server`);
-    }
-    next();
+// Global Error Handler for all requests
+app.use((err, req, res, next) => {
+    console.error('🔥 [Critical Server Error]:', err.message);
+    res.status(500).json({
+        success: false,
+        message: 'Internal Server Error',
+        error: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong'
+    });
 });
 
-// Strict 404 handler for any unmatched /api/* calls
+// Final API 404 handler
 app.all('/api/*', (req, res) => {
     console.warn(`⚠️ [404] API Route not found: ${req.method} ${req.url}`);
     res.status(404).json({
         success: false,
-        message: `API Route not found: ${req.method} ${req.url}. Check your endpoint path.`,
-        availableEndpoints: [
-            '/api/auth/register',
-            '/api/admission',
-            '/api/step-leads',
-            '/api/paris/lead',
-            '/api/partner/leads',
-            '/api/contact',
-            '/api/blogs'
-        ]
+        message: `API Route not found: ${req.method} ${req.url}.`,
+        availableEndpoints: ['/api/auth/register', '/api/admission', '/api/step-leads', '/api/paris/lead', '/api/partner/leads', '/api/contact', '/api/blogs']
     });
 });
-
-
 
 const getLocalIp = () => {
     const interfaces = os.networkInterfaces();
