@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import ParisLead from '../models/ParisLead.js';
-import { sendWelcomeEmail, sendSMS } from '../utils/notifications.js';
+import { sendWelcomeEmail, sendSMS, sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
@@ -32,7 +32,8 @@ router.post('/lead', async (req, res) => {
         try {
             Promise.allSettled([
                 sendWelcomeEmail(email, name, 'The Paris Project'),
-                sendSMS(phone, name)
+                sendSMS(phone, name),
+                sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Paris Project Inquiry')
             ]).catch(err => console.error('[Paris Notification Error]', err.message));
         } catch (notifErr) {
             console.error('[Paris Notifications] Failed:', notifErr.message);
