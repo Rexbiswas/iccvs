@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Admission Schema
 const admissionSchema = new mongoose.Schema({
@@ -39,6 +42,9 @@ export default async function handler(req, res) {
 
         // Connect to DB with user requested options
         if (mongoose.connection.readyState < 1) {
+            if (!process.env.MONGO_URI) {
+                throw new Error('MONGO_URI is not defined in environment variables');
+            }
             console.log('📡 Connecting to MongoDB Atlas (Serverless)...');
             await mongoose.connect(process.env.MONGO_URI, {
                 useNewUrlParser: true,
