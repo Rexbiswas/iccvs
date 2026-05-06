@@ -84,22 +84,8 @@ const connectDB = async () => {
         return mongoose.connection;
     }
 
-    const cloudURI = process.env.MONGO_URI;
     const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/insd';
-    
     const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
-    
-    const cloudOptions = {
-        serverSelectionTimeoutMS: 5000,
-        socketTimeoutMS: 45000,
-        family: 4 // Force IPv4 for Cloud (Atlas)
-    };
-
-    const localOptions = {
-        serverSelectionTimeoutMS: 2000,
-        socketTimeoutMS: 45000
-        // No family restriction for local
-    };
 
     const runSync = () => {
         const models = {
@@ -115,19 +101,24 @@ const connectDB = async () => {
         syncBackups(models);
     };
 
+    const cloudURI = process.env.MONGO_URI;
+    console.log("🔍 [Debug] MONGO_URI from process.env:", cloudURI);
+
     if (cloudURI) {
         try {
-            console.log('📡 Connecting to Cloud Database...');
-            const conn = await mongoose.connect(cloudURI, cloudOptions);
-            console.log('✅ MongoDB Cloud Connected');
+            console.log('📡 Connecting to MongoDB Atlas...');
+            const conn = await mongoose.connect(cloudURI, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 5000,
+                family: 4
+            });
+            console.log('✅ MongoDB Cloud Connected Successfully');
             isConnected = true;
             if (!process.env.VERCEL) runSync();
             return conn;
         } catch (cloudErr) {
-            console.warn(`⚠️ Cloud Connection failed: ${cloudErr.message}`);
-            if (isProd) {
-                console.error('🛑 Critical: Production database connection failed.');
-            }
+            console.error(`❌ MongoDB Connection Error: ${cloudErr.message}`);
         }
     }
 

@@ -12,10 +12,14 @@ app.use(express.json());
 
 // Database Connection
 const connectDB = async () => {
+    console.log('🔍 MONGO_URI Debug:', process.env.MONGO_URI ? 'Defined (length: ' + process.env.MONGO_URI.length + ')' : 'UNDEFINED');
     if (mongoose.connection.readyState >= 1) return;
     try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log("MongoDB Connected");
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("✅ MongoDB Connected");
     } catch (err) {
         console.error("DB Connection Error:", err.message);
     }
@@ -35,7 +39,11 @@ const Admission = mongoose.models.Admission || mongoose.model('Admission', admis
 app.post('/admission', async (req, res) => {
     await connectDB();
     try {
-        const lead = new Admission(req.body);
+        const leadData = {
+            ...req.body,
+            phone: req.body.phone || req.body.mobile
+        };
+        const lead = new Admission(leadData);
         await lead.save();
 
         // Send Email

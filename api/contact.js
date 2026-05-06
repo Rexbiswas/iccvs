@@ -24,9 +24,20 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ message: 'Method Not Allowed' });
 
     try {
-        if (mongoose.connection.readyState < 1) await mongoose.connect(process.env.MONGO_URI);
+        console.log('--- Contact Diagnostic ---');
+        console.log('MONGO_URI:', process.env.MONGO_URI ? `Defined (len: ${process.env.MONGO_URI.length})` : 'UNDEFINED');
+        
+        if (mongoose.connection.readyState < 1) {
+            await mongoose.connect(process.env.MONGO_URI, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 5000
+            });
+            console.log("✅ MongoDB Connected (Contact)");
+        }
         const lead = new Contact(req.body);
         await lead.save();
+        console.log(`✅ Contact lead saved: ${req.body.name}`);
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',

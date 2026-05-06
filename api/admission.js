@@ -31,14 +31,31 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Connect to DB
+        // --- EXTENDED DEBUG LOGGING ---
+        console.log('--- Serverless Diagnostic ---');
+        console.log('MONGO_URI:', process.env.MONGO_URI ? `Defined (len: ${process.env.MONGO_URI.length})` : 'UNDEFINED');
+        console.log('GOOGLE_EMAIL:', process.env.GOOGLE_EMAIL ? 'Defined' : 'UNDEFINED');
+        console.log('--- End Diagnostic ---');
+
+        // Connect to DB with user requested options
         if (mongoose.connection.readyState < 1) {
-            await mongoose.connect(process.env.MONGO_URI);
+            console.log('📡 Connecting to MongoDB Atlas (Serverless)...');
+            await mongoose.connect(process.env.MONGO_URI, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 8000
+            });
+            console.log("✅ MongoDB Connected Successfully");
         }
 
-        // Save Lead
-        const lead = new Admission(req.body);
+        // Save Lead with field normalization
+        const leadData = {
+            ...req.body,
+            phone: req.body.phone || req.body.mobile // Support both field names
+        };
+        const lead = new Admission(leadData);
         await lead.save();
+        console.log(`✅ Lead saved: ${leadData.name}`);
 
         // Send Email
         const transporter = nodemailer.createTransport({
@@ -55,10 +72,19 @@ export default async function handler(req, res) {
             subject: `[New Admission Lead] ${req.body.name}`,
             text: JSON.stringify(req.body, null, 2)
         });
+        console.log('✅ Notification email sent');
 
-        return res.status(200).json({ success: true, message: "Admission inquiry submitted successfully!" });
+        return res.status(200).json({ 
+            success: true, 
+            message: "Admission inquiry submitted successfully!",
+            dbStatus: 'Connected'
+        });
     } catch (err) {
-        console.error("Admission Error:", err.message);
-        return res.status(500).json({ success: false, message: err.message });
+        console.error("❌ Admission Error:", err.message);
+        return res.status(500).json({ 
+            success: false, 
+            message: "Server Error: " + err.message,
+            error: err.message
+        });
     }
 }
