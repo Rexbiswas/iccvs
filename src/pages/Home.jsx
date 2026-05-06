@@ -349,20 +349,25 @@ const Home = () => {
                         </div>
 
                         {/* Stats Highlights */}
-                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 md:gap-12 pt-8">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 md:gap-6 pt-8">
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">15+</span>
-                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Years Legacy</span>
+                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">15+</span>
+                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Years Legacy</span>
                             </div>
-                            <div className="w-px h-10 bg-slate-100 hidden sm:block" />
+                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">75+</span>
-                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Centres</span>
+                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">75+</span>
+                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Centres</span>
                             </div>
-                            <div className="w-px h-10 bg-slate-100 hidden sm:block" />
+                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">30,000+</span>
-                                <span className="text-[11px] md:text-[13px] font-black uppercase tracking-widest text-slate-900 mt-1">Students Trained</span>
+                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">30,000+</span>
+                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Students Trained</span>
+                            </div>
+                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
+                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">18 Lakh</span>
+                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Highest Salary</span>
                             </div>
                         </div>
 
