@@ -43,7 +43,7 @@ export default async function handler(req, res) {
         // Connect to DB with user requested options
         if (mongoose.connection.readyState < 1) {
             if (!process.env.MONGO_URI) {
-                throw new Error('MONGO_URI is not defined in environment variables');
+                throw new Error('[DEPLOYMENT_V2_CHECK]: MONGO_URI is missing from Vercel. Please go to Settings > Environment Variables, add it, and then click REDEPLOY.');
             }
             console.log('📡 Connecting to MongoDB Atlas (Serverless)...');
             await mongoose.connect(process.env.MONGO_URI, {

@@ -16,7 +16,7 @@ const connectDB = async () => {
     if (mongoose.connection.readyState >= 1) return;
     try {
         if (!process.env.MONGO_URI) {
-            throw new Error('MONGO_URI is not defined in environment variables');
+            throw new Error('[DEPLOYMENT_V2_CHECK]: MONGO_URI is missing from Vercel. Please go to Settings > Environment Variables, add it, and then click REDEPLOY.');
         }
         await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
