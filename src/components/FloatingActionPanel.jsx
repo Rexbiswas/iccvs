@@ -25,7 +25,7 @@ const FloatingActionPanel = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-center gap-4"
+                    className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-end gap-4"
                 >
                     {/* <StepLeadCTA isFloatingPanel /> */}
                     <BackToTop isFloatingPanel />

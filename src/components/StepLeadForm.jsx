@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User, Phone, Mail, MapPin, ArrowRight, ArrowLeft, Sparkles, MessageSquare, X } from 'lucide-react';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 
 const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, subtitle = null, showClose = true }) => {
+    const navigate = useNavigate();
     const { closeAdmissionModal } = useAdmissionModal();
     const sectionRef = useRef(null);
     const [choice, setChoice] = useState(initialChoice);
@@ -104,11 +106,28 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
 
             if (data.success || response.ok) {
                 setSubmitted(true);
+                // Redirect to Thank You page after a brief delay
+                setTimeout(() => {
+                    closeAdmissionModal();
+                    navigate('/thank-you', { state: { name: formData.name, type: 'enquiry' } });
+                }, 1000);
             } else {
                 setError(data.message || `Server Error (${response.status}): Submission failed.`);
             }
         } catch (error) {
             console.error('Submission Error:', error);
+
+            // --- DEVELOPMENT FALLBACK ---
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.warn('Backend unavailable on localhost. Simulating success for testing.');
+                setSubmitted(true);
+                setTimeout(() => {
+                    closeAdmissionModal();
+                    navigate('/thank-you', { state: { name: formData.name, type: 'enquiry' } });
+                }, 1000);
+                return;
+            }
+
             if (error.name === 'TypeError') {
                 setError("Connection Error: Server is unreachable. Please check your internet.");
             } else {

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const hospitalityLogos = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAX7Ow-fSUhmokgxv7oaSro64M9jvc8HUF0Q&s",
+const allLogos = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAX7Ow-fSUhmokgxv7oaSro64M9jvc8HUF0Q&s", // Malabar
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjUH1hztAFRWTyksVVs_CFrBzHf2owI8W2LQ&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3TxPlGqVOdOL002MJD9c7BL8DGLa4uKKOOQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_nWesvifBQzPWizRVQabKLRaSdk98t9wt7A&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_nWesvifBQzPWizRVQabKLRaSdk98t9wt7A&s", // Kawasaki
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnBhZeRMEcuKa9pfe6vMODd8cyxeS5lbFDlg&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosBGBX15jP5DFLqy-z3S5BWnTCNyPjYhfSg&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNn1CeKnWAOdMXic4hVixrJti9XGLJjG7sZQ&s",
@@ -28,39 +28,55 @@ const hospitalityLogos = [
     "https://biz.prlog.org/angaros/logo.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdxjFkuOczovGMCtMCKiZNK8Nl8-HHi4B5Mw&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzZBq5P4rgeDcDoDMF0ALweH4EHyEE_dmHg&s",
+    // From TrainingPartners
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaD24vay_jTexDQFlC7WcCwUKLfABsLq7Mxg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOZ9NYd0ET0u7rmr-IYI0j4dkTbDYwQnEL0w&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOUScvNv7C9KjvolThJ-fcj4IfvxSP8-m1Ig&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfp9UQE8vWcX8g8W1ik-1S5PhWyrwTt3Jj0Q&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAVXoy4-M6CZEADkAg3EKtGTrBZh8Xn5ZeDg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi4adrv8AqJDPhunb3_km2idzotwLuroAWHw&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkD7P83txvJ2sKJ9R5N_-qmQw94coPUq8J5A&s"
 ];
 
 const PlacementPartners = () => {
-    const LogoCard = ({ logo }) => (
-        <div className="flex items-center justify-center min-w-[140px] md:min-w-[200px] h-16 md:h-24 transition-all group">
-            <img 
-                src={logo} 
-                alt="Partner Logo" 
-                className="h-full w-auto max-w-[100px] md:max-w-[160px] object-contain opacity-70 group-hover:opacity-100 transition-all duration-300" 
-            />
-        </div>
-    );
-
     return (
-        <div className="pt-8 md:pt-20 space-y-8 md:space-y-12 w-full overflow-hidden">
-            <div className="space-y-4 md:space-y-6">
-                <div className="flex items-center justify-start gap-2 px-4 mb-12 md:mb-16">
-                    <span className="text-clamp-xl font-bold text-slate-800 tracking-tight">Placement & Training Partners</span>
+        <section className="bg-[#f6f5f1] py-16 md:py-24 px-6 md:px-12 overflow-hidden rounded-[3rem] md:rounded-[5rem]">
+            <div className="max-w-[1400px] mx-auto">
+                
+                {/* Simple Header Above Grid - Centered */}
+                <div className="flex flex-col items-center justify-center gap-4 mb-12 md:mb-16 text-center">
+                    <div className="w-12 h-1.5 bg-primary rounded-full" />
+                    <h2 className="text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-slate-900">
+                        Training and Placement Partners
+                    </h2>
                 </div>
-                <div className="relative flex overflow-hidden scroller group">
-                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-2 md:pr-2 pointer-events-auto">
-                        {hospitalityLogos.map((logo, i) => (
-                            <LogoCard key={`h1-${i}`} logo={logo} />
-                        ))}
-                    </div>
-                    <div className="flex animate-marquee scroller whitespace-nowrap gap-3 md:gap-4 py-2 md:py-4 pr-2 md:pr-2 pointer-events-auto">
-                        {hospitalityLogos.map((logo, i) => (
-                            <LogoCard key={`h2-${i}`} logo={logo} />
-                        ))}
-                    </div>
+
+                {/* Card Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 lg:gap-5">
+                    {allLogos.map((logo, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ 
+                                duration: 0.8, 
+                                delay: (idx % 5) * 0.1 + Math.floor(idx / 5) * 0.1,
+                                ease: [0.21, 1.02, 0.47, 0.98]
+                            }}
+                            className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 aspect-[1.8/1] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group"
+                        >
+                            <img 
+                                src={logo} 
+                                alt="Partner Logo" 
+                                loading="lazy"
+                                className="max-h-full max-w-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-90 group-hover:scale-100" 
+                            />
+                        </motion.div>
+                    ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

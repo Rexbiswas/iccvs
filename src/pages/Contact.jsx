@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { MapPin, Phone, Mail, Send, ArrowRight, MessageSquare, Clock, Globe, Instagram, Facebook, Linkedin, Twitter, CheckCircle2, Youtube } from 'lucide-react';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 const Contact = () => {
+    const navigate = useNavigate();
     const { scrollYProgress } = useScroll();
     const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
@@ -32,11 +34,10 @@ const Contact = () => {
 
             if (response.ok) {
                 setIsSuccess(true);
-                // Reset after delay
+                // Redirect to Thank You page after a brief delay
                 setTimeout(() => {
-                    setIsSuccess(false);
-                    setFormState({ name: '', email: '', phone: '', subject: '', message: '' });
-                }, 5000);
+                    navigate('/thank-you', { state: { name: formState.name, type: 'contact' } });
+                }, 1000);
             } else {
                 const contentType = response.headers.get("content-type");
                 let errorMessage = "Failed to send message";
@@ -52,6 +53,17 @@ const Contact = () => {
             }
         } catch (error) {
             console.error('Contact error:', error);
+
+            // --- DEVELOPMENT FALLBACK ---
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.warn('Backend unavailable on localhost. Simulating success for testing.');
+                setIsSuccess(true);
+                setTimeout(() => {
+                    navigate('/thank-you', { state: { name: formState.name, type: 'contact' } });
+                }, 1000);
+                return;
+            }
+
             alert(`Submission Error: ${error.message.includes('Unexpected token') ? "Server returned an invalid response. Please try again later." : error.message}`);
         } finally {
             setIsSubmitting(false);

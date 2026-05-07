@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Bot, Minus, SendHorizonal, User, LayoutDashboard, LogOut } from 'lucide-react';
+import { MessageCircle, X, Bot, Minus, SendHorizonal, User, LayoutDashboard, LogOut, Trash2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -52,6 +52,13 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
         const msg = typeof e === 'string' ? e : message;
         if (!msg.trim()) return;
 
+        // Handle Clear Command
+        if (msg.toLowerCase() === 'clear' || msg.toLowerCase() === '/clear') {
+            clearChat();
+            setMessage('');
+            return;
+        }
+
         const userMessage = { role: 'user', content: msg };
         setChatHistory(prev => [...prev, userMessage]);
         if (typeof e !== 'string') setMessage('');
@@ -67,37 +74,58 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
         }, 1500);
     };
 
+    const clearChat = () => {
+        const greeting = user 
+            ? `Hi ${user.name}! Chat cleared. How else can I help you?`
+            : "Chat cleared! I'm here if you have more questions about INSD.";
+        setChatHistory([{ role: 'bot', content: greeting }]);
+    };
+
     const getMockResponse = (input) => {
         const lowerInput = input.toLowerCase();
 
-        // Personalized Responses
+        // Course Knowledge Base
+        const coursesInfo = {
+            fashion: "Our Fashion Design programs range from 1-year Diplomas to 3-year Bachelors and 2-year Masters. They cover everything from pattern making to haute couture.",
+            interior: "Interior Design at INSD focuses on spatial planning, 3D modeling, and luxury residential/commercial projects. Available in Diploma, UG, and PG levels.",
+            graphic: "Graphic Design & UI/UX courses focus on visual communication, brand identity, and digital product design using industry-standard tools like Adobe Suite and Figma.",
+            timing: "Standard class timings are Monday to Friday. We have two main batches: Morning (10:00 AM - 1:00 PM) and Afternoon (2:00 PM - 5:00 PM). Some professional workshops also happen on Saturdays."
+        };
+
         if (user) {
             if (lowerInput.includes('profile') || lowerInput.includes('dashboard') || lowerInput.includes('my info')) {
                 return `You can view and manage your profile in your dashboard. You are currently enrolled in ${user.courseName}. Shall I take you there?`;
             }
             if (lowerInput.includes('application') || lowerInput.includes('status')) {
-                return `Your application status is currently being processed. You can check for updates in your student portal or dashboard.`;
-            }
-            if (lowerInput.includes('logout') || lowerInput.includes('sign out')) {
-                return "I can help you with that. Just click the Logout button in your profile settings, or I can initiate it for you.";
+                return `Your application status for ${user.courseName} is currently being processed. You can check for updates in your student portal.`;
             }
         }
 
+        // Timing Queries
+        if (lowerInput.includes('timing') || lowerInput.includes('time') || lowerInput.includes('schedule') || lowerInput.includes('batch')) {
+            return coursesInfo.timing;
+        }
+
+        // Specific Course Queries
+        if (lowerInput.includes('fashion')) return coursesInfo.fashion;
+        if (lowerInput.includes('interior')) return coursesInfo.interior;
+        if (lowerInput.includes('graphic') || lowerInput.includes('ui/ux')) return coursesInfo.graphic;
+
         // General Responses
-        if (lowerInput.includes('course') || lowerInput.includes('admission')) {
-            return "We offer premium courses in Fashion, Interior, Graphic, and Jewelry Design. I'm taking you to our courses overview page now!";
+        if (lowerInput.includes('course') || lowerInput.includes('program') || lowerInput.includes('study')) {
+            return "We offer premium courses in Fashion, Interior, Graphic, Animation, and Jewelry Design. Which field are you most interested in?";
+        }
+        if (lowerInput.includes('admission') || lowerInput.includes('apply') || lowerInput.includes('join')) {
+            return "The admission process for the 2026 session is open! You can apply online or visit our campus for a counseling session. Would you like the application link?";
         }
         if (lowerInput.includes('campus') || lowerInput.includes('location')) {
-            return "INSD has a global presence. I'll take you to our campuses page so you can find the nearest one!";
-        }
-        if (lowerInput.includes('apply') || lowerInput.includes('process')) {
-            return "The admission process is simple. I'm opening the application page for you right now.";
+            return "INSD has 75+ centers across India, including major hubs in Delhi, Mumbai, and Kolkata. I can help you find the one closest to you!";
         }
         if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
-            return user ? `Hello again, ${user.name}! How's your day going?` : "Hello! I'm here to assist you with any questions about INSD. What's on your mind?";
+            return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} studies today?` : "Hello! I'm your INSD Assistant. I can help you with course details, timings, and admissions. What can I do for you?";
         }
         
-        return "That's an interesting question! I recommend speaking with one of our expert career counselors for detailed information. I'll take you to the contact page.";
+        return "I'm not sure about that specifically, but I can tell you about our Design courses, batch timings, or help you connect with a counselor. What would you prefer?";
     };
 
     const quickActions = user ? [
@@ -127,7 +155,7 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
                         animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
                         exit={{ opacity: 0, scale: 0.5, x: 100, y: 100 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="mb-6 w-[90vw] md:w-[400px] h-[600px] max-h-[70vh] apple-glass border-white/20 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col"
+                        className="absolute bottom-full right-0 md:bottom-0 md:right-full mb-4 md:mb-0 md:mr-6 w-[90vw] md:w-[400px] h-[600px] max-h-[70vh] bg-white border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col"
                     >
                         {/* Header */}
                         <div className="p-6 bg-linear-to-r from-primary to-secondary text-white flex items-center justify-between">
@@ -147,18 +175,27 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
                                     </div>
                                 </div>
                             </div>
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/10"
-                            >
-                                <X size={18} />
-                            </button>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={clearChat}
+                                    title="Clear Chat"
+                                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/10"
+                                >
+                                    <Trash2 size={16} />
+                                </button>
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors border border-white/10"
+                                >
+                                    <X size={18} />
+                                </button>
+                            </div>
                         </div>
 
                         {/* Chat Area */}
                         <div
                             ref={scrollRef}
-                            className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-slate-50/30"
+                            className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar bg-slate-50"
                         >
                             {chatHistory.map((item, index) => (
                                 <motion.div
@@ -168,10 +205,10 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
                                     className={`flex ${item.role === 'user' ? 'justify-end' : 'justify-start'}`}
                                 >
                                     <div className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${item.role === 'user'
-                                        ? 'bg-primary text-white rounded-tr-none'
-                                        : 'bg-white/80 backdrop-blur-md text-slate-800 border border-slate-100 rounded-tl-none'
+                                        ? 'bg-primary text-white rounded-tr-none shadow-md shadow-primary/10'
+                                        : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none'
                                         }`}>
-                                        <p className="text-sm leading-relaxed">{item.content}</p>
+                                        <p className="text-sm font-medium leading-relaxed">{item.content}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -211,7 +248,7 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
                         </div>
 
                         {/* Input Area */}
-                        <div className="p-4 bg-white/50 backdrop-blur-xl border-t border-slate-100">
+                        <div className="p-4 bg-white border-t border-slate-100">
                             <form
                                 onSubmit={handleSend}
                                 className="relative flex items-center"
@@ -244,7 +281,7 @@ const AIChatbot = ({ isFloatingPanel = false }) => {
                 {/* Tooltip */}
                 {!isOpen && (
                     <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl">
-                        {user ? `Helping ${user.name.split(' ')[0]}` : "Design Assistant"}
+                        {user ? `Helping ${user.name.split(' ')[0]}` : "INSD Assistance"}
                         <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-slate-900 rotate-45" />
                     </div>
                 )}

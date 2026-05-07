@@ -50,6 +50,7 @@ import TextileDesigning from './pages/TextileDesigning';
 const SuccessStory = lazy(() => import('./pages/SuccessStory'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const InsdLuxe = lazy(() => import('./pages/InsdLuxe'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Components
@@ -134,6 +135,7 @@ function App() {
                                          <Route path="/profile" element={<ProfileDashboard />} />
                                          <Route path="/success-stories" element={<SuccessStory />} />
                                          <Route path="/gallery" element={<Gallery />} />
+                                         <Route path="/thank-you" element={<ThankYou />} />
 
                                          <Route path="/test-404" element={<NotFound />} />
                                          <Route path="*" element={<NotFound />} />

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, X, ChevronDown, Send } from 'lucide-react';
 import { stateCityData } from '../data/locations';
 
 const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText, successMsg }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         mobile: '',
@@ -65,12 +67,31 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                 setFormData({
                     name: '', mobile: '', qualification: '', course: '', state: '', city: ''
                 });
+                
+                // Redirect to Thank You page after a brief delay
+                setTimeout(() => {
+                    if (onClose) onClose(); 
+                    navigate('/thank-you', { state: { name: formData.name, type: title?.toLowerCase().includes('report') ? 'report' : 'admission' } });
+                }, 1000);
             } else {
                 setErrorMessage(data.message || `Server Error (${response.status}): Submission failed.`);
                 setStatus('error');
             }
         } catch (error) {
             console.error('Submission Error:', error);
+            
+            // --- DEVELOPMENT FALLBACK ---
+            // If testing on localhost and backend fails, simulate success to show the Thank You page flow
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                console.warn('Backend unavailable on localhost. Simulating success for testing purposes.');
+                setStatus('success');
+                setTimeout(() => {
+                    if (onClose) onClose();
+                    navigate('/thank-you', { state: { name: formData.name, type: title?.toLowerCase().includes('report') ? 'report' : 'admission' } });
+                }, 1000);
+                return;
+            }
+
             if (error.name === 'TypeError') {
                 setErrorMessage("Connection Error: Server is unreachable. Please check your internet.");
             } else {

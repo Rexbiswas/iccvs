@@ -33,7 +33,6 @@ import { ArrowRight, CheckCircle2, Sparkles, Briefcase, Rocket, FileDown } from 
 import PlacementPartners from '../components/PlacementPartners';
 import SuccessStory from '../components/SuccessStory';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
-import TrainingPartners from '../components/TrainingPartners';
 import CreativeRevolution from '../components/CreativeRevolution';
 
 
@@ -394,7 +393,6 @@ const Home = () => {
             <div className="w-full bg-white py-16 md:py-24 container-px">
                 <div className="max-w-7xl mx-auto mb-16 md:mb-24">
                     <PlacementPartners />
-                    {/* <TrainingPartners /> */}
                 </div>
                 {/* Monumental CTA Section */}
                 <CreativeRevolution />

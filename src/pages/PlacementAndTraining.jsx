@@ -69,7 +69,8 @@ const PlacementAndTraining = () => {
                                 <button 
                                     onClick={() => openAdmissionModal({ 
                                         title: 'Download Placement Report', 
-                                        subtitle: 'Please fill in your details to receive our latest placement audit and report.' 
+                                        subtitle: 'Please fill in your details to receive our latest placement audit and report.',
+                                        successMsg: 'Your request has been received! The placement report will be sent to your email shortly.'
                                     })}
                                     className="h-16 md:h-20 px-12 bg-slate-900 text-white rounded-full font-black uppercase text-[10px] tracking-[0.2em] hover:bg-primary transition-all transform hover:scale-105 shadow-2xl shadow-slate-900/10 flex items-center justify-center"
                                 >

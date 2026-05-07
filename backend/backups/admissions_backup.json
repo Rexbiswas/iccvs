@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "timestamp": "2026-05-07T17:20:13.445Z",
+    "data": {
+      "name": "Rishi Biswas",
+      "mobile": "+919625065557",
+      "qualification": "Completed 10th",
+      "course": "Textile Design",
+      "state": "Delhi/NCR",
+      "city": "Greater Noida"
+    }
+  }
+]
