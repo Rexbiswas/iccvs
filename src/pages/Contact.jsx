@@ -163,9 +163,18 @@ const Contact = () => {
                                         <div>
                                             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
                                             <div className="flex flex-col">
-                                                <a href="tel:+917701933935" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 77019 33935</a>
-                                                <a href="tel:+917827066618" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 78270 66618</a>
+                                                <a href="tel:+919804443300" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 98044 43300</a>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div className="w-full h-px bg-slate-100" />
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
+                                            <MessageSquare size={20} />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp</p>
+                                            <a href="https://wa.me/919804443300" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-green-500 transition-colors">+91 98044 43300</a>
                                         </div>
                                     </div>
                                     <div className="w-full h-px bg-slate-100" />

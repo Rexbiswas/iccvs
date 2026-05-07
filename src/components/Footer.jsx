@@ -181,8 +181,7 @@ const Footer = () => {
                                 >
                                     <span className="block text-[10px] uppercase tracking-widest text-primary mb-1">Admissions</span>
                                     <div className="flex flex-col gap-1">
-                                        <a href="tel:+917701933935" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 77019 33935</a>
-                                        <a href="tel:+917827066618" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 78270 66618</a>
+                                        <a href="tel:+919804443300" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98044 43300</a>
                                     </div>
                                 </motion.div>
 
