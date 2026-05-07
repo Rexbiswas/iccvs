@@ -17,7 +17,7 @@ const coursesData = [
         category: "Fashion",
         duration: "3 Years Bachelors",
         path: "/courses/fashion-designing",
-        description: "Master the art of haute couture, drape, and structural design in our state-of-the-art studios. Focus heavily on modern fabric manipulation, sustainable design strategies, and direct-to-runway seasonal collections."
+        description: "Master the art of haute couture, drape, and structural design in our state-of-the-art studios. Focus heavily on modern fabric manipulation and sustainable design strategies."
     },
     {
         id: "interior",
@@ -25,39 +25,47 @@ const coursesData = [
         category: "Interior",
         duration: "3 Years Bachelors",
         path: "/courses/interior-designing",
-        description: "Learn to build immersive environments that blend high-performance luxury with human ergonomics. Modules strictly revolve around spatial psychology, architectural lighting, and 3D environment drafting."
+        description: "Learn to build immersive environments that blend high-performance luxury with human ergonomics. Focus on spatial psychology and architectural lighting."
     },
     {
         id: "graphic",
         title: "Graphic Design",
         category: "VFX",
-        duration: "2 Years Masters",
+        duration: "3 Years Bachelors",
         path: "/courses/graphic-designing",
-        description: "From brand logic to motion design, define the visual language of the next digital era. Intensive focus on typography, brand identity synthesis, and algorithmic visual generation."
+        description: "From brand logic to motion design, define the visual language of the next digital era. Intensive focus on typography and brand identity synthesis."
     },
     {
-        id: "adv-graphic",
-        title: "Advanced Graphic Design",
+        id: "textile",
+        title: "Textile Design",
+        category: "Fashion",
+        duration: "2 Years Diploma",
+        path: "/courses/textile-designing",
+        description: "Explore the tactile world of surface ornamentation, weaving, and print technology. Master the technical aspects of fabric production and sustainable textile innovation."
+    },
+    {
+        id: "animation-masters",
+        title: "Masters in Animation",
+        category: "VFX",
+        duration: "2 Years PG",
+        path: "/courses/animation-and-vfx",
+        description: "Deep dive into cinematic character animation, physics-based simulations, and advanced render pipelines for film and digital media."
+    },
+    {
+        id: "adv-animation",
+        title: "Advanced Animation",
         category: "VFX",
         duration: "1 Year Diploma",
-        path: "/courses/graphic-designing",
-        description: "An intensive diploma designed specifically for career changers looking to enter the design industry. Master standard industry tools including the Adobe Suite, Figma, and Cinema 4D."
-    },
-    {
-        id: "animation",
-        title: "Animation & VFX",
-        category: "VFX",
-        duration: "6 Months",
         path: "/courses/animation-and-vfx",
-        description: "Focused animation course for digital content artists and visual storytellers. Jump straight into compositing, keyframe rigging, and render pipeline management for OTT platforms."
+        description: "An accelerated path to becoming a production-ready animator. Focus on keyframe rigging, 3D modeling, and visual effects for the entertainment industry."
     },
     {
         id: "luxury",
         title: "Luxury Brand Management",
         category: "Management",
-        duration: "1 Year PG",
+        duration: "1 Year MSC",
         path: "/courses/msc-luxury-brand-management",
-        description: "Understand the psychology of high-end consumerism and manage global luxury conglomerates. Explore elite supply chain logistics, heritage brand marketing, and exclusive event direction."
+        description: "Understand the psychology of high-end consumerism and manage global luxury conglomerates. Explore elite supply chain logistics and heritage brand marketing."
     },
     {
         id: "jewellery",
@@ -65,15 +73,7 @@ const coursesData = [
         category: "Fashion",
         duration: "2 Years Diploma",
         path: "/courses/jewellery-designing",
-        description: "The intersection of material engineering and fine art. Craft the heirlooms of tomorrow while understanding gemology, precious metal casting, and 3D CAD modeling for rapid prototyping."
-    },
-    {
-        id: "photo",
-        title: "Photography",
-        category: "VFX",
-        duration: "2 Years Diploma",
-        path: "/courses/photography",
-        description: "From editorial high-fashion to cinematic digital storytelling, master the clinical lens. Study studio lighting, color grading theory, and high-end retouching workflows for magazine print."
+        description: "The intersection of material engineering and fine art. Craft the heirlooms of tomorrow while understanding gemology and precious metal casting."
     }
 ];
 

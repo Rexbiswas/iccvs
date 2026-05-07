@@ -6,7 +6,7 @@ import SocialIcons from './SocialIcons';
 import {
     Menu as MenuIcon, X, ArrowRight, Home, Sparkles, GraduationCap, LayoutGrid, User,
     Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store,
-    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube
+    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info
 } from 'lucide-react';
 import gsap from 'gsap';
 import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
@@ -175,7 +175,7 @@ const Navbar = () => {
         {
             title: 'About INSD',
             path: '/about-us',
-            icon: Folder,
+            icon: Info,
             section: 'OVERVIEW',
             subItems: [
                 { title: 'About Us Overview', path: '/about-us', icon: 'info', desc: 'Discover our mission & values' },
@@ -200,6 +200,7 @@ const Navbar = () => {
                 { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
                 { title: 'Photography', path: '/courses/photography', icon: 'photography', desc: 'Visual Storytelling Art' },
                 { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
+                { title: 'Short Term Courses', path: '/courses/short-term-courses', icon: 'zap', desc: 'Intensive Skill Modules' },
                 { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
             ]
         },
