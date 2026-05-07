@@ -700,8 +700,30 @@ const Navbar = () => {
                                     </button>
                                 </div>
 
+                                {/* Social Highlights - NEW: Placed at top for visibility */}
+                                <div className="p-4 grid grid-cols-3 gap-3 bg-slate-50">
+                                    <a href="https://www.instagram.com/insd_official" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-primary/20 transition-all active:scale-95 group">
+                                        <div className="w-10 h-10 rounded-full bg-[#E4405F]/10 flex items-center justify-center text-[#E4405F] mb-2 group-hover:scale-110 transition-transform">
+                                            <Instagram size={20} />
+                                        </div>
+                                        <span className="text-[8px] font-black uppercase tracking-widest text-slate-500">Insta</span>
+                                    </a>
+                                    <a href="https://www.facebook.com/share/1CMuRdTV69/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-primary/20 transition-all active:scale-95 group">
+                                        <div className="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2] mb-2 group-hover:scale-110 transition-transform">
+                                            <Facebook size={20} />
+                                        </div>
+                                        <span className="text-[8px] font-black uppercase tracking-widest text-slate-500">Facebook</span>
+                                    </a>
+                                    <a href="https://youtube.com/@insd-internationalschoolof5139?feature=shared" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center p-3 bg-white rounded-2xl border border-slate-100 shadow-sm hover:border-primary/20 transition-all active:scale-95 group">
+                                        <div className="w-10 h-10 rounded-full bg-[#FF0000]/10 flex items-center justify-center text-[#FF0000] mb-2 group-hover:scale-110 transition-transform">
+                                            <Youtube size={20} />
+                                        </div>
+                                        <span className="text-[8px] font-black uppercase tracking-widest text-slate-500">YouTube</span>
+                                    </a>
+                                </div>
+
                                 {/* Menu Items */}
-                                <div className="flex-1 overflow-y-auto py-6 px-4 dropdown-scrollbar">
+                                <div className="flex-1 overflow-y-auto py-4 px-4 dropdown-scrollbar">
                                     <div className="space-y-2">
                                         {menuItems.map((item, idx) => {
                                             const hasSubItems = item.subItems && item.subItems.length > 0;
