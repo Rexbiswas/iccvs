@@ -6,7 +6,7 @@ import SocialIcons from './SocialIcons';
 import {
     Menu as MenuIcon, X, ArrowRight, Home, Sparkles, GraduationCap, LayoutGrid, User,
     Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store,
-    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset
+    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset, MessageCircle, Bot, Share2
 } from 'lucide-react';
 import gsap from 'gsap';
 import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
@@ -626,13 +626,13 @@ const Navbar = () => {
                         <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-60">Enquiry</span>
                     </button>
 
-                    {/* CALL (TRIGGER) */}
+                    {/* CONTACT (TRIGGER) */}
                     <button
                         onClick={() => {
                             setIsOpen(false);
                             setIsContactMenuOpen(!isContactMenuOpen);
                         }}
-                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isContactMenuOpen ? 'text-primary' : (isHeaderDark && !isScrolled) || isOpen ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
+                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isContactMenuOpen ? 'text-primary' : (isHeaderDark && !isScrolled) || isOpen ? 'text-white/40' : 'text-slate-900/40'}`}
                     >
                         {isContactMenuOpen && (
                             <motion.div
@@ -641,34 +641,89 @@ const Navbar = () => {
                                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                             />
                         )}
-                        <Mail size={22} strokeWidth={2} className="relative z-10" />
-                        <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isContactMenuOpen ? 'opacity-100' : 'opacity-60'}`}>Call</span>
+                        <MessageCircle size={22} strokeWidth={2} className="relative z-10" />
+                        <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isContactMenuOpen ? 'opacity-100' : 'opacity-60'}`}>Contact</span>
                     </button>
 
-                    {/* QUICK CONTACT MENU (MOBILE) */}
+                    {/* QUICK CONTACT PANEL (MOBILE) */}
                     <AnimatePresence>
                         {isContactMenuOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                                animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                                className="fixed bottom-24 right-8 z-[1002] flex flex-col items-end gap-5 lg:hidden"
-                            >
-                                <div className="flex flex-col items-end gap-4">
-                                    <div className="scale-90 origin-bottom-right">
-                                        <AIChatbot isFloatingPanel />
+                            <>
+                                {/* Backdrop */}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    onClick={() => setIsContactMenuOpen(false)}
+                                    className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1001] lg:hidden"
+                                />
+
+                                {/* Panel Content */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 100, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 100, scale: 0.95 }}
+                                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                                    className="fixed bottom-32 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] z-[1002] lg:hidden"
+                                >
+                                    <div className="bg-white/95 backdrop-blur-xl rounded-[32px] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/20">
+                                        <div className="flex flex-col items-center gap-8">
+                                            <div className="text-center">
+                                                <h3 className="text-lg font-black text-slate-900 tracking-tight uppercase">Contact Hub</h3>
+                                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] mt-1">Get in touch instantly</p>
+                                            </div>
+
+                                            <div className="grid grid-cols-1 w-full gap-6">
+                                                <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-all active:scale-95 group">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                                            <Bot size={24} />
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-slate-900">AI Assistant</p>
+                                                            <p className="text-[10px] text-slate-500 font-medium">Chat for course info</p>
+                                                        </div>
+                                                    </div>
+                                                    <AIChatbot isFloatingPanel />
+                                                </div>
+
+                                                <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-all active:scale-95 group">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                                                            <MessageSquare size={24} />
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-slate-900">WhatsApp</p>
+                                                            <p className="text-[10px] text-slate-500 font-medium">Talk to an expert</p>
+                                                        </div>
+                                                    </div>
+                                                    <WhatsappCTA isFloatingPanel />
+                                                </div>
+
+                                                <div className="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100 transition-all active:scale-95 group">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-colors">
+                                                            <Share2 size={24} />
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-sm font-bold text-slate-900">Social Connect</p>
+                                                            <p className="text-[10px] text-slate-500 font-medium">Follow our legacy</p>
+                                                        </div>
+                                                    </div>
+                                                    <FloatingSocialCTA />
+                                                </div>
+                                            </div>
+
+                                            <button 
+                                                onClick={() => setIsContactMenuOpen(false)}
+                                                className="w-full py-4 bg-slate-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-primary transition-colors"
+                                            >
+                                                Close Hub
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="scale-90 origin-bottom-right">
-                                        <FloatingSocialCTA />
-                                    </div>
-                                    <div className="scale-90 origin-bottom-right">
-                                        <WhatsappCTA isFloatingPanel />
-                                    </div>
-                                </div>
-                                
-                                {/* Pointer Arrow */}
-                                <div className="mr-6 -mt-2 w-4 h-4 bg-white dark:bg-slate-900 rotate-45 border-r border-b border-slate-200/50 dark:border-white/10" />
-                            </motion.div>
+                                </motion.div>
+                            </>
                         )}
                     </AnimatePresence>
 

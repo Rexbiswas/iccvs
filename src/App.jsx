@@ -57,9 +57,6 @@ const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Components
-import BackToTop from './components/BackToTop';
-import WhatsappCTA from './components/WhatsappCTA';
-import StepLeadCTA from './components/StepLeadCTA';
 import RegistrationModal from './components/RegistrationModal';
 import AdmissionModal from './components/AdmissionModal';
 import AIChatbot from './components/AIChatbot';
