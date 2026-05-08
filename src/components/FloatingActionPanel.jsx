@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StepLeadCTA from './StepLeadCTA';
 import BackToTop from './BackToTop';
+import FloatingSocialCTA from './FloatingSocialCTA';
 import WhatsappCTA from './WhatsappCTA';
 import AIChatbot from './AIChatbot';
 
@@ -29,6 +30,7 @@ const FloatingActionPanel = () => {
                 >
                     {/* <StepLeadCTA isFloatingPanel /> */}
                     <BackToTop isFloatingPanel />
+                    <FloatingSocialCTA />
                     <WhatsappCTA isFloatingPanel />
                     <AIChatbot isFloatingPanel />
                 </motion.div>

@@ -61,7 +61,6 @@ import RegistrationModal from './components/RegistrationModal';
 import AdmissionModal from './components/AdmissionModal';
 import AIChatbot from './components/AIChatbot';
 import FloatingActionPanel from './components/FloatingActionPanel';
-import FloatingSocialBar from './components/FloatingSocialBar';
 import { RegisterModalProvider } from './context/RegisterModalContext';
 import { AdmissionModalProvider } from './context/AdmissionModalContext';
 import { AuthProvider } from './context/AuthContext';
@@ -143,7 +142,6 @@ function App() {
                                      </Routes>
                                  </div>
                                  <FloatingActionPanel />
-                                 <FloatingSocialBar />
                                  <Analytics />
                                  <SpeedInsights />
                             </div>
