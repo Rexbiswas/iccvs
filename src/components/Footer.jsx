@@ -232,12 +232,12 @@ const Footer = () => {
                     </div>
 
                     <div className="flex gap-10">
-                        <a href="#" className="hover:text-primary transition-colors">Security</a>
-                        <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a>
+                        <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
+                        <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy</Link>
+                        <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookies</Link>
                     </div>
 
-                    <a href="https://rishibiswas.dev" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <a href="https://www.linkedin.com/in/rishi-biswas-0474a6258/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
                         <ArrowUpRight className="w-3 h-3" />
                         Design By Rishi Biswas
                     </a>

@@ -7,12 +7,12 @@ import WhatsappCTA from './WhatsappCTA';
 import AIChatbot from './AIChatbot';
 
 const FloatingActionPanel = () => {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
         const checkScroll = () => {
             const show = window.scrollY > 200;
-            setIsVisible(show);
+            setIsScrolled(show);
         };
         checkScroll();
         window.addEventListener('scroll', checkScroll);
@@ -20,22 +20,29 @@ const FloatingActionPanel = () => {
     }, []);
 
     return (
-        <AnimatePresence>
-            {isVisible && (
-                <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-end gap-4"
-                >
-                    {/* <StepLeadCTA isFloatingPanel /> */}
-                    <BackToTop isFloatingPanel />
-                    <FloatingSocialCTA />
-                    <WhatsappCTA isFloatingPanel />
-                    <AIChatbot isFloatingPanel />
-                </motion.div>
-            )}
-        </AnimatePresence>
+        <div className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none">
+            {/* Make children pointer-events-auto so they can be clicked, but the invisible container doesn't block clicks */}
+            
+            <AnimatePresence>
+                {isScrolled && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.5, y: 20 }}
+                        className="flex flex-col items-end gap-4 pointer-events-auto"
+                    >
+                        <BackToTop isFloatingPanel />
+                        <FloatingSocialCTA />
+                        <AIChatbot isFloatingPanel />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* WhatsApp is ALWAYS visible at the bottom of the stack */}
+            <div className="pointer-events-auto">
+                <WhatsappCTA isFloatingPanel />
+            </div>
+        </div>
     );
 };
 
