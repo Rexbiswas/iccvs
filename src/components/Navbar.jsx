@@ -6,10 +6,13 @@ import SocialIcons from './SocialIcons';
 import {
     Menu as MenuIcon, X, ArrowRight, Home, Sparkles, GraduationCap, LayoutGrid, User,
     Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store,
-    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info
+    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset
 } from 'lucide-react';
 import gsap from 'gsap';
 import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
+import AIChatbot from './AIChatbot';
+import WhatsappCTA from './WhatsappCTA';
+import FloatingSocialCTA from './FloatingSocialCTA';
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InfoIcon from "@mui/icons-material/Info";
 import SchoolIcon from "@mui/icons-material/School";
@@ -71,6 +74,7 @@ const Navbar = () => {
     const { openAdmissionModal } = useAdmissionModal();
     const { user } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
+    const [isContactMenuOpen, setIsContactMenuOpen] = useState(false);
     const [expandedItem, setExpandedItem] = useState(null);
     const [expandedSubItem, setExpandedSubItem] = useState(null);
     const { scrollY } = useScroll();
@@ -232,7 +236,7 @@ const Navbar = () => {
             section: 'OVERVIEW',
             subItems: [
                 { title: 'Call Us Now', path: 'tel:+919804443300', icon: Phone, desc: 'Direct support line' },
-                { title: 'Enquiry Now', path: '/apply', icon: HelpCircle, desc: 'Get in touch with us' },
+                { title: 'Enquiry Now', path: '/apply', icon: Headset, desc: 'Get in touch with us' },
                 { title: 'Career Counselling', path: '/apply', icon: Calendar, desc: 'Book a session' },
                 { title: 'Download Brochure', path: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', icon: FileDown, desc: 'Course catalogues', isDownload: true }
             ]
@@ -618,9 +622,55 @@ const Navbar = () => {
                         }}
                         className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${(isHeaderDark && !isScrolled) || isOpen ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
                     >
-                        <HelpCircle size={22} strokeWidth={2} />
+                        <Headset size={22} strokeWidth={2} />
                         <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-60">Enquiry</span>
                     </button>
+
+                    {/* CALL (TRIGGER) */}
+                    <button
+                        onClick={() => {
+                            setIsOpen(false);
+                            setIsContactMenuOpen(!isContactMenuOpen);
+                        }}
+                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isContactMenuOpen ? 'text-primary' : (isHeaderDark && !isScrolled) || isOpen ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
+                    >
+                        {isContactMenuOpen && (
+                            <motion.div
+                                layoutId="activeBubble"
+                                className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
+                                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                            />
+                        )}
+                        <Mail size={22} strokeWidth={2} className="relative z-10" />
+                        <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isContactMenuOpen ? 'opacity-100' : 'opacity-60'}`}>Call</span>
+                    </button>
+
+                    {/* QUICK CONTACT MENU (MOBILE) */}
+                    <AnimatePresence>
+                        {isContactMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                                className="fixed bottom-24 right-8 z-[1002] flex flex-col items-end gap-5 lg:hidden"
+                            >
+                                <div className="flex flex-col items-end gap-4">
+                                    <div className="scale-90 origin-bottom-right">
+                                        <AIChatbot isFloatingPanel />
+                                    </div>
+                                    <div className="scale-90 origin-bottom-right">
+                                        <FloatingSocialCTA />
+                                    </div>
+                                    <div className="scale-90 origin-bottom-right">
+                                        <WhatsappCTA isFloatingPanel />
+                                    </div>
+                                </div>
+                                
+                                {/* Pointer Arrow */}
+                                <div className="mr-6 -mt-2 w-4 h-4 bg-white dark:bg-slate-900 rotate-45 border-r border-b border-slate-200/50 dark:border-white/10" />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
                     {/* MENU */}
                     <button
