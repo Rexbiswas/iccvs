@@ -127,7 +127,7 @@ const Footer = () => {
                                     { name: "Center Across India", path: "/centers-across-india" },
                                     { name: "Paris Project", path: "/insd-360/paris-project" },
                                     { name: "Awards", path: "/awards-recognition" },
-                                    { name: "Admissions", path: "/apply" },
+                                    { name: "Enquiry", path: "/apply" },
                                     { name: "Franchise", path: "/franchise" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -176,7 +176,7 @@ const Footer = () => {
                             </h5>
                             <div className="space-y-6">
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
-                                    <span className="block text-[10px] uppercase tracking-widest text-primary mb-1">Admissions</span>
+                                    <span className="block text-[10px] uppercase tracking-widest text-primary mb-1">Enquiry</span>
                                     <a href="tel:+919804443300" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98044 43300</a>
                                 </motion.div>
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">

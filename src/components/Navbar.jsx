@@ -232,7 +232,7 @@ const Navbar = () => {
             section: 'OVERVIEW',
             subItems: [
                 { title: 'Call Us Now', path: 'tel:+919804443300', icon: Phone, desc: 'Direct support line' },
-                { title: 'Apply Now', path: '/apply', icon: UserPlus, desc: 'Start your application' },
+                { title: 'Enquiry Now', path: '/apply', icon: HelpCircle, desc: 'Get in touch with us' },
                 { title: 'Career Counselling', path: '/apply', icon: Calendar, desc: 'Book a session' },
                 { title: 'Download Brochure', path: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', icon: FileDown, desc: 'Course catalogues', isDownload: true }
             ]
@@ -610,7 +610,7 @@ const Navbar = () => {
                         )}
                     </NavLink>
 
-                    {/* APPLY */}
+                    {/* ENQUIRY */}
                     <button
                         onClick={() => {
                             setIsOpen(false);
@@ -618,8 +618,8 @@ const Navbar = () => {
                         }}
                         className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${(isHeaderDark && !isScrolled) || isOpen ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
                     >
-                        <GraduationCap size={22} strokeWidth={2} />
-                        <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-60">Apply</span>
+                        <HelpCircle size={22} strokeWidth={2} />
+                        <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-60">Enquiry</span>
                     </button>
 
                     {/* MENU */}
