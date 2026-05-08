@@ -160,10 +160,10 @@ const Navbar = () => {
     const mobileHeight = useTransform(scrollProgress, transitionRange, ["72px", "72px"]);
     const mobileTop = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
     const mobileRadius = useTransform(scrollProgress, transitionRange, ["0px", "0px"]);
-    const mobileBackground = useTransform(scrollProgress, transitionRange, ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.4)"]);
+    const mobileBackground = useTransform(scrollProgress, transitionRange, ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 1)"]);
     const mobileBackdrop = useTransform(scrollProgress, transitionRange, ["blur(0px) saturate(100%)", "blur(20px) saturate(180%)"]);
     const mobileShadow = useTransform(scrollProgress, transitionRange, ["none", "0 10px 25px -5px rgba(0, 0, 0, 0.1)"]);
-    const mobileBorder = useTransform(scrollProgress, transitionRange, ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.4)"]);
+    const mobileBorder = useTransform(scrollProgress, transitionRange, ["rgba(241, 245, 249, 1)", "rgba(241, 245, 249, 1)"]);
 
     const navRef = useRef(null);
     const mobileNavRef = useRef(null);
@@ -306,17 +306,14 @@ const Navbar = () => {
                 className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-4 items-center justify-between pointer-events-auto w-full"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-14" onClick={() => setIsOpen(false)}>
-                    <motion.div 
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-white p-2 rounded-2xl shadow-md h-full flex items-center justify-center"
-                    >
-                        <img
-                            className="h-full w-auto object-contain transition-all duration-500"
-                            src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
-                            alt="INSD Logo"
-                        />
-                    </motion.div>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-16 overflow-hidden" onClick={() => setIsOpen(false)}>
+                    <motion.img
+                        whileHover={{ scale: 1.1, rotate: 2 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className={`h-16 w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
+                        src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
+                        alt="INSD Logo"
+                    />
                 </Link>
                 {/* Right: Actions */}
                 <div className="flex items-center gap-2 md:gap-3 lg:gap-4 2xl:gap-6">
@@ -576,21 +573,19 @@ const Navbar = () => {
                 className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center pointer-events-none"
             >
                 <div className="relative w-full h-full flex items-center justify-center px-4 pointer-events-auto">
-                    <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center p-1">
-                        <div className="bg-white p-1.5 rounded-xl shadow-sm">
-                            <img
-                                className="h-10 w-auto object-contain transition-all duration-500"
-                                src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
-                                alt="INSD Logo"
-                            />
-                        </div>
+                    <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">
+                        <img
+                            className="h-14 w-auto object-contain drop-shadow-sm"
+                            src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
+                            alt="INSD Logo"
+                        />
                     </Link>
                 </div>
             </motion.div >
 
             {/* Mobile Bottom Navigation Bar - Pill Glass Style */}
             <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-50 lg:hidden">
-                <div className={`w-full h-full flex items-center justify-around px-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen || (isHeaderDark && !isScrolled) ? 'bg-slate-900/40 backdrop-blur-2xl border-white/10' : 'bg-white/40 backdrop-blur-2xl border-white/30'}`}>
+                <div className={`w-full h-full flex items-center justify-around px-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen ? 'bg-white border-slate-200' : 'bg-white border-white'}`}>
 
                     {/* HOME */}
                     <NavLink
