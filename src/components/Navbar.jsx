@@ -87,15 +87,15 @@ const Navbar = () => {
         '/apply',
         '/insd-360/blog',
         '/entrepreneur',
-        '/courses/fashion-designing',
-        '/courses/interior-designing',
-        '/courses/graphic-designing',
+        '/courses/fashion-design',
+        '/courses/interior-design',
+        '/courses/graphic-design',
         '/courses/animation-and-vfx',
-        '/courses/jewellery-designing',
-        '/courses/uiux-designing',
+        '/courses/jewellery-design',
+        '/courses/uiux-design',
         '/courses/beauty-and-makeup',
         '/courses/photography',
-        '/courses/textile-designing'
+        '/courses/textile-design'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
 
@@ -200,10 +200,10 @@ const Navbar = () => {
                 { title: 'Graphic Design', path: '/courses/graphic-design', icon: 'graphic', desc: 'Visual Branding & Media' },
                 { title: 'Animation Design', path: '/courses/animation', icon: 'animation', desc: '3D & Visual FX' },
                 { title: 'Jewellery Design', path: '/courses/jewellery-design', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
-                { title: 'UI/UX Design', path: '/courses/uiux-designing', icon: 'uiux', desc: 'User Experience & Interface' },
-                { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
-                { title: 'Photography', path: '/courses/photography', icon: 'photography', desc: 'Visual Storytelling Art' },
-                { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
+                { title: 'UI/UX Design', path: '/courses/uiux-design', icon: 'uiux', desc: 'User Experience & Interface' },
+                { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'makeup', desc: 'Aesthetic Arts' },
+                { title: 'Photography', path: '/courses/photography', icon: 'camera', desc: 'Visual Storytelling' },
+                { title: 'Textile Design', path: '/courses/textile-design', icon: 'textile', desc: 'Material Science Arts' },
                 { title: 'Short Term Courses', path: '/courses/short-term-courses', icon: 'zap', desc: 'Intensive Skill Modules' },
                 { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
             ]
@@ -310,12 +310,12 @@ const Navbar = () => {
                 className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-4 items-center justify-between pointer-events-auto w-full"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-16 overflow-hidden" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-20 overflow-hidden" onClick={() => setIsOpen(false)}>
                     <motion.img
                         whileHover={{ scale: 1.1, rotate: 2 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={`h-16 w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
-                        src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
+                        className={`h-20 w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
+                        src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                         alt="INSD Logo"
                     />
                 </Link>
@@ -579,8 +579,8 @@ const Navbar = () => {
                 <div className="relative w-full h-full flex items-center justify-center px-4 pointer-events-auto">
                     <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">
                         <img
-                            className="h-14 w-auto object-contain drop-shadow-sm"
-                            src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
+                            className="h-18 w-auto object-contain drop-shadow-sm"
+                            src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                             alt="INSD Logo"
                         />
                     </Link>
@@ -953,11 +953,11 @@ const Navbar = () => {
                                 variants={itemVariants}
                                 className="flex items-center justify-between px-6 md:px-12 py-8 relative z-10"
                             >
-                                <Link to="/" onClick={() => setIsOpen(false)} className="h-10">
+                                <Link to="/" onClick={() => setIsOpen(false)} className="h-18 md:h-20">
                                     <img
-                                        src="https://insd.edu.in/wp-content/uploads/2022/02/Final-Logo.png"
-                                        alt="INSD"
-                                        className="h-full w-auto brightness-0 invert"
+                                        src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
+                                        alt="INSD Logo"
+                                        className="h-full w-auto object-contain brightness-0 invert"
                                     />
                                 </Link>
 

@@ -65,10 +65,13 @@ const Footer = () => {
                     {/* Brand Meta */}
                     <div className="lg:col-span-5">
                         <div className="mb-12">
-                            <h3 className="text-4xl font-black tracking-tighter mb-6 flex items-center gap-4">
-                                <div className="w-2 h-12 bg-primary"></div>
-                                INSD.
-                            </h3>
+                            <div className="mb-6">
+                                <img 
+                                    src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png" 
+                                    alt="INSD Logo" 
+                                    className="h-20 w-auto object-contain brightness-0 invert"
+                                />
+                            </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
                                 International School of Design is a global design conglomerate. We don't teach design; we engineer visionaries. Our curriculum is an ever-evolving protocol for the future.
                             </p>
@@ -92,10 +95,10 @@ const Footer = () => {
                                     { name: "Graphic Design", path: "/courses/graphic-design" },
                                     { name: "Animation Design", path: "/courses/animation" },
                                     { name: "Jewellery Design", path: "/courses/jewellery-design" },
-                                    { name: "UI/UX Design", path: "/courses/uiux-designing" },
+                                    { name: "UI/UX Design", path: "/courses/uiux-design" },
                                     { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
                                     { name: "Photography", path: "/courses/photography" },
-                                    { name: "Textile Design", path: "/courses/textile-designing" },
+                                    { name: "Textile Design", path: "/courses/textile-design" },
                                     { name: "Short Term Courses", path: "/courses" },
                                     { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" }
                                 ].map((item, i) => (

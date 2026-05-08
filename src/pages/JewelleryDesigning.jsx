@@ -136,7 +136,7 @@ const JewelleryDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="Jewellery Design Degree | Luxury Gemology & CAD @ INSD"
+                title="Jewellery Designing Degree | Gemology & 3D CAD Engineering @ INSD"
                 description="Master the art of luxury jewellery design. Our program balances traditional manual craftsmanship with high-end 3D CAD engineering."
             />
 
@@ -160,7 +160,7 @@ const JewelleryDesigning = () => {
                     >
                         <h1 className="text-clamp-5xl font-black text-white uppercase tracking-tighter leading-tight md:leading-[0.85] mb-8">
                             <span className="text-primary">Jewellery</span> <br className="hidden md:block" /> 
-                            Design
+                            Designing
                         </h1>
                        
                         <div className="flex items-center gap-4 text-white/50 animate-bounce cursor-default justify-center">

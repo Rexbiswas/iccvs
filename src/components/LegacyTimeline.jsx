@@ -11,7 +11,7 @@ const timelineData = [
         year: "2011",
         title: "INSD IS FOUNDED",
         description: "With a simple idea: Make design education practical. Prepare students to be self-focused and placement ready.",
-        image: "https://ik.imagekit.io/fmldynl4j4/Vertical_Logo__1_.jpg-removebg-preview.png",
+        image: "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Vertical-removebg-preview.png",
         dotColor: "bg-[#2d4a8a]"
     },
     {
@@ -143,8 +143,11 @@ const LegacyTimeline = () => {
                         <div className="lg:sticky lg:top-32 mb-16 lg:mb-0">
                             {/* Logo */}
                             <div className="mb-12">
-                                <h3 className="text-2xl md:text-3xl font-black tracking-tighter text-slate-800 leading-none">INSD</h3>
-                                <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500 mt-1">International School of Design</p>
+                                <img 
+                                    src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Vertical-removebg-preview.png" 
+                                    alt="INSD Logo" 
+                                    className="h-32 w-auto object-contain"
+                                />
                             </div>
 
                             {/* Main Title */}

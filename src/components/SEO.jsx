@@ -15,7 +15,7 @@ const SEO = ({
     courseSchema = null
 }) => {
     const siteName = "INSD";
-    const metaDescription = description || "Best designing institute in Delhi, India. Join INSD is one of the top designing colleges in Delhi, NCR offers fashion, interior, textile and graphic designing courses in UG and PG.";
+    const metaDescription = description || "Best design institute in Delhi, India. Join INSD is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG.";
     const metaKeywords = keywords || "best design institute in Delhi, skill school design, job oriented fashion design, interior design placement, graphic design course, INSD India";
 
     // JSON-LD Structured Data for Ranking Enhancement
@@ -24,7 +24,7 @@ const SEO = ({
         "@type": "EducationalOrganization",
         "name": siteName,
         "url": "https://insd.edu.in",
-        "logo": "https://insd.edu.in/wp-content/uploads/2019/11/INSD-circle-Logo_black_100pxl.png",
+        "logo": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png",
         "sameAs": [
             "https://www.facebook.com/INSD.Official/",
             "https://www.instagram.com/insd_official/",

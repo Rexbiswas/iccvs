@@ -135,7 +135,7 @@ const UIUXDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="UI/UX Design Degree | Experience Architecture @ INSD"
+                title="UI/UX Designing Degree | User Experience & Digital Interface @ INSD"
                 description="Master the future of digital interaction. From user psychology to design systems and high-fidelity prototyping, engineer the next generation of products."
             />
 
@@ -159,7 +159,7 @@ const UIUXDesigning = () => {
                     >
                         <h1 className="text-4xl md:text-8xl lg:text-[10rem] font-black text-white uppercase tracking-tighter leading-tight md:leading-[0.85] mb-8">
                             UI/UX 
-                            <span className="text-primary"> Design</span>  
+                            <span className="text-primary"> Designing</span>  
                         </h1>
                         
                         <div className="flex items-center gap-4 text-white/50 animate-bounce cursor-default justify-center">

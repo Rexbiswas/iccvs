@@ -148,8 +148,8 @@ const GraphicDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="Graphic Design Degree | Visual Communication & Branding @ INSD"
-                description="Engineers the future of visual communication. Our Graphic Design program balances creative alchemy with high-impact digital branding strategy."
+                title="Graphic Designing Degree | Visual Communication & Branding @ INSD"
+                description="Engineers the future of visual communication. Our Graphic Designing program balances creative alchemy with high-impact digital branding strategy."
             />
 
             {/* --- HERO SECTION --- */}
@@ -172,7 +172,7 @@ const GraphicDesigning = () => {
                     >
                         <h1 className="text-4xl md:text-8xl lg:text-[8rem] font-black text-white uppercase tracking-tighter leading-tight md:leading-[0.85] mb-12">
                             Graphic 
-                            <span className="text-primary"> design</span>
+                            <span className="text-primary"> Designing</span>
                         </h1>
                         
                         <div className="flex items-center gap-4 text-white/50 animate-bounce cursor-default justify-center">

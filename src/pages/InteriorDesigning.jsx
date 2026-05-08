@@ -164,7 +164,7 @@ const InteriorDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="Interior Design Degree | Structural Art & Spatial Planning @ INSD"
+                title="Interior Designing Degree | Architecture & Spatial Arts @ INSD"
                 description="Master the art of spatial brilliance. Our Interior Design program balances architectural precision with luxury residential and commercial design strategy."
             />
 
@@ -188,7 +188,7 @@ const InteriorDesigning = () => {
                     >
                         <h1 className="text-4xl md:text-8xl lg:text-[10rem] font-black text-white uppercase tracking-tighter leading-tight md:leading-[0.85] mb-8">
                             Interior 
-                            <span className="text-primary">Design</span>  
+                            <span className="text-primary">Designing</span>  
                           
                         </h1>
                         

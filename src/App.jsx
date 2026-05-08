@@ -109,15 +109,15 @@ function App() {
                                          <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
                                          <Route path="/courses/short-term-courses" element={<ShortTermCourse />} />
                                          <Route path="/courses/msc-luxury-brand-management" element={<MscLuxury />} />
-                                         <Route path="/courses/fashion-designing" element={<FashionDesigning />} />
-                                         <Route path="/courses/interior-designing" element={<InteriorDesigning />} />
-                                         <Route path="/courses/graphic-designing" element={<GraphicDesigning />} />
+                                         <Route path="/courses/fashion-design" element={<FashionDesigning />} />
+                                         <Route path="/courses/interior-design" element={<InteriorDesigning />} />
+                                         <Route path="/courses/graphic-design" element={<GraphicDesigning />} />
                                          <Route path="/courses/animation-and-vfx" element={<AnimationAndVFX />} />
-                                         <Route path="/courses/jewellery-designing" element={<JewelleryDesigning />} />
-                                         <Route path="/courses/uiux-designing" element={<UIUXDesigning />} />
+                                         <Route path="/courses/jewellery-design" element={<JewelleryDesigning />} />
+                                         <Route path="/courses/uiux-design" element={<UIUXDesigning />} />
                                          <Route path="/courses/beauty-and-makeup" element={<BeautyAndMakeup />} />
                                          <Route path="/courses/photography" element={<Photography />} />
-                                         <Route path="/courses/textile-designing" element={<TextileDesigning />} />
+                                         <Route path="/courses/textile-design" element={<TextileDesigning />} />
                                          <Route path="/insd-luxe" element={<InsdLuxe />} />
                                          <Route path="/student-careers" element={<StudentCareers />} />
                                          <Route path="/franchise" element={<Franchise />} />

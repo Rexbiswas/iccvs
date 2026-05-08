@@ -153,7 +153,7 @@ const FashionDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="The Art of Couture Engineering | Premiere Fashion Design Degree @ INSD"
+                title="The Art of Couture Engineering | Premiere Fashion Designing Degree @ INSD"
                 description="Master the intersection of creative vision and technical precision. Our 'Art of Couture Engineering' program equips you with global techniques in draping, pattern science, and luxury couture strategy."
             />
 
@@ -176,7 +176,7 @@ const FashionDesigning = () => {
                         className="text-center"
                     >
                         <h1 className="text-clamp-5xl font-black text-white uppercase tracking-tighter leading-tight md:leading-none mb-6">
-                            <span className="text-primary">Fashion</span> Design
+                            <span className="text-primary">Fashion</span> Designing
                         </h1>
                         
                         <div className="flex items-center justify-center gap-4 text-white/50 animate-bounce cursor-default mt-8">

@@ -181,7 +181,7 @@ const OnlineCourse = () => {
                             {/* Inner Card Elements */}
                             <div className="relative z-10 h-full flex flex-col justify-between">
                                 <div className="flex justify-between items-start">
-                                    <img src="https://insd.edu.in/wp-content/uploads/2019/11/INSD-circle-Logo_black_100pxl.png" className="w-16 invert brightness-0" alt="INSD" />
+                                    <img src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Vertical-removebg-preview.png" className="w-24 invert brightness-0" alt="INSD" />
                                     <div className="text-right">
                                         <p className="text-primary font-black text-2xl">4.9/5</p>
                                         <p className="text-white/40 text-[10px] uppercase font-bold tracking-widest">Student Rating</p>
@@ -426,7 +426,7 @@ const OnlineCourse = () => {
                                         <div className="absolute inset-0 opacity-[0.3] pointer-events-none mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
 
                                         <div className="relative z-10 h-full flex flex-col items-center justify-between text-center py-4">
-                                            <img src="https://insd.edu.in/wp-content/uploads/2019/11/INSD-circle-Logo_black_100pxl.png" className="w-16 opacity-80" alt="INSD" />
+                                            <img src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Vertical-removebg-preview.png" className="w-24 opacity-80" alt="INSD" />
 
                                             <div className="space-y-4">
                                                 <h4 className="font-serif italic text-primary text-[10px] md:text-xs tracking-widest uppercase">Certificate of Completion</h4>
