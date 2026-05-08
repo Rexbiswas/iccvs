@@ -23,9 +23,21 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        
+        let finalValue = type === 'checkbox' ? checked : value;
+        
+        // Only allow numbers and '+' for mobile field
+        if (name === 'mobile') {
+            finalValue = value.replace(/[^0-9+]/g, '');
+            // Ensure '+' only at the beginning
+            if (finalValue.indexOf('+') > 0) {
+                finalValue = finalValue.replace(/\+/g, '');
+            }
+        }
+
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value,
+            [name]: finalValue,
             ...(name === 'state' ? { city: '' } : {})
         }));
     };

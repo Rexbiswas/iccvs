@@ -51,7 +51,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer ref={footerRef} className="relative bg-linear-to-br from-[#801e20] to-[#0a2746] text-white pt-32 pb-12 overflow-hidden">
+        <footer id="footer" ref={footerRef} className="relative bg-linear-to-br from-[#801e20] to-[#0a2746] text-white pt-32 pb-12 overflow-hidden">
 
             {/* Atmospheric Orbs */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none" />
@@ -86,15 +86,27 @@ const Footer = () => {
                                 Courses
                             </h5>
                             <ul className="space-y-4">
-                                {["Fashion Designing", "Interior Designing", "Graphic Designing", "Animation & VFX"].map((item, i) => (
+                                {[
+                                    { name: "Fashion Designing", path: "/courses/fashion-designing" },
+                                    { name: "Interior Designing", path: "/courses/interior-designing" },
+                                    { name: "Graphic Designing", path: "/courses/graphic-designing" },
+                                    { name: "Animation & VFX", path: "/courses/animation-and-vfx" },
+                                    { name: "Jewellery Designing", path: "/courses/jewellery-designing" },
+                                    { name: "UI/UX Design", path: "/courses/uiux-designing" },
+                                    { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
+                                    { name: "Photography", path: "/courses/photography" },
+                                    { name: "Textile Design", path: "/courses/textile-designing" },
+                                    { name: "Short Term Courses", path: "/courses" },
+                                    { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" }
+                                ].map((item, i) => (
                                     <motion.li
                                         key={i}
                                         whileHover={{ x: 5 }}
                                         transition={{ type: "spring", stiffness: 300 }}
                                     >
-                                        <Link to={item === "Fashion Designing" ? "/courses/fashion-designing" : item === "Interior Designing" ? "/courses/interior-designing" : item === "Graphic Designing" ? "/courses/graphic-designing" : item === "Animation & VFX" ? "/courses/animation-and-vfx" : "#"} className="text-sm text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
+                                        <Link to={item.path} className="text-[13px] text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
                                             <span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300 shrink-0"></span>
-                                            {item}
+                                            {item.name}
                                         </Link>
                                     </motion.li>
                                 ))}
@@ -108,83 +120,73 @@ const Footer = () => {
                                 Institute
                             </h5>
                             <ul className="space-y-4">
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/about-us" className="text-sm text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
+                                {[
+                                    { name: "About Us", path: "/about-us" },
+                                    { name: "15 Years Legacy", path: "/15-years-legacy" },
+                                    { name: "Mentors", path: "/mentors" },
+                                    { name: "Center Across India", path: "/centers-across-india" },
+                                    { name: "Paris Project", path: "/insd-360/paris-project" },
+                                    { name: "Awards", path: "/awards-recognition" },
+                                    { name: "Admissions", path: "/apply" },
+                                    { name: "Franchise", path: "/franchise" }
+                                ].map((item, i) => (
+                                    <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                                        <Link to={item.path} className="text-[13px] text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
                                             <span className="w-0 group-hover/link:w-2 h-px bg-white transition-all duration-300 shrink-0"></span>
-                                            About Us
+                                            {item.name}
                                         </Link>
-                                    </motion.div>
-                                </li>
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/campuses" className="text-sm text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
-                                            <span className="w-0 group-hover/link:w-2 h-px bg-white transition-all duration-300 shrink-0"></span>
-                                            Campuses
-                                        </Link>
-                                    </motion.div>
-                                </li>
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/student-careers" className="text-sm text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
-                                            <span className="w-0 group-hover/link:w-2 h-px bg-white transition-all duration-300 shrink-0"></span>
-                                            Careers
-                                        </Link>
-                                    </motion.div>
-                                </li>
+                                    </motion.li>
+                                ))}
                             </ul>
                         </div>
 
-                        {/* Column 3: Lifestyle */}
+                        {/* Column 3: Experience */}
                         <div className="sitemap-column">
                             <h5 className="text-xs font-bold uppercase tracking-[0.3em] text-white/30 mb-8 flex items-center gap-2">
                                 <div className="w-1 h-1 bg-primary rounded-full animate-pulse"></div>
-                                Lifestyle
+                                Experience
                             </h5>
                             <ul className="space-y-4">
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/success-stories" className="text-sm text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
+                                {[
+                                    { name: "Life at INSD", path: "/student" },
+                                    { name: "Placements", path: "/placement" },
+                                    { name: "Entrepreneurs", path: "/entrepreneur" },
+                                    { name: "Industry Visits", path: "/industry-potential" },
+                                    { name: "Expert Interactions", path: "/industry-interaction" },
+                                    { name: "Training Partners", path: "/placementandtraining" },
+                                    { name: "Future of Design", path: "/future-of-design" },
+                                    { name: "Events", path: "/events" },
+                                    { name: "Blogs", path: "/insd-360/blog" },
+                                    { name: "Success Stories", path: "/success-stories" }
+                                ].map((item, i) => (
+                                    <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+                                        <Link to={item.path} className="text-[13px] text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
                                             <span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300 shrink-0"></span>
-                                            success stories
+                                            {item.name}
                                         </Link>
-                                    </motion.div>
-                                </li>
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/insd-360/fashion-week" className="text-sm text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
-                                            <span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300 shrink-0"></span>
-                                            Fashion Shows
-                                        </Link>
-                                    </motion.div>
-                                </li>
-                                <li>
-                                    <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-                                        <Link to="/gallery" className="text-sm text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
-                                            <span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300 shrink-0"></span>
-                                            Gallery
-                                        </Link>
-                                    </motion.div>
-                                </li>
+                                    </motion.li>
+                                ))}
                             </ul>
                         </div>
 
-                        {/* Column 4: Base Connect */}
+                        {/* Column 4: Connect */}
                         <div className="sitemap-column">
                             <h5 className="text-xs font-bold uppercase tracking-[0.3em] text-white/30 mb-8">
                                 Connect
                             </h5>
                             <div className="space-y-6">
-                                <motion.div
-                                    whileHover={{ x: 5 }}
-                                    className="group cursor-pointer"
-                                >
+                                <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-primary mb-1">Admissions</span>
-                                    <div className="flex flex-col gap-1">
-                                        <a href="tel:+919804443300" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98044 43300</a>
-                                    </div>
+                                    <a href="tel:+919804443300" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98044 43300</a>
                                 </motion.div>
-
+                                <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
+                                    <span className="block text-[10px] uppercase tracking-widest text-secondary mb-1">Email</span>
+                                    <a href="mailto:info@insd.edu.in" className="text-sm font-bold border-b border-white/5 group-hover:border-secondary transition-all pb-1">info@insd.edu.in</a>
+                                </motion.div>
+                                <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
+                                    <span className="block text-[10px] uppercase tracking-widest text-white/40 mb-1">Location</span>
+                                    <Link to="/contact-us" className="text-sm font-bold border-b border-white/5 group-hover:border-white transition-all pb-1">Delhi, India</Link>
+                                </motion.div>
                             </div>
                         </div>
                     </div>

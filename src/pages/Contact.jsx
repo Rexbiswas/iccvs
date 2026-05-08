@@ -71,7 +71,15 @@ const Contact = () => {
     };
 
     const handleChange = (e) => {
-        setFormState({ ...formState, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        let finalValue = value;
+        
+        if (name === 'phone') {
+            finalValue = value.replace(/[^0-9+]/g, '');
+            if (finalValue.indexOf('+') > 0) finalValue = finalValue.replace(/\+/g, '');
+        }
+        
+        setFormState({ ...formState, [name]: finalValue });
     };
 
     // Stagger container for entrance animations

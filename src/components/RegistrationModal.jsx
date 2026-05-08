@@ -397,7 +397,19 @@ const RegistrationModal = () => {
                                                             </div>
                                                             <div className="space-y-2">
                                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 ml-2">Phone *</label>
-                                                                <input type="tel" required placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={e => { setFormData({ ...formData, phone: e.target.value }); setErrors({ ...errors, phone: null }); }} className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500/50 transition-all outline-none" />
+                                                                <input 
+                                                                    type="tel" 
+                                                                    required 
+                                                                    placeholder="+91 XXXXX XXXXX" 
+                                                                    value={formData.phone} 
+                                                                    onChange={e => { 
+                                                                        let val = e.target.value.replace(/[^0-9+]/g, '');
+                                                                        if (val.indexOf('+') > 0) val = val.replace(/\+/g, '');
+                                                                        setFormData({ ...formData, phone: val }); 
+                                                                        setErrors({ ...errors, phone: null }); 
+                                                                    }} 
+                                                                    className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500/50 transition-all outline-none" 
+                                                                />
                                                                 {errors.phone && <p className="text-red-400 text-[10px] mt-1.5 ml-1 font-semibold bg-red-500/10 px-2 py-1 rounded-md border border-red-500/20">{errors.phone}</p>}
                                                             </div>
                                                         </motion.div>
