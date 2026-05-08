@@ -8,7 +8,7 @@ const BackToTop = ({ isFloatingPanel = false }) => {
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (isFloatingPanel) return;
-        const show = latest > 200;
+        const show = latest > 50;
         if (show !== isVisible) {
             setIsVisible(show);
         }
@@ -17,7 +17,7 @@ const BackToTop = ({ isFloatingPanel = false }) => {
     React.useEffect(() => {
         if (isFloatingPanel) return;
         const checkScroll = () => {
-            const show = window.scrollY > 200;
+            const show = window.scrollY > 50;
             setIsVisible(show);
         };
         checkScroll();

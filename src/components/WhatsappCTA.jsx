@@ -13,9 +13,9 @@ const WhatsappCTA = ({ isFloatingPanel = false }) => {
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (isFloatingPanel) return;
         
-        // On desktop, keep it always visible. On mobile, show after 200px scroll.
+        // On desktop, keep it always visible. On mobile, show after 50px scroll.
         const isDesktop = window.innerWidth >= 1024;
-        const show = isDesktop ? true : latest > 200;
+        const show = isDesktop ? true : latest > 50;
         
         if (show !== isVisible) {
             setIsVisible(show);
@@ -26,7 +26,7 @@ const WhatsappCTA = ({ isFloatingPanel = false }) => {
         if (isFloatingPanel) return;
         const checkScroll = () => {
             const isDesktop = window.innerWidth >= 1024;
-            const show = isDesktop ? true : window.scrollY > 200;
+            const show = isDesktop ? true : window.scrollY > 50;
             setIsVisible(show);
         };
         checkScroll();

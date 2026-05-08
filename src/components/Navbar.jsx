@@ -596,7 +596,7 @@ const Navbar = () => {
                         to="/"
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                            `relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isActive ? 'text-primary' : (isHeaderDark && !isScrolled) || isOpen ? 'text-white/40' : 'text-slate-900/40'}`
+                            `relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isActive ? 'text-primary' : 'text-slate-900/40'}`
                         }
                     >
                         {({ isActive }) => (
@@ -620,7 +620,7 @@ const Navbar = () => {
                             setIsOpen(false);
                             openAdmissionModal();
                         }}
-                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${(isHeaderDark && !isScrolled) || isOpen ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
+                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 text-slate-900/40 hover:text-slate-900`}
                     >
                         <Headset size={22} strokeWidth={2} />
                         <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-60">Enquiry</span>
@@ -632,7 +632,7 @@ const Navbar = () => {
                             setIsOpen(false);
                             setIsContactMenuOpen(!isContactMenuOpen);
                         }}
-                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isContactMenuOpen ? 'text-primary' : (isHeaderDark && !isScrolled) || isOpen ? 'text-white/40' : 'text-slate-900/40'}`}
+                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isContactMenuOpen ? 'text-primary' : 'text-slate-900/40'}`}
                     >
                         {isContactMenuOpen && (
                             <motion.div
@@ -730,7 +730,7 @@ const Navbar = () => {
                     {/* MENU */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isOpen ? 'text-primary' : (isHeaderDark && !isScrolled) ? 'text-white/40 hover:text-white' : 'text-slate-900/40 hover:text-slate-900'}`}
+                        className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 ${isOpen ? 'text-primary' : 'text-slate-900/40 hover:text-slate-900'}`}
                     >
                         {isOpen && (
                             <motion.div

@@ -10,7 +10,7 @@ const FloatingActionPanel = () => {
 
     useEffect(() => {
         const checkScroll = () => {
-            const show = window.scrollY > 200;
+            const show = window.scrollY > 50;
             setIsScrolled(show);
         };
         checkScroll();
