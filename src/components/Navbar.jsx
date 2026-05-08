@@ -641,7 +641,7 @@ const Navbar = () => {
                                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                             />
                         )}
-                        <MessageCircle size={22} strokeWidth={2} className="relative z-10" />
+                        <Share2 size={22} strokeWidth={2} className="relative z-10" />
                         <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isContactMenuOpen ? 'opacity-100' : 'opacity-60'}`}>Contact</span>
                     </button>
 
