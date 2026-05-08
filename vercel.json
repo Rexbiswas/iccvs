@@ -3,15 +3,16 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/courses/short-term-interior-design-courses", "destination": "/courses/short-term-courses", "permanent": true },
-    { "source": "/courses/diploma-in-graphic-design", "destination": "/courses/graphic-designing", "permanent": true },
-    { "source": "/courses/diploma-in-textile-design", "destination": "/courses/textile-designing", "permanent": true },
-    { "source": "/courses/bachelors-in-graphic-design", "destination": "/courses/graphic-designing", "permanent": true },
-    { "source": "/locations", "destination": "/centers-across-india", "permanent": true },
-    { "source": "/courses/masters-in-animation", "destination": "/courses/animation-and-vfx", "permanent": true },
-    { "source": "/courses/diploma-in-jewellery-design", "destination": "/courses/jewellery-designing", "permanent": true },
-    { "source": "/courses/advanced-diploma-in-animation", "destination": "/courses/animation-and-vfx", "permanent": true },
-    { "source": "/luxury-brand-management-msc", "destination": "/courses/msc-luxury-brand-management", "permanent": true }
+    { "source": "/courses/short-term-interior-design-courses(/?)", "destination": "/courses/short-term-courses", "permanent": true },
+    { "source": "/courses/diploma-in-graphic-design(/?)", "destination": "/courses/graphic-designing", "permanent": true },
+    { "source": "/courses/diploma-in-textile-design(/?)", "destination": "/courses/textile-designing", "permanent": true },
+    { "source": "/courses/bachelors-in-graphic-design(/?)", "destination": "/courses/graphic-designing", "permanent": true },
+    { "source": "/locations(/?)", "destination": "/centers-across-india", "permanent": true },
+    { "source": "/courses(/?)", "destination": "/courses", "permanent": true },
+    { "source": "/courses/masters-in-animation(/?)", "destination": "/courses/animation-and-vfx", "permanent": true },
+    { "source": "/courses/diploma-in-jewellery-design(/?)", "destination": "/courses/jewellery-designing", "permanent": true },
+    { "source": "/courses/advanced-diploma-in-animation(/?)", "destination": "/courses/animation-and-vfx", "permanent": true },
+    { "source": "/luxury-brand-management-msc(/?)", "destination": "/courses/msc-luxury-brand-management", "permanent": true }
   ],
   "rewrites": [
     {
