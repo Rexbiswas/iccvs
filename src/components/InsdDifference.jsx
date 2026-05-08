@@ -147,15 +147,15 @@ const InsdDifference = () => {
                                     </div>
                                 </>
                             ) : (
-                                <iframe
-                                    className="w-full h-full"
-                                    src={`https://www.youtube.com/embed/3t4m4f1vaRo?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&controls=1&showinfo=0&origin=${window.location.origin}`}
-                                    title="INSD Difference Video"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
-                                    allowFullScreen
-                                ></iframe>
+                                    <iframe
+                                        className="w-full h-full"
+                                        src={`https://www.youtube.com/embed/3t4m4f1vaRo?autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&controls=1&playsinline=1`}
+                                        title="INSD Difference Video"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        allowFullScreen
+                                    ></iframe>
                             )}
                         </motion.div>
                     </div>

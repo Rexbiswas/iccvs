@@ -825,13 +825,13 @@ const Student = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                            className="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <iframe 
                                 width="100%" 
                                 height="100%" 
-                                src="https://www.youtube.com/embed/FgYVSFwWD9k?autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3" 
+                                src="https://www.youtube.com/embed/FgYVSFwWD9k?autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1" 
                                 title="Unlocking the Best Designing Institute in Pune: INSD PUNE Campus Review" 
                                 frameBorder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
