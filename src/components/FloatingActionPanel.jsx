@@ -3,9 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BackToTop from './BackToTop';
 import AIChatbot from './AIChatbot';
 import WhatsappCTA from './WhatsappCTA';
-import FacebookCTA from './FacebookCTA';
-import InstagramCTA from './InstagramCTA';
-import YoutubeCTA from './YoutubeCTA';
+import SocialPanel from './SocialPanel';
 
 
 const FloatingActionPanel = () => {
@@ -26,9 +24,7 @@ const FloatingActionPanel = () => {
             {/* Persistently Fixed Icons - Always Visible */}
             <div className="flex flex-col items-end gap-4 pointer-events-auto">
                 <BackToTop isFloatingPanel />
-                <YoutubeCTA isFloatingPanel />
-                <InstagramCTA isFloatingPanel />
-                <FacebookCTA isFloatingPanel />
+                <SocialPanel isFloatingPanel />
                 <WhatsappCTA isFloatingPanel />
             </div>
             {/* Scroll-Dependent AI Chatbot (Desktop Only) */}
