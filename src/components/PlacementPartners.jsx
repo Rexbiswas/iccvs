@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -39,20 +39,31 @@ const allLogos = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkD7P83txvJ2sKJ9R5N_-qmQw94coPUq8J5A&s"
 ];
 
-const INITIAL_VISIBLE_COUNT = 15;
+
 
 const PlacementPartners = () => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const visibleLogos = isExpanded ? allLogos : allLogos.slice(0, INITIAL_VISIBLE_COUNT);
+    const [initialCount, setInitialCount] = useState(15);
+    
+    useEffect(() => {
+        const updateCount = () => {
+            setInitialCount(window.innerWidth < 768 ? 10 : 15);
+        };
+        updateCount();
+        window.addEventListener('resize', updateCount);
+        return () => window.removeEventListener('resize', updateCount);
+    }, []);
+
+    const visibleLogos = isExpanded ? allLogos : allLogos.slice(0, initialCount);
 
     return (
-        <section className="bg-[#f6f5f1] py-16 md:py-24 px-6 md:px-12 overflow-hidden rounded-[3rem] md:rounded-[5rem]">
+        <section className="bg-[#f6f5f1] py-12 md:py-24 px-6 md:px-12 overflow-hidden rounded-[3rem] md:rounded-[5rem]">
             <div className="max-w-[1400px] mx-auto">
                 
                 {/* Simple Header Above Grid - Centered */}
-                <div className="flex flex-col items-center justify-center gap-4 mb-12 md:mb-16 text-center">
-                    <div className="w-12 h-1.5 bg-primary rounded-full" />
-                    <h2 className="text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-slate-900">
+                <div className="flex flex-col items-center justify-center gap-3 mb-10 md:mb-16 text-center">
+                    <div className="w-10 h-1 bg-primary rounded-full" />
+                    <h2 className="text-lg md:text-2xl font-black uppercase tracking-[0.15em] md:tracking-[0.2em] text-slate-900 leading-tight">
                         Training and Placement Partners
                     </h2>
                 </div>
@@ -69,7 +80,7 @@ const PlacementPartners = () => {
                                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
                                 transition={{ 
                                     duration: 0.5, 
-                                    delay: isExpanded ? (idx - INITIAL_VISIBLE_COUNT) * 0.05 : idx * 0.05,
+                                    delay: isExpanded ? Math.max(0, (idx - initialCount) * 0.05) : idx * 0.05,
                                     ease: "easeOut"
                                 }}
                                 className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 aspect-[1.8/1] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group"
@@ -86,7 +97,7 @@ const PlacementPartners = () => {
                 </motion.div>
 
                 {/* Show More Action */}
-                {allLogos.length > INITIAL_VISIBLE_COUNT && (
+                {allLogos.length > initialCount && (
                     <motion.div layout className="mt-12 flex justify-center">
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}

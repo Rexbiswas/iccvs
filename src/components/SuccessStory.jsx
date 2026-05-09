@@ -135,11 +135,11 @@ const SuccessStory = () => {
                             ctaText: 'Download Now',
                             successMsg: 'Thank you! Your placement report is being prepared. Our team will also reach out to guide you through our alumni network.'
                         })}
-                        className="group flex items-center gap-6 px-10 h-16 md:h-20 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-clamp-sm hover:bg-primary transition-all duration-500 shadow-2xl"
+                        className="group flex items-center gap-4 md:gap-6 px-6 md:px-10 h-14 md:h-20 bg-slate-950 text-white rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-primary transition-all duration-500 shadow-2xl w-fit"
                     >
-                        Download Placement Report
-                        <div className="p-3 bg-white/10 rounded-full group-hover:rotate-45 transition-transform duration-500">
-                            <ArrowUpRight size={16} />
+                        <span className="whitespace-nowrap">Download Placement Report</span>
+                        <div className="p-2 md:p-3 bg-white/10 rounded-full group-hover:rotate-45 transition-transform duration-500 shrink-0">
+                            <ArrowUpRight size={14} className="md:w-4 md:h-4" />
                         </div>
                     </button>
                 </motion.div>

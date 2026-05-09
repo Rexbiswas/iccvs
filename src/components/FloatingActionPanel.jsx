@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackToTop from './BackToTop';
 import AIChatbot from './AIChatbot';
@@ -9,6 +10,7 @@ import { useRegisterModal } from '../context/RegisterModalContext';
 
 
 const FloatingActionPanel = () => {
+    const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSocialOpen, setIsSocialOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,11 +35,22 @@ const FloatingActionPanel = () => {
             ([entry]) => {
                 setIsFooterVisible(entry.isIntersecting);
             },
-            { threshold: 0.1 }
+            { threshold: 0 }
         );
 
-        const footerElement = document.getElementById('footer');
-        if (footerElement) footerObserver.observe(footerElement);
+        // Function to find and observe footer
+        const observeFooter = () => {
+            const footerElement = document.getElementById('footer');
+            if (footerElement) {
+                footerObserver.observe(footerElement);
+            }
+        };
+
+        // Initial check
+        observeFooter();
+        
+        // Small delay to ensure footer is rendered on page change
+        const timer = setTimeout(observeFooter, 500);
 
         // Initial check and event listener for social panel state
         const checkSocialStatus = () => {
@@ -63,36 +76,41 @@ const FloatingActionPanel = () => {
             window.removeEventListener('scroll', checkScroll);
             window.removeEventListener('social-panel-state', handleSocialState);
             window.removeEventListener('menu-state', handleMenuState);
-            if (footerElement) footerObserver.unobserve(footerElement);
+            footerObserver.disconnect();
+            clearTimeout(timer);
         };
-    }, []);
+    }, [location.pathname]);
 
     return (
-        <div className={`fixed transition-all duration-500 ease-in-out ${isFooterVisible ? 'bottom-75 md:bottom-60' : 'bottom-28 md:bottom-10'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
-            {/* Desktop Persistent Icons */}
-            <div className="hidden lg:flex flex-col items-end gap-4 pointer-events-auto">
+        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[180px] md:bottom-[150px]' : 'bottom-[100px] md:bottom-[40px]'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
+            {/* Persistent Icons - Desktop and Mobile */}
+            <div className="flex flex-col items-end gap-4 pointer-events-auto">
                 <AnimatePresence>
                     {!shouldHideIcons && (
                         <div className="flex flex-col items-end gap-4">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.8 }}
-                            >
-                                <BackToTop isFloatingPanel />
-                            </motion.div>
+                            {/* Desktop BackToTop - Only show after scroll */}
+                            {isScrolled && (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.8 }}
+                                >
+                                    <BackToTop isFloatingPanel />
+                                </motion.div>
+                            )}
                         </div>
                     )}
                 </AnimatePresence>
+                {/* Whatsapp is now persistent on all devices */}
                 <WhatsappCTA isFloatingPanel />
             </div>
 
-            {/* Headless AIChatbot for mobile event listening - Must be outside isScrolled to stay mounted */}
+            {/* Headless AIChatbot for mobile event listening */}
             <div className="lg:hidden pointer-events-auto">
                 <AIChatbot showTrigger={false} isFloatingPanel />
             </div>
 
-            {/* Scroll-Dependent Icons */}
+            {/* Scroll-Dependent Icons (Bot & Social) */}
             <AnimatePresence>
                 {isScrolled && (
                     <motion.div
@@ -101,30 +119,22 @@ const FloatingActionPanel = () => {
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="pointer-events-auto flex flex-col items-end gap-4"
                     >
-                        {/* AIChatbot and Mobile BackToTop hide when social or modals are open */}
-                        <AnimatePresence>
-                            {!shouldHideIcons && (
-                                <motion.div
-                                    key="floating-icons"
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.8 }}
-                                    className="flex flex-col items-end gap-4"
-                                >
-                                    {/* Desktop Scroll-Dependent Bot */}
-                                    <div className="hidden lg:block">
-                                        <AIChatbot isFloatingPanel />
-                                    </div>
+                        {!shouldHideIcons && (
+                            <motion.div
+                                key="floating-extra"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                                className="flex flex-col items-end gap-4"
+                            >
+                                {/* Desktop Bot */}
+                                <div className="hidden lg:block">
+                                    <AIChatbot isFloatingPanel />
+                                </div>
+                            </motion.div>
+                        )}
 
-                                    <div className="lg:hidden flex flex-col items-end gap-4">
-                                        <WhatsappCTA isFloatingPanel />
-                                        <BackToTop isFloatingPanel />
-                                    </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-
-                        {/* SocialPanel - Visible only on desktop, mobile has its own in Navbar */}
+                        {/* SocialPanel - Desktop only */}
                         <div className="hidden lg:block">
                             <SocialPanel 
                                 isFloatingPanel 
