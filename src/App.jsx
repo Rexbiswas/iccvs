@@ -54,6 +54,7 @@ const ThankYou = lazy(() => import('./pages/ThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Components
@@ -139,7 +140,7 @@ function App() {
                                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                                         <Route path="/faq" element={<FAQ />} />
                                         <Route path="/cookie-policy" element={<CookiePolicy />} />
-
+                                        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                                         <Route path="/test-404" element={<NotFound />} />
                                         <Route path="*" element={<NotFound />} />
                                     </Routes>

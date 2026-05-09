@@ -240,6 +240,7 @@ const Footer = () => {
                         <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
                         <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy</Link>
                         <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookies</Link>
+                        <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">Terms</Link>
                     </div>
 
                     <a href="https://www.linkedin.com/in/rishi-biswas-0474a6258/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
