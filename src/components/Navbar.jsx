@@ -11,10 +11,11 @@ import {
 import gsap from 'gsap';
 import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
 import AIChatbot from './AIChatbot';
-import WhatsappCTA from './WhatsappCTA';
 import FacebookCTA from './FacebookCTA';
 import InstagramCTA from './InstagramCTA';
 import YoutubeCTA from './YoutubeCTA';
+import PhoneCTA from './PhoneCTA';
+
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InfoIcon from "@mui/icons-material/Info";
@@ -82,8 +83,15 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleChatbotState = (e) => setIsChatbotOpen(e.detail.isOpen);
+        const handleSocialState = (e) => setIsSocialMenuOpen(e.detail.isOpen);
+        
         window.addEventListener('chatbot-state', handleChatbotState);
-        return () => window.removeEventListener('chatbot-state', handleChatbotState);
+        window.addEventListener('social-panel-state', handleSocialState);
+        
+        return () => {
+            window.removeEventListener('chatbot-state', handleChatbotState);
+            window.removeEventListener('social-panel-state', handleSocialState);
+        };
     }, []);
 
     const [expandedItem, setExpandedItem] = useState(null);
@@ -106,7 +114,8 @@ const Navbar = () => {
         '/courses/uiux-design',
         '/courses/beauty-and-makeup',
         '/courses/photography',
-        '/courses/textile-design'
+        '/courses/textile-design',
+        '/student'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
 
@@ -126,6 +135,12 @@ const Navbar = () => {
 
             if (location.pathname === '/') {
                 setIsHeaderDark(currentScroll > 1200 && currentScroll < 4000);
+            } else if (location.pathname === '/student') {
+                // Student page has alternating dark/light sections
+                const isHero = currentScroll < 500;
+                const isExpertFaculties = currentScroll > 1800 && currentScroll < 3200;
+                const isWorkshopChronicles = currentScroll > 4000 && currentScroll < 5200;
+                setIsHeaderDark(isHero || isExpertFaculties || isWorkshopChronicles);
             } else if (is404) {
                 setIsHeaderDark(true);
             } else if (darkPages.includes(location.pathname)) {
@@ -722,7 +737,7 @@ const Navbar = () => {
                                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em] mt-1">Connect with us</p>
                                     </div>
 
-                                    <div className="grid grid-cols-2 w-full gap-4">
+                                    <div className="grid grid-cols-3 w-full gap-y-10 gap-x-2">
                                         <div className="flex flex-col items-center gap-2">
                                             <InstagramCTA isFloatingPanel />
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Instagram</span>
@@ -736,8 +751,20 @@ const Navbar = () => {
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">YouTube</span>
                                         </div>
                                         <div className="flex flex-col items-center gap-2">
-                                            <WhatsappCTA isFloatingPanel />
-                                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">WhatsApp</span>
+                                            <PhoneCTA isFloatingPanel />
+                                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Call Us</span>
+                                        </div>
+                                        <div className="flex flex-col items-center gap-2">
+                                            <button 
+                                                onClick={() => {
+                                                    setIsSocialMenuOpen(false);
+                                                    window.dispatchEvent(new CustomEvent('open-ai-chatbot', { detail: { centered: true } }));
+                                                }}
+                                                className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.3)] flex items-center justify-center border border-white/20 hover:scale-110 transition-transform group"
+                                            >
+                                                <Bot size={24} className="text-white group-hover:rotate-12 transition-transform" />
+                                            </button>
+                                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">AI Assistant</span>
                                         </div>
                                     </div>
 

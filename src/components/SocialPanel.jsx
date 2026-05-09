@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, X } from 'lucide-react';
 import FacebookCTA from './FacebookCTA';
 import InstagramCTA from './InstagramCTA';
 import YoutubeCTA from './YoutubeCTA';
 
-const SocialPanel = ({ isFloatingPanel = false, onToggle }) => {
+const SocialPanel = ({ isFloatingPanel = false, onToggle, isOpen: externalOpen }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // Sync with external state if provided (e.g. from Navbar)
+    useEffect(() => {
+        if (externalOpen !== undefined && externalOpen !== isOpen) {
+            setIsOpen(externalOpen);
+        }
+    }, [externalOpen]);
 
     const togglePanel = () => {
         const nextState = !isOpen;
         setIsOpen(nextState);
         if (onToggle) onToggle(nextState);
+        
+        // Notify others of the state change
+        window.dispatchEvent(new CustomEvent('social-panel-state', { 
+            detail: { isOpen: nextState } 
+        }));
     };
 
     return (

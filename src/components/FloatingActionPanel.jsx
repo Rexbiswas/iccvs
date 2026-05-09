@@ -16,6 +16,8 @@ const FloatingActionPanel = () => {
 
     const isAnyModalOpen = isAdmissionOpen || isRegisterOpen;
 
+    const [isFooterVisible, setIsFooterVisible] = useState(false);
+
     useEffect(() => {
         const checkScroll = () => {
             const show = window.scrollY > 50;
@@ -23,6 +25,17 @@ const FloatingActionPanel = () => {
         };
         checkScroll();
         window.addEventListener('scroll', checkScroll);
+
+        // Footer Intersection Observer
+        const footerObserver = new IntersectionObserver(
+            ([entry]) => {
+                setIsFooterVisible(entry.isIntersecting);
+            },
+            { threshold: 0.1 }
+        );
+
+        const footerElement = document.getElementById('footer');
+        if (footerElement) footerObserver.observe(footerElement);
 
         // Initial check and event listener for social panel state
         const checkSocialStatus = () => {
@@ -40,22 +53,25 @@ const FloatingActionPanel = () => {
         return () => {
             window.removeEventListener('scroll', checkScroll);
             window.removeEventListener('social-panel-state', handleSocialState);
+            if (footerElement) footerObserver.unobserve(footerElement);
         };
     }, []);
 
     return (
-        <div className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none">
+        <div className={`fixed transition-all duration-500 ease-in-out ${isFooterVisible ? 'bottom-75 md:bottom-60' : 'bottom-28 md:bottom-10'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
             {/* Desktop Persistent Icons */}
             <div className="hidden lg:flex flex-col items-end gap-4 pointer-events-auto">
                 <AnimatePresence>
                     {!isSocialOpen && !isAnyModalOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                        >
-                            <BackToTop isFloatingPanel />
-                        </motion.div>
+                        <div className="flex flex-col items-end gap-4">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                            >
+                                <BackToTop isFloatingPanel />
+                            </motion.div>
+                        </div>
                     )}
                 </AnimatePresence>
                 <WhatsappCTA isFloatingPanel />
@@ -80,17 +96,30 @@ const FloatingActionPanel = () => {
                                     exit={{ opacity: 0, scale: 0.8 }}
                                     className="flex flex-col items-end gap-4"
                                 >
-                                    <AIChatbot isFloatingPanel />
-                                    <div className="lg:hidden">
+                                    {/* Desktop Scroll-Dependent Bot */}
+                                    <div className="hidden lg:block">
+                                        <AIChatbot isFloatingPanel />
+                                    </div>
+
+                                    <div className="lg:hidden flex flex-col items-end gap-4">
+                                        <WhatsappCTA isFloatingPanel />
                                         <BackToTop isFloatingPanel />
                                     </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
 
-                        {/* SocialPanel stays visible on desktop to allow closing */}
+                        <div className="lg:hidden">
+                            <AIChatbot showTrigger={false} />
+                        </div>
+
+                        {/* SocialPanel - Visible only on desktop, mobile has its own in Navbar */}
                         <div className="hidden lg:block">
-                            <SocialPanel isFloatingPanel onToggle={(open) => setIsSocialOpen(open)} />
+                            <SocialPanel 
+                                isFloatingPanel 
+                                isOpen={isSocialOpen}
+                                onToggle={(open) => setIsSocialOpen(open)} 
+                            />
                         </div>
                     </motion.div>
                 )}

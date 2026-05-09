@@ -4,7 +4,7 @@ import { MessageCircle, X, Bot, Minus, SendHorizonal, User, LayoutDashboard, Log
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const AIChatbot = ({ isFloatingPanel = false, hideWindow = false }) => {
+const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = true }) => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
@@ -349,83 +349,85 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false }) => {
             </AnimatePresence>
 
             {/* Trigger Button & Tooltip Container */}
-            <div className="relative">
-                {/* Tooltip */}
-                {!isOpen && (
-                    <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl">
-                        {user ? `Helping ${user.name.split(' ')[0]}` : "INSD Assistance"}
-                        <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-slate-900 rotate-45" />
-                    </div>
-                )}
-
-                {/* Trigger Button */}
-                <motion.button
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsOpen(!isOpen)}
-                    className={`relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl transition-all duration-500 overflow-hidden ${isOpen
-                        ? 'bg-slate-900 border-slate-800 rotate-90'
-                        : 'bg-white/90 backdrop-blur-xl border-slate-100 hover:border-primary/30'
-                        } border shadow-[0_10px_30px_rgba(0,0,0,0.1)]`}
-                >
-                    <div className={`absolute inset-0 bg-linear-to-tr from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isOpen ? 'opacity-100' : ''}`} />
-
-                    <AnimatePresence mode="wait">
-                        {isOpen ? (
-                            <motion.div
-                                key="close"
-                                initial={{ rotate: -90, opacity: 0 }}
-                                animate={{ rotate: 0, opacity: 1 }}
-                                exit={{ rotate: 90, opacity: 0 }}
-                            >
-                                <X className="relative z-10 text-white" size={24} />
-                            </motion.div>
-                        ) : (
-                            <motion.div
-                                key="open"
-                                initial={{ rotate: 90, opacity: 0 }}
-                                animate={{ rotate: 0, opacity: 1 }}
-                                exit={{ rotate: -90, opacity: 0 }}
-                                className="relative w-full h-full flex items-center justify-center p-2"
-                            >
-                                {/* Futuristic AI Avatar Icon */}
-                                <div className="relative w-full h-full flex items-center justify-center">
-                                    <svg viewBox="0 0 24 24" className="w-7 h-7 text-slate-800 group-hover:text-white transition-all duration-300 fill-none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" strokeOpacity="0.2" />
-                                        <path d="M7 12h2m6 0h2m-5-5v2m0 6v2" strokeLinecap="round" />
-                                        <rect x="6" y="9" width="12" height="6" rx="3" className="group-hover:stroke-white transition-colors" />
-                                        <motion.circle
-                                            cx="9" cy="12" r="1.5"
-                                            animate={{ scaleY: [1, 0.1, 1] }}
-                                            transition={{ duration: 3, repeat: Infinity, times: [0, 0.1, 0.2] }}
-                                            className="fill-primary group-hover:fill-white"
-                                        />
-                                        <motion.circle
-                                            cx="15" cy="12" r="1.5"
-                                            animate={{ scaleY: [1, 0.1, 1] }}
-                                            transition={{ duration: 3, repeat: Infinity, times: [0, 0.1, 0.2] }}
-                                            className="fill-primary group-hover:fill-white"
-                                        />
-                                        <motion.path
-                                            d="M7 12h10"
-                                            animate={{ opacity: [0, 1, 0], y: [-2, 2, -2] }}
-                                            transition={{ duration: 2, repeat: Infinity }}
-                                            strokeWidth="0.5"
-                                            className="stroke-primary/50 group-hover:stroke-white/50"
-                                        />
-                                    </svg>
-                                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary border-2 border-white rounded-full z-20 group-hover:border-primary transition-colors shadow-sm" />
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Pulse Ring */}
+            {showTrigger && (
+                <div className="relative">
+                    {/* Tooltip */}
                     {!isOpen && (
-                    <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-0 group-hover:opacity-100" />
+                        <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl">
+                            {user ? `Helping ${user.name.split(' ')[0]}` : "INSD Assistance"}
+                            <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-slate-900 rotate-45" />
+                        </div>
                     )}
-                </motion.button>
-            </div>
+
+                    {/* Trigger Button */}
+                    <motion.button
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setIsOpen(!isOpen)}
+                        className={`relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl transition-all duration-500 overflow-hidden ${isOpen
+                            ? 'bg-slate-900 border-slate-800 rotate-90'
+                            : 'bg-white/90 backdrop-blur-xl border-slate-100 hover:border-primary/30'
+                            } border shadow-[0_10px_30px_rgba(0,0,0,0.1)]`}
+                    >
+                        <div className={`absolute inset-0 bg-linear-to-tr from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isOpen ? 'opacity-100' : ''}`} />
+
+                        <AnimatePresence mode="wait">
+                            {isOpen ? (
+                                <motion.div
+                                    key="close"
+                                    initial={{ rotate: -90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: 90, opacity: 0 }}
+                                >
+                                    <X className="relative z-10 text-white" size={24} />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="open"
+                                    initial={{ rotate: 90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: -90, opacity: 0 }}
+                                    className="relative w-full h-full flex items-center justify-center p-2"
+                                >
+                                    {/* Futuristic AI Avatar Icon */}
+                                    <div className="relative w-full h-full flex items-center justify-center">
+                                        <svg viewBox="0 0 24 24" className="w-7 h-7 text-slate-800 group-hover:text-white transition-all duration-300 fill-none" stroke="currentColor" strokeWidth="1.5">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" strokeOpacity="0.2" />
+                                            <path d="M7 12h2m6 0h2m-5-5v2m0 6v2" strokeLinecap="round" />
+                                            <rect x="6" y="9" width="12" height="6" rx="3" className="group-hover:stroke-white transition-colors" />
+                                            <motion.circle
+                                                cx="9" cy="12" r="1.5"
+                                                animate={{ scaleY: [1, 0.1, 1] }}
+                                                transition={{ duration: 3, repeat: Infinity, times: [0, 0.1, 0.2] }}
+                                                className="fill-primary group-hover:fill-white"
+                                            />
+                                            <motion.circle
+                                                cx="15" cy="12" r="1.5"
+                                                animate={{ scaleY: [1, 0.1, 1] }}
+                                                transition={{ duration: 3, repeat: Infinity, times: [0, 0.1, 0.2] }}
+                                                className="fill-primary group-hover:fill-white"
+                                            />
+                                            <motion.path
+                                                d="M7 12h10"
+                                                animate={{ opacity: [0, 1, 0], y: [-2, 2, -2] }}
+                                                transition={{ duration: 2, repeat: Infinity }}
+                                                strokeWidth="0.5"
+                                                className="stroke-primary/50 group-hover:stroke-white/50"
+                                            />
+                                        </svg>
+                                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary border-2 border-white rounded-full z-20 group-hover:border-primary transition-colors shadow-sm" />
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+
+                        {/* Pulse Ring */}
+                        {!isOpen && (
+                        <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-0 group-hover:opacity-100" />
+                        )}
+                    </motion.button>
+                </div>
+            )}
         </motion.div>
     );
 

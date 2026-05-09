@@ -211,13 +211,13 @@ const Footer = () => {
                 >
                     {/* Layer 1: The "Ghost" Outline */}
                     {/* Layer 1: The "Ghost" Outline */}
-                    <h1 className="giant-footer-text absolute text-[35vw] font-black text-transparent stroke-text-white/2 select-none whitespace-nowrap leading-none tracking-[-0.05em] uppercase pointer-events-none">
+                    <h1 className="giant-footer-text absolute text-[25vw] lg:text-[35vw] font-black text-transparent stroke-text-white/2 select-none whitespace-nowrap leading-none tracking-[-0.05em] uppercase pointer-events-none">
                         INSD
                     </h1>
 
                     {/* Layer 2: The "Spotlight" Reveal */}
                     <h1
-                        className="giant-footer-text text-[35vw] font-black text-white/15 select-none whitespace-nowrap leading-none tracking-[-0.05em] uppercase pointer-events-none transition-all duration-300"
+                        className="giant-footer-text text-[25vw] lg:text-[35vw] font-black text-white/15 select-none whitespace-nowrap leading-none tracking-[-0.05em] uppercase pointer-events-none transition-all duration-300"
                         style={{
                             maskImage: 'radial-gradient(circle 300px at var(--x) var(--y), black 20%, transparent 100%)',
                             WebkitMaskImage: 'radial-gradient(circle 300px at var(--x) var(--y), black 20%, transparent 100%)',
