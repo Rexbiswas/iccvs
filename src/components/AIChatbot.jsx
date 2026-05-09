@@ -4,6 +4,9 @@ import { MessageCircle, X, Bot, Minus, SendHorizonal, User, LayoutDashboard, Log
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
+// Global state to track open chatbot instances across components
+const openChatbots = new Set();
+
 const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = true }) => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
@@ -14,6 +17,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
     const [isTyping, setIsTyping] = useState(false);
     const [chatHistory, setChatHistory] = useState([]);
     const scrollRef = useRef(null);
+    const instanceId = useRef(Math.random().toString(36).substr(2, 9));
 
     // Initialize chat history with personalized greeting
     useEffect(() => {
@@ -32,16 +36,33 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
     }, [chatHistory, isTyping]);
 
     useEffect(() => {
-        window.dispatchEvent(new CustomEvent('chatbot-state', { 
-            detail: { isOpen } 
-        }));
-
         if (isOpen) {
+            openChatbots.add(instanceId.current);
+        } else {
+            openChatbots.delete(instanceId.current);
+        }
+
+        const isAnyOpen = openChatbots.size > 0;
+        
+        if (isAnyOpen) {
             document.body.classList.add('chatbot-open');
         } else {
             document.body.classList.remove('chatbot-open');
         }
-        return () => document.body.classList.remove('chatbot-open');
+
+        window.dispatchEvent(new CustomEvent('chatbot-state', { 
+            detail: { isOpen: isAnyOpen } 
+        }));
+
+        return () => {
+            openChatbots.delete(instanceId.current);
+            if (openChatbots.size === 0) {
+                document.body.classList.remove('chatbot-open');
+                window.dispatchEvent(new CustomEvent('chatbot-state', { 
+                    detail: { isOpen: false } 
+                }));
+            }
+        };
     }, [isOpen]);
 
     // Visibility logic on scroll
@@ -195,7 +216,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
             className={`${centered 
                 ? 'relative w-full max-w-[400px] h-[600px] max-h-[80vh]' 
                 : 'absolute bottom-full right-0 md:bottom-0 md:right-full mb-4 md:mb-0 md:mr-6 w-[90vw] md:w-[400px] h-[600px] max-h-[70vh]'
-            } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col pointer-events-auto`}
+            } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col pointer-events-auto chatbot-window-active`}
         >
             {/* Header */}
             <div className="p-6 bg-linear-to-r from-primary to-secondary text-white flex items-center justify-between shrink-0">

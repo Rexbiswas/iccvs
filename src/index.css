@@ -611,3 +611,12 @@ body.is-404-page div.fixed.bottom-6.z-50 {
   border: 1px solid rgba(0, 0, 0, 0.05);
   background: rgba(0, 0, 0, 0.02);
 }
+.mobile-bottom-nav {
+  transition: all 0.5s ease-in-out;
+}
+
+body.chatbot-open .mobile-bottom-nav {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 40px) !important;
+}

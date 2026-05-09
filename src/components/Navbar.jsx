@@ -87,12 +87,26 @@ const Navbar = () => {
         
         window.addEventListener('chatbot-state', handleChatbotState);
         window.addEventListener('social-panel-state', handleSocialState);
+
+        // Backup: MutationObserver to track chatbot-open class on body
+        const observer = new MutationObserver(() => {
+            const hasClass = document.body.classList.contains('chatbot-open');
+            if (hasClass !== isChatbotOpen) {
+                setIsChatbotOpen(hasClass);
+            }
+        });
+        
+        observer.observe(document.body, { 
+            attributes: true, 
+            attributeFilter: ['class'] 
+        });
         
         return () => {
             window.removeEventListener('chatbot-state', handleChatbotState);
             window.removeEventListener('social-panel-state', handleSocialState);
+            observer.disconnect();
         };
-    }, []);
+    }, [isChatbotOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -640,7 +654,7 @@ const Navbar = () => {
                 </div>
             </motion.div >
 
-            <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-[1005] lg:hidden transition-all duration-500 ${isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
+            <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-[1005] lg:hidden transition-all duration-500 mobile-bottom-nav ${isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
                 <div className={`w-full h-full flex items-center justify-around px-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen || isSocialMenuOpen ? 'bg-white border-slate-200' : 'bg-white border-white'}`}>
 
                     {/* HOME */}
