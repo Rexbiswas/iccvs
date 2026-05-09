@@ -131,7 +131,8 @@ const Footer = () => {
                                     { name: "Paris Project", path: "/insd-360/paris-project" },
                                     { name: "Awards", path: "/awards-recognition" },
                                     { name: "Enquiry", path: "/apply" },
-                                    { name: "Franchise", path: "/franchise" }
+                                    { name: "Franchise", path: "/franchise" },
+                                    { name: "Terms & Conditions", path: "/terms-and-conditions" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                                         <Link to={item.path} className="text-[13px] text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
@@ -240,7 +241,7 @@ const Footer = () => {
                         <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
                         <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy</Link>
                         <Link to="/cookie-policy" className="hover:text-primary transition-colors">Cookies</Link>
-                        <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">Terms</Link>
+                        <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">Terms and Condition</Link>
                     </div>
 
                     <a href="https://www.linkedin.com/in/rishi-biswas-0474a6258/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">

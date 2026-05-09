@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ShieldCheck, Scale, AlertCircle, Clock, Gavel } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const TermsAndConditions = () => {
     useEffect(() => {
@@ -169,6 +170,7 @@ const TermsAndConditions = () => {
                     </aside>
                 </div>
             </section>
+            <Footer />
         </div>
     );
 };
