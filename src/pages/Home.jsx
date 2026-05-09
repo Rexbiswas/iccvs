@@ -20,7 +20,6 @@ import InstagramGallery from '../components/InstagramGallery';
 import InsdiansByDesign from '../components/InsdiansByDesign';
 import Footer from '../components/Footer';
 import NetworkCounter from '../components/NetworkCounter';
-import BackToTop from '../components/BackToTop';
 import WhyInsd from '../components/WhyInsd';
 import AiFutureDesign from '../components/AiFutureDesign';
 import CelebritySlider from '../components/CelebritySlider';

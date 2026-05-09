@@ -257,6 +257,23 @@ const Navbar = () => {
         }
     }, [isOpen]);
 
+    // Dispatch event and update body class for social panel state to inform other components
+    useEffect(() => {
+        window.dispatchEvent(new CustomEvent('social-panel-state', { 
+            detail: { isOpen: isSocialMenuOpen } 
+        }));
+
+        if (isSocialMenuOpen) {
+            document.body.classList.add('social-hub-open');
+        } else {
+            document.body.classList.remove('social-hub-open');
+        }
+
+        return () => {
+            document.body.classList.remove('social-hub-open');
+        };
+    }, [isSocialMenuOpen]);
+
     // Higher-end variants for the curtain reveal
     const menuVariants = {
         closed: {

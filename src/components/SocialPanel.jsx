@@ -5,10 +5,14 @@ import FacebookCTA from './FacebookCTA';
 import InstagramCTA from './InstagramCTA';
 import YoutubeCTA from './YoutubeCTA';
 
-const SocialPanel = ({ isFloatingPanel = false }) => {
+const SocialPanel = ({ isFloatingPanel = false, onToggle }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const togglePanel = () => setIsOpen(!isOpen);
+    const togglePanel = () => {
+        const nextState = !isOpen;
+        setIsOpen(nextState);
+        if (onToggle) onToggle(nextState);
+    };
 
     return (
         <div className="flex flex-col items-end gap-4 relative">
