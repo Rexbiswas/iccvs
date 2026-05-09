@@ -23,7 +23,7 @@ const FloatingActionPanel = () => {
         <div className="fixed bottom-24 md:bottom-10 right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none">
             {/* Persistently Fixed Icons - Always Visible */}
             <div className="hidden lg:flex flex-col items-end gap-4 pointer-events-auto">
-                <SocialPanel isFloatingPanel />
+                <BackToTop isFloatingPanel />
                 <WhatsappCTA isFloatingPanel />
             </div>
             {/* Scroll-Dependent AI Chatbot (Desktop Only) */}
@@ -35,8 +35,8 @@ const FloatingActionPanel = () => {
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="pointer-events-auto flex flex-col items-end gap-4"
                     >
-                        <BackToTop isFloatingPanel />
                         <AIChatbot isFloatingPanel />
+                        <SocialPanel isFloatingPanel />
                     </motion.div>
                 )}
             </AnimatePresence>
