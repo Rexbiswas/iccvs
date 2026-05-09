@@ -312,20 +312,26 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false }) => {
             {/* Chat Window */}
             <AnimatePresence>
                 {isOpen && !hideWindow && (
-                    isCentered ? (
-                        <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 lg:hidden">
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                onClick={() => { setIsOpen(false); setIsCentered(false); }}
-                                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-                            />
-                            <ChatWindow centered={true} />
-                        </div>
-                    ) : (
-                        <ChatWindow centered={false} />
-                    )
+                    <>
+                        {/* Mobile Backdrop - Global when open on mobile */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => { setIsOpen(false); setIsCentered(false); }}
+                            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[4999] lg:hidden"
+                        />
+                        
+                        {isCentered ? (
+                            <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 lg:hidden">
+                                <ChatWindow centered={true} />
+                            </div>
+                        ) : (
+                            <div className="relative z-[5000]">
+                                <ChatWindow centered={false} />
+                            </div>
+                        )}
+                    </>
                 )}
             </AnimatePresence>
 
