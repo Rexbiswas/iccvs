@@ -328,14 +328,14 @@ const Navbar = () => {
                     borderStyle: "solid",
                 }}
                 ref={navRef}
-                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-4 items-center justify-between pointer-events-auto w-full"
+                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-1.5 items-center justify-between pointer-events-auto w-full"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-20 overflow-hidden" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-14 overflow-hidden" onClick={() => setIsOpen(false)}>
                     <motion.img
                         whileHover={{ scale: 1.1, rotate: 2 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={`h-20 w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
+                        className={`h-14 w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
                         src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                         alt="INSD Logo"
                     />
@@ -352,7 +352,7 @@ const Navbar = () => {
                                 className="hidden md:flex items-center gap-1 lg:gap-2 xl:gap-3 2xl:gap-4"
                             >
                                 <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-4">
+                                    <div className="flex items-center gap-1 cursor-pointer py-2">
                                         <RollerLink
                                             to="/about-us"
                                             colorClass="nav-hover-gradient"
@@ -409,7 +409,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-4">
+                                    <div className="flex items-center gap-1 cursor-pointer py-2">
                                         <RollerLink
                                             to="/courses"
                                             colorClass="nav-hover-gradient"
@@ -463,7 +463,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-4">
+                                    <div className="flex items-center gap-1 cursor-pointer py-2">
                                         <RollerLink
                                             to="#"
                                             colorClass="nav-hover-gradient"
