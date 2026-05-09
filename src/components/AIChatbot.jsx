@@ -195,7 +195,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
             className={`${centered 
                 ? 'relative w-full max-w-[400px] h-[600px] max-h-[80vh]' 
                 : 'absolute bottom-full right-0 md:bottom-0 md:right-full mb-4 md:mb-0 md:mr-6 w-[90vw] md:w-[400px] h-[600px] max-h-[70vh]'
-            } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col`}
+            } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col pointer-events-auto`}
         >
             {/* Header */}
             <div className="p-6 bg-linear-to-r from-primary to-secondary text-white flex items-center justify-between shrink-0">
@@ -320,7 +320,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
             initial={isFloatingPanel ? {} : { opacity: 0, scale: 0.5, y: 50 }}
             animate={isFloatingPanel ? {} : { opacity: 1, scale: 1, y: 0 }}
             exit={isFloatingPanel ? {} : { opacity: 0, scale: 0.5, y: 50 }}
-            className={`${isFloatingPanel ? 'relative flex flex-col items-end' : 'fixed bottom-28 md:bottom-10 right-6 md:right-10 flex flex-col items-end'} z-1000 font-sans group`}
+            className={`${isFloatingPanel ? 'relative flex flex-col items-end' : 'fixed bottom-28 md:bottom-10 right-6 md:right-10 flex flex-col items-end'} z-1000 font-sans group pointer-events-auto`}
         >
             {/* Chat Window */}
             <AnimatePresence>

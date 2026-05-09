@@ -77,6 +77,11 @@ const FloatingActionPanel = () => {
                 <WhatsappCTA isFloatingPanel />
             </div>
 
+            {/* Headless AIChatbot for mobile event listening - Must be outside isScrolled to stay mounted */}
+            <div className="lg:hidden pointer-events-auto">
+                <AIChatbot showTrigger={false} isFloatingPanel />
+            </div>
+
             {/* Scroll-Dependent Icons */}
             <AnimatePresence>
                 {isScrolled && (
@@ -108,10 +113,6 @@ const FloatingActionPanel = () => {
                                 </motion.div>
                             )}
                         </AnimatePresence>
-
-                        <div className="lg:hidden">
-                            <AIChatbot showTrigger={false} />
-                        </div>
 
                         {/* SocialPanel - Visible only on desktop, mobile has its own in Navbar */}
                         <div className="hidden lg:block">
