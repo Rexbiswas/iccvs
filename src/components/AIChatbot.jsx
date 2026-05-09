@@ -31,6 +31,19 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false }) => {
         }
     }, [chatHistory, isTyping]);
 
+    useEffect(() => {
+        window.dispatchEvent(new CustomEvent('chatbot-state', { 
+            detail: { isOpen } 
+        }));
+
+        if (isOpen) {
+            document.body.classList.add('chatbot-open');
+        } else {
+            document.body.classList.remove('chatbot-open');
+        }
+        return () => document.body.classList.remove('chatbot-open');
+    }, [isOpen]);
+
     // Visibility logic on scroll
     useEffect(() => {
         if (isFloatingPanel) return;
@@ -322,15 +335,15 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false }) => {
                             className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[4999] lg:hidden"
                         />
                         
-                        {isCentered ? (
-                            <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 lg:hidden">
-                                <ChatWindow centered={true} />
-                            </div>
-                        ) : (
-                            <div className="relative z-[5000]">
-                                <ChatWindow centered={false} />
-                            </div>
-                        )}
+                        {/* Mobile Centered Layout - Forced on Mobile */}
+                        <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 lg:hidden">
+                            <ChatWindow centered={true} />
+                        </div>
+                        
+                        {/* Desktop Side Layout - Hidden on Mobile */}
+                        <div className="hidden lg:block relative z-[5000]">
+                            <ChatWindow centered={isCentered} />
+                        </div>
                     </>
                 )}
             </AnimatePresence>

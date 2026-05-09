@@ -78,6 +78,13 @@ const Navbar = () => {
     const { user } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
     const [isSocialMenuOpen, setIsSocialMenuOpen] = useState(false);
+    const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
+    useEffect(() => {
+        const handleChatbotState = (e) => setIsChatbotOpen(e.detail.isOpen);
+        window.addEventListener('chatbot-state', handleChatbotState);
+        return () => window.removeEventListener('chatbot-state', handleChatbotState);
+    }, []);
 
     const [expandedItem, setExpandedItem] = useState(null);
     const [expandedSubItem, setExpandedSubItem] = useState(null);
@@ -586,14 +593,14 @@ const Navbar = () => {
                     height: mobileHeight,
                     top: mobileTop,
                     borderRadius: mobileRadius,
-                    backgroundColor: isOpen || isSocialMenuOpen || isAdmissionOpen ? "transparent" : mobileBackground,
-                    backdropFilter: isOpen || isSocialMenuOpen || isAdmissionOpen ? "none" : mobileBackdrop,
-                    WebkitBackdropFilter: isOpen || isSocialMenuOpen || isAdmissionOpen ? "none" : mobileBackdrop,
-                    boxShadow: isOpen || isSocialMenuOpen || isAdmissionOpen ? "none" : mobileShadow,
-                    borderColor: isOpen || isSocialMenuOpen || isAdmissionOpen ? "transparent" : mobileBorder,
+                    backgroundColor: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? "transparent" : mobileBackground,
+                    backdropFilter: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? "none" : mobileBackdrop,
+                    WebkitBackdropFilter: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? "none" : mobileBackdrop,
+                    boxShadow: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? "none" : mobileShadow,
+                    borderColor: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? "transparent" : mobileBorder,
                     borderWidth: "1px",
                     borderStyle: "solid",
-                    opacity: isOpen || isSocialMenuOpen || isAdmissionOpen ? 0 : 1,
+                    opacity: isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? 0 : 1,
                 }}
                 ref={mobileNavRef}
                 className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center pointer-events-none transition-all duration-500"
@@ -609,7 +616,7 @@ const Navbar = () => {
                 </div>
             </motion.div >
 
-            <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-[1005] lg:hidden transition-all duration-500 ${isOpen || isSocialMenuOpen || isAdmissionOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
+            <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-[1005] lg:hidden transition-all duration-500 ${isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
                 <div className={`w-full h-full flex items-center justify-around px-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen || isSocialMenuOpen ? 'bg-white border-slate-200' : 'bg-white border-white'}`}>
 
                     {/* HOME */}
