@@ -82,7 +82,7 @@ const FloatingActionPanel = () => {
     }, [location.pathname]);
 
     return (
-        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[180px] md:bottom-[150px]' : 'bottom-[100px] md:bottom-[40px]'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
+        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[195px] md:bottom-[170px]' : 'bottom-[100px] md:bottom-[40px]'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
             {/* Persistent Icons - Desktop and Mobile */}
             <div className="flex flex-col items-end gap-4 pointer-events-auto">
                 <AnimatePresence>
