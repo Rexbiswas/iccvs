@@ -18,6 +18,7 @@ const Blog = () => {
     const [newPost, setNewPost] = useState({ 
         title: '', 
         excerpt: '', 
+        author: '',
         category: 'Fashion', 
         content: '', 
         image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' 
@@ -139,7 +140,12 @@ const Blog = () => {
         const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
         const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                              post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-        return matchesCategory && matchesSearch;
+        
+        // Filter out locally deleted posts (persistent across refresh)
+        const deletedIds = JSON.parse(localStorage.getItem('deleted_blogs') || '[]');
+        const isNotDeleted = !deletedIds.includes(String(post.id));
+        
+        return matchesCategory && matchesSearch && isNotDeleted;
     });
 
     const handleLike = async (e, postId) => {
@@ -171,12 +177,19 @@ const Blog = () => {
 
         console.log("Attempting to delete post with ID:", postId);
         
-        // Use String conversion to ensure comparison works regardless of type
+        // 1. Permanent Local Storage Deletion (for dummy posts)
+        const deletedIds = JSON.parse(localStorage.getItem('deleted_blogs') || '[]');
+        if (!deletedIds.includes(String(postId))) {
+            localStorage.setItem('deleted_blogs', JSON.stringify([...deletedIds, String(postId)]));
+        }
+
+        // 2. Remove from UI immediately
         setPosts(prev => prev.filter(p => String(p.id) !== String(postId)));
         if (selectedPost && String(selectedPost.id) === String(postId)) {
             setSelectedPost(null);
         }
 
+        // 3. API Deletion (for real DB posts)
         try {
             await axios.delete(`/api/blogs/${postId}`);
         } catch (err) {
@@ -219,12 +232,11 @@ const Blog = () => {
 
     const handleCreatePost = async (e) => {
         e.preventDefault();
-        if (!newPost.title || !newPost.excerpt || !newPost.content) return;
+        if (!newPost.title || !newPost.excerpt || !newPost.content || !newPost.author) return;
         
         try {
             const postObj = {
                 ...newPost,
-                author: "User Student",
                 date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
                 readTime: Math.max(1, Math.ceil(newPost.content.length / 500)) + " min",
                 likes: 0
@@ -236,7 +248,14 @@ const Blog = () => {
                 const finalPost = { ...res.data.blog, id: res.data.blog._id };
                 setPosts([finalPost, ...posts]);
                 setIsWriting(false);
-                setNewPost({ title: '', excerpt: '', category: 'Fashion', content: '', image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' });
+                setNewPost({ 
+                    title: '', 
+                    excerpt: '', 
+                    author: '',
+                    category: 'Fashion', 
+                    content: '', 
+                    image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' 
+                });
             }
         } catch (error) {
             console.error("Error creating blog:", error);
@@ -553,6 +572,18 @@ const Blog = () => {
                                         placeholder="Enter an engaging title..."
                                     />
                                 </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Your Name</label>
+                                    <input 
+                                        type="text" 
+                                        required
+                                        value={newPost.author}
+                                        onChange={e => setNewPost({...newPost, author: e.target.value})}
+                                        className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
+                                        placeholder="Enter your full name..."
+                                    />
+                                </div>
                                 
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Category</label>
@@ -615,9 +646,13 @@ const Blog = () => {
                                 </h1>
                                 
                                 <div className="flex items-center gap-3 mb-10 pb-8 border-b border-slate-100">
-                                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400 text-xs uppercase">U</div>
+                                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400 text-xs uppercase">
+                                        {newPost.author ? newPost.author[0] : 'U'}
+                                    </div>
                                     <div>
-                                        <div className="text-[10px] font-black text-slate-900 uppercase tracking-widest">User Student</div>
+                                        <div className="text-[10px] font-black text-slate-900 uppercase tracking-widest">
+                                            {newPost.author || "Your Name"}
+                                        </div>
                                         <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Just now</div>
                                     </div>
                                 </div>
