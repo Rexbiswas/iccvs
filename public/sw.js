@@ -34,22 +34,54 @@ self.addEventListener('activate', (event) => {
   return self.clients.claim();
 });
 
-// Fetch Event - Network First Strategy for most assets
+// Fetch Event - Stale-While-Revalidate Strategy
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests for caching
   if (event.request.method !== 'GET') return;
 
-  // Skip cross-origin requests
-  if (!event.request.url.startsWith(self.location.origin)) return;
+  const url = new URL(event.request.url);
 
-  // Skip API requests
-  if (event.request.url.includes('/api')) return;
+  // Caching strategy for static assets and images
+  const isImage = url.pathname.match(/\.(jpg|jpeg|png|gif|svg|webp)$/) || 
+                  url.origin.includes('imagekit.io') || 
+                  url.origin.includes('pexels.com') || 
+                  url.origin.includes('unsplash.com');
+  
+  const isStatic = url.pathname.match(/\.(js|css|woff2|woff|ttf)$/) ||
+                   url.origin.includes('gstatic.com') ||
+                   url.origin.includes('googleapis.com');
 
+  if (isImage || isStatic) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(event.request).then((cachedResponse) => {
+          const fetchedResponse = fetch(event.request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(event.request, networkResponse.clone());
+            }
+            return networkResponse;
+          });
+
+          return cachedResponse || fetchedResponse;
+        });
+      })
+    );
+    return;
+  }
+
+  // Navigation requests: Network First, fallback to index.html
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
+
+  // Default: Network First
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        // If successful, clone it and put it in cache
-        if (response && response.status === 200) {
+        if (response && response.status === 200 && url.origin === self.location.origin && !url.pathname.includes('/api')) {
           const responseToCache = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
@@ -57,18 +89,6 @@ self.addEventListener('fetch', (event) => {
         }
         return response;
       })
-      .catch(() => {
-        // If network fails
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // If not in cache and it's a navigation request, return index.html
-          if (event.request.mode === 'navigate') {
-            return caches.match('/index.html');
-          }
-          return undefined;
-        });
-      })
+      .catch(() => caches.match(event.request))
   );
 });
