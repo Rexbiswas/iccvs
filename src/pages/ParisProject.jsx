@@ -96,7 +96,7 @@ const ParisProject = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
-                        className="text-6xl md:text-8xl lg:text-[10rem] font-serif leading-[0.85] tracking-tighter text-slate-900"
+                        className="text-5xl md:text-8xl lg:text-[10rem] font-serif leading-[0.95] md:leading-[0.85] tracking-tighter text-slate-900"
                     >
                         The Paris<br />
                         <span className="text-slate-400 italic font-light">Project.</span>
@@ -208,10 +208,10 @@ const ParisProject = () => {
                 </div>
 
                 <div className="relative z-10 container mx-auto px-6 max-w-7xl flex flex-col items-center">
-                    <div className="text-center mb-16 reveal-up">
-                        <span className="inline-block text-xs uppercase tracking-[0.4em] font-bold text-slate-400 mb-6 border border-slate-300 px-4 py-1 rounded-full bg-white/50 backdrop-blur-md">The Pinnacle</span>
-                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-slate-900 leading-[0.9] tracking-tighter">
-                            Parisian <br /><span className="italic text-slate-400 font-light">Runway.</span>
+                    <div className="text-center mb-16 reveal-up px-4">
+                        <span className="inline-block text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400 mb-6 border border-slate-300 px-4 py-1 rounded-full bg-white/50 backdrop-blur-md">The Pinnacle</span>
+                        <h2 className="text-4xl md:text-7xl lg:text-8xl font-serif text-slate-900 leading-[1] md:leading-[0.9] tracking-tighter">
+                            Parisian <br /><span className="italic text-slate-400 font-light text-3xl md:text-7xl">Runway.</span>
                         </h2>
                     </div>
 
@@ -288,18 +288,18 @@ const ParisProject = () => {
                         transition={{ duration: 1 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-5xl md:text-8xl lg:text-9xl font-serif text-white mb-8 leading-[0.85] tracking-tighter uppercase whitespace-nowrap">
+                        <h2 className="text-4xl md:text-8xl lg:text-9xl font-serif text-white mb-8 leading-[1] md:leading-[0.85] tracking-tighter uppercase">
                             Your Journey to <br />
                             <span className="text-transparent stroke-text-white italic font-serif">The Capital.</span>
                         </h2>
-                        <p className="text-slate-400 mb-16 text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-slate-400 mb-12 md:mb-16 text-base md:text-2xl font-light max-w-2xl mx-auto leading-relaxed px-4">
                             Applications for The Paris Project are highly competitive. <br className="hidden md:block" /> Secure your interview slot today for the upcoming cohort.
                         </p>
                         <motion.button
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(219,52,54,0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setIsParisModalOpen(true)}
-                            className="bg-primary text-white px-20 py-7 text-xs tracking-[0.3em] font-black uppercase transition-all duration-300 shadow-2xl rounded-full"
+                            className="bg-primary text-white px-10 md:px-20 py-5 md:py-7 text-[10px] md:text-xs tracking-[0.3em] font-black uppercase transition-all duration-300 shadow-2xl rounded-full"
                         >
                             Apply for Paris
                         </motion.button>

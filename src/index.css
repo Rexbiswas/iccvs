@@ -543,16 +543,17 @@ body::-webkit-scrollbar {
 
 /* Modal UI Overrides: Hide Navbar when career path modal is active */
 body.hide-navbar nav,
-body.hide-navbar div.md\:flex.fixed.z-1000,
-body.hide-navbar div.md\:hidden.fixed.z-50,
-body.hide-navbar div.fixed.bottom-6.z-50,
+body.hide-navbar .mobile-bottom-nav,
+body.hide-navbar div.lg\:hidden.fixed.top-0.z-50,
+body.hide-navbar div.fixed.bottom-6,
 body.hide-navbar div.z-1001.shadow-2xl,
 body.chatbot-open nav,
-body.chatbot-open .lg\:hidden.fixed.top-0,
+body.chatbot-open .mobile-bottom-nav,
+body.chatbot-open div.lg\:hidden.fixed.top-0.z-50,
 body.chatbot-open .lg\:hidden.fixed.bottom-6,
 body.is-404-page nav,
-body.is-404-page div.md\:flex.fixed.z-1000,
-body.is-404-page div.md\:hidden.fixed.z-50,
+body.is-404-page .mobile-bottom-nav,
+body.is-404-page div.lg\:hidden.fixed.top-0.z-50,
 body.is-404-page div.fixed.bottom-6.z-50 {
   display: none !important;
 }

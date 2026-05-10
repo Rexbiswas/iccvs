@@ -276,7 +276,6 @@ const Navbar = () => {
         },
 
         { title: 'Events', path: '/events', icon: Calendar, section: 'OVERVIEW' },
-        { title: 'Mentors', path: '/mentors', icon: User, section: 'OVERVIEW' },
         { title: 'Blogs', path: '/insd-360/blog', icon: BookOpen, section: 'OVERVIEW' },
         {
             title: 'Contact Us',

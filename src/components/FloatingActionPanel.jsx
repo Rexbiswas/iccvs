@@ -14,10 +14,11 @@ const FloatingActionPanel = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSocialOpen, setIsSocialOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const { isAdmissionOpen } = useAdmissionModal();
     const { isOpen: isRegisterOpen } = useRegisterModal();
 
-    const isAnyModalOpen = isAdmissionOpen || isRegisterOpen;
+    const isAnyModalOpen = isAdmissionOpen || isRegisterOpen || isModalVisible;
     const shouldHideIcons = isSocialOpen || isAnyModalOpen || isMenuOpen;
 
     const [isFooterVisible, setIsFooterVisible] = useState(false);
@@ -56,8 +57,10 @@ const FloatingActionPanel = () => {
         const checkSocialStatus = () => {
             const isBodySocialOpen = document.body.classList.contains('social-hub-open');
             const isBodyMenuOpen = document.body.classList.contains('mobile-menu-open');
+            const isBodyModalOpen = document.body.classList.contains('hide-navbar');
             setIsSocialOpen(isBodySocialOpen);
             setIsMenuOpen(isBodyMenuOpen);
+            setIsModalVisible(isBodyModalOpen);
         };
 
         const handleSocialState = (e) => {
@@ -69,6 +72,14 @@ const FloatingActionPanel = () => {
         };
 
         checkSocialStatus();
+
+        // MutationObserver to track class changes on body (for hide-navbar)
+        const observer = new MutationObserver(checkSocialStatus);
+        observer.observe(document.body, { 
+            attributes: true, 
+            attributeFilter: ['class'] 
+        });
+
         window.addEventListener('social-panel-state', handleSocialState);
         window.addEventListener('menu-state', handleMenuState);
 
@@ -76,18 +87,19 @@ const FloatingActionPanel = () => {
             window.removeEventListener('scroll', checkScroll);
             window.removeEventListener('social-panel-state', handleSocialState);
             window.removeEventListener('menu-state', handleMenuState);
+            observer.disconnect();
             footerObserver.disconnect();
             clearTimeout(timer);
         };
     }, [location.pathname]);
 
     return (
-        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[195px] md:bottom-[170px]' : 'bottom-[100px] md:bottom-[40px]'} right-6 md:right-10 z-[1001] flex flex-col items-end gap-4 pointer-events-none`}>
+        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[195px] md:bottom-[170px]' : 'bottom-[140px] md:bottom-[40px]'} right-4 md:right-10 z-[1001] flex flex-col items-end gap-3 md:gap-4 pointer-events-none`}>
             {/* Persistent Icons - Desktop and Mobile */}
-            <div className="flex flex-col items-end gap-4 pointer-events-auto">
+            <div className="flex flex-col items-end gap-3 md:gap-4 pointer-events-auto">
                 <AnimatePresence>
                     {!shouldHideIcons && (
-                        <div className="flex flex-col items-end gap-4">
+                        <div className="flex flex-col items-end gap-3 md:gap-4">
                             {/* Desktop BackToTop - Only show after scroll */}
                             {isScrolled && (
                                 <motion.div
