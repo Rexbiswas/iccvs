@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { 
     Search, Clock, User, ArrowUpRight, 
     Share2, Heart, BookOpen, ChevronRight,
-    MessageSquare, X, Plus, Edit3
+    MessageSquare, X, Plus, Edit3, Trash2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
@@ -162,7 +162,24 @@ const Blog = () => {
             }
         } catch (err) {
             console.error("Error liking blog:", err);
-            // Revert on failure (simple version: just keep local but log error)
+        }
+    };
+
+    const handleDelete = async (e, postId) => {
+        e.stopPropagation();
+        if (!window.confirm("Are you sure you want to delete this blog?")) return;
+
+        try {
+            const res = await axios.delete(`/api/blogs/${postId}`);
+            if (res.data.success) {
+                setPosts(prev => prev.filter(p => p.id !== postId));
+                if (selectedPost && selectedPost.id === postId) {
+                    setSelectedPost(null);
+                }
+            }
+        } catch (err) {
+            console.error("Error deleting blog:", err);
+            alert("Failed to delete the blog.");
         }
     };
 
@@ -303,7 +320,14 @@ const Blog = () => {
                                             </div>
                                             <span className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">{post.author}</span>
                                         </div>
-                                        <div className="flex items-center gap-3">
+                                        <div className="flex items-center gap-2 md:gap-3">
+                                            <button 
+                                                onClick={(e) => handleDelete(e, post.id)}
+                                                className="p-2 rounded-full hover:bg-slate-100 text-slate-300 hover:text-slate-900 transition-all"
+                                                title="Delete Post"
+                                            >
+                                                <Trash2 size={14} />
+                                            </button>
                                             <button 
                                                 onClick={(e) => handleLike(e, post.id)}
                                                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-all group/like"

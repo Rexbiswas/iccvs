@@ -60,6 +60,17 @@ app.patch('/api/blogs/:id/like', async (req, res) => {
     }
 });
 
+// DELETE a blog
+app.delete('/api/blogs/:id', async (req, res) => {
+    await connectDB();
+    try {
+        await Blog.findByIdAndDelete(req.params.id);
+        res.status(200).json({ success: true, message: "Post deleted" });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+});
+
 // POST new blog
 app.post('/api/blogs', async (req, res) => {
     await connectDB();
