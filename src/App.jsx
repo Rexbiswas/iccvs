@@ -127,6 +127,7 @@ function App() {
                                         <Route path="/apply" element={<Admission />} />
                                         <Route path="/courses/online-courses" element={<OnlineCourse />} />
                                         <Route path="/insd-360/blog" element={<Blog />} />
+                                        <Route path="/blog" element={<Blog />} />
                                         <Route path="/insd-360/fashion-week" element={<FashionWeek />} />
                                         <Route path="/insd-360/paris-project" element={<ParisProject />} />
                                         <Route path="/events" element={<Events />} />

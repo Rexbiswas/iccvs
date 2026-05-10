@@ -15,69 +15,83 @@ const Blog = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedPost, setSelectedPost] = useState(null);
     const [isWriting, setIsWriting] = useState(false);
-    const [newPost, setNewPost] = useState({ title: '', excerpt: '', category: 'Fashion', content: '', image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' });
+    const [newPost, setNewPost] = useState({ 
+        title: '', 
+        excerpt: '', 
+        category: 'Fashion', 
+        content: '', 
+        image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' 
+    });
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const categories = ['All', 'Fashion', 'Interior', 'Graphic', 'Luxury', 'Career'];
 
     const [posts, setPosts] = useState([
         {
-            id: 1,
+            id: "65ed3c2e1f4a5b6c7d8e9f01",
             title: "Sustainable Couture: The Future of Fashion in 2026",
             excerpt: "How ethical material sourcing and zero-waste patterns are redefining the global runway standards.",
             category: "Fashion",
             author: "Dr. Elena Rossi",
             date: "Mar 15, 2026",
             readTime: "6 min",
+            likes: 124,
             image: "https://images.pexels.com/photos/3735641/pexels-photo-3735641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
-            id: 2,
+            id: "65ed3c2e1f4a5b6c7d8e9f02",
             title: "Smart Spaces: Psychology of Color in Living Environments",
             excerpt: "Exploring how interior shades influence mental well-being and productivity in modern urban homes.",
             category: "Interior",
             author: "Ar. Rahul Mehta",
             date: "Mar 12, 2026",
             readTime: "8 min",
+            likes: 89,
             image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
-            id: 3,
+            id: "65ed3c2e1f4a5b6c7d8e9f03",
             title: "Typography & AI: Generative Design in Branding",
             excerpt: "The intersection of algorithmic creativity and traditional type design in the age of neural networks.",
             category: "Graphic",
             author: "Liam Wright",
             date: "Mar 10, 2026",
             readTime: "4 min",
+            likes: 256,
             image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
-            id: 4,
+            id: "65ed3c2e1f4a5b6c7d8e9f04",
             title: "Quiet Luxury: Branding Strategies for the New Era",
             excerpt: "Why subtle elegance and heritage story-telling are winning over loud branding in the luxury market.",
             category: "Luxury",
             author: "Sophia Laurent",
             date: "Mar 05, 2026",
             readTime: "7 min",
+            likes: 112,
             image: "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
-            id: 5,
+            id: "65ed3c2e1f4a5b6c7d8e9f05",
             title: "Designing Your Portfolio for Global Studios",
             excerpt: "A comprehensive guide on what international creative directors look for in a junior design portfolio.",
             category: "Career",
             author: "Sanjay Malhotra",
             date: "Feb 28, 2026",
             readTime: "12 min",
+            likes: 342,
             image: "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         },
         {
-            id: 6,
+            id: "65ed3c2e1f4a5b6c7d8e9f06",
             title: "The Return of Hand-Drawn Illustration in Media",
             excerpt: "Analyzing the resurgence of organic, hand-crafted textures in a predominantly digital advertising space.",
             category: "Graphic",
             author: "Elena Rossi",
             date: "Feb 20, 2026",
             readTime: "5 min",
+            likes: 76,
             image: "https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
     ]);
@@ -98,10 +112,10 @@ const Blog = () => {
 
     useEffect(() => {
         const fetchBlogs = async () => {
+            setIsLoading(true);
             try {
                 const res = await axios.get('/api/blogs');
                 if (res.data.success && res.data.blogs.length > 0) {
-                    // Combine DB posts with hardcoded aesthetics for now
                     const dbPosts = res.data.blogs.map(b => ({
                         ...b,
                         id: b._id
@@ -114,14 +128,43 @@ const Blog = () => {
                 }
             } catch (error) {
                 console.error("Error fetching blogs:", error);
+            } finally {
+                setIsLoading(false);
             }
         };
         fetchBlogs();
     }, []);
 
-    const filteredPosts = activeCategory === 'All' 
-        ? posts 
-        : posts.filter(post => post.category === activeCategory);
+    const filteredPosts = posts.filter(post => {
+        const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+    });
+
+    const handleLike = async (e, postId) => {
+        e.stopPropagation();
+        
+        // Optimistic UI update
+        setPosts(prev => prev.map(p => p.id === postId ? { ...p, likes: (p.likes || 0) + 1 } : p));
+        if (selectedPost && selectedPost.id === postId) {
+            setSelectedPost(prev => ({ ...prev, likes: (prev.likes || 0) + 1 }));
+        }
+
+        try {
+            const res = await axios.patch(`/api/blogs/${postId}/like`);
+            if (res.data.success) {
+                // Confirm server count
+                setPosts(prev => prev.map(p => p.id === postId ? { ...p, likes: res.data.likes } : p));
+                if (selectedPost && selectedPost.id === postId) {
+                    setSelectedPost(prev => ({ ...prev, likes: res.data.likes }));
+                }
+            }
+        } catch (err) {
+            console.error("Error liking blog:", err);
+            // Revert on failure (simple version: just keep local but log error)
+        }
+    };
 
     const handleCreatePost = async (e) => {
         e.preventDefault();
@@ -132,7 +175,8 @@ const Blog = () => {
                 ...newPost,
                 author: "User Student",
                 date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-                readTime: Math.max(1, Math.ceil(newPost.content.length / 500)) + " min"
+                readTime: Math.max(1, Math.ceil(newPost.content.length / 500)) + " min",
+                likes: 0
             };
 
             const res = await axios.post('/api/blogs', postObj);
@@ -145,6 +189,7 @@ const Blog = () => {
             }
         } catch (error) {
             console.error("Error creating blog:", error);
+            alert("Submission failed. Please check your connection.");
         }
     };
 
@@ -170,68 +215,128 @@ const Blog = () => {
                 <div className="max-w-7xl mx-auto space-y-12 text-center relative z-10">
                     <div className="space-y-4">
                         <span className="text-primary font-black uppercase text-[10px] tracking-[0.4em] block">The Official Journal</span>
-                        <h1 className="text-clamp-5xl font-black text-white tracking-tighter leading-[0.9]">
+                        <h1 className="text-4xl md:text-7xl lg:text-[8rem] font-black text-white tracking-tighter leading-[0.9]">
                             INSD <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-white/50 to-secondary">BLOGS.</span>
                         </h1>
                     </div>
 
+                    <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-center gap-4">
+                        <div className="relative w-full">
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+                            <input 
+                                type="text"
+                                placeholder="Search articles, trends, insights..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full h-16 md:h-20 pl-16 pr-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-white placeholder:text-white/40 focus:bg-white focus:text-slate-900 focus:placeholder:text-slate-400 transition-all outline-none text-lg font-bold"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`px-6 md:px-8 py-3 md:py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
+                                    activeCategory === cat 
+                                    ? 'bg-primary text-white shadow-xl shadow-primary/30 scale-105' 
+                                    : 'bg-white/5 text-white/60 hover:bg-white/10 border border-white/10'
+                                }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* --- BLOG GRID --- */}
             <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-24">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-                    {filteredPosts.map((post, idx) => (
-                        <article 
-                            key={post.id}
-                            onClick={() => setSelectedPost(post)}
-                            className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 cursor-pointer"
-                        >
-                            {/* Image Wrapper */}
-                            <div className="relative aspect-16/10 overflow-hidden">
-                                <img 
-                                    src={post.image} 
-                                    alt={post.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute top-6 left-6">
-                                    <span className="px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-slate-900 shadow-lg">
-                                        {post.category}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-8 md:p-10 flex flex-col flex-1 justify-between gap-8">
-                                <div className="space-y-6">
-                                    <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                                        <div className="flex items-center gap-1.5"><Clock size={12} /> {post.readTime}</div>
-                                        <div className="w-1 h-1 bg-slate-200 rounded-full" />
-                                        <div>{post.date}</div>
+                {isLoading ? (
+                    <div className="flex flex-col items-center justify-center py-32 space-y-8">
+                        <div className="w-16 h-16 border-4 border-slate-100 border-t-primary rounded-full animate-spin" />
+                        <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">Curating the latest insights...</p>
+                    </div>
+                ) : filteredPosts.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+                        {filteredPosts.map((post, idx) => (
+                            <article 
+                                key={post.id}
+                                onClick={() => setSelectedPost(post)}
+                                className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 cursor-pointer"
+                            >
+                                {/* Image Wrapper */}
+                                <div className="relative aspect-16/10 overflow-hidden">
+                                    <img 
+                                        src={post.image} 
+                                        alt={post.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    />
+                                    <div className="absolute top-6 left-6">
+                                        <span className="px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-slate-900 shadow-lg">
+                                            {post.category}
+                                        </span>
                                     </div>
-                                    <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter leading-tight group-hover:text-primary transition-colors duration-300">
-                                        {post.title}
-                                    </h3>
-                                    <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium line-clamp-3">
-                                        {post.excerpt}
-                                    </p>
                                 </div>
 
-                                <div className="pt-8 border-t border-slate-50 flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-[10px] uppercase text-slate-500">
-                                            {post.author[0]}
+                                {/* Content */}
+                                <div className="p-8 md:p-10 flex flex-col flex-1 justify-between gap-8">
+                                    <div className="space-y-6">
+                                        <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                            <div className="flex items-center gap-1.5"><Clock size={12} /> {post.readTime}</div>
+                                            <div className="w-1 h-1 bg-slate-200 rounded-full" />
+                                            <div>{post.date}</div>
                                         </div>
-                                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">{post.author}</span>
+                                        <h3 className="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tighter leading-tight group-hover:text-primary transition-colors duration-300">
+                                            {post.title}
+                                        </h3>
+                                        <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium line-clamp-3">
+                                            {post.excerpt}
+                                        </p>
                                     </div>
-                                    <button className="text-primary hover:translate-x-1 transition-transform">
-                                        <ArrowUpRight size={20} />
-                                    </button>
+
+                                    <div className="pt-8 border-t border-slate-50 flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-[10px] uppercase text-slate-500">
+                                                {post.author[0]}
+                                            </div>
+                                            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">{post.author}</span>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <button 
+                                                onClick={(e) => handleLike(e, post.id)}
+                                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-all group/like"
+                                            >
+                                                <Heart size={14} className="group-hover/like:fill-red-500 transition-all" />
+                                                <span className="text-[10px] font-black">{post.likes || 0}</span>
+                                            </button>
+                                            <button className="text-primary hover:translate-x-1 transition-transform">
+                                                <ArrowUpRight size={20} />
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
-                    ))}
-                </div>
+                            </article>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-32 space-y-6">
+                        <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto text-slate-300">
+                            <Search size={40} />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tighter">No articles found</h3>
+                            <p className="text-slate-500 font-medium">We couldn't find any results for "{searchQuery}"</p>
+                        </div>
+                        <button 
+                            onClick={() => {setSearchQuery(''); setActiveCategory('All');}}
+                            className="text-primary font-black uppercase text-[10px] tracking-widest hover:underline"
+                        >
+                            Clear all filters
+                        </button>
+                    </div>
+                )}
 
                 <div className="mt-24 flex items-center justify-center">
                     <button 
@@ -291,7 +396,13 @@ const Blog = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
-                                    <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-primary transition-colors"><Heart size={16} /></button>
+                                    <button 
+                                        onClick={(e) => handleLike(e, selectedPost.id)}
+                                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all group/modal-like"
+                                    >
+                                        <Heart size={16} className="group-hover/modal-like:fill-red-500 transition-all" />
+                                        <span className="text-xs font-black">{selectedPost.likes || 0}</span>
+                                    </button>
                                     <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-primary transition-colors"><Share2 size={16} /></button>
                                 </div>
                             </div>
