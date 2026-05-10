@@ -23,10 +23,8 @@
     { "source": "/luxury-brand-management-msc/", "destination": "/courses/msc-luxury-brand-management", "permanent": true }
   ],
   "rewrites": [
-    {
-      "source": "/((?!api|.*\\.[a-z0-9]+$).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

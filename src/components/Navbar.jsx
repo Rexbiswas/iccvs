@@ -129,15 +129,15 @@ const Navbar = () => {
         '/apply',
         '/insd-360/blog',
         '/entrepreneur',
-        '/courses/fashion-design',
-        '/courses/interior-design',
-        '/courses/graphic-design',
+        '/courses/fashion-designing',
+        '/courses/interior-designing',
+        '/courses/graphic-designing',
         '/courses/animation-and-vfx',
-        '/courses/jewellery-design',
-        '/courses/uiux-design',
+        '/courses/jewellery-designing',
+        '/courses/uiux-designing',
         '/courses/beauty-and-makeup',
         '/courses/photography',
-        '/courses/textile-design',
+        '/courses/textile-designing',
         '/student'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
@@ -244,15 +244,15 @@ const Navbar = () => {
             icon: GraduationCap,
             section: 'OVERVIEW',
             subItems: [
-                { title: 'Fashion Design', path: '/courses/fashion-design', icon: 'fashion', desc: 'Couture & Apparel Design' },
-                { title: 'Interior Design', path: '/courses/interior-design', icon: 'interior', desc: 'Spatial & Interior Styling' },
-                { title: 'Graphic Design', path: '/courses/graphic-design', icon: 'graphic', desc: 'Visual Branding & Media' },
-                { title: 'Animation Design', path: '/courses/animation', icon: 'animation', desc: '3D & Visual FX' },
-                { title: 'Jewellery Design', path: '/courses/jewellery-design', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
-                { title: 'UI/UX Design', path: '/courses/uiux-design', icon: 'uiux', desc: 'User Experience & Interface' },
+                { title: 'Fashion Design', path: '/courses/fashion-designing', icon: 'fashion', desc: 'Couture & Apparel Design' },
+                { title: 'Interior Design', path: '/courses/interior-designing', icon: 'interior', desc: 'Spatial & Interior Styling' },
+                { title: 'Graphic Design', path: '/courses/graphic-designing', icon: 'graphic', desc: 'Visual Branding & Media' },
+                { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
+                { title: 'Jewellery Design', path: '/courses/jewellery-designing', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
+                { title: 'UI/UX Design', path: '/courses/uiux-designing', icon: 'uiux', desc: 'User Experience & Interface' },
                 { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'makeup', desc: 'Aesthetic Arts' },
                 { title: 'Photography', path: '/courses/photography', icon: 'camera', desc: 'Visual Storytelling' },
-                { title: 'Textile Design', path: '/courses/textile-design', icon: 'textile', desc: 'Material Science Arts' },
+                { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
                 { title: 'Short Term Courses', path: '/courses/short-term-courses', icon: 'zap', desc: 'Intensive Skill Modules' },
                 { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
             ]
@@ -469,11 +469,11 @@ const Navbar = () => {
                                         <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none">
                                             <div className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain">
                                                 {[
-                                                    { title: 'Fashion Design', path: '/courses/fashion-design', icon: 'fashion', desc: 'Couture & Apparel Design' },
-                                                    { title: 'Interior Design', path: '/courses/interior-design', icon: 'interior', desc: 'Spatial & Interior Styling' },
-                                                    { title: 'Graphic Design', path: '/courses/graphic-design', icon: 'graphic', desc: 'Visual Branding & Media' },
-                                                    { title: 'Animation Design', path: '/courses/animation', icon: 'animation', desc: '3D & Visual FX' },
-                                                    { title: 'Jewellery Design', path: '/courses/jewellery-design', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
+                                                    { title: 'Fashion Design', path: '/courses/fashion-designing', icon: 'fashion', desc: 'Couture & Apparel Design' },
+                                                    { title: 'Interior Design', path: '/courses/interior-designing', icon: 'interior', desc: 'Spatial & Interior Styling' },
+                                                    { title: 'Graphic Design', path: '/courses/graphic-designing', icon: 'graphic', desc: 'Visual Branding & Media' },
+                                                    { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
+                                                    { title: 'Jewellery Design', path: '/courses/jewellery-designing', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
                                                     { title: 'UI/UX Design', path: '/courses/uiux-designing', icon: 'uiux', desc: 'User Experience & Interface' },
                                                     { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
                                                     { title: 'Photography', path: '/courses/photography', icon: 'photography', desc: 'Visual Storytelling Art' },

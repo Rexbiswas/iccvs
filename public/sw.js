@@ -58,8 +58,17 @@ self.addEventListener('fetch', (event) => {
         return response;
       })
       .catch(() => {
-        // If network fails, try cache
-        return caches.match(event.request);
+        // If network fails
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // If not in cache and it's a navigation request, return index.html
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+          return undefined;
+        });
       })
   );
 });

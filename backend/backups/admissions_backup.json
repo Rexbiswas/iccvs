@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "timestamp": "2026-05-10T07:47:38.797Z",
+    "data": {
+      "name": "Rishi Biswas",
+      "mobile": "+919625065557",
+      "email": "rexbiswas1@gmail.com",
+      "qualification": "Completed 10th",
+      "course": "Textile Design",
+      "state": "Odisha",
+      "city": "Rourkela"
+    }
+  }
+]

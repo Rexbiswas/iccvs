@@ -90,16 +90,16 @@ const Footer = () => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-                                    { name: "Fashion Design", path: "/courses/fashion-design" },
-                                    { name: "Interior Design", path: "/courses/interior-design" },
-                                    { name: "Graphic Design", path: "/courses/graphic-design" },
-                                    { name: "Animation Design", path: "/courses/animation" },
-                                    { name: "Jewellery Design", path: "/courses/jewellery-design" },
-                                    { name: "UI/UX Design", path: "/courses/uiux-design" },
+                                    { name: "Fashion Design", path: "/courses/fashion-designing" },
+                                    { name: "Interior Design", path: "/courses/interior-designing" },
+                                    { name: "Graphic Design", path: "/courses/graphic-designing" },
+                                    { name: "Animation Design", path: "/courses/animation-and-vfx" },
+                                    { name: "Jewellery Design", path: "/courses/jewellery-designing" },
+                                    { name: "UI/UX Design", path: "/courses/uiux-designing" },
                                     { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
                                     { name: "Photography", path: "/courses/photography" },
-                                    { name: "Textile Design", path: "/courses/textile-design" },
-                                    { name: "Short Term Courses", path: "/courses" },
+                                    { name: "Textile Design", path: "/courses/textile-designing" },
+                                    { name: "Short Term Courses", path: "/courses/short-term-courses" },
                                     { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" }
                                 ].map((item, i) => (
                                     <motion.li
