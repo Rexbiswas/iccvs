@@ -53,115 +53,119 @@ const Blog = () => {
 
     const categoryImages = {
         Fashion: [
-            "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg",
-            "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg",
-            "https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg",
-            "https://images.pexels.com/photos/2730812/pexels-photo-2730812.jpeg",
-            "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg",
-            "https://images.pexels.com/photos/1488507/pexels-photo-1488507.jpeg",
-            "https://images.pexels.com/photos/1154861/pexels-photo-1154861.jpeg",
-            "https://images.pexels.com/photos/934063/pexels-photo-934063.jpeg",
-            "https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg",
-            "https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg",
-            "https://images.pexels.com/photos/1300550/pexels-photo-1300550.jpeg",
-            "https://images.pexels.com/photos/1154861/pexels-photo-1154861.jpeg",
-            "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg",
-            "https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/1488507/pexels-photo-1488507.jpeg"
+            "https://images.unsplash.com/photo-1539109132314-34a77ae7012?w=800&q=80",
+            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+            "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
+            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+            "https://images.unsplash.com/photo-1529139513075-1231982e614d?w=800&q=80",
+            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80",
+            "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+            "https://images.unsplash.com/photo-1564485371866-c5602058e469?w=800&q=80",
+            "https://images.unsplash.com/photo-1581044777072-4767793a62d1?w=800&q=80",
+            "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80",
+            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+            "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=800&q=80",
+            "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=80",
+            "https://images.unsplash.com/photo-1479064566235-aa6a00b63bb3?w=800&q=80",
+            "https://images.unsplash.com/photo-1537832816519-689ad163238b?w=800&q=80",
+            "https://images.unsplash.com/photo-1507702553912-a15641e827c8?w=800&q=80",
+            "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800&q=80",
+            "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
+            "https://images.unsplash.com/photo-1524041255072-7da0525d6b3b?w=800&q=80",
+            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80"
         ],
         Interior: [
-            "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
-            "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
-            "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
-            "https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg",
-            "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg",
-            "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
-            "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg",
-            "https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg",
-            "https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg",
-            "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg",
-            "https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg",
-            "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg",
-            "https://images.pexels.com/photos/245208/pexels-photo-245208.jpeg",
-            "https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg",
-            "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg",
-            "https://images.pexels.com/photos/1571471/pexels-photo-1571471.jpeg",
-            "https://images.pexels.com/photos/1571457/pexels-photo-1571457.jpeg",
-            "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg",
-            "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
-            "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg"
+            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
+            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+            "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80",
+            "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=800&q=80",
+            "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80",
+            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
+            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
+            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
+            "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&q=80",
+            "https://images.unsplash.com/photo-1616594831818-83792033009d?w=800&q=80",
+            "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
+            "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=800&q=80",
+            "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=800&q=80",
+            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
+            "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80",
+            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
+            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
+            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
+            "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&q=80"
         ],
         Graphic: [
-            "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg",
-            "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg",
-            "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-            "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg",
-            "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
-            "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
-            "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg",
-            "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg",
-            "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg",
-            "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg",
-            "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg",
-            "https://images.pexels.com/photos/3184460/pexels-photo-3184460.jpeg",
-            "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
-            "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-            "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-            "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg",
-            "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
-            "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg",
-            "https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg",
-            "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg"
+            "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+            "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&q=80",
+            "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80",
+            "https://images.unsplash.com/photo-1541462608141-ad60346369c0?w=800&q=80",
+            "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
+            "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
+            "https://images.unsplash.com/photo-1614036417651-efe591214971?w=800&q=80",
+            "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80",
+            "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&q=80",
+            "https://images.unsplash.com/photo-1557682257-2f9c37a3a5f3?w=800&q=80",
+            "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&q=80",
+            "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=800&q=80",
+            "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=800&q=80",
+            "https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=800&q=80",
+            "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+            "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+            "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
+            "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80",
+            "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+            "https://images.unsplash.com/photo-1550439062-609e1531270e?w=800&q=80"
         ],
         Luxury: [
-            "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg",
-            "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg",
-            "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg",
-            "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg",
-            "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg",
-            "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg",
-            "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg",
-            "https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg",
-            "https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg"
+            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+            "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=800&q=80",
+            "https://images.unsplash.com/photo-1560243563-062bff001d68?w=800&q=80",
+            "https://images.unsplash.com/photo-1556905055-8f358a7a4bb4?w=800&q=80",
+            "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?w=800&q=80",
+            "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&q=80",
+            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80",
+            "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&q=80",
+            "https://images.unsplash.com/photo-1551028150-64b9f398f678?w=800&q=80",
+            "https://images.unsplash.com/photo-1551201602-3f945eca1150?w=800&q=80",
+            "https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?w=800&q=80",
+            "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&q=80",
+            "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
+            "https://images.unsplash.com/photo-1556905055-8f358a7a4bb4?w=800&q=80",
+            "https://images.unsplash.com/photo-1560243563-062bff001d68?w=800&q=80",
+            "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=800&q=80",
+            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+            "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?w=800&q=80",
+            "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&q=80",
+            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80"
         ],
         Career: [
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
-            "https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg",
-            "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg",
-            "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
+            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+            "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
+            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+            "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
+            "https://images.unsplash.com/photo-1521791136064-7986c2959d93?w=800&q=80",
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+            "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
+            "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
+            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
         ]
+    };
+
+    const handleImageError = (e) => {
+        e.target.src = "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=800&q=80"; // Professional Design Fallback
     };
 
     const handleTemplateSelect = (category) => {
@@ -438,6 +442,7 @@ const Blog = () => {
                         src="https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG" 
                         alt="INSD Campus Life" 
                         className="w-full h-full object-cover scale-105"
+                        onError={handleImageError}
                     />
                     <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px]" />
                 </div>
@@ -502,6 +507,7 @@ const Blog = () => {
                                         src={post.image} 
                                         alt={post.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                        onError={handleImageError}
                                     />
                                     <div className="absolute top-6 left-6">
                                         <span className="px-4 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-slate-900 shadow-lg">
@@ -629,7 +635,7 @@ const Blog = () => {
                         </button>
                         
                         <div className="w-full h-48 sm:h-64 md:h-80 relative shrink-0">
-                            <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-full object-cover" />
+                            <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-full object-cover" onError={handleImageError} />
                             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                             <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 pr-6">
                                 <span className="px-4 py-1.5 bg-primary rounded-full text-[10px] font-black uppercase tracking-widest text-white mb-4 inline-block">
@@ -754,7 +760,7 @@ const Blog = () => {
                                                 : 'opacity-60 hover:opacity-100'
                                             }`}
                                         >
-                                            <img src={img} className="w-full h-full object-cover" alt={`Template ${i}`} />
+                                            <img src={img} className="w-full h-full object-cover" alt={`Template ${i}`} onError={handleImageError} />
                                             {newPost.image === img && (
                                                 <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
                                                     <div className="bg-white rounded-full p-1"><Plus size={10} className="text-primary rotate-45" /></div>
