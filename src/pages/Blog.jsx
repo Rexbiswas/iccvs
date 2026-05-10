@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Search, Clock, User, ArrowUpRight, 
     Share2, Heart, BookOpen, ChevronRight,
@@ -183,6 +183,39 @@ const Blog = () => {
         }
     };
 
+    const [copySuccess, setCopySuccess] = useState(false);
+
+    const handleShare = async (e, post) => {
+        e.stopPropagation();
+        const shareUrl = `${window.location.origin}/blog?id=${post.id}`;
+        
+        try {
+            // Try Native Share first if available and on HTTPS
+            if (navigator.share && window.isSecureContext) {
+                await navigator.share({
+                    title: post.title,
+                    text: post.excerpt,
+                    url: shareUrl
+                });
+            } else {
+                // Fallback to Clipboard
+                await navigator.clipboard.writeText(shareUrl);
+                setCopySuccess(true);
+                setTimeout(() => setCopySuccess(false), 3000);
+            }
+        } catch (err) {
+            console.error("Share failed:", err);
+            // Forced fallback if navigator.share was cancelled or failed
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                setCopySuccess(true);
+                setTimeout(() => setCopySuccess(false), 3000);
+            } catch (clipErr) {
+                console.error("Final fallback failed:", clipErr);
+            }
+        }
+    };
+
     const handleCreatePost = async (e) => {
         e.preventDefault();
         if (!newPost.title || !newPost.excerpt || !newPost.content) return;
@@ -323,10 +356,10 @@ const Blog = () => {
                                         <div className="flex items-center gap-2 md:gap-3">
                                             <button 
                                                 onClick={(e) => handleDelete(e, post.id)}
-                                                className="p-2 rounded-full hover:bg-slate-100 text-slate-300 hover:text-slate-900 transition-all"
+                                                className="p-2.5 rounded-full bg-slate-50 text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all shadow-sm"
                                                 title="Delete Post"
                                             >
-                                                <Trash2 size={14} />
+                                                <Trash2 size={16} />
                                             </button>
                                             <button 
                                                 onClick={(e) => handleLike(e, post.id)}
@@ -334,6 +367,13 @@ const Blog = () => {
                                             >
                                                 <Heart size={14} className="group-hover/like:fill-red-500 transition-all" />
                                                 <span className="text-[10px] font-black">{post.likes || 0}</span>
+                                            </button>
+                                            <button 
+                                                onClick={(e) => handleShare(e, post)}
+                                                className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-primary transition-all"
+                                                title="Share Article"
+                                            >
+                                                <Share2 size={14} />
                                             </button>
                                             <button className="text-primary hover:translate-x-1 transition-transform">
                                                 <ArrowUpRight size={20} />
@@ -375,6 +415,21 @@ const Blog = () => {
 
 
             <Footer />
+
+            {/* --- SHARE NOTIFICATION --- */}
+            <AnimatePresence>
+                {copySuccess && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 100 }}
+                        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[10000] bg-slate-900 text-white px-8 py-4 rounded-full font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl flex items-center gap-3 border border-white/10"
+                    >
+                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                        Link Copied to Clipboard
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* --- READ MODAL --- */}
             {selectedPost && createPortal(
@@ -421,13 +476,26 @@ const Blog = () => {
                                 </div>
                                 <div className="flex gap-2">
                                     <button 
+                                        onClick={(e) => handleDelete(e, selectedPost.id)}
+                                        className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all"
+                                        title="Delete Article"
+                                    >
+                                        <Trash2 size={16} />
+                                    </button>
+                                    <button 
                                         onClick={(e) => handleLike(e, selectedPost.id)}
                                         className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all group/modal-like"
                                     >
                                         <Heart size={16} className="group-hover/modal-like:fill-red-500 transition-all" />
                                         <span className="text-xs font-black">{selectedPost.likes || 0}</span>
                                     </button>
-                                    <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-primary transition-colors"><Share2 size={16} /></button>
+                                    <button 
+                                        onClick={(e) => handleShare(e, selectedPost)}
+                                        className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-primary transition-colors"
+                                        title="Share Article"
+                                    >
+                                        <Share2 size={16} />
+                                    </button>
                                 </div>
                             </div>
                             
