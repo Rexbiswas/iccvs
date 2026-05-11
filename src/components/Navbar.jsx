@@ -691,6 +691,7 @@ const Navbar = () => {
                     </button>
 
                     {/* SOCIAL (TRIGGER) */}
+                    
                     <button
                         onClick={() => {
                             setIsOpen(false);
