@@ -69,7 +69,9 @@ const AnimationAndVFX = () => {
                     "Principles Of Animation, Media Laws & Ethics",
                     "Film Analysis",
                     "2d Animation"
-                ],
+                ]
+            },
+            "Year 2": {
                 "Semester 3": [
                     "Introduction To 3d Studio Max",
                     "3d Modeling In Max",
@@ -86,7 +88,7 @@ const AnimationAndVFX = () => {
                     "Introduction To Mel Scripting"
                 ]
             },
-            "Year 2": {
+            "Year 3": {
                 "Semester 5": [
                     "Maya Effects, Particles, Dynamics & Rendering Techniques",
                     "Compositing",
@@ -97,7 +99,9 @@ const AnimationAndVFX = () => {
                 ],
                 "Semester 6": [
                     "3d Group Project Or Internship"
-                ],
+                ]
+            },
+            "Year 4": {
                 "Semester 7": [
                     "Industry Projects",
                     "Enterprenuership"
@@ -109,20 +113,28 @@ const AnimationAndVFX = () => {
             }
         },
         PG: {
-            "Year 1": [
-                "Advanced Cinematic Lighting",
-                "Digital Sculpting Mastery",
-                "Cinematic Look Development",
-                "Advanced Dynamics & VFX",
-                "VFX Pipeline Management",
-                "Global Industry Trends"
-            ],
-            "Year 2": [
-                "Master Production Project",
-                "Showreel & Portfolio Lab",
-                "Creative Business Leadership",
-                "Industry Placement Show"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Cinematic Lighting",
+                    "Digital Sculpting Mastery",
+                    "Cinematic Look Development"
+                ],
+                "Semester 2": [
+                    "Advanced Dynamics & VFX",
+                    "VFX Pipeline Management",
+                    "Global Industry Trends"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Master Production Project",
+                    "Showreel & Portfolio Lab"
+                ],
+                "Semester 4": [
+                    "Creative Business Leadership",
+                    "Industry Placement Show"
+                ]
+            }
         }
     };
 

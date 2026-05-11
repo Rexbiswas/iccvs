@@ -78,19 +78,27 @@ const BeautyAndMakeup = () => {
             }
         },
         PG: {
-            "Year 1": [
-                "Advanced Dermal Esthetics",
-                "Film & Cinematic Character Design",
-                "Beauty Business Strategy",
-                "Advanced SFX & Prosthetics",
-                "Artistic Direction in Media"
-            ],
-            "Year 2": [
-                "Professional Portfolio Lab",
-                "Master Research Thesis",
-                "Industry Placement Show",
-                "Final Graduation Gallery"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Dermal Esthetics",
+                    "Film & Cinematic Character Design",
+                    "Beauty Business Strategy"
+                ],
+                "Semester 2": [
+                    "Advanced SFX & Prosthetics",
+                    "Artistic Direction in Media"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Professional Portfolio Lab",
+                    "Master Research Thesis"
+                ],
+                "Semester 4": [
+                    "Industry Placement Show",
+                    "Final Graduation Gallery"
+                ]
+            }
         }
     };
 

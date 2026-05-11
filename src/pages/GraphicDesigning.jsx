@@ -117,19 +117,27 @@ const GraphicDesigning = () => {
             }
         },
         PG: {
-            "Year 1": [
-                "Strategic Design Management",
-                "Advanced Visual Communication",
-                "Interactive Media Design",
-                "Branding & Global Identity",
-                "Design Research Methodology"
-            ],
-            "Year 2": [
-                "Professional Portfolio Lab",
-                "Major Research Thesis",
-                "Design Entrepreneurship",
-                "Final Exhibition & Show"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Strategic Design Management",
+                    "Advanced Visual Communication"
+                ],
+                "Semester 2": [
+                    "Interactive Media Design",
+                    "Branding & Global Identity",
+                    "Design Research Methodology"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Professional Portfolio Lab",
+                    "Major Research Thesis"
+                ],
+                "Semester 4": [
+                    "Design Entrepreneurship",
+                    "Final Exhibition & Show"
+                ]
+            }
         }
     };
 

@@ -66,19 +66,17 @@ const InteriorDesigning = () => {
                 "Semester 1": [
                     "Basics of Drafting",
                     "Basics of Graphics",
-                    "Introduction of Interior Design",
-                    "History of architecture",
-                    "Basics of furniture Design",
-                    "Market survey & Building construction",
-                    "Grooming & communication skills"
+                    "Introduction of Interior designing",
+                    "Introduction of Furniture History",
+                    "Market survey & Building construction ( Part 1 )"
                 ],
                 "Semester 2": [
                     "Application of Drafting",
                     "Application of colors",
-                    "Principle of Interior Design",
+                    "Principle of Interior designing",
                     "History of architecture",
                     "Glossary of furniture",
-                    "Building construction"
+                    "Market Survey & Building Construction part 2"
                 ]
             },
             "Year 2": {
@@ -91,12 +89,11 @@ const InteriorDesigning = () => {
                     "Portfolio development"
                 ],
                 "Semester 4": [
-                    "Building services & estimation",
+                    "Building services",
                     "Urban space planning",
-                    "Elements of Interior Design",
+                    "Elements of Interior designing",
                     "Theory of architecture",
                     "Significance of Furniture",
-                    "Market Dynamics",
                     "Project work"
                 ]
             },
@@ -112,40 +109,70 @@ const InteriorDesigning = () => {
                 ],
                 "Semester 6": [
                     "Interior and exterior treatments",
-                    "Furniture, furnishings and fittings",
-                    "Art and graphics in interior Design",
-                    "Entrepreneurship development",
-                    "Computer aided design",
-                    "Building construction – Part 3",
-                    "Interior Design projects – Part 1"
+                    "Upholstery Furniture & Furnishings",
+                    "Application of Art and graphics in interior designing",
+                    "Interior Designing as a profession",
+                    "CAD ( Commercial )",
+                    "Building Construction Part 4",
+                    "Industrial Skill Project"
                 ]
             },
             "Year 4": {
                 "Semester 7": [
-                    "Industry Projects",
-                    "Enterprenuership"
+                    "Exterior & Interior Designing",
+                    "History of Furniture",
+                    "Art & Graphics in Interior Designing",
+                    "Building Construction part 5",
+                    "Projects & portfolio",
+                    "Furniture & Furnishing"
                 ],
                 "Semester 8": [
-                    "Internship & On the Job Training",
-                    "Market Dynamics"
+                    "Exterior & Interior Designing",
+                    "History of Furniture",
+                    "Art & Graphics in Interior Designing",
+                    "Building Construction part 6",
+                    "Projects & portfolio",
+                    "Furniture & Furnishing"
                 ]
             }
         },
         PG: {
-            "Year 1": [
-                "Advanced Spatial Planning",
-                "Global Design Trends",
-                "Advanced CAD/BIM",
-                "Heritage & Conservation",
-                "Luxury Interior Management",
-                "Environmental Psychology"
-            ],
-            "Year 2": [
-                "Professional Practice & Ethics",
-                "Major Research Project",
-                "Exhibition Design & Showcase",
-                "Final Studio Portfolio"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Construction",
+                    "Graphic, communication & signage",
+                    "Management Process & Behavior",
+                    "Building Services detailed & sequence of activities",
+                    "Studio - 1",
+                    "General Proposal & development of project"
+                ],
+                "Semester 2": [
+                    "Business environment & law",
+                    "Urban design & Planning",
+                    "Furniture design studio",
+                    "Furniture Periodic styles",
+                    "Specification & valuation",
+                    "Studio - 2"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Human Resource Management",
+                    "Theory of aesthetics & space description",
+                    "Analysis & application of multi-view & objective",
+                    "Technical analysis of style & properties of era",
+                    "Modern exterior & interior architecture",
+                    "Studio - 3"
+                ],
+                "Semester 4": [
+                    "Entrepreneurship Development",
+                    "Quantity & cost estimation",
+                    "Asian to modern period designer portfolio",
+                    "Method of construction in Ancient & Modern concept",
+                    "Product Development",
+                    "Industrial Skill Project"
+                ]
+            }
         }
     };
 

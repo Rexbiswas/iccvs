@@ -51,24 +51,32 @@ const JewelleryDesigning = () => {
             ]
         },
         PG: {
-            "Year 1": [
-                "Gemology: Identification & Grading",
-                "Advanced Accessory Design",
-                "Jewelry Illustration & Rendering",
-                "Traditional Metal-smithing",
-                "History of Global Jewelry",
-                "Material Science: Precious Metals",
-                "Jewelry Casting Techniques",
-                "Design Ideation & Sketching"
-            ],
-            "Year 2": [
-                "CAD for Jewelry (Rhino/Matrix)",
-                "Luxury Brand Management",
-                "Diamond Grading & Valuation",
-                "Sustainable Jewelry Practices",
-                "Appraisal & Quality Control",
-                "Professional Portfolio & Exhibition"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Gemology: Identification & Grading",
+                    "Advanced Accessory Design",
+                    "Jewelry Illustration & Rendering",
+                    "Traditional Metal-smithing"
+                ],
+                "Semester 2": [
+                    "History of Global Jewelry",
+                    "Material Science: Precious Metals",
+                    "Jewelry Casting Techniques",
+                    "Design Ideation & Sketching"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "CAD for Jewelry (Rhino/Matrix)",
+                    "Luxury Brand Management",
+                    "Diamond Grading & Valuation"
+                ],
+                "Semester 4": [
+                    "Sustainable Jewelry Practices",
+                    "Appraisal & Quality Control",
+                    "Professional Portfolio & Exhibition"
+                ]
+            }
         },
         Bachelors: {
             "Year 1": {

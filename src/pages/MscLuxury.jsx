@@ -26,44 +26,60 @@ const MscLuxury = () => {
 
     const curriculumData = {
         PG: {
-            year1: [
-                "Advanced Luxury Brand Management",
-                "Consumer Psychology in Luxury",
-                "Luxury Retail Design & Experience",
-                "Global Fashion & Luxury History",
-                "Strategic Marketing for Luxury",
-                "Digital Transformation in Luxury",
-                "Brand Storytelling & Heritage",
-                "Luxury Goods & Services Analysis"
-            ],
-            year2: [
-                "Luxury Fashion Entrepreneurship",
-                "Sustainable Luxury Practices",
-                "Global Supply Chain in Luxury",
-                "PR & Communications Strategy",
-                "Financial Management for Boutiques",
-                "Professional Master's Thesis"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Luxury Brand Management",
+                    "Consumer Psychology in Luxury",
+                    "Luxury Retail Design & Experience",
+                    "Global Fashion & Luxury History"
+                ],
+                "Semester 2": [
+                    "Strategic Marketing for Luxury",
+                    "Digital Transformation in Luxury",
+                    "Brand Storytelling & Heritage",
+                    "Luxury Goods & Services Analysis"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Luxury Fashion Entrepreneurship",
+                    "Sustainable Luxury Practices",
+                    "Global Supply Chain in Luxury"
+                ],
+                "Semester 4": [
+                    "PR & Communications Strategy",
+                    "Financial Management for Boutiques",
+                    "Professional Master's Thesis"
+                ]
+            }
         },
         UG: { // Using UG context for 1 Year Professional courses if applicable
-            year1: [
-                "Fundamentals of Brand Styling",
-                "Luxury Client Servicing",
-                "Retail Operations Basics",
-                "Introduction to Luxury Goods",
-                "Visual Merchandising Basics",
-                "Business Communication",
-                "Event Management for Luxury",
-                "Sales & Client Relationship"
-            ],
-            year2: [
-                "Advanced Boutique Management",
-                "Digital Branding basics",
-                "Luxury Accessories styling",
-                "Portfolio Development",
-                "Trend Forecasting basics",
-                "Final Internship Placement"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Fundamentals of Brand Styling",
+                    "Luxury Client Servicing",
+                    "Retail Operations Basics",
+                    "Introduction to Luxury Goods"
+                ],
+                "Semester 2": [
+                    "Visual Merchandising Basics",
+                    "Business Communication",
+                    "Event Management for Luxury",
+                    "Sales & Client Relationship"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Advanced Boutique Management",
+                    "Digital Branding basics",
+                    "Luxury Accessories styling"
+                ],
+                "Semester 4": [
+                    "Portfolio Development",
+                    "Trend Forecasting basics",
+                    "Final Internship Placement"
+                ]
+            }
         }
     };
 

@@ -48,74 +48,73 @@ const FashionDesigning = () => {
             "Year 1": {
                 "Semester 1": [
                     "Foundation Art",
-                    "Principle of fashion design",
-                    "Intro of Pattern making & GMT",
-                    "Fashion & Apparel design fundamental",
-                    "Practical -1",
-                    "Portfolio Making",
-                    "Practical-2",
-                    "Pattern Making & Grading"
+                    "Introduction of Pattern making",
+                    "Fashion Illustration",
+                    "History of costumes",
+                    "Practical - 1 Sewing Technology",
+                    "Practical - 2 Fashion Project"
                 ],
                 "Semester 2": [
-                    "History of the western world fashion",
-                    "Introduction to textile",
-                    "Grooming & Communication Skills",
-                    "Fashion a design foundation",
-                    "Creative yarn craft",
-                    "Basic of computer Application",
-                    "Practical"
+                    "Design foundation",
+                    "Introduction of Textile",
+                    "Introduction to PMT Part 2",
+                    "Basic embroidery",
+                    "Practical - 1 CAD",
+                    "Practical - 2 GMT"
                 ]
             },
             "Year 2": {
                 "Semester 3": [
-                    "Intro to fashion illustration",
-                    "Sewing Technology",
+                    "Adv. fashion illustration",
                     "Introduction to draping",
-                    "Creative Embroidery",
-                    "Practical -1",
-                    "Inspirations on Project",
-                    "Practical-2",
-                    "Pattern Making & Sewing"
+                    "Pattern making techniques part 1",
+                    "History of indian costumes",
+                    "Practical - 1 inspiration on project",
+                    "Practical - 2- Garment Project"
                 ],
                 "Semester 4": [
-                    "Garment Construction",
-                    "Sewing Technology part-ii",
-                    "Textile science processing",
-                    "Advance Computer",
-                    "History of Indian Fashion",
-                    "Market Dynamics",
-                    "Practical-1",
-                    "Portfolio Development"
+                    "Apparel design",
+                    "Theory of dyeing",
+                    "PMT AND GMT",
+                    "Traditional Embroidery",
+                    "Practical - 1 CAD",
+                    "Practical - 2 Dyeing Project"
                 ]
             },
             "Year 3": {
                 "Semester 5": [
-                    "Fabric Testing a quality control",
                     "Fashion Analysis",
-                    "Vintage costumes",
-                    "History of western world fashion",
-                    "Market Dynamics",
-                    "Practical-1",
-                    "Mood board’s and fashion forecasting",
-                    "Practical -2"
+                    "Quality Control",
+                    "Intro to Painting techniques",
+                    "History of Western world fashion",
+                    "Practical -1 Fashion Forecasting",
+                    "Practical - 2 Men’s Wear Project"
                 ],
                 "Semester 6": [
-                    "Industry Project",
-                    "Visual Merchandising",
-                    "Fashion Accessory",
-                    "Advance Fashion Illustration",
-                    "Production Management",
-                    "Quality Control",
-                    "Entrepreneurship"
+                    "Advanced - fashion illustration - II",
+                    "Surface ornamentation",
+                    "Fashion Merchandising",
+                    "Industry Project & viva",
+                    "Fashion presentation",
+                    "Portfolio development"
                 ]
             },
             "Year 4": {
                 "Semester 7": [
-                    "Industry Projects",
-                    "Entrepreneurship"
+                    "Advanced illustration",
+                    "Commercial pattern Making Apparel",
+                    "Apparel design",
+                    "Art Appreciation",
+                    "Practical 1 - garment Construction",
+                    "Practical 2 - design folio"
                 ],
                 "Semester 8": [
-                    "Internship & On the Job Training"
+                    "Design development",
+                    "Commercial Pattern making - II",
+                    "Entrepreneurship development",
+                    "Apparel design - II",
+                    "Advanced Draping",
+                    "Industry Internship"
                 ]
             }
         },

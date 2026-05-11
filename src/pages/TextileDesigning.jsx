@@ -49,24 +49,32 @@ const TextileDesigning = () => {
             ]
         },
         PG: {
-            "Year 1": [
-                "Advanced Textile Science",
-                "Woven & Non-Woven Structures",
-                "Dyeing & Printing Technology",
-                "Surface Ornamentation Mastery",
-                "History of Global Textiles",
-                "Fiber Analysis & Chemistry",
-                "Sustainable Material Research",
-                "Digital Textile Design (CAD)"
-            ],
-            "Year 2": [
-                "Smart & Functional Textiles",
-                "Luxury Fabric Development",
-                "Global Textile Sourcing",
-                "Apparel Production & Ethics",
-                "Entrepreneurship in Textiles",
-                "Professional Portfolio & Showcase"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Textile Science",
+                    "Woven & Non-Woven Structures",
+                    "Dyeing & Printing Technology",
+                    "Surface Ornamentation Mastery"
+                ],
+                "Semester 2": [
+                    "History of Global Textiles",
+                    "Fiber Analysis & Chemistry",
+                    "Sustainable Material Research",
+                    "Digital Textile Design (CAD)"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Smart & Functional Textiles",
+                    "Luxury Fabric Development",
+                    "Global Textile Sourcing"
+                ],
+                "Semester 4": [
+                    "Apparel Production & Ethics",
+                    "Entrepreneurship in Textiles",
+                    "Professional Portfolio & Showcase"
+                ]
+            }
         },
         Bachelors: {
             "Year 1": {

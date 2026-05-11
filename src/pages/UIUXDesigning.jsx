@@ -103,20 +103,28 @@ const UIUXDesigning = () => {
             }
         },
         PG: {
-            "Year 1": [
-                "Strategic Product Management",
-                "Advanced Interaction Science",
-                "Design Systems at Scale",
-                "AI in Design Workflows",
-                "Digital Transformation Strategy",
-                "Global Design Trends"
-            ],
-            "Year 2": [
-                "Master UX Research Thesis",
-                "Professional Portfolio Lab",
-                "Industry Placement & Mentorship",
-                "Final Graduation Showcase"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Strategic Product Management",
+                    "Advanced Interaction Science",
+                    "Design Systems at Scale"
+                ],
+                "Semester 2": [
+                    "AI in Design Workflows",
+                    "Digital Transformation Strategy",
+                    "Global Design Trends"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Master UX Research Thesis",
+                    "Professional Portfolio Lab"
+                ],
+                "Semester 4": [
+                    "Industry Placement & Mentorship",
+                    "Final Graduation Showcase"
+                ]
+            }
         }
     };
 

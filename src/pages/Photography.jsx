@@ -103,20 +103,28 @@ const Photography = () => {
             }
         },
         PG: {
-            "Year 1": [
-                "Advanced Digital Imaging",
-                "Commercial & Advertising Photography",
-                "Documentary & Photojournalism",
-                "Advanced Lighting Control",
-                "Visual Communication Theory",
-                "Global Trends in Photography"
-            ],
-            "Year 2": [
-                "Master Production Project",
-                "Exhibition & Professional Show",
-                "The Business of Commercial Photography",
-                "Portfolio Masterclass"
-            ]
+            "Year 1": {
+                "Semester 1": [
+                    "Advanced Digital Imaging",
+                    "Commercial & Advertising Photography",
+                    "Documentary & Photojournalism"
+                ],
+                "Semester 2": [
+                    "Advanced Lighting Control",
+                    "Visual Communication Theory",
+                    "Global Trends in Photography"
+                ]
+            },
+            "Year 2": {
+                "Semester 3": [
+                    "Master Production Project",
+                    "Exhibition & Professional Show"
+                ],
+                "Semester 4": [
+                    "The Business of Commercial Photography",
+                    "Portfolio Masterclass"
+                ]
+            }
         }
     };
 
