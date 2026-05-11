@@ -75,8 +75,7 @@ const Contact = () => {
         let finalValue = value;
         
         if (name === 'phone') {
-            finalValue = value.replace(/[^0-9+]/g, '');
-            if (finalValue.indexOf('+') > 0) finalValue = finalValue.replace(/\+/g, '');
+            finalValue = value.replace(/\D/g, '').slice(0, 10);
         }
         
         setFormState({ ...formState, [name]: finalValue });
@@ -288,6 +287,7 @@ const Contact = () => {
                                                 <input
                                                     type="tel"
                                                     name="phone"
+                                                    placeholder="10-digit phone number"
                                                     value={formState.phone}
                                                     onChange={handleChange}
                                                     className="w-full bg-slate-50 border-2 border-slate-100 rounded-xl px-4 py-3 text-slate-800 font-medium focus:border-secondary focus:bg-white transition-all outline-none"

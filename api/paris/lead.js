@@ -47,9 +47,15 @@ export default async function handler(req, res) {
             });
         }
 
-        const { name, email, phone } = req.body;
+        let { name, email, phone } = req.body;
         if (!name || !email || !phone) {
             return res.status(400).json({ success: false, message: 'All fields are required' });
+        }
+
+        // Clean and Validate Phone
+        phone = phone.replace(/\D/g, '');
+        if (phone.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please provide a valid 10-digit mobile number.' });
         }
 
         // Duplicate Check

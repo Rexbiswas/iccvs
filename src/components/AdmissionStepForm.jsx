@@ -224,13 +224,11 @@ const AdmissionStepForm = () => {
                                         <input
                                             required
                                             type="tel"
-                                            placeholder="+91 98765 43210"
+                                            placeholder="00000-00000"
                                             className="w-full h-14 bg-white border-2 border-slate-200 rounded-xl pl-12 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm"
                                             value={formData.phone}
                                             onChange={(e) => {
-                                                let val = e.target.value.replace(/[^0-9+]/g, '');
-                                                if (val.indexOf('+') > 0) val = val.replace(/\+/g, '');
-                                                setFormData({ ...formData, phone: val });
+                                                setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) });
                                             }}
                                         />
                                     </div>

@@ -26,13 +26,9 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
         
         let finalValue = type === 'checkbox' ? checked : value;
         
-        // Only allow numbers and '+' for mobile field
+        // Only allow 10 digit numbers for mobile field
         if (name === 'mobile') {
-            finalValue = value.replace(/[^0-9+]/g, '');
-            // Ensure '+' only at the beginning
-            if (finalValue.indexOf('+') > 0) {
-                finalValue = finalValue.replace(/\+/g, '');
-            }
+            finalValue = value.replace(/\D/g, '').slice(0, 10);
         }
 
         setFormData(prev => ({

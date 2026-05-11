@@ -54,10 +54,16 @@ export default async function handler(req, res) {
             console.log("✅ MongoDB Connected Successfully");
         }
 
+        // 10-Digit Validation
+        const phone = (req.body.phone || req.body.mobile || '').replace(/\D/g, '');
+        if (phone.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please provide a valid 10-digit mobile number.' });
+        }
+
         // Save Lead with field normalization
         const leadData = {
             ...req.body,
-            phone: req.body.phone || req.body.mobile // Support both field names
+            phone: phone // Store the cleaned 10-digit number
         };
 
         // --- DUPLICATE CHECK LOGIC ---

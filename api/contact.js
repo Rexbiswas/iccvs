@@ -41,6 +41,17 @@ export default async function handler(req, res) {
             });
             console.log("✅ MongoDB Connected (Contact)");
         }
+
+        // Clean and Validate Phone
+        const cleanedPhone = (req.body.phone || req.body.mobile || '').replace(/\D/g, '');
+        if (cleanedPhone && cleanedPhone.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please provide a valid 10-digit mobile number.' });
+        }
+        
+        // Normalize phone in body for duplicate check
+        if (req.body.phone) req.body.phone = cleanedPhone;
+        if (req.body.mobile) req.body.mobile = cleanedPhone;
+
         // Duplicate Check
         const existingContact = await Contact.findOne({
             $or: [

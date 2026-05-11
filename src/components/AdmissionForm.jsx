@@ -64,6 +64,13 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+        
+        if (name === 'phone') {
+            const numericValue = value.replace(/\D/g, '').slice(0, 10);
+            setFormData(prev => ({ ...prev, [name]: numericValue }));
+            return;
+        }
+
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value

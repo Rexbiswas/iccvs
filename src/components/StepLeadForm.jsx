@@ -283,10 +283,10 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
                                                         <input
                                                             required
                                                             type="tel"
-                                                            placeholder="Mobile Number"
+                                                            placeholder="10-digit Mobile Number"
                                                             className="w-full h-14 bg-slate-50 border border-slate-100 rounded-xl pl-12 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-secondary/50 transition-all font-bold text-sm"
                                                             value={formData.mobile}
-                                                            onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                                                            onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, '').slice(0, 10) })}
                                                         />
                                                     </div>
                                                 </div>

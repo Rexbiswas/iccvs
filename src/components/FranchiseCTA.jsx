@@ -234,8 +234,8 @@ const FranchiseCTA = () => {
                                                 type="tel" 
                                                 required
                                                 value={formData.mobile}
-                                                onChange={(e) => setFormData({...formData, mobile: e.target.value})}
-                                                placeholder="+91"
+                                                onChange={(e) => setFormData({...formData, mobile: e.target.value.replace(/\D/g, '').slice(0, 10)})}
+                                                placeholder="0000-000-000"
                                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 outline-none text-slate-900 font-medium focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all"
                                             />
                                         </div>

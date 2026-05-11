@@ -27,6 +27,13 @@ export default async function handler(req, res) {
     try {
         if (mongoose.connection.readyState < 1) await mongoose.connect(process.env.MONGO_URI);
         
+        // Clean and Validate Phone
+        const cleanedMobile = (req.body.mobile || req.body.phone || req.body.contact || '').replace(/\D/g, '');
+        if (cleanedMobile.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please provide a valid 10-digit mobile number.' });
+        }
+        req.body.mobile = cleanedMobile; // Normalize to cleaned version
+        
         // Duplicate Check
         const existingLead = await Partner.findOne({
             $or: [

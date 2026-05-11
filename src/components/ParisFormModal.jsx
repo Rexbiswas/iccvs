@@ -147,9 +147,9 @@ const ParisFormModal = ({ isOpen, onClose }) => {
                                                 <input 
                                                     type="tel" 
                                                     required 
-                                                    placeholder="+91 XXXXX XXXXX" 
+                                                    placeholder="10-digit mobile number" 
                                                     value={formData.phone}
-                                                    onChange={e => setFormData({...formData, phone: e.target.value})}
+                                                    onChange={e => setFormData({...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10)})}
                                                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-12 pr-6 py-4 outline-none focus:border-slate-900 focus:bg-white transition-all text-slate-900 font-medium placeholder:text-slate-300"
                                                 />
                                             </div>
