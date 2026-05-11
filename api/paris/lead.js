@@ -52,6 +52,18 @@ export default async function handler(req, res) {
             return res.status(400).json({ success: false, message: 'All fields are required' });
         }
 
+        // Duplicate Check
+        const existingLead = await ParisLead.findOne({
+            $or: [{ email }, { phone }]
+        });
+
+        if (existingLead) {
+            return res.status(409).json({ 
+                success: false, 
+                message: "You have already applied for the Paris Project. Our international desk will contact you soon!" 
+            });
+        }
+
         // Save Lead
         const lead = new ParisLead({ name, email, phone });
         await lead.save();

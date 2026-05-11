@@ -27,6 +27,22 @@ export default async function handler(req, res) {
 
     try {
         if (mongoose.connection.readyState < 1) await mongoose.connect(process.env.MONGO_URI);
+        
+        // Duplicate Check
+        const existingLead = await StepLead.findOne({
+            $or: [
+                { mobile: req.body.mobile },
+                { email: req.body.email }
+            ]
+        });
+
+        if (existingLead) {
+            return res.status(409).json({ 
+                success: false, 
+                message: "This mobile or email is already registered. Our experts will call you soon!" 
+            });
+        }
+
         const lead = new StepLead(req.body);
         await lead.save();
 

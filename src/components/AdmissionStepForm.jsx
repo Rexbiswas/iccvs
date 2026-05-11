@@ -19,6 +19,7 @@ const AdmissionStepForm = () => {
     });
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState(null);
 
     const TOTAL_STEPS = 4;
 
@@ -69,6 +70,7 @@ const AdmissionStepForm = () => {
     const handleSubmit = async (e) => {
         if (e) e.preventDefault();
         setLoading(true);
+        setError(null);
         try {
             const response = await fetch('/api/admission', {
                 method: 'POST',
@@ -78,35 +80,26 @@ const AdmissionStepForm = () => {
                 body: JSON.stringify(formData),
             });
 
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
             const data = await response.json();
-            if (data.success) {
+            
+            if (response.ok && data.success) {
                 setSubmitted(true);
-                // Redirect to Thank You page after a brief delay for consistency
                 setTimeout(() => {
                     navigate('/thank-you', { state: { name: formData.name, type: 'admission' } });
                 }, 1000);
             } else {
+                setError(data.message || 'Submission failed. Please try again.');
                 console.error('Submission failed:', data.message);
-                // Fallback for demo purposes even if backend fails
-                setSubmitted(true);
-                setTimeout(() => {
-                    navigate('/thank-you', { state: { name: formData.name, type: 'admission' } });
-                }, 1000);
+                
+                // If it's a conflict (duplicate), scroll to the error
+                scrollToTop();
             }
-        } catch (error) {
-            console.error('Submission error:', error);
-            // Even if there's an error, we show success to the user for now 
-            setSubmitted(true);
-            setTimeout(() => {
-                navigate('/thank-you', { state: { name: formData.name, type: 'admission' } });
-            }, 1000);
+        } catch (err) {
+            console.error('Submission error:', err);
+            setError(err.message || "An unexpected error occurred. Please try again.");
+            scrollToTop();
         } finally {
             setLoading(false);
-            scrollToTop();
         }
     };
 
@@ -339,6 +332,13 @@ const AdmissionStepForm = () => {
                                     </span>
                                 </label>
                             </div>
+
+                            {error && (
+                                <div className="p-4 rounded-2xl bg-red-50 border border-red-100 flex items-center gap-3 text-red-600 animate-fade-in max-w-lg mx-auto">
+                                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse shrink-0" />
+                                    <span className="text-xs font-bold uppercase tracking-wider text-center flex-1">{error}</span>
+                                </div>
+                            )}
 
                             <button
                                 onClick={handleSubmit}

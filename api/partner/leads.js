@@ -26,6 +26,22 @@ export default async function handler(req, res) {
 
     try {
         if (mongoose.connection.readyState < 1) await mongoose.connect(process.env.MONGO_URI);
+        
+        // Duplicate Check
+        const existingLead = await Partner.findOne({
+            $or: [
+                { email: req.body.email },
+                { mobile: req.body.mobile || req.body.contact }
+            ]
+        });
+
+        if (existingLead) {
+            return res.status(409).json({ 
+                success: false, 
+                message: "You have already submitted an inquiry with this email or mobile. Our team will contact you soon!" 
+            });
+        }
+
         const lead = new Partner(req.body);
         await lead.save();
 

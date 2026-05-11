@@ -41,6 +41,21 @@ export default async function handler(req, res) {
             });
             console.log("✅ MongoDB Connected (Contact)");
         }
+        // Duplicate Check
+        const existingContact = await Contact.findOne({
+            $or: [
+                { phone: req.body.phone },
+                { email: req.body.email }
+            ]
+        });
+
+        if (existingContact) {
+            return res.status(409).json({ 
+                success: false, 
+                message: "A message has already been received from this email/phone. We will get back to you shortly!" 
+            });
+        }
+
         const lead = new Contact(req.body);
         await lead.save();
         console.log(`✅ Contact lead saved: ${req.body.name}`);

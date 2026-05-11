@@ -59,6 +59,23 @@ export default async function handler(req, res) {
             ...req.body,
             phone: req.body.phone || req.body.mobile // Support both field names
         };
+
+        // --- DUPLICATE CHECK LOGIC ---
+        const existingLead = await Admission.findOne({
+            $or: [
+                { phone: leadData.phone },
+                { email: leadData.email }
+            ]
+        });
+
+        if (existingLead) {
+            console.log(`⚠️ Duplicate Lead Attempt: ${leadData.name} (${leadData.phone})`);
+            return res.status(409).json({ 
+                success: false, 
+                message: "You have already submitted an inquiry with this email or phone number. Our team will contact you soon!" 
+            });
+        }
+
         const lead = new Admission(leadData);
         await lead.save();
         console.log(`✅ Lead saved: ${leadData.name}`);

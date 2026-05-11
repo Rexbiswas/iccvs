@@ -96,17 +96,19 @@ const FranchiseCTA = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
+            const data = await response.json();
             if (response.ok) {
                 setIsSuccess(true);
                 setFormData({
                     name: '', mobile: '', email: '', investment: '', preference: '', state: '', city: '', referred: false
                 });
             } else {
-                throw new Error("Submission failed");
+                throw new Error(data.message || "Submission failed");
             }
         } catch (error) {
             console.error('Franchise submission error:', error);
-            alert("There was an error. Please try again.");
+            // Handle error messages from the backend if it was thrown in the try block
+            alert(error.message || "There was an error. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
