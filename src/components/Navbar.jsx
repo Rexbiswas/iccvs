@@ -6,7 +6,7 @@ import SocialIcons from './SocialIcons';
 import {
     Menu as MenuIcon, X, ArrowRight, Home, Sparkles, GraduationCap, LayoutGrid, User,
     Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store,
-    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset, MessageCircle, Bot, Share2
+    Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset, MessageCircle, Bot, Share2, FilePenLine
 } from 'lucide-react';
 import gsap from 'gsap';
 import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
@@ -701,7 +701,7 @@ const Navbar = () => {
                         }}
                         className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 text-slate-900/40 hover:text-slate-900`}
                     >
-                        <Headset size={22} strokeWidth={2} stroke="url(#insd-icon-gradient)" />
+                        <FilePenLine size={22} strokeWidth={2} stroke="url(#insd-icon-gradient)" />
                         <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-80 text-slate-900">Enquiry</span>
                     </button>
 
