@@ -65,10 +65,10 @@ const UIUXDesigning = () => {
                     "Empathy & Understanding Problems"
                 ],
                 "Semester 2": [
-                    "Sketching & Drawing (Advanced)",
+                    "Advanced Sketching & Drawing",
                     "Visual Design Tools",
                     "Technology in Experience Design",
-                    "UX Design (Advanced)",
+                    "Advanced UX Design",
                     "Basics of UI Development",
                     "Integrated Studio for UX"
                 ]
@@ -85,9 +85,9 @@ const UIUXDesigning = () => {
                 ],
                 "Semester 4": [
                     "User Research Application",
-                    "Service Design & Task Flows (Advanced)",
+                    "Advanced Service Design & Task Flows",
                     "Introduction to Interaction Design",
-                    "UI Design (Advanced)",
+                    "Advanced UI Design",
                     "Design Thinking Application",
                     "Data Analytics",
                     "Introduction to 6D"
@@ -99,17 +99,17 @@ const UIUXDesigning = () => {
                     "Usability Testing",
                     "UX & Digitalization",
                     "Innovation Management",
-                    "Visual Design Tools (Advanced)",
-                    "Technology in Experience Design (Advanced)",
+                    "Advanced Visual Design Tools",
+                    "Advanced Technology in Experience Design",
                     "Omnichannel Experience Design"
                 ],
                 "Semester 6": [
-                    "Interaction Design (Advanced)",
+                    "Advanced Interaction Design",
                     "UX Design for Futuristic Technologies",
                     "UX Design for Rural India",
-                    "UI Development (Advanced)",
-                    "Industry Specific UX Design",
-                    "Integrated Studio for UX (Advanced)"
+                    "Advanced UI Development",
+                    "Industry-Specific UX Design",
+                    "Advanced Integrated Studio for UX"
                 ]
             },
             "Year 4": {
@@ -136,7 +136,7 @@ const UIUXDesigning = () => {
                     "Sketching & Visualization for Designers",
                     "Design Tools & Prototyping Basics",
                     "Principles of Management & Organizational Behavior",
-                    "Studio Project I – UI Process Application"
+                    "Studio Project I: UI Process Application"
                 ],
                 "Semester 2": [
                     "User Research & Ethnography",
@@ -145,7 +145,7 @@ const UIUXDesigning = () => {
                     "Accounting & Financial Management for Designers",
                     "Front-End Development for Designers",
                     "Data Analytics for UI",
-                    "Studio Project II – UI Implementation"
+                    "Studio Project II: UI Implementation"
                 ]
             },
             "Year 2": {
@@ -156,7 +156,7 @@ const UIUXDesigning = () => {
                     "UI for Futuristic Technologies",
                     "Product Lifecycle Management",
                     "Marketing Management & Branding Strategy",
-                    "Studio Project III – Product Experience Design"
+                    "Studio Project III: Product Experience Design"
                 ],
                 "Semester 4": [
                     "Gamification & Behavioral Design",
