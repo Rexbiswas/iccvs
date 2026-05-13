@@ -36,21 +36,26 @@ const Photography = () => {
 
     const curriculumData = {
         "Industry Diploma": {
-            "Foundation: Visual Arts": [
-                "Basics of Photography with AI",
-                "History of Photography with AI",
-                "Understanding the Camera with AI",
-                "Elements & Principles of Design with AI",
-                "Indoor & Outdoor Lighting with AI",
-                "Portrait & Landscape Photography with AI"
+            "Semester 1": [
+                "Introduction & History of Photography",
+                "Physical Overview & Anatomy of Camera",
+                "Handling Camera Body & Lens Types",
+                "Digital Camera Sensor Factor & Image Output",
+                "The Exposure Triangle: Aperture, ISO & Shutter Speed",
+                "Motion Blur: Pan, Spiral & Zoom Blur Experiments",
+                "Exposure Metering & Controlling Exposure",
+                "White Balance & White Balance Shift",
+                "Framing, Composition & Case Studies",
+                "Photostory & Lightpainting"
             ],
-            "Industry: Professional Mastery": [
-                "Post-Processing & Digital Editing (Lightroom/Photoshop) with AI",
-                "Product & Still Life Photography with AI",
-                "Fashion & Event Photography with AI",
-                "Composition & Storytelling with AI",
-                "Portfolio Development with AI",
-                "Professional Ethics & Business of Photography with AI"
+            "Semester 2": [
+                "Stop Motion, Timelapse & Hyperlapse Photography",
+                "The Human Eye & Fundamentals of Light",
+                "Light Sources & Characteristics of Light",
+                "Optical Filters & Composition in Practice",
+                "Studio & Outdoor Lighting Techniques",
+                "Image Ratio & Basics of DSLR Video",
+                "Professional Portfolio Development"
             ]
         },
         Bachelors: {

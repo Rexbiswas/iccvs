@@ -36,29 +36,32 @@ const BeautyAndMakeup = () => {
             "Aesthetic Foundations": [
                 "Basic skin care",
                 "Product & Tools knowledge",
-                "Analysing skin type, face shapes, eye shapes",
+                "Analysing skin type, face shapes & eye shapes",
                 "Eyebrow shaping",
                 "Types & Application of Bases",
-                "Contouring / concealing & Corrective Techniques"
+                "Contouring, Concealing & Corrective Techniques"
             ],
             "Makeup Artistry": [
-                "Types of eyeshadows & Application",
-                "Application of eyeliner & Blusher (Matte/liquid)",
-                "Lipstick Application & Fixing of false lashes",
-                "Party look (Day/Night)",
-                "Engagement & Cocktail Glam",
-                "Smokey hot glam look"
+                "Types of eyeshadows & Applications",
+                "Application of Eyeliner & Blusher (Matte/Liquid)",
+                "Lipstick Application & Fixing of False Lashes",
+                "Party Look (Day/Night)",
+                "Engagement Glam & Cocktail Glam",
+                "Smokey Hot Glam Look"
             ],
             "Bridal & Cultural Looks": [
-                "Pakistani & Mehandi look",
-                "Christian & Traditional Bridal look",
-                "Reception glam & Groom makeup"
+                "Pakistani & Mehandi Look",
+                "Christian Bridal Look",
+                "Traditional Bridal Look",
+                "Reception Glam",
+                "Groom Makeup"
             ],
             "Hairstyling Techniques": [
                 "Open Hairdo’s (8-10 types)",
-                "Floral buns & Russian ponytail",
-                "Softy beachy waves & Tong curls",
-                "Accessory & Extensions application"
+                "Floral Buns",
+                "Russian Ponytail",
+                "Softy Beachy Waves & Tong Curls",
+                "Accessory & Extensions Application"
             ],
             "Professional Practice": [
                 "Client Handling & Consultation",

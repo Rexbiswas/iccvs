@@ -53,17 +53,17 @@ const TextileDesigning = () => {
                 "Semester 1": [
                     "Fiber Theory",
                     "Yarn Process",
-                    "management process & Behviour",
+                    "Management Process & Behavior",
                     "Introduction to Dyeing",
-                    "Motif development",
+                    "Motif Development",
                     "Embroideries of India"
                 ],
                 "Semester 2": [
-                    "Traditional Indian textiles",
+                    "Traditional Indian Textiles",
                     "Loom Process",
                     "Weaving Process",
                     "Entrepreneurship Development",
-                    "Surface Ornamentaion techniques",
+                    "Surface Ornamentation Techniques",
                     "Design Development"
                 ]
             },
@@ -73,14 +73,14 @@ const TextileDesigning = () => {
                     "Textile Printing",
                     "Human Resource Management",
                     "Finishing Process",
-                    "Textile Sufrace Design & development"
+                    "Textile Surface Design & Development"
                 ],
                 "Semester 4": [
                     "Knitwear Design",
-                    "Textile testing",
-                    "Sustainability in textiles",
-                    "Elective - ( Technical/ Nanotechnology / Home textiles / Smart textiles )",
-                    "Fabric design development",
+                    "Textile Testing",
+                    "Sustainability in Textiles",
+                    "Elective: Technical / Nanotechnology / Home Textiles / Smart Textiles",
+                    "Fabric Design & Development",
                     "Portfolio Development"
                 ]
             }
@@ -101,7 +101,7 @@ const TextileDesigning = () => {
                     "Advances in Fibre Innovation",
                     "Folk Textiles of India",
                     "Embroideries of India",
-                    "Design Development Design Psychology"
+                    "Design Development & Psychology"
                 ]
             },
             "Year 2": {
@@ -115,45 +115,45 @@ const TextileDesigning = () => {
                 ],
                 "Semester 4": [
                     "Introduction to Dyeing",
-                    "World Textiles loom process",
+                    "World Textiles Loom Process",
                     "Loom Process",
-                    "NON-WOVEN TEXTILES",
-                    "SURFACE ORNAMENTATION TECHNIQUES",
-                    "Computer Graphics ( Photoshop )"
+                    "Non-Woven Textiles",
+                    "Surface Ornamentation Techniques",
+                    "Computer Graphics (Photoshop)"
                 ]
             },
             "Year 3": {
                 "Semester 5": [
-                    "Textile printing",
+                    "Textile Printing",
                     "Knitwear Design",
-                    "textile Finishing",
-                    "fashion Merchandising",
-                    "Computer Aided Designing - I ( DB-Weave )",
+                    "Textile Finishing",
+                    "Fashion Merchandising",
+                    "Computer Aided Designing - I (DB-Weave)",
                     "Textile Surface Design & Development"
                 ],
                 "Semester 6": [
-                    "Textile Mill management",
-                    "Textile testing",
+                    "Textile Mill Management",
+                    "Textile Testing",
                     "Entrepreneurship Development",
                     "Industry Project",
-                    "Computer Aided Designing - II ( DB - Weave )"
+                    "Computer Aided Designing - II (DB-Weave)"
                 ]
             },
             "Year 4": {
                 "Semester 7": [
-                    "Advanced Fabric structures",
-                    "Quality control",
-                    "Elective - Smart textiles / Home textile",
+                    "Advanced Fabric Structures",
+                    "Quality Control",
+                    "Elective: Smart Textiles / Home Textiles",
                     "Market Dynamics",
                     "Fabric Design & Development",
                     "Portfolio Development"
                 ],
                 "Semester 8": [
                     "Leather Design",
-                    "Sustainaibility in Textiles",
-                    "Management & marketing of textile",
-                    "Elective - ( Nanotechnology / Technical textiles )",
-                    "Theme based designing",
+                    "Sustainability in Textiles",
+                    "Management & Marketing of Textiles",
+                    "Elective: Nanotechnology / Technical Textiles",
+                    "Theme-Based Designing",
                     "Internship"
                 ]
             }
