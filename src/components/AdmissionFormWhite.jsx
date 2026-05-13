@@ -8,7 +8,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
-        mobile: '',
+        mobile: '+91',
         email: '',
         qualification: '',
         course: '',
@@ -26,9 +26,14 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
         
         let finalValue = type === 'checkbox' ? checked : value;
         
-        // Only allow 10 digit numbers for mobile field
+        // Only allow 10 digit numbers for mobile field with +91 prefix
         if (name === 'mobile') {
-            finalValue = value.replace(/\D/g, '').slice(0, 10);
+            let val = value;
+            if (!val.startsWith('+91')) {
+                val = '+91' + val.replace(/^\+?91?/, '');
+            }
+            const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+            finalValue = '+91' + digits;
         }
 
         setFormData(prev => ({

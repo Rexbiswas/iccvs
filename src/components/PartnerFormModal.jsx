@@ -6,7 +6,7 @@ const PartnerFormModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        contact: '',
+        contact: '+91',
         company: '',
         industry: '',
         potential: 'Mentor',
@@ -185,7 +185,14 @@ const PartnerFormModal = ({ isOpen, onClose }) => {
                                                     required 
                                                     placeholder="10-digit phone number" 
                                                     value={formData.contact}
-                                                    onChange={e => setFormData({...formData, contact: e.target.value.replace(/\D/g, '').slice(0, 10)})}
+                                                    onChange={e => {
+                                                        let val = e.target.value;
+                                                        if (!val.startsWith('+91')) {
+                                                            val = '+91' + val.replace(/^\+?91?/, '');
+                                                        }
+                                                        const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+                                                        setFormData({...formData, contact: '+91' + digits});
+                                                    }}
                                                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-12 pr-6 py-4 outline-none focus:border-slate-900 focus:bg-white transition-all text-slate-900 font-medium placeholder:text-slate-300"
                                                 />
                                             </div>

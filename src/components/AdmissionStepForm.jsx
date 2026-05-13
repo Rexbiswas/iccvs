@@ -11,7 +11,7 @@ const AdmissionStepForm = () => {
         readyToStart: '',
         industry: '',
         name: '',
-        phone: '',
+        phone: '+91',
         email: '',
         city: '',
         qualification: '',
@@ -231,7 +231,12 @@ const AdmissionStepForm = () => {
                                             className="w-full h-14 bg-white border-2 border-slate-200 rounded-xl pl-12 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm"
                                             value={formData.phone}
                                             onChange={(e) => {
-                                                setFormData({ ...formData, phone: e.target.value });
+                                                let val = e.target.value;
+                                                if (!val.startsWith('+91')) {
+                                                    val = '+91' + val.replace(/^\+?91?/, '');
+                                                }
+                                                const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+                                                setFormData({ ...formData, phone: '+91' + digits });
                                             }}
                                         />
                                     </div>

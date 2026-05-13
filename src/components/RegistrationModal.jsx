@@ -23,7 +23,7 @@ const RegistrationModal = () => {
         state: '',
         pinCode: '',
         country: '',
-        phone: '',
+        phone: '+91',
         dob: '',
         centre: '',
         level: '',
@@ -59,7 +59,7 @@ const RegistrationModal = () => {
                 setFormData({
                     username: '', email: '', password: '', firstName: '', lastName: '',
                     street1: '', street2: '', city: '', state: '', pinCode: '', country: '',
-                    phone: '', dob: '', centre: '', level: '', stream: '', scholarship: '',
+                    phone: '+91', dob: '', centre: '', level: '', stream: '', scholarship: '',
                     comments: '', communications: { email: true, sms: false },
                     privacy: false, captchaInput: ''
                 });
@@ -403,9 +403,12 @@ const RegistrationModal = () => {
                                                                     placeholder="+91 XXXXX XXXXX" 
                                                                     value={formData.phone} 
                                                                     onChange={e => { 
-                                                                        let val = e.target.value.replace(/[^0-9+]/g, '');
-                                                                        if (val.indexOf('+') > 0) val = val.replace(/\+/g, '');
-                                                                        setFormData({ ...formData, phone: val }); 
+                                                                        let val = e.target.value;
+                                                                        if (!val.startsWith('+91')) {
+                                                                            val = '+91' + val.replace(/^\+?91?/, '');
+                                                                        }
+                                                                        const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+                                                                        setFormData({ ...formData, phone: '+91' + digits }); 
                                                                         setErrors({ ...errors, phone: null }); 
                                                                     }} 
                                                                     className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500/50 transition-all outline-none" 

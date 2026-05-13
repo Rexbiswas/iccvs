@@ -8,7 +8,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '',
+        phone: '+91',
         state: '',
         city: '',
         program: '',
@@ -66,7 +66,12 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
         const { name, value, type, checked } = e.target;
         
         if (name === 'phone') {
-            setFormData(prev => ({ ...prev, [name]: value }));
+            let val = value;
+            if (!val.startsWith('+91')) {
+                val = '+91' + val.replace(/^\+?91?/, '');
+            }
+            const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+            setFormData(prev => ({ ...prev, [name]: '+91' + digits }));
             return;
         }
 
@@ -206,18 +211,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
                     </div>
 
-                    <div className="flex gap-4">
-                        <div className="relative w-28 shrink-0">
-                            <select className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl px-4 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer text-sm md:text-base shadow-inner">
-                                <option className="bg-slate-900">+91</option>
-                                <option className="bg-slate-900">+971</option>
-                                <option className="bg-slate-900">+1</option>
-                                <option className="bg-slate-900">+44</option>
-                                <option className="bg-slate-900">+33</option>
-                            </select>
-                            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" size={14} />
-                        </div>
-                        <div className="relative flex-1 group/field">
+                    <div className="relative group/field">
                              <input 
                                 required
                                 name="phone"
@@ -228,7 +222,6 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
                              />
                              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
-                        </div>
                     </div>
 
                     {/* Preferences Grid */}

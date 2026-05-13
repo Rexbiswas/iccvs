@@ -76,7 +76,7 @@ const CustomDropdown = ({ label, options, placeholder, value, onChange }) => {
 const FranchiseCTA = () => {
     const [formData, setFormData] = useState({
         name: '',
-        mobile: '',
+        mobile: '+91',
         email: '',
         investment: '',
         preference: '',
@@ -234,7 +234,14 @@ const FranchiseCTA = () => {
                                                 type="tel" 
                                                 required
                                                 value={formData.mobile}
-                                                onChange={(e) => setFormData({...formData, mobile: e.target.value.replace(/\D/g, '').slice(0, 10)})}
+                                                onChange={(e) => {
+                                                    let val = e.target.value;
+                                                    if (!val.startsWith('+91')) {
+                                                        val = '+91' + val.replace(/^\+?91?/, '');
+                                                    }
+                                                    const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
+                                                    setFormData({...formData, mobile: '+91' + digits});
+                                                }}
                                                 placeholder="0000-000-000"
                                                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 outline-none text-slate-900 font-medium focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all"
                                             />
