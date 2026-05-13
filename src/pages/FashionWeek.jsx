@@ -124,7 +124,7 @@ const FashionWeek = () => {
       </section>
 
       {/* Horizontal Runway Scroll */}
-      <section id="gallery-trigger" className="h-[150vh] w-full bg-[#f3f3f3] relative">
+      <section id="gallery-trigger" className="h-[150dvh] md:h-[150vh] w-full bg-[#f3f3f3] relative">
         <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden">
             <div className="pl-6 md:pl-20 mb-10 w-full relative z-20 pointer-events-none">
                  <h2 className="text-5xl md:text-8xl font-serif text-slate-900/5 uppercase tracking-tighter">The Runway</h2>

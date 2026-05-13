@@ -233,11 +233,23 @@ body,
   overflow-x: hidden;
   width: 100%;
   position: relative;
+  /* Safari momentum scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safari vh fix */
+:root {
+  --vh: 1vh;
 }
 
 :root {
   font-family: 'Outfit', sans-serif;
   color-scheme: light;
+  /* Support for Safari safe areas */
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  /* Fix for Safari subpixel rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -508,6 +520,52 @@ body::-webkit-scrollbar {
 .touch-target {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* Safari Viewport Fixes */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+.h-screen {
+  height: 100vh;
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Safe Area Insets for fixed elements */
+.mobile-bottom-nav {
+  bottom: calc(1.5rem + var(--safe-area-inset-bottom)) !important;
+}
+
+/* Fix for Safari backdrop-filter being temperamental */
+.backdrop-blur-sm, .backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-xl, .backdrop-blur-2xl {
+  -webkit-backdrop-filter: blur(8px); /* Default fallback */
+}
+
+.backdrop-blur-sm { -webkit-backdrop-filter: blur(4px); }
+.backdrop-blur-md { -webkit-backdrop-filter: blur(8px); }
+.backdrop-blur-lg { -webkit-backdrop-filter: blur(12px); }
+.backdrop-blur-xl { -webkit-backdrop-filter: blur(20px); }
+.backdrop-blur-2xl { -webkit-backdrop-filter: blur(40px); }
+
+/* App wrapper padding for mobile bottom bar */
+.app-content-wrapper {
+  padding-bottom: calc(5rem + var(--safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .app-content-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+/* Fix for gradient text in Safari */
+.text-transparent {
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* Fix for mobile horizontal scroll in some layouts */

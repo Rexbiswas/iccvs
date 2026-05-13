@@ -89,7 +89,7 @@ function App() {
                                 <CookieConsent />
 
                                 <ScrollToTop />
-                                <div className="relative z-0 bg-white min-h-screen pb-20 md:pb-0 overflow-x-hidden">
+                                <div className="relative z-0 bg-white min-h-screen app-content-wrapper overflow-x-hidden">
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 

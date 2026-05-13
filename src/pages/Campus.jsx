@@ -134,7 +134,7 @@ const CampusDetail = ({ campus }) => {
 
             {/* Visual Tour / Horizontal Scroll (Simulated for dynamic) */}
             {campus.visuals && campus.visuals.length > 0 && (
-                <section className="relative h-[100vh] bg-[#f2f2f2] py-20 overflow-hidden">
+                <section className="relative h-screen bg-[#f2f2f2] py-20 overflow-hidden">
                     <div className="h-full flex items-center px-10 md:px-20 gap-8">
                         {campus.visuals.map((img, i) => (
                             <div key={i} className="w-[85vw] md:w-[60vw] lg:w-[45vw] h-[60vh] md:h-[70vh] rounded-[2rem] overflow-hidden shrink-0 relative group shadow-xl">
