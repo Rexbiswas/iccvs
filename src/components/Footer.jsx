@@ -69,7 +69,7 @@ const Footer = () => {
                                 <img 
                                     src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png" 
                                     alt="INSD Logo" 
-                                    className="h-24 w-auto object-contain brightness-0 invert"
+                                    className="h-20 w-auto object-contain brightness-0 invert"
                                 />
                             </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
