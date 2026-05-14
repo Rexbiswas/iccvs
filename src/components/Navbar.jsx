@@ -391,7 +391,7 @@ const Navbar = () => {
                     borderStyle: "solid",
                 }}
                 ref={navRef}
-                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-6 lg:px-8 xl:px-10 py-1 items-center justify-between pointer-events-auto w-full"
+                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-4 items-center justify-between pointer-events-auto w-full"
             >
                 {/* Left: Logo */}
                 <Link to="/" className="nav-logo relative z-50 shrink-0 block h-[60px] overflow-hidden" onClick={() => setIsOpen(false)}>
@@ -679,7 +679,7 @@ const Navbar = () => {
                 ref={mobileNavRef}
                 className="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center pointer-events-none transition-all duration-500"
             >
-                <div className="relative w-full h-full flex items-center justify-center px-4 pointer-events-auto">
+                <div className="relative w-full h-full flex items-center justify-center px-8 py-3 pointer-events-auto">
                     <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">
                         <img
                             className="h-[50px] lg:h-[60px] w-auto object-contain drop-shadow-sm"
