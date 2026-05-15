@@ -44,12 +44,40 @@ console.log('🔍 MONGO_URI Debug:', process.env.MONGO_URI ? 'Defined (length: '
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// --- TEMPORARY SECURITY BYPASS FOR DIAGNOSTICS ---
-// We are disabling Helmet and Rate Limiter temporarily to find the source of 403 errors
-console.log('🛡️ Security middleware temporarily disabled for diagnostics');
+// Security Middleware
+app.use(helmet());
+app.set('trust proxy', 1); // Required for Vercel/proxies to handle HTTPS headers
 
-// Basic CORS
-app.use(cors({ origin: true, credentials: true }));
+// Rate Limiting
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+    message: 'Too many requests from this IP, please try again after 15 minutes',
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+
+// Apply rate limiter to all API routes
+app.use('/api/', limiter);
+
+// Optimized CORS for Production
+const allowedOrigins = [
+    'https://insd-project.vercel.app',
+    'https://insd.edu.in',
+    'http://localhost:5173',
+    'http://localhost:5174'
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 
 // Body Parsers
 app.use(express.json());
