@@ -8,7 +8,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '+91',
+        phone: '',
         state: '',
         city: '',
         program: '',
@@ -66,12 +66,8 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
         const { name, value, type, checked } = e.target;
         
         if (name === 'phone') {
-            let val = value;
-            if (!val.startsWith('+91')) {
-                val = '+91' + val.replace(/^\+?91?/, '');
-            }
-            const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-            setFormData(prev => ({ ...prev, [name]: '+91' + digits }));
+            const digits = value.replace(/\D/g, '').slice(0, 10);
+            setFormData(prev => ({ ...prev, [name]: digits }));
             return;
         }
 
@@ -85,8 +81,8 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
         e.preventDefault();
         
         // Validate 10-digit mobile number
-        if (formData.phone.replace('+91', '').length !== 10) {
-            setErrorMessage('Please provide a 10-digit mobile number');
+        if (formData.phone.length !== 10) {
+            setErrorMessage('Please enter a valid 10-digit mobile number');
             setStatus('error');
             return;
         }
@@ -98,7 +94,10 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
             const response = await fetch('/api/admission', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    phone: `+91${formData.phone}`
+                })
             });
 
             // Robust Content-Type Check
@@ -220,16 +219,22 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                     </div>
 
                     <div className="relative group/field">
-                             <input 
+                        <div className="flex items-stretch h-15 bg-white/5 border border-white/10 rounded-2xl overflow-hidden focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all shadow-inner">
+                            <div className="flex items-center px-4 bg-white/5 border-r border-white/10 gap-3">
+                                <Phone className="text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
+                                <span className="text-slate-400 font-bold text-sm md:text-base">+91</span>
+                            </div>
+                            <input 
                                 required
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                type="text" 
+                                type="tel" 
+                                inputMode="numeric"
                                 placeholder="Mobile Number *" 
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
-                             />
-                             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
+                                className="flex-1 bg-transparent px-4 text-white placeholder-slate-500 focus:outline-none font-bold text-sm md:text-base"
+                            />
+                        </div>
                     </div>
 
                     {/* Preferences Grid */}

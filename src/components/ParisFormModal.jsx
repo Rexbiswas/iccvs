@@ -6,7 +6,7 @@ const ParisFormModal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '+91'
+        phone: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -32,8 +32,8 @@ const ParisFormModal = ({ isOpen, onClose }) => {
         setError(null);
 
         // Validate 10-digit mobile number
-        if (formData.phone.replace('+91', '').length !== 10) {
-            setError('Please provide a 10-digit mobile number');
+        if (formData.phone.length !== 10) {
+            setError('Please enter a valid 10-digit mobile number');
             return;
         }
 
@@ -43,7 +43,10 @@ const ParisFormModal = ({ isOpen, onClose }) => {
             const response = await fetch('/api/paris/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    phone: '+91' + formData.phone
+                })
             });
 
             const data = await response.json();
@@ -52,7 +55,7 @@ const ParisFormModal = ({ isOpen, onClose }) => {
                 setIsSuccess(true);
                 setTimeout(() => {
                     setIsSuccess(false);
-                    setFormData({ name: '', email: '', phone: '+91' });
+                    setFormData({ name: '', email: '', phone: '' });
                     onClose();
                 }, 500);
             } else {
@@ -151,22 +154,22 @@ const ParisFormModal = ({ isOpen, onClose }) => {
 
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2">Phone No</label>
-                                            <div className="relative group">
-                                                <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-slate-900 transition-colors" />
+                                            <div className="flex items-stretch bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden focus-within:border-slate-900 focus-within:bg-white transition-all">
+                                                <div className="flex items-center px-4 bg-slate-100 border-r border-slate-200 gap-3">
+                                                    <Phone size={18} className="text-slate-300 group-focus-within:text-slate-900 transition-colors" />
+                                                    <span className="text-slate-400 font-bold text-xs">+91</span>
+                                                </div>
                                                 <input 
                                                     type="tel" 
                                                     required 
-                                                    placeholder="10-digit mobile number" 
+                                                    inputMode="numeric"
+                                                    placeholder="00000 00000" 
                                                     value={formData.phone}
                                                     onChange={e => {
-                                                        let val = e.target.value;
-                                                        if (!val.startsWith('+91')) {
-                                                            val = '+91' + val.replace(/^\+?91?/, '');
-                                                        }
-                                                        const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-                                                        setFormData({...formData, phone: '+91' + digits});
+                                                        const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                        setFormData({...formData, phone: digits});
                                                     }}
-                                                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-12 pr-6 py-4 outline-none focus:border-slate-900 focus:bg-white transition-all text-slate-900 font-medium placeholder:text-slate-300"
+                                                    className="flex-1 px-4 py-4 outline-none bg-transparent text-slate-900 font-medium placeholder:text-slate-300"
                                                 />
                                             </div>
                                         </div>

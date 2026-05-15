@@ -11,7 +11,7 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
     const [choice, setChoice] = useState(initialChoice);
     const [formData, setFormData] = useState({
         name: '',
-        mobile: '+91',
+        mobile: '',
         email: '',
         state: '',
         city: '',
@@ -74,8 +74,8 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
         e.preventDefault();
 
         // Validate 10-digit mobile number
-        if (formData.mobile.replace('+91', '').length !== 10) {
-            setError('Please provide a 10-digit mobile number');
+        if (formData.mobile.length !== 10) {
+            setError('Please enter a valid 10-digit mobile number');
             return;
         }
 
@@ -88,12 +88,8 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: formData.name,
-                    mobile: formData.mobile,
-                    email: formData.email,
-                    state: formData.state,
-                    city: formData.city,
-                    marketingConsent: formData.marketingConsent,
+                    ...formData,
+                    mobile: `+91${formData.mobile}`,
                     readyToStart: choice,
                     inquiryType: choice === 'yes' ? "Talk to our Career Expert" : "Let us Career Decide"
                 }),
@@ -288,21 +284,21 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
                                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                         />
                                                     </div>
-                                                    <div className="relative group">
-                                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                                                    <div className="flex items-stretch bg-slate-50 border border-slate-100 rounded-xl overflow-hidden focus-within:border-secondary/50 transition-all">
+                                                        <div className="flex items-center px-4 bg-slate-100 border-r border-slate-200 gap-2">
+                                                            <Phone className="w-4 h-4 text-slate-500" />
+                                                            <span className="text-slate-400 font-bold text-xs">+91</span>
+                                                        </div>
                                                         <input
                                                             required
                                                             type="tel"
-                                                            placeholder="10-digit Mobile Number"
-                                                            className="w-full h-14 bg-slate-50 border border-slate-100 rounded-xl pl-12 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-secondary/50 transition-all font-bold text-sm"
+                                                            inputMode="numeric"
+                                                            placeholder="00000 00000"
+                                                            className="flex-1 h-14 bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
                                                             value={formData.mobile}
                                                             onChange={(e) => {
-                                                                let val = e.target.value;
-                                                                if (!val.startsWith('+91')) {
-                                                                    val = '+91' + val.replace(/^\+?91?/, '');
-                                                                }
-                                                                const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-                                                                setFormData({ ...formData, mobile: '+91' + digits });
+                                                                const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                                setFormData({ ...formData, mobile: digits });
                                                             }}
                                                         />
                                                     </div>

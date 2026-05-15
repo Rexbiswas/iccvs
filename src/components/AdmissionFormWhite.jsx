@@ -8,7 +8,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
-        mobile: '+91',
+        mobile: '',
         email: '',
         qualification: '',
         course: '',
@@ -26,14 +26,9 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
         
         let finalValue = type === 'checkbox' ? checked : value;
         
-        // Only allow 10 digit numbers for mobile field with +91 prefix
+        // Only allow 10 digit numbers for mobile field
         if (name === 'mobile') {
-            let val = value;
-            if (!val.startsWith('+91')) {
-                val = '+91' + val.replace(/^\+?91?/, '');
-            }
-            const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-            finalValue = '+91' + digits;
+            finalValue = value.replace(/\D/g, '').slice(0, 10);
         }
 
         setFormData(prev => ({
@@ -47,8 +42,8 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
         e.preventDefault();
 
         // Validate 10-digit mobile number
-        if (formData.mobile.replace('+91', '').length !== 10) {
-            setErrorMessage('Please provide a 10-digit mobile number');
+        if (formData.mobile.length !== 10) {
+            setErrorMessage('Please enter a valid 10-digit mobile number');
             setStatus('error');
             return;
         }
@@ -63,13 +58,8 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: formData.name,
-                    mobile: formData.mobile,
-                    email: formData.email,
-                    qualification: formData.qualification,
-                    course: formData.course,
-                    state: formData.state,
-                    city: formData.city
+                    ...formData,
+                    mobile: `+91${formData.mobile}`
                 }),
             });
 
@@ -260,15 +250,21 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                             {/* Phone Number Field */}
                             <div className="space-y-1">
                                 <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">Phone Number</label>
-                                <input 
-                                    type="tel"
-                                    name="mobile"
-                                    value={formData.mobile}
-                                    onChange={handleChange}
-                                    placeholder="+91 00000 00000"
-                                    required
-                                    className="w-full h-10 md:h-12 px-5 bg-slate-50/50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:ring-4 focus:ring-[#134a84]/5 focus:border-[#134a84] transition-all text-slate-900 font-bold text-sm md:text-base placeholder:text-slate-300"
-                                />
+                                <div className="flex items-stretch h-10 md:h-12 bg-slate-50/50 border border-slate-200 rounded-xl md:rounded-2xl overflow-hidden focus-within:ring-4 focus-within:ring-[#134a84]/5 focus-within:border-[#134a84] transition-all">
+                                    <div className="flex items-center px-4 bg-slate-100 border-r border-slate-200">
+                                        <span className="text-slate-500 font-bold text-xs md:text-sm">+91</span>
+                                    </div>
+                                    <input 
+                                        type="tel"
+                                        name="mobile"
+                                        value={formData.mobile}
+                                        onChange={handleChange}
+                                        placeholder="00000 00000"
+                                        required
+                                        inputMode="numeric"
+                                        className="flex-1 px-4 bg-transparent focus:outline-none text-slate-900 font-bold text-sm md:text-base placeholder:text-slate-300"
+                                    />
+                                </div>
                             </div>
 
                             <div className="space-y-1">

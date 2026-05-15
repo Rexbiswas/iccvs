@@ -23,7 +23,7 @@ const RegistrationModal = () => {
         state: '',
         pinCode: '',
         country: '',
-        phone: '+91',
+        phone: '',
         dob: '',
         centre: '',
         level: '',
@@ -59,7 +59,7 @@ const RegistrationModal = () => {
                 setFormData({
                     username: '', email: '', password: '', firstName: '', lastName: '',
                     street1: '', street2: '', city: '', state: '', pinCode: '', country: '',
-                    phone: '+91', dob: '', centre: '', level: '', stream: '', scholarship: '',
+                    phone: '', dob: '', centre: '', level: '', stream: '', scholarship: '',
                     comments: '', communications: { email: true, sms: false },
                     privacy: false, captchaInput: ''
                 });
@@ -105,8 +105,8 @@ const RegistrationModal = () => {
             if (!emailRegex.test(formData.email)) {
                 newErrors.email = "Please enter a valid email address.";
             }
-            if (formData.phone.replace('+91', '').length !== 10) {
-                newErrors.phone = "Please provide a 10-digit mobile number";
+            if (formData.phone.length !== 10) {
+                newErrors.phone = "Please enter a valid 10-digit mobile number";
             }
         }
 
@@ -158,7 +158,10 @@ const RegistrationModal = () => {
         setIsSubmitting(true);
 
         try {
-            await register(formData);
+            await register({
+                ...formData,
+                phone: `+91${formData.phone}`
+            });
             setIsSuccess(true);
         } catch (error) {
             console.error("Registration Error:", error);
@@ -276,7 +279,7 @@ const RegistrationModal = () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        phone: formData.phone,
+                        phone: `+91${formData.phone}`,
                         firstName: formData.firstName
                     })
                 });
@@ -395,22 +398,24 @@ const RegistrationModal = () => {
                                                             </div>
                                                             <div className="space-y-2">
                                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 ml-2">Phone *</label>
-                                                                <input 
-                                                                    type="tel" 
-                                                                    required 
-                                                                    placeholder="+91 XXXXX XXXXX" 
-                                                                    value={formData.phone} 
-                                                                    onChange={e => { 
-                                                                        let val = e.target.value;
-                                                                        if (!val.startsWith('+91')) {
-                                                                            val = '+91' + val.replace(/^\+?91?/, '');
-                                                                        }
-                                                                        const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-                                                                        setFormData({ ...formData, phone: '+91' + digits }); 
-                                                                        setErrors({ ...errors, phone: null }); 
-                                                                    }} 
-                                                                    className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500/50 transition-all outline-none" 
-                                                                />
+                                                                <div className="flex items-stretch bg-black/20 border border-white/10 rounded-2xl overflow-hidden focus-within:border-pink-500/50 transition-all">
+                                                                    <div className="flex items-center px-4 bg-white/5 border-r border-white/10 gap-2">
+                                                                        <span className="text-slate-400 font-bold text-xs">+91</span>
+                                                                    </div>
+                                                                    <input 
+                                                                        type="tel" 
+                                                                        required 
+                                                                        inputMode="numeric"
+                                                                        placeholder="XXXXX XXXXX" 
+                                                                        value={formData.phone} 
+                                                                        onChange={e => { 
+                                                                            const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                                            setFormData({ ...formData, phone: digits }); 
+                                                                            setErrors({ ...errors, phone: null }); 
+                                                                        }} 
+                                                                        className="flex-1 bg-transparent px-6 py-4 text-white focus:outline-none" 
+                                                                    />
+                                                                </div>
                                                                 {errors.phone && <p className="text-red-400 text-[10px] mt-1.5 ml-1 font-semibold bg-red-500/10 px-2 py-1 rounded-md border border-red-500/20">{errors.phone}</p>}
                                                             </div>
                                                         </motion.div>

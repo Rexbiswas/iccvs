@@ -11,7 +11,7 @@ const AdmissionStepForm = () => {
         readyToStart: '',
         industry: '',
         name: '',
-        phone: '+91',
+        phone: '',
         email: '',
         city: '',
         qualification: '',
@@ -71,8 +71,8 @@ const AdmissionStepForm = () => {
         if (e) e.preventDefault();
 
         // Validate 10-digit mobile number
-        if (formData.phone.replace('+91', '').length !== 10) {
-            setError('Please provide a 10-digit mobile number');
+        if (formData.phone.length !== 10) {
+            setError('Please enter a valid 10-digit mobile number');
             // Scroll to error if needed
             setTimeout(() => {
                 if (sectionRef.current) {
@@ -93,7 +93,10 @@ const AdmissionStepForm = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    ...formData,
+                    phone: `+91${formData.phone}`
+                }),
             });
 
             const data = await response.json();
@@ -238,21 +241,21 @@ const AdmissionStepForm = () => {
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Phone Number</label>
-                                    <div className="relative group">
-                                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                                    <div className="flex items-stretch h-14 bg-white border-2 border-slate-200 rounded-xl overflow-hidden focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all">
+                                        <div className="flex items-center px-4 bg-slate-50 border-r-2 border-slate-200 gap-3">
+                                            <Phone className="w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" />
+                                            <span className="text-slate-400 font-bold text-sm">+91</span>
+                                        </div>
                                         <input
                                             required
                                             type="tel"
+                                            inputMode="numeric"
                                             placeholder="00000-00000"
-                                            className="w-full h-14 bg-white border-2 border-slate-200 rounded-xl pl-12 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm"
+                                            className="flex-1 bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
                                             value={formData.phone}
                                             onChange={(e) => {
-                                                let val = e.target.value;
-                                                if (!val.startsWith('+91')) {
-                                                    val = '+91' + val.replace(/^\+?91?/, '');
-                                                }
-                                                const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-                                                setFormData({ ...formData, phone: '+91' + digits });
+                                                const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                setFormData({ ...formData, phone: digits });
                                             }}
                                         />
                                     </div>
