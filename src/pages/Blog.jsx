@@ -432,6 +432,7 @@ const Blog = () => {
             <SEO 
                 title="Design Perspectives - The INSD Official Blog"
                 description="Explore the latest insights in fashion, interior design, and creative industries. Professional trends and academic perspectives from INSD."
+                canonical="https://insd-project.vercel.app/blog"
             />
 
             {/* --- HERO SECTION --- */}

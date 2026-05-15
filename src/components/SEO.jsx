@@ -5,7 +5,7 @@ const SEO = ({
     title, 
     description, 
     keywords, 
-    canonical = "https://insd.edu.in/", 
+    canonical = "https://insd-project.vercel.app/", 
     ogTitle, 
     ogDescription, 
     ogImage = "https://insd.edu.in/wp-content/uploads/2020/04/Homepage-Banner-Laptop-1.jpg", 
@@ -23,7 +23,7 @@ const SEO = ({
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
         "name": siteName,
-        "url": "https://insd.edu.in",
+        "url": "https://insd-project.vercel.app",
         "logo": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png",
         "sameAs": [
             "https://www.facebook.com/INSD.Official/",
