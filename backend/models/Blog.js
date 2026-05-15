@@ -8,7 +8,8 @@ const blogSchema = new mongoose.Schema({
     readTime: { type: String },
     image: { type: String },
     content: { type: String, required: true },
-    date: { type: String }
+    date: { type: String },
+    likes: { type: Number, default: 0 }
 }, { timestamps: true });
 
 export default mongoose.model('Blog', blogSchema);

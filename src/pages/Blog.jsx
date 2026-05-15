@@ -302,26 +302,46 @@ const Blog = () => {
         return matchesCategory && matchesSearch && isNotDeleted;
     });
 
+    const isPostLiked = (postId) => {
+        const likedBlogs = JSON.parse(localStorage.getItem('liked_blogs') || '[]');
+        return likedBlogs.includes(String(postId));
+    };
+
     const handleLike = async (e, postId) => {
         e.stopPropagation();
         
-        // Optimistic UI update
-        setPosts(prev => prev.map(p => p.id === postId ? { ...p, likes: (p.likes || 0) + 1 } : p));
+        // 1. Determine action based on localStorage
+        const likedBlogs = JSON.parse(localStorage.getItem('liked_blogs') || '[]');
+        const isAlreadyLiked = likedBlogs.includes(String(postId));
+        const action = isAlreadyLiked ? 'unlike' : 'like';
+        const increment = isAlreadyLiked ? -1 : 1;
+
+        // 2. Optimistic UI update
+        setPosts(prev => prev.map(p => p.id === postId ? { ...p, likes: (p.likes || 0) + increment } : p));
         if (selectedPost && selectedPost.id === postId) {
-            setSelectedPost(prev => ({ ...prev, likes: (prev.likes || 0) + 1 }));
+            setSelectedPost(prev => ({ ...prev, likes: (prev.likes || 0) + increment }));
         }
 
+        // 3. Update localStorage
+        if (isAlreadyLiked) {
+            const updated = likedBlogs.filter(id => id !== String(postId));
+            localStorage.setItem('liked_blogs', JSON.stringify(updated));
+        } else {
+            localStorage.setItem('liked_blogs', JSON.stringify([...likedBlogs, String(postId)]));
+        }
+
+        // 4. Sync with Backend
         try {
-            const res = await axios.patch(`/api/blogs/${postId}/like`);
+            const res = await axios.patch(`/api/blogs/${postId}/like`, { action });
             if (res.data.success) {
-                // Confirm server count
+                // Confirm server count (ensures UI stays synced with real DB counts)
                 setPosts(prev => prev.map(p => p.id === postId ? { ...p, likes: res.data.likes } : p));
                 if (selectedPost && selectedPost.id === postId) {
                     setSelectedPost(prev => ({ ...prev, likes: res.data.likes }));
                 }
             }
         } catch (err) {
-            console.error("Error liking blog:", err);
+            console.error("Error toggling like:", err);
         }
     };
 
@@ -550,9 +570,9 @@ const Blog = () => {
                                             </button>
                                             <button 
                                                 onClick={(e) => handleLike(e, post.id)}
-                                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-red-50 text-slate-400 hover:text-red-500 transition-all group/like"
+                                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all group/like ${isPostLiked(post.id) ? 'bg-red-50 text-red-500' : 'hover:bg-red-50 text-slate-400 hover:text-red-500'}`}
                                             >
-                                                <Heart size={14} className="group-hover/like:fill-red-500 transition-all" />
+                                                <Heart size={14} className={`${isPostLiked(post.id) ? 'fill-red-500' : 'group-hover/like:fill-red-500'} transition-all`} />
                                                 <span className="text-[10px] font-black">{post.likes || 0}</span>
                                             </button>
                                             <button 
@@ -671,9 +691,9 @@ const Blog = () => {
                                     </button>
                                     <button 
                                         onClick={(e) => handleLike(e, selectedPost.id)}
-                                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all group/modal-like"
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all group/modal-like ${isPostLiked(selectedPost.id) ? 'bg-red-50 text-red-500 border-red-100' : 'border-slate-200 text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100'}`}
                                     >
-                                        <Heart size={16} className="group-hover/modal-like:fill-red-500 transition-all" />
+                                        <Heart size={16} className={`${isPostLiked(selectedPost.id) ? 'fill-red-500' : 'group-hover/modal-like:fill-red-500'} transition-all`} />
                                         <span className="text-xs font-black">{selectedPost.likes || 0}</span>
                                     </button>
                                     <button 
