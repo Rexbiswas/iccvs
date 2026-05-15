@@ -9,6 +9,12 @@ router.post('/', async (req, res) => {
     try {
         const { name, email, phone, subject, message } = req.body;
 
+        // Clean and Validate Phone (Slice last 10 to ignore +91)
+        const cleanedPhone = (phone || '').replace(/\D/g, '').slice(-10);
+        if (cleanedPhone && cleanedPhone.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
+        }
+
         const newLead = new ContactLead({
             name,
             email,

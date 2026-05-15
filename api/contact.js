@@ -42,10 +42,10 @@ export default async function handler(req, res) {
             console.log("✅ MongoDB Connected (Contact)");
         }
 
-        // Clean and Validate Phone
-        const cleanedPhone = (req.body.phone || req.body.mobile || '').replace(/\D/g, '');
+        // Clean and Validate Phone (Slice last 10 to ignore +91)
+        const cleanedPhone = (req.body.phone || req.body.mobile || '').replace(/\D/g, '').slice(-10);
         if (cleanedPhone && cleanedPhone.length !== 10) {
-            return res.status(400).json({ success: false, message: 'Please provide a valid 10-digit mobile number.' });
+            return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
         }
         
         // Normalize phone in body for duplicate check

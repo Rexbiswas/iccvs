@@ -23,13 +23,23 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate 10-digit mobile number
+        if (formState.phone.length !== 10) {
+            alert('Please enter a valid 10-digit mobile number');
+            return;
+        }
+
         setIsSubmitting(true);
         
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formState)
+                body: JSON.stringify({
+                    ...formState,
+                    phone: `+91${formState.phone}`
+                })
             });
 
             if (response.ok) {
@@ -284,14 +294,21 @@ const Contact = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-400 ml-1">Phone Number</label>
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    placeholder="10-digit phone number"
-                                                    value={formState.phone}
-                                                    onChange={handleChange}
-                                                    className="w-full bg-slate-50 border-2 border-slate-100 rounded-xl px-4 py-3 text-slate-800 font-medium focus:border-secondary focus:bg-white transition-all outline-none"
-                                                />
+                                                <div className="flex items-stretch h-12 bg-slate-50 border-2 border-slate-100 rounded-xl overflow-hidden focus-within:border-secondary transition-all">
+                                                    <div className="flex items-center px-4 bg-slate-100 border-r-2 border-slate-200">
+                                                        <span className="text-slate-500 font-bold text-sm">+91</span>
+                                                    </div>
+                                                    <input
+                                                        type="tel"
+                                                        name="phone"
+                                                        required
+                                                        inputMode="numeric"
+                                                        placeholder="00000 00000"
+                                                        value={formState.phone}
+                                                        onChange={handleChange}
+                                                        className="flex-1 px-4 bg-transparent text-slate-800 font-medium focus:outline-none"
+                                                    />
+                                                </div>
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-400 ml-1">Subject</label>

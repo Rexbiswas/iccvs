@@ -18,6 +18,12 @@ router.post('/register', async (req, res) => {
             comments, communications
         } = req.body;
 
+        // Clean and Validate Phone (Slice last 10 to ignore +91)
+        const cleanedPhone = (phone || '').replace(/\D/g, '').slice(-10);
+        if (cleanedPhone.length !== 10) {
+            return res.status(400).json({ message: 'Please enter a valid 10-digit mobile number' });
+        }
+
         const existingUser = await User.findOne({
             $or: [{ email: email }, { username: username }]
         });

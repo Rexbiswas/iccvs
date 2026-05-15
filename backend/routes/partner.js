@@ -8,22 +8,15 @@ const router = express.Router();
 router.post('/leads', async (req, res) => {
     try {
         const { 
-            name, 
-            email, 
-            mobile, 
-            phone,
-            investment, 
-            preference, 
-            state, 
-            city, 
-            referred, 
-            company, 
-            industry, 
-            potential, 
-            message, 
-            contact, 
-            address 
+            name, email, mobile, phone, investment, preference, state, city, 
+            referred, company, industry, potential, message, contact, address 
         } = req.body;
+
+        // Clean and Validate Phone (Slice last 10 to ignore +91)
+        const cleanedMobile = (mobile || phone || contact || '').replace(/\D/g, '').slice(-10);
+        if (cleanedMobile.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
+        }
 
         const newLead = new PartnerLead({
             name,

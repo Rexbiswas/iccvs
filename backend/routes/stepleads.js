@@ -11,6 +11,13 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         const { name, mobile, email, city, readyToStart, inquiryType, marketingConsent } = req.body;
+
+        // Clean and Validate Phone (Slice last 10 to ignore +91)
+        const cleanedMobile = (mobile || '').replace(/\D/g, '').slice(-10);
+        if (cleanedMobile.length !== 10) {
+            return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
+        }
+
         console.log(`[StepLead] Processing submission for: ${name}`);
 
         const newLead = new StepLead({

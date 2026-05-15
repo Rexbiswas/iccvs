@@ -76,7 +76,7 @@ const CustomDropdown = ({ label, options, placeholder, value, onChange }) => {
 const FranchiseCTA = () => {
     const [formData, setFormData] = useState({
         name: '',
-        mobile: '+91',
+        mobile: '',
         email: '',
         investment: '',
         preference: '',
@@ -91,8 +91,8 @@ const FranchiseCTA = () => {
         e.preventDefault();
 
         // Validate 10-digit mobile number
-        if (formData.mobile.replace('+91', '').length !== 10) {
-            alert('Please provide a 10-digit mobile number');
+        if (formData.mobile.length !== 10) {
+            alert('Please enter a valid 10-digit mobile number');
             return;
         }
 
@@ -101,7 +101,10 @@ const FranchiseCTA = () => {
             const response = await fetch('/api/partner/leads', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    mobile: `+91${formData.mobile}`
+                })
             });
             const data = await response.json();
             if (response.ok) {
@@ -237,21 +240,23 @@ const FranchiseCTA = () => {
                                         {/* Mobile */}
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Mobile Number</label>
-                                            <input 
-                                                type="tel" 
-                                                required
-                                                value={formData.mobile}
-                                                onChange={(e) => {
-                                                    let val = e.target.value;
-                                                    if (!val.startsWith('+91')) {
-                                                        val = '+91' + val.replace(/^\+?91?/, '');
-                                                    }
-                                                    const digits = val.slice(3).replace(/\D/g, '').slice(0, 10);
-                                                    setFormData({...formData, mobile: '+91' + digits});
-                                                }}
-                                                placeholder="0000-000-000"
-                                                className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 outline-none text-slate-900 font-medium focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all"
-                                            />
+                                            <div className="flex items-stretch h-14 bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/5 transition-all">
+                                                <div className="flex items-center px-6 bg-slate-100 border-r border-slate-200">
+                                                    <span className="text-slate-500 font-bold text-sm">+91</span>
+                                                </div>
+                                                <input 
+                                                    type="tel" 
+                                                    required
+                                                    inputMode="numeric"
+                                                    value={formData.mobile}
+                                                    onChange={(e) => {
+                                                        const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                        setFormData({...formData, mobile: digits});
+                                                    }}
+                                                    placeholder="00000 00000"
+                                                    className="flex-1 px-6 bg-transparent outline-none text-slate-900 font-medium"
+                                                />
+                                            </div>
                                         </div>
 
                                         {/* Email */}
