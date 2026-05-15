@@ -262,7 +262,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                                         placeholder="00000 00000"
                                         required
                                         inputMode="numeric"
-                                        className="flex-1 px-4 bg-transparent focus:outline-none text-slate-900 font-bold text-sm md:text-base placeholder:text-slate-300"
+                                        className="flex-1 h-full px-4 bg-transparent focus:outline-none text-slate-900 font-bold text-sm md:text-base placeholder:text-slate-300"
                                     />
                                 </div>
                             </div>

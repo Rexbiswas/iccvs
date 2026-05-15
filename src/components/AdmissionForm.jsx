@@ -201,7 +201,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                             onChange={handleChange}
                             type="text" 
                             placeholder="Full Name *" 
-                            className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
+                            className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
                          />
                          <User className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
                     </div>
@@ -213,13 +213,13 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 onChange={handleChange}
                                 type="text" 
                                 placeholder="Email Address (Optional)" 
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
+                                className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 pr-4 text-white placeholder-slate-500 focus:outline-none focus:border-primary focus:bg-white/10 focus:ring-4 focus:ring-primary/10 transition-all font-bold text-sm md:text-base shadow-inner"
                              />
                         <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
                     </div>
 
                     <div className="relative group/field">
-                        <div className="flex items-stretch h-15 bg-white/5 border border-white/10 rounded-2xl overflow-hidden focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all shadow-inner">
+                        <div className="flex items-stretch h-14 bg-white/5 border border-white/10 rounded-2xl overflow-hidden focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all shadow-inner">
                             <div className="flex items-center px-4 bg-white/5 border-r border-white/10 gap-3">
                                 <Phone className="text-slate-500 group-focus-within/field:text-primary transition-colors" size={18} />
                                 <span className="text-slate-400 font-bold text-sm md:text-base">+91</span>
@@ -232,7 +232,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 type="tel" 
                                 inputMode="numeric"
                                 placeholder="Mobile Number *" 
-                                className="flex-1 bg-transparent px-4 text-white placeholder-slate-500 focus:outline-none font-bold text-sm md:text-base"
+                                className="flex-1 h-full bg-transparent px-4 text-white placeholder-slate-500 focus:outline-none font-bold text-sm md:text-base"
                             />
                         </div>
                     </div>
@@ -245,7 +245,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 name="state"
                                 value={formData.state}
                                 onChange={handleChange}
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer placeholder-slate-500 text-sm md:text-base shadow-inner"
+                                className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer placeholder-slate-500 text-sm md:text-base shadow-inner"
                             >
                                 <option value="" disabled className="bg-slate-900">Select State *</option>
                                 {states.map(state => <option key={state} value={state} className="bg-slate-900">{state}</option>)}
@@ -260,7 +260,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 name="city"
                                 value={formData.city}
                                 onChange={handleChange}
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer disabled:opacity-50 text-sm md:text-base shadow-inner"
+                                className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer disabled:opacity-50 text-sm md:text-base shadow-inner"
                                 disabled={!formData.state}
                             >
                                 <option value="" disabled className="bg-slate-900">Select City *</option>
@@ -278,7 +278,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 name="program"
                                 value={formData.program}
                                 onChange={handleChange}
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer text-sm md:text-base shadow-inner"
+                                className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer text-sm md:text-base shadow-inner"
                             >
                                 <option value="" disabled className="bg-slate-900">Select Program *</option>
                                 {programs.map(prog => <option key={prog} value={prog} className="bg-slate-900">{prog}</option>)}
@@ -293,7 +293,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                                 name="course"
                                 value={formData.course}
                                 onChange={handleChange}
-                                className="w-full h-15 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer text-sm md:text-base shadow-inner"
+                                className="w-full h-14 bg-white/5 border border-white/10 rounded-2xl pl-12 px-8 text-white font-bold focus:outline-none focus:border-primary appearance-none cursor-pointer text-sm md:text-base shadow-inner"
                             >
                                 <option value="" disabled className="bg-slate-900">Select Course *</option>
                                 {courses.map(course => <option key={course} value={course} className="bg-slate-900">{course}</option>)}

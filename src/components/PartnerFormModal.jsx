@@ -190,7 +190,7 @@ const PartnerFormModal = ({ isOpen, onClose }) => {
 
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-2">Phone No</label>
-                                            <div className="flex items-stretch bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden focus-within:border-slate-900 focus-within:bg-white transition-all">
+                                            <div className="flex items-stretch h-14 bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden focus-within:border-slate-900 focus-within:bg-white transition-all">
                                                 <div className="flex items-center px-4 bg-slate-100 border-r border-slate-200 gap-3">
                                                     <Phone size={18} className="text-slate-300 group-focus-within:text-slate-900 transition-colors" />
                                                     <span className="text-slate-400 font-bold text-xs">+91</span>
@@ -205,7 +205,7 @@ const PartnerFormModal = ({ isOpen, onClose }) => {
                                                         const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
                                                         setFormData({...formData, contact: digits});
                                                     }}
-                                                    className="flex-1 px-4 py-4 outline-none bg-transparent text-slate-900 font-medium placeholder:text-slate-300"
+                                                    className="flex-1 h-full px-4 outline-none bg-transparent text-slate-900 font-medium placeholder:text-slate-300"
                                                 />
                                             </div>
                                         </div>

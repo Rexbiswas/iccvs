@@ -393,12 +393,12 @@ const RegistrationModal = () => {
                                                             <h3 className="text-sm font-bold text-pink-300 uppercase tracking-widest mb-4">Contact Info (2/10)</h3>
                                                             <div className="space-y-2">
                                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 ml-2">Email Address *</label>
-                                                                <input autoFocus type="email" required placeholder="hello@example.com" value={formData.email} onChange={e => { setFormData({ ...formData, email: e.target.value }); setErrors({ ...errors, email: null }); }} className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500/50 transition-all outline-none" />
+                                                                <input autoFocus type="email" required placeholder="hello@example.com" value={formData.email} onChange={e => { setFormData({ ...formData, email: e.target.value }); setErrors({ ...errors, email: null }); }} className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-pink-500 transition-all outline-none" />
                                                                 {errors.email && <p className="text-red-400 text-[10px] mt-1.5 ml-1 font-semibold bg-red-500/10 px-2 py-1 rounded-md border border-red-500/20">{errors.email}</p>}
                                                             </div>
                                                             <div className="space-y-2">
                                                                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 ml-2">Phone *</label>
-                                                                <div className="flex items-stretch bg-black/20 border border-white/10 rounded-2xl overflow-hidden focus-within:border-pink-500/50 transition-all">
+                                                                <div className="flex items-stretch h-14 bg-black/20 border border-white/10 rounded-2xl overflow-hidden focus-within:border-pink-500 transition-all">
                                                                     <div className="flex items-center px-4 bg-white/5 border-r border-white/10 gap-2">
                                                                         <span className="text-slate-400 font-bold text-xs">+91</span>
                                                                     </div>
@@ -413,7 +413,7 @@ const RegistrationModal = () => {
                                                                             setFormData({ ...formData, phone: digits }); 
                                                                             setErrors({ ...errors, phone: null }); 
                                                                         }} 
-                                                                        className="flex-1 bg-transparent px-6 py-4 text-white focus:outline-none" 
+                                                                        className="flex-1 h-full bg-transparent px-6 py-4 text-white focus:outline-none" 
                                                                     />
                                                                 </div>
                                                                 {errors.phone && <p className="text-red-400 text-[10px] mt-1.5 ml-1 font-semibold bg-red-500/10 px-2 py-1 rounded-md border border-red-500/20">{errors.phone}</p>}

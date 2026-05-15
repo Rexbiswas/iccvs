@@ -145,7 +145,7 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
     };
 
     const content = (
-        <div className={`relative ${isModal ? '' : 'py-24 md:py-32 bg-white overflow-hidden selection:bg-primary selection:text-white'}`}>
+        <div className={`relative ${isModal ? 'overflow-y-auto max-h-[85vh] rounded-[2rem]' : 'py-24 md:py-32 bg-white overflow-hidden selection:bg-primary selection:text-white'}`}>
             {!isModal && (
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2" />
@@ -284,7 +284,7 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
                                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                         />
                                                     </div>
-                                                    <div className="flex items-stretch bg-slate-50 border border-slate-100 rounded-xl overflow-hidden focus-within:border-secondary/50 transition-all">
+                                                    <div className="flex items-stretch h-14 bg-slate-50 border border-slate-100 rounded-xl overflow-hidden focus-within:border-secondary/50 transition-all">
                                                         <div className="flex items-center px-4 bg-slate-100 border-r border-slate-200 gap-2">
                                                             <Phone className="w-4 h-4 text-slate-500" />
                                                             <span className="text-slate-400 font-bold text-xs">+91</span>
@@ -294,7 +294,7 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
                                                             type="tel"
                                                             inputMode="numeric"
                                                             placeholder="00000 00000"
-                                                            className="flex-1 h-14 bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
+                                                            className="flex-1 h-full bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
                                                             value={formData.mobile}
                                                             onChange={(e) => {
                                                                 const digits = e.target.value.replace(/\D/g, '').slice(0, 10);

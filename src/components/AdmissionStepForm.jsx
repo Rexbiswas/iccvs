@@ -251,7 +251,7 @@ const AdmissionStepForm = () => {
                                             type="tel"
                                             inputMode="numeric"
                                             placeholder="00000-00000"
-                                            className="flex-1 bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
+                                            className="flex-1 h-full bg-transparent px-4 text-slate-900 placeholder-slate-400 focus:outline-none font-bold text-sm"
                                             value={formData.phone}
                                             onChange={(e) => {
                                                 const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
