@@ -90,7 +90,7 @@ router.post('/', async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: savedLead.id ? 'Inquiry submitted successfully' : 'Inquiry received (Mock Mode: DB offline)',
+            message: savedLead && !savedLead.isNew ? 'Inquiry submitted successfully' : 'Inquiry received (Mock Mode: DB offline)',
             lead: savedLead
         });
 

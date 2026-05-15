@@ -113,7 +113,10 @@ const connectDB = async () => {
                 serverSelectionTimeoutMS: 5000,
                 family: 4
             });
-            console.log('✅ MongoDB Cloud Connected Successfully');
+            console.log(`\n=========================================`);
+            console.log(`✅ [DB Connected] Host: ${conn.connection.host}`);
+            console.log(`✅ [DB Connected] Name: ${conn.connection.name}`);
+            console.log(`=========================================\n`);
             isConnected = true;
             if (!process.env.VERCEL) runSync();
             return conn;

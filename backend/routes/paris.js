@@ -47,7 +47,7 @@ router.post('/lead', async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: savedLead.id ? 'Application received successfully' : 'Application received (Dev Mode: DB offline)',
+            message: savedLead && !savedLead.isNew ? 'Application received successfully' : 'Application received (Dev Mode: DB offline)',
             lead: savedLead
         });
 
