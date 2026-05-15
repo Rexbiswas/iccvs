@@ -38,21 +38,17 @@ export const backupOfflineData = async (collectionName, data) => {
         existingData.push(backupEntry);
         fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
         
-        console.log(`📁 Backup saved to local file: /backups/${collectionName}_backup.json`);
+        console.log(`[OfflineLogger] 📁 Backup saved: ${collectionName}_backup.json (${existingData.length} records total)`);
     } catch (err) {
-        console.error('❌ Failed to save offline backup:', err.message);
+        console.error('[OfflineLogger] ❌ Failed to save backup:', err.message);
     }
 };
 
 /**
  * Automatically syncs local JSON backups to the database.
- * Called when the database connection is restored.
  */
 export const syncBackups = async (models) => {
-    // Skip sync if the backups directory doesn't exist (e.g., on Vercel)
-    if (!fs.existsSync(BACKUP_DIR)) {
-        return;
-    }
+    if (!fs.existsSync(BACKUP_DIR)) return;
 
     try {
         const files = fs.readdirSync(BACKUP_DIR).filter(f => f.endsWith('_backup.json'));
@@ -61,47 +57,56 @@ export const syncBackups = async (models) => {
             const collectionName = file.replace('_backup.json', '');
             const model = models[collectionName];
             
-            if (!model) continue;
+            if (!model) {
+                console.warn(`[Sync] ⚠️ No model found for collection: ${collectionName}`);
+                continue;
+            }
 
             const filePath = path.join(BACKUP_DIR, file);
             const content = fs.readFileSync(filePath, 'utf8');
-            const backups = JSON.parse(content || '[]');
+            let backups = JSON.parse(content || '[]');
 
             if (backups.length === 0) continue;
 
-            console.log(`🔄 Syncing ${backups.length} offline records for [${collectionName}]...`);
+            console.log(`[Sync] 🔄 Processing ${backups.length} records for [${collectionName}]...`);
+
+            let syncedCount = 0;
+            let skippedCount = 0;
+            const remainingBackups = [];
 
             for (const entry of backups) {
                 try {
                     const data = { ...entry.data };
-                    
-                    // Map 'mobile' to 'phone' for models that require it
-                    if (data.mobile && !data.phone) {
-                        data.phone = data.mobile;
-                    }
+                    if (data.mobile && !data.phone) data.phone = data.mobile;
 
-                    // Check if already exists to prevent duplicates
+                    // Relaxed duplicate check: check if exactly the same record exists within the last hour
+                    // This allows re-testing with the same email if needed.
+                    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
                     const exists = await model.findOne({ 
-                        $or: [
-                            { email: data.email },
-                            { phone: data.phone }
-                        ]
+                        email: data.email,
+                        createdAt: { $gte: oneHourAgo }
                     });
 
                     if (!exists) {
                         await model.create(data);
-                        console.log(`✅ [Sync] Successfully synced record for: ${data.name || data.fullName}`);
+                        syncedCount++;
+                    } else {
+                        skippedCount++;
                     }
                 } catch (e) {
-                    console.warn(`⚠️ [Sync Skip] Error syncing record: ${e.message}`);
+                    console.error(`[Sync] ❌ Error syncing record: ${e.message}`);
+                    remainingBackups.push(entry); // Keep failed ones
                 }
             }
 
-            // Clear the backup file after successful sync
-            fs.writeFileSync(filePath, JSON.stringify([], null, 2));
-            console.log(`✅ Sync complete for [${collectionName}]. Local file cleared.`);
+            // Update file with only failed records
+            fs.writeFileSync(filePath, JSON.stringify(remainingBackups, null, 2));
+            
+            if (syncedCount > 0 || skippedCount > 0) {
+                console.log(`[Sync] ✅ [${collectionName}] Done: ${syncedCount} synced, ${skippedCount} skipped (duplicates).`);
+            }
         }
     } catch (err) {
-        console.error('❌ Sync Error:', err.message);
+        console.error('[Sync] ❌ Fatal Error:', err.message);
     }
 };

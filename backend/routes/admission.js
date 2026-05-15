@@ -9,6 +9,9 @@ const router = express.Router();
 
 
 router.post('/', async (req, res) => {
+    console.log(`\n📩 [Admission] New Request Received at ${new Date().toISOString()}`);
+    console.log(`📦 [Admission] Body:`, JSON.stringify(req.body, null, 2));
+    
     try {
         const {
             name,
@@ -69,7 +72,8 @@ router.post('/', async (req, res) => {
         }
 
         // 2. Always Backup to JSON (Fail-Safe)
-        backupOfflineData('admissions', req.body);
+        console.log(`[Admission] 📁 Attempting local backup for: ${name}`);
+        backupOfflineData('admission', req.body);
 
 
         // Fire off notifications async - don't await to prevent timeout

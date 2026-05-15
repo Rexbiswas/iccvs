@@ -2,10 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import ParisLead from '../models/ParisLead.js';
 import { sendWelcomeEmail, sendSMS, sendAdminLeadEmail } from '../utils/notifications.js';
+import { backupOfflineData } from '../utils/offlineLogger.js';
 
 const router = express.Router();
 
 router.post('/lead', async (req, res) => {
+    console.log(`\n📩 [Paris] New Request: ${req.body.name}`);
     try {
         const { name, email, phone } = req.body;
 
@@ -22,37 +24,40 @@ router.post('/lead', async (req, res) => {
         const newLead = new ParisLead({ name, email, phone });
 
         let savedLead = null;
+        let isRealDBSave = false;
+
         // --- TRIPLE REDUNDANCY SAVING ---
         try {
-            savedLead = await newLead.save();
-            console.log(`✅ [DB Success] Paris Project saved for: ${name}`);
+            if (mongoose.connection.readyState === 1) {
+                savedLead = await newLead.save();
+                console.log(`✅ [Paris] DB Success: ${name}`);
+                isRealDBSave = true;
+            } else {
+                throw new Error('Database not connected');
+            }
         } catch (dbErr) {
-            console.warn(`⚠️ [DB Offline] Paris Project buffered for: ${name}`);
+            console.warn(`⚠️ [Paris] DB Offline. Buffering locally.`);
             savedLead = newLead;
         }
 
         // Backup data locally (Fail-Safe)
-        import('../utils/offlineLogger.js').then(m => m.backupOfflineData('paris', req.body));
+        backupOfflineData('paris', req.body);
 
-        // Send notifications (Optional but following project pattern)
-        try {
-            Promise.allSettled([
-                sendWelcomeEmail(email, name, 'The Paris Project'),
-                sendSMS(phone, name),
-                sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Paris Project Inquiry')
-            ]).catch(err => console.error('[Paris Notification Error]', err.message));
-        } catch (notifErr) {
-            console.error('[Paris Notifications] Failed:', notifErr.message);
-        }
+        // Send notifications
+        Promise.allSettled([
+            sendWelcomeEmail(email, name, 'The Paris Project'),
+            sendSMS(phone, name),
+            sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Paris Project Inquiry')
+        ]).catch(err => console.error('[Paris Notifications] Error:', err.message));
 
         res.status(201).json({
             success: true,
-            message: savedLead && !savedLead.isNew ? 'Application received successfully' : 'Application received (Dev Mode: DB offline)',
+            message: isRealDBSave ? 'Application received successfully' : 'Application received (Stored in Offline Buffer)',
             lead: savedLead
         });
 
     } catch (err) {
-        console.error('ParisLead Error:', err.message);
+        console.error('❌ [Paris] Fatal Error:', err.message);
         res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
     }
 });

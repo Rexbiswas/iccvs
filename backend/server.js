@@ -89,14 +89,12 @@ const connectDB = async () => {
 
     const runSync = () => {
         const models = {
-            'leads': Lead,
-            'admissions': AdmissionLead,
-            'step-leads': StepLead,
-            'contacts': ContactLead,
-            'paris': ParisLead,
-            'partner': PartnerLead,
-            'blogs': Blog,
-            'users': User
+            admission: AdmissionLead,
+            stepleads: StepLead,
+            contacts: ContactLead,
+            paris: ParisLead,
+            partner: PartnerLead,
+            users: User
         };
         syncBackups(models);
     };
@@ -144,23 +142,23 @@ const connectDB = async () => {
     }
 };
 
-// Global Connection Hook for Vercel
+// 1. Global API Request Logger
+app.use((req, res, next) => {
+    if (req.url.startsWith('/api')) {
+        console.log(`\n[API Request] ${req.method} ${req.url}`);
+        if (req.method === 'POST') {
+            console.log(`[API Body]`, JSON.stringify(req.body, null, 2));
+        }
+    }
+    next();
+});
+
+// 2. Database Connection Middleware
 app.use(async (req, res, next) => {
     if (req.url.startsWith('/api')) {
-        // Check if DB is already connected
         if (mongoose.connection.readyState !== 1) {
-            try {
-                // Set a timeout for the connection attempt to prevent function timeout
-                await Promise.race([
-                    connectDB(),
-                    new Promise((_, reject) => setTimeout(() => reject(new Error('DB Timeout')), 8000))
-                ]);
-            } catch (err) {
-                console.error('Database connection middleware error:', err.message);
-                // We continue anyway; the route handlers will handle the missing connection via fail-safes
-            }
-            // Non-blocking connection check
-            connectDB().catch(err => console.error('Database connection middleware error:', err.message));
+            console.log('🔄 Request received but DB not connected. Re-attempting...');
+            connectDB().catch(err => console.error('Background DB Reconnect Failed:', err.message));
         }
     }
     next();
@@ -216,20 +214,6 @@ apiRouter.use('/blogs', blogRoutes);
 apiRouter.use('/leadauth', leadRoutes);
 apiRouter.use('/stepleads', stepLeadRoutes);
 apiRouter.use('/blog', blogRoutes);
-
-// --- DEBUG HEADERS & DIRECT ADMISSION ---
-app.use((req, res, next) => {
-    res.setHeader('X-Server-Path', req.url);
-    res.setHeader('X-Server-Method', req.method);
-    next();
-});
-
-// Direct Bypass for Admission Form
-app.post('/api/admission', async (req, res, next) => {
-    console.log('🚀 Direct Admission Post Received');
-    // If admissionRoutes exists and has a handler, we can try to call it or just use it here
-    next(); // Fall through to router if not handled
-});
 
 // Main Application Mounting
 app.use('/api', apiRouter);

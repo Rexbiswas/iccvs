@@ -123,15 +123,9 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
         } catch (error) {
             console.error('Submission Error:', error);
 
-            // --- DEVELOPMENT FALLBACK ---
+            // --- DEVELOPMENT WARNING ---
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                console.warn('Backend unavailable on localhost. Simulating success for testing.');
-                setSubmitted(true);
-                setTimeout(() => {
-                    closeAdmissionModal();
-                    navigate('/thank-you', { state: { name: formData.name, type: 'enquiry' } });
-                }, 300);
-                return;
+                console.error('❌ Submission failed on localhost. Ensure backend is running on :5001');
             }
 
             if (error.name === 'TypeError') {
