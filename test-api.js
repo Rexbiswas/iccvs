@@ -22,7 +22,7 @@ async function testAdmissionForm() {
         const data = await response.json();
         console.log('Response Status:', response.status);
         console.log('Response Data:', JSON.stringify(data, null, 2));
-        
+
         if (data.success) {
             console.log('✅ Admission API Test Passed!');
         } else {
@@ -52,7 +52,7 @@ async function testStepLeads() {
         const data = await response.json();
         console.log('Response Status:', response.status);
         console.log('Response Data:', JSON.stringify(data, null, 2));
-        
+
         if (data.success) {
             console.log('✅ StepLeads API Test Passed!');
         } else {

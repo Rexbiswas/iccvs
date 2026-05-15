@@ -13,6 +13,13 @@ router.post('/', async (req, res) => {
     try {
         const { name, mobile, phone, email, city, readyToStart, inquiryType, marketingConsent } = req.body;
 
+        if (!name || !email || (!mobile && !phone) || !city || !readyToStart || !inquiryType) {
+            return res.status(400).json({ 
+                success: false, 
+                message: 'Required fields missing (Name, Email, Mobile, City, Ready to Start, Inquiry Type)' 
+            });
+        }
+
         const mobileNumber = mobile || phone;
 
         // Clean and Validate Phone (Slice last 10 to ignore +91)
