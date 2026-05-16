@@ -118,7 +118,7 @@ const InsdiansByDesign = () => {
                         <h2
                             key={i}
                             ref={el => layersRef.current[i] = el}
-                            className="absolute text-[10vw] font-black uppercase text-white/5 whitespace-nowrap opacity-0"
+                            className="absolute text-[10vw] font-black uppercase text-white/5 whitespace-nowrap opacity-0 text-center w-full"
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             {text}
@@ -132,7 +132,7 @@ const InsdiansByDesign = () => {
                     className="relative transform-gpu"
                     style={{ transformStyle: 'preserve-3d' }}
                 >
-                    <h2 className="text-[9vw] md:text-[8vw] xl:text-[7rem] font-black uppercase tracking-tighter text-white leading-[0.9] flex flex-wrap justify-center gap-x-[0.15em]">
+                    <h2 className="text-[9vw] md:text-[8vw] xl:text-[7rem] font-black uppercase tracking-tighter text-white leading-[0.9] flex flex-wrap justify-center text-center gap-x-[0.15em] w-full">
                         {text.split(" ").map((word, wordIdx) => (
                             <span key={wordIdx} className={`inline-block ${word.startsWith('#') ? 'text-primary' : ''}`}>
                                 {word.split("").map((char, charIdx) => (
@@ -147,7 +147,7 @@ const InsdiansByDesign = () => {
 
                 {/* Sub-tag */}
                 <div className="mt-12 overflow-hidden">
-                    <p className="text-primary/60 font-mono tracking-[0.5em] uppercase text-[10px] md:text-sm border-t border-white/10 pt-8">
+                    <p className="text-primary/60 font-mono tracking-[0.5em] uppercase text-[10px] md:text-sm border-t border-white/10 pt-8 text-center">
                         Design • Innovation • Culture
                     </p>
                 </div>
