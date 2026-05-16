@@ -391,14 +391,14 @@ const Navbar = () => {
                     borderStyle: "solid",
                 }}
                 ref={navRef}
-                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-4 items-center justify-between pointer-events-auto w-full"
+                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-4 items-center justify-between pointer-events-auto"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-[60px] overflow-hidden" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-[65px]" onClick={() => setIsOpen(false)}>
                     <motion.img
                         whileHover={{ scale: 1.1, rotate: 2 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={`h-[77px] w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
+                        className={`h-[90px] w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
                         src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                         alt="INSD Logo"
                     />
@@ -428,7 +428,7 @@ const Navbar = () => {
 
                                     {/* Dropdown Menu */}
                                     <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-64 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
+                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
                                             <div 
                                                 className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
                                                 onWheel={(e) => e.stopPropagation()}
@@ -487,7 +487,7 @@ const Navbar = () => {
                                     </div>
 
                                     <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-80 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none">
+                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none">
                                             <div 
                                                 className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
                                                 onWheel={(e) => e.stopPropagation()}
@@ -544,7 +544,7 @@ const Navbar = () => {
                                     </div>
 
                                     <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-80 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
+                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
                                             <div 
                                                 className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
                                                 onWheel={(e) => e.stopPropagation()}
@@ -682,7 +682,7 @@ const Navbar = () => {
                 <div className="relative w-full h-full flex items-center justify-center px-8 py-3 pointer-events-auto">
                     <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">
                         <img
-                            className="h-[50px] lg:h-[60px] w-auto object-contain drop-shadow-sm"
+                            className="h-[53px] lg:h-[65px] w-auto object-contain drop-shadow-sm"
                             src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                             alt="INSD Logo"
                         />
@@ -1059,7 +1059,7 @@ const Navbar = () => {
                                 variants={itemVariants}
                                 className="flex items-center justify-between px-6 md:px-12 py-8 relative z-10"
                             >
-                                <Link to="/" onClick={() => setIsOpen(false)} className="h-18 md:h-20">
+                                <Link to="/" onClick={() => setIsOpen(false)} className="h-[72px] md:h-[83px]">
                                     <img
                                         src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
                                         alt="INSD Logo"
