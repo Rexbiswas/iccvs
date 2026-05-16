@@ -14,7 +14,6 @@ const allLogos = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKrUgdAxbX3Z6O8SCTpbu4hWyHNn2ZsnU60g&s",
     "https://mir-s3-cdn-cf.behance.net/projects/404/38be29225567535.Y3JvcCwxOTU3LDE1MzEsNDk5LDE5Mw.png",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHK9PYZ7IRjEbPv43wEHt7TllI-NP6t9NcA&s",//
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRHK9PYZ7IRjEbPv43wEHt7TllI-NP6t9NcA&s",//
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnypUeE3Su_Xx5EHci4fOrEVGEzQXW5XjNqA&s",//
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1280px-H%26M-Logo.svg.png",
     "https://static.vecteezy.com/system/resources/previews/023/871/238/non_2x/polo-ralph-lauren-brand-logo-black-symbol-clothes-design-icon-abstract-illustration-free-vector.jpg",
