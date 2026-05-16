@@ -1021,24 +1021,6 @@ const Navbar = () => {
                                             <SocialIcons dark={true} className="!gap-4 md:!gap-6" />
                                         </div>
 
-                                        <div className="w-full">
-                                            <a
-                                                href="#"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    setIsOpen(false);
-                                                    openAdmissionModal({
-                                                        title: 'Download Prospectus',
-                                                        subtitle: 'Please provide your details to receive the digital brochure.',
-                                                        ctaText: 'Get Prospectus'
-                                                    });
-                                                }}
-                                                className="w-full py-4 bg-primary text-white rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-xl shadow-primary/20 active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer"
-                                            >
-                                                <FileDown size={18} />
-                                                Download Prospectus
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -1093,7 +1075,7 @@ const Navbar = () => {
                                             { title: 'Call Us Now', sub: '+91 9804443300', icon: Phone, href: 'tel:+919804443300' },
                                             { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '/apply' },
                                             { title: 'Book Counselling', sub: 'Free Expert Session', icon: Calendar, action: 'modal' },
-                                            { title: 'Download Brochure', sub: 'Detailed Course Guide', icon: FileDown, action: 'modal' },
+
                                         ].map((cta, i) => (
                                             <motion.div
                                                 key={i}
