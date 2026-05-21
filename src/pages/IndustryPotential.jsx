@@ -111,7 +111,7 @@ const IndustryPotential = () => {
                 title="Global Industry Potential & Opportunities | INSD"
                 description="Explore the massive global potential and industry demand for design professionals. Learn how INSD prepares students for top-tier design careers."
                 keywords="design industry potential, design career opportunities, global design market, fashion industry growth, interior design demand"
-                canonical="https://insd-project.vercel.app/industry-potential"
+                canonical="https://subdomain.insd.edu.in/industry-potential"
             />
             {/* Minimal Hero Section to introduce Industry Potential */}
             <section className="relative section-py overflow-hidden border-b border-slate-200/50">

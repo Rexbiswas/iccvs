@@ -299,7 +299,7 @@ const Home = () => {
                 title="Best Design Institute for Fashion, Interior & Graphic Courses in Delhi | INSD"
                 description="Best design institute in Delhi, India. Join INSD is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG."
                 keywords="best design institute in Delhi, skill-based design school Delhi, job-ready design institute, 100% placement design course, fashion design course in Delhi, interior design course in Delhi, graphic design course in Delhi, animation VFX course in Delhi, INSD Delhi placement"
-                canonical="https://insd-project.vercel.app/"
+                canonical="https://subdomain.insd.edu.in/"
                 ogImage="https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-1200,h-630,fo-auto"
                 robots="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
             />

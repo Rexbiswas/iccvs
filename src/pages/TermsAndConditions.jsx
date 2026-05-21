@@ -67,7 +67,7 @@ const TermsAndConditions = () => {
             <SEO 
                 title="Terms and Conditions | INSD Legal"
                 description="Read the official terms and conditions for using the International School of Design website and our educational services."
-                canonical="https://insd-project.vercel.app/terms-and-conditions"
+                canonical="https://subdomain.insd.edu.in/terms-and-conditions"
             />
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-white border-b border-slate-200">

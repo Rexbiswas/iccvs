@@ -1,1 +1,1 @@
-Sitemap: https://insd-project.vercel.app/sitemap.xml
+Sitemap: https://subdomain.insd.edu.in/sitemap.xml

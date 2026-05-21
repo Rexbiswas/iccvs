@@ -62,7 +62,7 @@ app.use('/api/', limiter);
 
 // Optimized CORS for Production
 const allowedOrigins = [
-    'https://insd-project.vercel.app',
+    'https://subdomain.insd.edu.in',
     'https://insd.edu.in',
     'http://localhost:5173',
     'http://localhost:5174'

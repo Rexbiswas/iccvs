@@ -1,172 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://insd-project.vercel.app/</loc>
+    <loc>https://subdomain.insd.edu.in/</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/about-us</loc>
+    <loc>https://subdomain.insd.edu.in/about-us</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses</loc>
+    <loc>https://subdomain.insd.edu.in/courses</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/fashion-designing</loc>
+    <loc>https://subdomain.insd.edu.in/courses/fashion-designing</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/interior-designing</loc>
+    <loc>https://subdomain.insd.edu.in/courses/interior-designing</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/graphic-designing</loc>
+    <loc>https://subdomain.insd.edu.in/courses/graphic-designing</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/animation-and-vfx</loc>
+    <loc>https://subdomain.insd.edu.in/courses/animation-and-vfx</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/undergraduate</loc>
+    <loc>https://subdomain.insd.edu.in/courses/undergraduate</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/postgraduate</loc>
+    <loc>https://subdomain.insd.edu.in/courses/postgraduate</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/diploma-and-certificates</loc>
+    <loc>https://subdomain.insd.edu.in/courses/diploma-and-certificates</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/short-term-courses</loc>
+    <loc>https://subdomain.insd.edu.in/courses/short-term-courses</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/msc-luxury-brand-management</loc>
+    <loc>https://subdomain.insd.edu.in/courses/msc-luxury-brand-management</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/courses/online-courses</loc>
+    <loc>https://subdomain.insd.edu.in/courses/online-courses</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses</loc>
+    <loc>https://subdomain.insd.edu.in/campuses</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/south-delhi</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/south-delhi</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/north-delhi</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/north-delhi</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/paris</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/paris</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/washington</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/washington</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/dubai</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/dubai</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/campuses/uk</loc>
+    <loc>https://subdomain.insd.edu.in/campuses/uk</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/student-careers</loc>
+    <loc>https://subdomain.insd.edu.in/student-careers</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/franchise</loc>
+    <loc>https://subdomain.insd.edu.in/franchise</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/contact-us</loc>
+    <loc>https://subdomain.insd.edu.in/contact-us</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/go-global</loc>
+    <loc>https://subdomain.insd.edu.in/go-global</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/international-partners</loc>
+    <loc>https://subdomain.insd.edu.in/international-partners</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/apply</loc>
+    <loc>https://subdomain.insd.edu.in/apply</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/success-stories</loc>
+    <loc>https://subdomain.insd.edu.in/success-stories</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/gallery</loc>
+    <loc>https://subdomain.insd.edu.in/gallery</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insd-360/blog</loc>
+    <loc>https://subdomain.insd.edu.in/insd-360/blog</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insd-360/fashion-week</loc>
+    <loc>https://subdomain.insd.edu.in/insd-360/fashion-week</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insd-360</loc>
+    <loc>https://subdomain.insd.edu.in/insd-360</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insd-360/paris-project</loc>
+    <loc>https://subdomain.insd.edu.in/insd-360/paris-project</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insd-360/events</loc>
+    <loc>https://subdomain.insd.edu.in/insd-360/events</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://insd-project.vercel.app/insdian</loc>
+    <loc>https://subdomain.insd.edu.in/insdian</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.6</priority>
   </url>

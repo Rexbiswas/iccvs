@@ -40,7 +40,7 @@ const Student = () => {
                 title="Student Life at INSD | Vibrant Campus & Creative Community"
                 description="Experience a vibrant student life at INSD. Join our creative community, access world-class studios, and transform from a student into a design professional."
                 keywords="student life, design campus, creative community, fashion design students, interior design workshops, INSD student experience"
-                canonical="https://insd-project.vercel.app/student"
+                canonical="https://subdomain.insd.edu.in/student"
             />
 
             {/* Hero Section - Editorial Style */}
