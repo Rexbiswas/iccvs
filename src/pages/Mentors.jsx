@@ -173,10 +173,10 @@ const Mentors = () => {
                         </p>
                     </div>
 
-                    {/* --- FOUNDING LEGENDS SLIDER --- */}
+                    {/* --- OUR FOUNDERS SLIDER --- */}
                     <div className="mt-8 space-y-16">
                         <div className="text-center space-y-4">
-                            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tightest">Founding <span className="text-primary italic">Legends.</span></h2>
+                            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tightest">Our <span className="text-primary italic">Founders.</span></h2>
                             <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">INSD Leadership & Visionary Pioneers</p>
                         </div>
 
