@@ -10,7 +10,7 @@ async function generateSitemap() {
         '!src/pages/ProfileDashboard.jsx',
     ]);
 
-    const siteUrl = 'https://subdomain.insd.edu.in';
+    const siteUrl = 'https://insd.edu.in';
 
     const root = create({ version: '1.0', encoding: 'UTF-8' })
         .ins('xml-stylesheet', 'type="text/xsl" href="/sitemap.xsl"')
