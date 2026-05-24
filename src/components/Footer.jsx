@@ -73,7 +73,7 @@ const Footer = () => {
                                 />
                             </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
-                                International School of Design is a global design conglomerate. We don't teach design; we engineer visionaries. Our curriculum is an ever-evolving protocol for the future.
+                                International School of Design is a global design education group. We don't teach design; we build visionaries. Our curriculum is an ever-evolving protocol for the future.
                             </p>
                         </div>
 

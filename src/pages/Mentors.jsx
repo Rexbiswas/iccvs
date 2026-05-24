@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
     ArrowUpRight, ChevronLeft, ChevronRight,
     PlayCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
+import CoFoundingVisionary from '../components/CoFoundingVisionary';
 
 
 const Mentors = () => {
     const [visitingIndex, setVisitingIndex] = useState(0);
 
-    
+
 
     const visitingLegends = [
         {
@@ -133,13 +134,13 @@ const Mentors = () => {
     ];
 
 
-    
+
     const handleVisitingNext = () => setVisitingIndex((prev) => (prev + 1) % visitingLegends.length);
     const handleVisitingPrev = () => setVisitingIndex((prev) => (prev - 1 + visitingLegends.length) % visitingLegends.length);
 
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-slate-900 selection:text-white overflow-x-hidden">
-            <SEO 
+            <SEO
                 title="Industry Mentors | The Visionaries of INSD"
                 description="Learn from the legends. INSD's mentor network includes NID alumni, luxury consultants, and award-winning architects who guide our students."
             />
@@ -160,14 +161,14 @@ const Mentors = () => {
                             Masterclass Series 2026
                         </motion.div>
 
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-[0.8] text-slate-900"
                         >
                             THE <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">MENTORS.</span>
                         </motion.h1>
-                        
+
                         <p className="text-slate-500 max-w-xl mx-auto text-lg font-medium tracking-tight">
                             Guided by the most influential voices in architecture, luxury, and social design. Your creative journey starts with their experience.
                         </p>
@@ -182,7 +183,7 @@ const Mentors = () => {
 
                         <div className="relative max-w-6xl mx-auto">
                             <div className="relative h-auto min-h-[600px] md:h-[650px] w-full rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] bg-slate-950 flex flex-col lg:flex-row group/visiting">
-                                
+
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={visitingIndex}
@@ -195,20 +196,20 @@ const Mentors = () => {
                                         {/* Right: Legend Image (Flipped layout for variety) */}
                                         <div className="w-full lg:w-1/2 h-[400px] lg:h-full relative order-1 lg:order-2">
                                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/40 to-slate-950 z-10" />
-                                            <img 
+                                            <img
                                                 src={visitingLegends[visitingIndex].img}
                                                 alt={visitingLegends[visitingIndex].name}
                                                 className="w-full h-full object-cover transition-all duration-700"
                                             />
-                                            
+
                                             <div className="absolute top-10 right-10 z-20 flex gap-4">
-                                                <button 
+                                                <button
                                                     onClick={handleVisitingPrev}
                                                     className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all border border-white/20"
                                                 >
                                                     <ChevronLeft size={24} />
                                                 </button>
-                                                <button 
+                                                <button
                                                     onClick={handleVisitingNext}
                                                     className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all shadow-xl"
                                                 >
@@ -223,7 +224,7 @@ const Mentors = () => {
                                                 <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest">
                                                     International Faculty
                                                 </div>
-                                                
+
                                                 <div className="space-y-2">
                                                     <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">
                                                         {visitingLegends[visitingIndex].name}
@@ -258,7 +259,7 @@ const Mentors = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     {/* --- INDUSTRY MENTOR GRID --- */}
                     <div className="mt-48 space-y-16">
                         <div className="text-center space-y-4">
@@ -279,7 +280,7 @@ const Mentors = () => {
                                     {/* Image Section */}
                                     <div className="relative aspect-[4/5] overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 z-10" />
-                                        <img 
+                                        <img
                                             src={mentor.img}
                                             alt={mentor.name}
                                             className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
@@ -301,11 +302,11 @@ const Mentors = () => {
                                                 </span>
                                             ))}
                                         </div>
-                                        
+
                                         <h4 className="text-lg font-black uppercase tracking-tight text-slate-900 mb-4 leading-tight">
                                             {mentor.title}
                                         </h4>
-                                        
+
                                         <p className="text-slate-500 text-sm font-medium leading-relaxed mb-6 flex-1">
                                             {mentor.desc}
                                         </p>
@@ -340,9 +341,16 @@ const Mentors = () => {
                             <p className="text-slate-400 text-xs font-bold uppercase tracking-widest leading-loose">Direct pathways to international design conglomerates.</p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    {/* --- BOTTOM COLLABORATION STRIP --- */}
-                    <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+            {/* --- CO-FOUNDER TRIBUTE SECTION --- */}
+            <CoFoundingVisionary />
+
+            {/* --- BOTTOM COLLABORATION STRIP --- */}
+            <section className="py-24 px-6 md:px-12 lg:px-24 bg-white flex flex-col items-center">
+                <div className="max-w-7xl w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                         <div className="space-y-4">
                             <h4 className="text-sm font-black uppercase tracking-[0.3em] text-slate-300">Industry Connection</h4>
                             <p className="text-slate-900 text-lg leading-tight font-black uppercase tracking-tighter">
@@ -363,7 +371,6 @@ const Mentors = () => {
                     </div>
                 </div>
             </section>
-            
 
             <Footer />
         </div>

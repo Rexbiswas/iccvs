@@ -1,16 +1,44 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    MapPin, Globe, ArrowUpRight, 
+import {
+    MapPin, Globe, ArrowUpRight,
     Navigation, Building2, Phone, Mail,
     ChevronRight, Sparkles, Zap, GraduationCap,
-    Target, Award, Briefcase, Search
+    Search
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 
 const zoneData = {
+    "West Zone": [
+        { city: "Mumbai (Andheri)", address: "101 Crystal Paradise Dattaji Salvi Marg, Off Veera Desai Rd, Above Pizza Express, Andheri West, Mumbai – 400053", state: "Maharashtra" },
+        { city: "Mumbai (Sanpada)", address: "Ekram Palace, Plot No. 134, Sector-10, Sanpada, Navi Mumbai – 400705", state: "Maharashtra" },
+        { city: "Deccan Pune", address: "INSD, 1278, Suyog Plaza, Jangali Maharaj Road, Above Shoe Paradise, Deccan Gymkhana, Pune – 411004", state: "Maharashtra" },
+        { city: "Pune (Baner-Balewadi)", address: "1st floor, Unecha Estate, Baner – Balewadi Rd, above Bank Of Baroda, Opposite Atithi Veg, Near D Mart, Laxman Nagar, Baner, Pune – 411045", state: "Maharashtra" },
+        { city: "Pune (Hadapsar)", address: "Second Floor, Prasad Building, Office No.1, DP Road, Malwadi, Vidya Vihar Colony S. No. 211/9, near Annapurna Hotel, Hadapsar – 411028", state: "Maharashtra" },
+        { city: "Amravati", address: "1st floor, Agrawal building, opp. Rajesh Cinemas, next to Gulshan Towers, Jaisthambh Chowk, Amravati – 444601", state: "Maharashtra" },
+        { city: "Ahmedabad (Ellisbridge)", address: "309-310, Turquoise Complex, Panchvati, Chimanlal Girdharlal Rd, Ellisbridge, Ahmedabad – 380006", state: "Gujarat" },
+        { city: "Mumbai (Kandivali)", address: "1st floor, PARIND CHSL, Swami Vivekananda Rd, Beside Ladiwala Bldg, Best Nagar, Kandivali West, Mumbai – 400067", state: "Maharashtra" },
+        { city: "Mumbai (Ghatkopar West)", address: "O&S Business Suites, B305, Hirachand Desai Rd, near Metro Station Ghatkopar, Bhatwadi, Kapol wadi, Ghatkopar West, Mumbai – 400086", state: "Maharashtra" },
+        { city: "Thane", address: "4th Floor, Arambagh Estate, Veer Savarkar Marg, near Teen Petrol Pump, above Purepur Kolhapur Hotel, Next to Lokmanya CHS, Thane West – 400602", state: "Maharashtra" },
+        { city: "Pune (PCMC)", address: "103, 1st Floor, Gheewala Complex, Opp. Ramkrishna More Sabhagruha, Above Axis Bank, Pimpri-Chinchwad, Pune – 411033", state: "Maharashtra" },
+        { city: "Pune (Kothrud)", address: "Office No. 25, 4th Floor, Commerce Avenue, Paud Rd, Mahaganesh Colony, Kothrud, Pune – 411029", state: "Maharashtra" },
+        { city: "Nanded", address: "Bhagwati Plaza, 1st Floor, Beside Union Bank, Ashok Nagar, Bhagya Nagar Road, Nanded – 431605", state: "Maharashtra" },
+        { city: "Surat", address: "304, 3rd Floor, International Finance Center, Vip Road, Vesu, Surat – 395007", state: "Gujarat" },
+        { city: "Bhopal", address: "1st Floor, Plot No.152, Near IDFC Bank, Zone-I, Maharana Pratap Nagar, Bhopal – 462011", state: "Madhya Pradesh" }
+    ],
+    "South Zone": [
+        { city: "Whitefield", address: "2nd lift, 3rd Floor, Sai Sree Harsha tower, Whitefield Main Road, Opp. Nexus Whitefield Mall, Palm Meadows, Whitefield, Bengaluru – 560066", state: "Karnataka" },
+        { city: "Kalaburagi", address: "Shiva Shree Complex, Khargee Pump, Sedam Road, Opp. Basaveshwara Hospital, Near Adarsh Nagar, Badepur Colony, Kalaburagi – 585105", state: "Karnataka" },
+        { city: "Shivamogga", address: "Kalaburagi – 585105", state: "Karnataka" },
+        { city: "Coimbatore", address: "320/4, 1st Floor, Selva Towers, Avinashi Road, Near Fun Mall, Peelamedu, Coimbatore – 641004", state: "Tamil Nadu" },
+        { city: "Vizag", address: "3rd Floor, Potluri Castle, Dr.no.47, 14-9/9, Dwarakanagar Road, above HDFC Bank, Visakhapatnam – 530016", state: "Andhra Pradesh" },
+        { city: "Trivandrum", address: "Santhram, Swathy Nagar Lane 6A, Pipinmoodu Jn, Sasthamangalam, Trivandrum – 695010", state: "Kerala" },
+        { city: "JP Nagar BLR", address: "262/1, Doresani Palya, 8th Cross, Panduranga Nagar Layout, JP Nagar 7th phase, Bangalore – 560076", state: "Karnataka" },
+        { city: "Mysore", address: "4647/1, Shivaji Road, Near Shivaji Park, N R Mohalla, Rajendra Nagar, Mysuru – 570007", state: "Karnataka" },
+        { city: "Davangere", address: "VHV Heights, 492/3, Hadadi Road, Davangere – 577002", state: "Karnataka" }
+    ],
     "North Zone": [
         { city: "Jammu", address: "H No. 13, Sector 5-A, main road, Trikuta Nagar, Jammu", state: "J&K" },
         { city: "Amritsar", address: "SCO-59, 1st & 2nd Floor, B-Block Market, New Amritsar – 143001", state: "Punjab" },
@@ -33,34 +61,6 @@ const zoneData = {
         { city: "Imphal", address: "INSD Imphal, Meitram Makha, Imphal West – 795140", state: "Manipur" },
         { city: "Raipur", address: "3rd floor, Ashutosh Tower, Turning Point Square, Shankar Nagar, Raipur – 492001", state: "Chhattisgarh" },
         { city: "Itanagar", address: "2nd Floor, Near Bishop’s House, Opposite Good Shepherd School, Pappu Nallah, Naharlagun – 791110", state: "Arunachal Pradesh" }
-    ],
-    "West Zone": [
-        { city: "Mumbai (Andheri)", address: "101 Crystal Paradise Dattaji Salvi Marg, Off Veera Desai Rd, Above Pizza Express, Andheri West, Mumbai – 400053", state: "Maharashtra" },
-        { city: "Mumbai (Sanpada)", address: "Ekram Palace, Plot No. 134, Sector-10, Sanpada, Navi Mumbai – 400705", state: "Maharashtra" },
-        { city: "Deccan Pune", address: "INSD, 1278, Suyog Plaza, Jangali Maharaj Road, Above Shoe Paradise, Deccan Gymkhana, Pune – 411004", state: "Maharashtra" },
-        { city: "Pune (Baner-Balewadi)", address: "1st floor, Unecha Estate, Baner – Balewadi Rd, above Bank Of Baroda, Opposite Atithi Veg, Near D Mart, Laxman Nagar, Baner, Pune – 411045", state: "Maharashtra" },
-        { city: "Pune (Hadapsar)", address: "Second Floor, Prasad Building, Office No.1, DP Road, Malwadi, Vidya Vihar Colony S. No. 211/9, near Annapurna Hotel, Hadapsar – 411028", state: "Maharashtra" },
-        { city: "Amravati", address: "1st floor, Agrawal building, opp. Rajesh Cinemas, next to Gulshan Towers, Jaisthambh Chowk, Amravati – 444601", state: "Maharashtra" },
-        { city: "Ahmedabad (Ellisbridge)", address: "309-310, Turquoise Complex, Panchvati, Chimanlal Girdharlal Rd, Ellisbridge, Ahmedabad – 380006", state: "Gujarat" },
-        { city: "Mumbai (Kandivali)", address: "1st floor, PARIND CHSL, Swami Vivekananda Rd, Beside Ladiwala Bldg, Best Nagar, Kandivali West, Mumbai – 400067", state: "Maharashtra" },
-        { city: "Mumbai (Ghatkopar West)", address: "O&S Business Suites, B305, Hirachand Desai Rd, near Metro Station Ghatkopar, Bhatwadi, Kapol wadi, Ghatkopar West, Mumbai – 400086", state: "Maharashtra" },
-        { city: "Thane", address: "4th Floor, Arambagh Estate, Veer Savarkar Marg, near Teen Petrol Pump, above Purepur Kolhapur Hotel, Next to Lokmanya CHS, Thane West – 400602", state: "Maharashtra" },
-        { city: "Pune (PCMC)", address: "103, 1st Floor, Gheewala Complex, Opp. Ramkrishna More Sabhagruha, Above Axis Bank, Pimpri-Chinchwad, Pune – 411033", state: "Maharashtra" },
-        { city: "Pune (Kothrud)", address: "Office No. 25, 4th Floor, Commerce Avenue, Paud Rd, Mahaganesh Colony, Kothrud, Pune – 411029", state: "Maharashtra" },
-        { city: "Nanded", address: "Bhagwati Plaza, 1st Floor, Beside Union Bank, Ashok Nagar, Bhagya Nagar Road, Nanded – 431605", state: "Maharashtra" },
-        { city: "Surat", address: "304, 3rd Floor, International Finance Center, Vip Road, Vesu, Surat – 395007", state: "Gujarat" },
-        { city: "Bhopal", address: "1st Floor, Plot No.152, Near IDFC Bank, Zone-I, Maharana Pratap Nagar, Bhopal – 462011", state: "Madhya Pradesh" }
-    ],
-    "South Zone": [
-        { city: "Whitefield", address: "2nd lift, 3rd Floor, Sai Sree Harsha tower, Whitefield Main Road, Opp. Nexus Whitefield Mall, Palm Meadows, Whitefield, Bengaluru – 560066", state: "Karnataka" },
-        { city: "Kalaburagi", address: "Shiva Shree Complex, Khargee Pump, Sedam Road, Opp. Basaveshwara Hospital, Near Adarsh Nagar, Badepur Colony, Kalaburagi – 585105", state: "Karnataka" },
-        { city: "Shivamogga", address: "Kalaburagi – 585105", state: "Karnataka" }, // Data as provided, though looks like a duplicate state/zip
-        { city: "Coimbatore", address: "320/4, 1st Floor, Selva Towers, Avinashi Road, Near Fun Mall, Peelamedu, Coimbatore – 641004", state: "Tamil Nadu" },
-        { city: "Vizag", address: "3rd Floor, Potluri Castle, Dr.no.47, 14-9/9, Dwarakanagar Road, above HDFC Bank, Visakhapatnam – 530016", state: "Andhra Pradesh" },
-        { city: "Trivandrum", address: "Santhram, Swathy Nagar Lane 6A, Pipinmoodu Jn, Sasthamangalam, Trivandrum – 695010", state: "Kerala" },
-        { city: "JP Nagar BLR", address: "262/1, Doresani Palya, 8th Cross, Panduranga Nagar Layout, JP Nagar 7th phase, Bangalore – 560076", state: "Karnataka" },
-        { city: "Mysore", address: "4647/1, Shivaji Road, Near Shivaji Park, N R Mohalla, Rajendra Nagar, Mysuru – 570007", state: "Karnataka" },
-        { city: "Davangere", address: "VHV Heights, 492/3, Hadadi Road, Davangere – 577002", state: "Karnataka" }
     ]
 };
 
@@ -68,23 +68,23 @@ const Centers = () => {
     const [selectedZone, setSelectedZone] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
 
-    const allCenters = Object.entries(zoneData).flatMap(([zone, centers]) => 
+    const allCenters = Object.entries(zoneData).flatMap(([zone, centers]) =>
         centers.map(center => ({ ...center, zone }))
     );
 
     const filteredCenters = allCenters.filter(center => {
         const matchesZone = selectedZone === "All" || center.zone === selectedZone;
-        const matchesSearch = center.city.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                             center.state.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                             center.address.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = center.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            center.state.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            center.address.toLowerCase().includes(searchQuery.toLowerCase());
         return matchesZone && matchesSearch;
     });
 
     return (
         <div className="bg-white min-h-screen font-sans">
             <SEO 
-                title="Centers Across India | 75+ INSD Locations"
-                description="Find an INSD center near you. With over 75+ campuses across India, categorized by North, East, West, and South zones."
+                title="Centers Across India | 23+ INSD Locations"
+                description="Find an INSD center near you. With over 23+ campuses across India, categorized by West, South, North, and East zones."
             />
 
             {/* --- HERO SECTION --- */}
@@ -98,31 +98,16 @@ const Centers = () => {
                         >
                             National Network
                         </motion.div>
-                        <motion.h1 
+                        <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-clamp-5xl font-black text-slate-900 tracking-tighter leading-[0.85] uppercase"
                         >
-                            75+ <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-slate-500 to-secondary">CENTERS.</span>
+                            23+ <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-slate-500 to-secondary">CENTERS.</span>
                         </motion.h1>
                         <p className="text-slate-500 max-w-xl mx-auto text-lg font-medium tracking-tight">
-                            The largest design education network in India. Bridging regional creativity with global standards.
+                            One of India's largest design education network. Bridging regional creativity with global standards.
                         </p>
-                        
-                        <div className="flex flex-wrap items-center justify-center gap-6 pt-4 opacity-60">
-                            <div className="flex items-center gap-2">
-                                <Target size={14} className="text-primary" />
-                                <span className="text-[10px] font-black uppercase tracking-widest">Skill India Partner</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Award size={14} className="text-primary" />
-                                <span className="text-[10px] font-black uppercase tracking-widest">Govt Recognized</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Briefcase size={14} className="text-primary" />
-                                <span className="text-[10px] font-black uppercase tracking-widest">Global Curriculum</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -131,15 +116,14 @@ const Centers = () => {
             <section className="sticky top-20 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-100 py-4 px-6">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="flex flex-wrap justify-center gap-2">
-                        {["All", "North Zone", "East Zone", "West Zone", "South Zone"].map((zone) => (
+                        {["All", "West Zone", "South Zone", "North Zone", "East Zone"].map((zone) => (
                             <button
                                 key={zone}
                                 onClick={() => setSelectedZone(zone)}
-                                className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
-                                    selectedZone === zone 
-                                    ? "bg-slate-900 text-white shadow-xl shadow-slate-200" 
-                                    : "bg-slate-50 text-slate-400 hover:bg-slate-100"
-                                }`}
+                                className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedZone === zone
+                                        ? "bg-slate-900 text-white shadow-xl shadow-slate-200"
+                                        : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                                    }`}
                             >
                                 {zone}
                             </button>
@@ -148,8 +132,8 @@ const Centers = () => {
 
                     <div className="relative w-full md:w-80 group">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-primary transition-colors" size={16} />
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             placeholder="Search by city or state..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
@@ -221,8 +205,8 @@ const Centers = () => {
                             <Search size={32} />
                         </div>
                         <p className="text-slate-400 font-medium text-lg">No centers found matching "{searchQuery}"</p>
-                        <button 
-                            onClick={() => {setSearchQuery(""); setSelectedZone("All")}}
+                        <button
+                            onClick={() => { setSearchQuery(""); setSelectedZone("All") }}
                             className="text-primary font-black uppercase tracking-widest text-[10px] mt-4 hover:underline"
                         >
                             Reset Filters
@@ -235,7 +219,7 @@ const Centers = () => {
             <section className="px-6 md:px-12 lg:px-24 pb-24">
                 <div className="max-w-7xl mx-auto p-12 md:p-24 bg-slate-900 rounded-[3.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    
+
                     <div className="relative z-10 space-y-6 text-center md:text-left">
                         <Sparkles className="text-primary mx-auto md:mx-0" size={32} />
                         <h2 className="text-clamp-4xl font-black uppercase tracking-tighter leading-none">
