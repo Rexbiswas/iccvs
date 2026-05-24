@@ -3,27 +3,11 @@ import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import LegacyTimeline from '../components/LegacyTimeline';
 import SEO from '../components/SEO';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Legacy = () => {
-    const marqueeRef = React.useRef(null);
-
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
-
-        // Jubilee Marquee Animation
-        if (marqueeRef.current) {
-            gsap.to(marqueeRef.current, {
-                xPercent: -50,
-                repeat: -1,
-                duration: 40, // Slower for readability
-                ease: "linear"
-            });
-        }
     }, []);
 
     return (
@@ -56,19 +40,7 @@ const Legacy = () => {
                         </h1>
                     </motion.div>
 
-                    {/* Scrolling '15 YEARS' Bar */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden py-6 border-y border-slate-200 bg-white/30 backdrop-blur-md">
-                        <div ref={marqueeRef} className="flex whitespace-nowrap gap-12 items-center w-max">
-                            {[...Array(10)].map((_, i) => (
-                                <div key={i} className="flex items-center gap-12 font-black text-slate-300 text-2xl uppercase tracking-[0.2em] px-6">
-                                    <span>15 Years OF Excellence</span>
-                                    <span className="w-2 h-2 rounded-full bg-primary"></span>
-                                    <span>Legacy 2011 - 2026</span>
-                                    <span className="w-2 h-2 rounded-full bg-primary/30"></span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+
 
                     {/* Decorative Blurs */}
                     <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>

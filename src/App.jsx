@@ -133,6 +133,7 @@ function App() {
                                         <Route path="/contact-us" element={<Contact />} />
                                         <Route path="/international-partners" element={<InternationalPartner />} />
                                         <Route path="/course-apply-now" element={<Admission />} />
+                                        <Route path="/course-apply-now/" element={<Navigate to="/course-apply-now" replace />} />
                                         <Route path="/apply" element={<Navigate to="/course-apply-now" replace />} />
                                         <Route path="/courses/online-courses" element={<OnlineCourse />} />
                                         <Route path="/insd-360/blog" element={<Blog />} />
