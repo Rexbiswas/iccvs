@@ -1,7 +1,6 @@
 {
   "version": 2,
   "redirects": [
-    { "source": "/favicon.ico", "destination": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Half-logo-removebg-preview.png?v=20260524", "permanent": false },
     { "source": "/courses/short-term-interior-design-courses", "destination": "/courses/short-term-courses", "permanent": true },
     { "source": "/courses/short-term-interior-design-courses/", "destination": "/courses/short-term-courses", "permanent": true },
     { "source": "/courses/diploma-in-graphic-design", "destination": "/courses/graphic-designing", "permanent": true },
@@ -25,7 +24,15 @@
   ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/favicon.ico",
+      "destination": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Half-logo-removebg-preview.png?v=20260524"
+    },
+    {
+      "source": "/favicon.png",
+      "destination": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Half-logo-removebg-preview.png?v=20260524"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
