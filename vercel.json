@@ -3,6 +3,7 @@
   "redirects": [
     { "source": "/apply", "destination": "/course-apply-now", "permanent": true },
     { "source": "/apply/", "destination": "/course-apply-now", "permanent": true },
+    { "source": "/course-apply-now/", "destination": "/course-apply-now", "permanent": true },
     { "source": "/courses/short-term-interior-design-courses", "destination": "/courses/short-term-courses", "permanent": true },
     { "source": "/courses/short-term-interior-design-courses/", "destination": "/courses/short-term-courses", "permanent": true },
     { "source": "/courses/diploma-in-graphic-design", "destination": "/courses/graphic-designing", "permanent": true },

@@ -4,6 +4,7 @@
 
   # Legacy URL redirects
   RewriteRule ^apply/?$ /course-apply-now [R=301,L]
+  RewriteRule ^course-apply-now/$ /course-apply-now [R=301,L]
 
   # Serve existing files and folders directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
