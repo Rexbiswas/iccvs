@@ -36,8 +36,6 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        // Preserve important code for Safari
-        safari10: true,
       },
       mangle: {
         // Prevent mangling of constructor names (helps with Three.js)
