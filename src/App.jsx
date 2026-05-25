@@ -30,6 +30,7 @@ const DiplomaInGraphicDesign = lazy(() => import('./pages/diploma-in-graphic-des
 const DiplomaInTextileDesign = lazy(() => import('./pages/diploma-in-textile-design'));
 const BachelorsInGraphicDesign = lazy(() => import('./pages/bachelors-in-graphic-design'));
 const MastersInAnimation = lazy(() => import('./pages/masters-in-animation'));
+const AdvancedDiplomaInAnimation = lazy(() => import('./pages/advanced-diploma-in-animation'));
 const DiplomaInJewelleryDesign = lazy(() => import('./pages/diploma-in-jewellery-design'));
 const Contact = lazy(() => import('./pages/Contact'));
 const MscLuxury = lazy(() => import('./pages/MscLuxury'));
@@ -130,6 +131,7 @@ function App() {
                                         <Route path="/courses/diploma-in-textile-design" element={<DiplomaInTextileDesign />} />
                                         <Route path="/courses/bachelors-in-graphic-design" element={<BachelorsInGraphicDesign />} />
                                         <Route path="/courses/masters-in-animation" element={<MastersInAnimation />} />
+                                        <Route path="/courses/advanced-diploma-in-animation" element={<AdvancedDiplomaInAnimation />} />
                                         <Route path="/courses/diploma-in-jewellery-design" element={<DiplomaInJewelleryDesign />} />
                                         <Route path="/courses/msc-luxury-brand-management" element={<MscLuxury />} />
                                         <Route path="/courses/fashion-designing" element={<FashionDesigning />} />
