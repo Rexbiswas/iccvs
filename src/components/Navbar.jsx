@@ -398,7 +398,7 @@ const Navbar = () => {
                 {/* Left: Logo */}
                 <Link to="/" className="nav-logo relative z-50 shrink-0 block h-[65px]" onClick={() => setIsOpen(false)}>
                     <motion.img
-                        whileHover={{ scale: 1.1, rotate: 2 }}
+                        whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         className={`h-[90px] w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
                         src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
