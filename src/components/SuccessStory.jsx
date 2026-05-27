@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Star } from 'lucide-react';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
+import Text from './text.jsx';
 
-const SuccessStory = () => {
+const SuccessStory = ({ heading, subheading }) => {
     const { openAdmissionModal } = useAdmissionModal();
     const stories = [
         {
@@ -51,16 +52,7 @@ const SuccessStory = () => {
                         <span className="text-primary font-black uppercase tracking-[0.4em] text-clamp-sm">Industry Placements</span>
                     </motion.div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-clamp-4xl font-black text-slate-950 leading-none tracking-tighter uppercase mb-8"
-                    >
-                        They made it.<br />
-                        <span className="text-primary italic">So Can You!</span>
-                    </motion.h2>
-
+                    <Text heading={heading} subheading={subheading} />
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

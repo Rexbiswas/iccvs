@@ -49,7 +49,8 @@ const StepLeadForm = ({ isModal = false, initialChoice = null, title = null, sub
         "Tamilnadu": ["Chennai", "Coimbatore", "Madurai", "Tambaram", "Trippur", "Avadi", "Erode", "Hosur", "Nagarcoil", "Salem", "Tirunaveli", "Trichy", "Tuticorin", "Vellore"],
         "Telengana": ["Hydrabad", "Karimnagar", "Nizamabad", "Warangal", "Godavarikhani", "Ramagundam", "Secundrabad"],
         "Tripura": ["Agartala", "Dharmanagar"],
-        "Uttar Pradesh": ["Agra", "Kanpur", "Lucknow", "Meerut", "Varanasi", "Aligarh", "Ayodhya", "Bareilly", "Firozabad", "Gorakhpur", "Jhansi", "Mathura", "Moradabad", "Muzaffarnagar", "Rampur", "Saharanpur", "Amroha", "Budaun", "Bulandshahr", "Etawah", "Farrukhabad", "Mau", "Mirzapur", "Shahjahanpur"]
+        "Uttar Pradesh": ["Agra", "Kanpur", "Lucknow", "Meerut", "Varanasi", "Aligarh", "Ayodhya", "Bareilly", "Firozabad", "Gorakhpur", "Jhansi", "Mathura", "Moradabad", "Muzaffarnagar", "Rampur", "Saharanpur", "Amroha", "Budaun", "Bulandshahr", "Etawah", "Farrukhabad", "Mau", "Mirzapur", "Shahjahanpur"],
+        "West Bengal": ["Kolkata", "Asansol", "Siliguri", "Durgapur", "Bardhaman", "Malda", "Baharampur", "Shantipur", "Ranaghat", "Haldia"]
     };
 
     const handleChoice = (val) => {

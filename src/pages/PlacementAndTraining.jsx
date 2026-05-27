@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
     Award, 
     Briefcase, 
@@ -12,14 +12,212 @@ import {
     CheckCircle2,
     Building2,
     GraduationCap,
-    MessageSquare
+    MessageSquare,
+    ChevronLeft,
+    ChevronRight
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 
+const recentHiresData = [
+    {
+        name: "Ankit Khera",
+        course: "Fashion Design",
+        brand: "Jigar Mali",
+        loc: "Chhatarpur",
+        quote: "INSD helped me move from basic sketches to a strong portfolio and a full-time job as a Fashion Designer. The shows, juries and software training made interviews feel easy.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Ankit%20Khera.jpeg"
+    },
+    {
+        name: "Sanchita Pal",
+        course: "Graphic Design",
+        brand: "Freelance Designer",
+        loc: "",
+        quote: "I started taking small freelance graphic design projects in my second year. The feedback on my portfolio and support from faculty gave me the confidence to charge for my skills.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Sanchita%20Pal.jfif"
+    },
+    {
+        name: "Sameer Siddiqui",
+        course: "Jewellery Design",
+        brand: "Gold mark",
+        loc: "",
+        quote: "The hands-on training in jewellery design and the exposure to industry techniques helped me build strong technical skills. The portfolio development sessions and mentor guidance played a key role in helping me secure a position with a reputed jewellery brand.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Sameer%20Siddiqui.jpeg"
+    },
+    {
+        name: "Nitika Gautam",
+        course: "Interior Design",
+        brand: "Virgo Clothing Culture",
+        loc: "Gurgaon",
+        quote: "The placement cell connected me with a top interior design firm in Gurgaon. My 3D visualisation skills and studio projects made me job-ready from day one.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Nitika%20Gautam%20.jpeg"
+    },
+    {
+        name: "Sanskriti Jha",
+        course: "Graphic Design",
+        brand: "Government of India",
+        loc: "",
+        quote: "Learning design software alongside creative concepts made a big difference for me. I was able to confidently apply for jobs because I had practical skills that companies were looking for.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Sanskriti%20Jha%20-%20Testimonial%205%20.jpg"
+    },
+    {
+        name: "Preeti Jangra",
+        course: "Fashion Design",
+        brand: "Shiva Arjun Ent.",
+        loc: "Mumbai",
+        quote: "The exposure through workshops, industry visits, and live projects helped me understand how the design industry really works. By the time I graduated, I already had a strong portfolio and internship experience.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Preeti%20Jangra.png"
+    },
+    {
+        name: "Kajalpriya",
+        course: "Interior Design",
+        brand: "Aman Export Int.",
+        loc: "",
+        quote: "The faculty at INSD constantly pushed us to think creatively and present our ideas professionally. The portfolio reviews and jury feedback prepared me extremely well for client presentations.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Kajalpriya.jpeg"
+    },
+    {
+        name: "Muskan Singh",
+        course: "Fashion Design",
+        brand: "Pluch Designs",
+        loc: "Gurugram",
+        quote: "My time at INSD helped me discover my unique design style. The guidance from mentors and the opportunity to showcase my work in exhibitions boosted my confidence as a designer.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Muskan%20Singh%20.jpeg"
+    },
+    {
+        name: "Anshuman Deb",
+        course: "Interiors Design",
+        brand: "The Design Atelier",
+        loc: "",
+        quote: "The course structure balanced creativity with business understanding. I learned how to design, present, and market my work, which helped me start taking independent projects.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Anshuman%20deb.jpeg"
+    },
+    {
+        name: "Rahul Yadav",
+        course: "Interior Design",
+        brand: "Wriver",
+        loc: "",
+        quote: "The studio-based learning and practical assignments helped me build a strong design foundation. I felt prepared to handle real client requirements right after completing my course.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Rahul%20Yadav.jpeg"
+    },
+    {
+        name: "Himani",
+        course: "Fashion Design",
+        brand: "Virgo Clothing Culture",
+        loc: "",
+        quote: "From mood boards to final collections, every project helped me improve my design thinking. The constant mentoring helped me refine my portfolio for placements.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Himani.jpeg"
+    },
+    {
+        name: "Shreya Sinha",
+        course: "Graphic Design",
+        brand: "TO THE NEW Pvt Ltd",
+        loc: "",
+        quote: "INSD gave me the platform to experiment with different styles and techniques. The guidance from experienced faculty helped me turn my passion for design into a professional career.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Shreya%20Sinha.jfif"
+    },
+    {
+        name: "Chitra",
+        course: "Interior Design",
+        brand: "Casamink",
+        loc: "",
+        quote: "The practical approach to learning at INSD helped me understand design beyond theory. Working on live projects gave me real industry exposure and confidence.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Chitra%20.jpeg"
+    },
+    {
+        name: "Abhinav Rajput",
+        course: "Graphic Design",
+        brand: "Magiccircle Comm.",
+        loc: "",
+        quote: "INSD gave me the right platform to explore my creativity. The continuous feedback from faculty helped me improve my work and build a strong portfolio.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Abhinav%20Rajput.jfif"
+    },
+    {
+        name: "Tamanna Das",
+        course: "Fashion Design",
+        brand: "Sahil Kocchar",
+        loc: "Noida",
+        quote: "The fashion shows and jury evaluations pushed me to perform better with every project. It really prepared me for the competitive industry outside.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Tamanna%20Das.jpeg"
+    },
+    {
+        name: "Sarabjeet",
+        course: "Interior Design",
+        brand: "Height Buildcon South",
+        loc: "",
+        quote: "I learned how to convert ideas into practical designs through hands-on training. The software skills I gained helped me secure my first job quickly.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Sarabjeet.jpeg"
+    },
+    {
+        name: "Nimit Lakhanpal",
+        course: "Graphic Design",
+        brand: "GMS Group",
+        loc: "",
+        quote: "The faculty support at INSD was incredible. They guided me at every step, from concept development to final portfolio presentation.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Nimit%20Lakhanpal.jfif"
+    },
+    {
+        name: "Nausheena Naaz",
+        course: "Fashion Design",
+        brand: "Freelance Stylist",
+        loc: "",
+        quote: "The exposure to different design fields helped me discover my strengths. By the end of the course, I had clarity on my career path.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Nausheena%20Naaz.jpeg"
+    },
+    {
+        name: "Tamanna Dua",
+        course: "Interior Design",
+        brand: "Portray Interior",
+        loc: "Abu Dhabi",
+        quote: "INSD helped me build both creative and professional skills. The portfolio preparation and mock interviews made a huge difference during placements.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Tamanna%20Dua%20.jpeg"
+    },
+    {
+        name: "Vandana",
+        course: "Interior Design",
+        brand: "Dazor Constructions",
+        loc: "",
+        quote: "Workshops and industry interactions gave me insights into real-world design practices. It helped me stay ahead and be job-ready.",
+        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder-20260527T072542Z-3-001/Untitled%20folder/Copy%20of%20Vandana%20.jpeg"
+    }
+];
+
+
 const PlacementAndTraining = () => {
     const { openAdmissionModal } = useAdmissionModal();
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(3);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setItemsPerPage(1);
+            } else if (window.innerWidth < 1024) {
+                setItemsPerPage(2);
+            } else {
+                setItemsPerPage(3);
+            }
+        };
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const totalPages = Math.ceil(recentHiresData.length / itemsPerPage);
+
+    const nextPage = () => {
+        setCurrentPage((prev) => (prev + 1) % totalPages);
+    };
+
+    const prevPage = () => {
+        setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+    };
+
+    const currentHires = recentHiresData.slice(
+        currentPage * itemsPerPage,
+        (currentPage + 1) * itemsPerPage
+    );
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
@@ -187,6 +385,9 @@ const PlacementAndTraining = () => {
                             <h2 className="text-5xl md:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-none">
                                 Recent <span className="text-slate-300">Hires</span>
                             </h2>
+                            <p className="text-slate-500 font-bold text-sm uppercase tracking-tight max-w-md mt-4">
+                                Every story is different. The common link is simple – skills, portfolios and the confidence to enter the industry.
+                            </p>
                         </div>
                         <button 
                             onClick={() => openAdmissionModal({
@@ -200,39 +401,72 @@ const PlacementAndTraining = () => {
                         </button>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        {[
-                            { name: "Sanya Gupta", label: "LUXURY FASHION HOUSE", role: "Sr. Creative Lead", loc: "London", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800" },
-                            { name: "Kabir Mehra", label: "GLOBAL DESIGN FIRM", role: "Interaction Designer", loc: "Singapore", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" },
-                            { name: "Meera Das", label: "PREMIUM INTERIORS", role: "Concept Architect", loc: "Dubai", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" }
-                        ].map((hire, idx) => (
-                            <motion.div 
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="group cursor-pointer relative"
+                    <div className="relative">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                            <AnimatePresence mode="popLayout">
+                                {currentHires.map((hire, idx) => (
+                                    <motion.div 
+                                        key={`${currentPage}-${idx}`}
+                                        initial={{ opacity: 0, x: 50 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -50 }}
+                                        transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
+                                        className="group relative flex flex-col bg-slate-50 rounded-[3rem] p-4 md:p-6 shadow-xl border border-slate-100 hover:shadow-2xl transition-all duration-500"
+                                    >
+                                        <div className="relative aspect-square w-full rounded-[2.5rem] overflow-hidden mb-6">
+                                            <img src={hire.img} alt={hire.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                            <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+                                            <div className="absolute bottom-6 left-6 p-2 space-y-1">
+                                                <p className="text-primary font-black text-[10px] tracking-widest uppercase">{hire.brand}</p>
+                                                <p className="text-white text-3xl font-black tracking-tighter uppercase leading-none">{hire.name}</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex-1 flex flex-col justify-between px-2">
+                                            <div className="relative mb-8">
+                                                <span className="text-5xl text-slate-200 absolute -top-4 -left-2 font-serif">"</span>
+                                                <p className="text-slate-600 font-medium text-sm leading-relaxed relative z-10 pl-4 italic">
+                                                    {hire.quote}
+                                                </p>
+                                            </div>
+                                            <div className="border-t border-slate-200 pt-4 flex items-center justify-between mt-auto">
+                                                <div>
+                                                    <p className="text-slate-900 font-black text-sm uppercase tracking-tighter leading-tight">{hire.course}</p>
+                                                    {hire.loc && <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em]">{hire.loc}</p>}
+                                                </div>
+                                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
+                                                    <ArrowRight size={14} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </div>
+                        
+                        {/* Pagination Controls */}
+                        <div className="flex justify-center items-center gap-6 mt-16">
+                            <button 
+                                onClick={prevPage}
+                                className="w-14 h-14 rounded-full border border-slate-200 text-slate-400 hover:bg-slate-900 hover:text-white hover:border-slate-900 flex items-center justify-center transition-all"
                             >
-                                <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl">
-                                    <img src={hire.img} alt={hire.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
-                                    <div className="absolute bottom-10 left-10 p-2 space-y-1">
-                                        <p className="text-primary font-black text-[10px] tracking-widest uppercase">{hire.label}</p>
-                                        <p className="text-white text-3xl font-black tracking-tighter uppercase leading-none">{hire.name}</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start justify-between px-4">
-                                    <div>
-                                        <p className="text-slate-900 font-black text-lg uppercase tracking-tighter leading-tight">{hire.role}</p>
-                                        <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em]">{hire.loc}</p>
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
-                                        <ArrowRight size={18} />
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                <ChevronLeft size={24} />
+                            </button>
+                            <div className="flex items-center gap-3">
+                                {[...Array(totalPages)].map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setCurrentPage(idx)}
+                                        className={`h-2 rounded-full transition-all duration-300 ${currentPage === idx ? 'w-8 bg-primary' : 'w-2 bg-slate-200 hover:bg-slate-300'}`}
+                                    />
+                                ))}
+                            </div>
+                            <button 
+                                onClick={nextPage}
+                                className="w-14 h-14 rounded-full border border-slate-200 text-slate-400 hover:bg-slate-900 hover:text-white hover:border-slate-900 flex items-center justify-center transition-all"
+                            >
+                                <ChevronRight size={24} />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>

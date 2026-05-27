@@ -22,6 +22,9 @@ import {
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import PartnerFormModal from '../components/PartnerFormModal';
+import EIDC_Slider from '../components/EIDC_Slider';
+import ConclaveSlider from '../components/ConclaveSlider';
+
 
 const IndustryInteraction = () => {
     const [isFormOpen, setIsFormOpen] = React.useState(false);
@@ -295,8 +298,17 @@ const IndustryInteraction = () => {
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Conclave Moments Slider */}
+                    <div className="relative z-10 -mx-6 md:-mx-12 lg:-mx-24 mt-24">
+                        <ConclaveSlider />
+                    </div>
                 </div>
             </section>
+
+            {/* --- EIDC SLIDER SECTION --- */}
+            <EIDC_Slider />
+
 
 
             {/* --- TESTIMONIAL --- */}

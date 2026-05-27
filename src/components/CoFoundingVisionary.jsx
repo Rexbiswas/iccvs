@@ -37,7 +37,7 @@ const CoFoundingVisionary = () => {
                     <div className="lg:col-span-5 relative flex justify-center">
                         <div className="w-full max-w-sm aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/10 p-8 flex flex-col justify-between shadow-2xl relative group">
                             <img 
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Yashwant_Sinha_as_External_Affairs_Minister.jpg/250px-Yashwant_Sinha_as_External_Affairs_Minister.jpg"
+                                src="https://static.toiimg.com/thumb/msid-50880462,imgsize-11984,width-400,resizemode-4/50880462.jpg"
                                 alt="L V Saptharishi"
                                 className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-[2s] pointer-events-none"
                             />

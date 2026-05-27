@@ -8,7 +8,7 @@ const eidcData = [
         title: "Incubation Hub",
         tag: "Physical Catalyst",
         desc: "State-of-the-art co-working ecosystems equipped with high-performance prototyping labs and neural networks for collaborative engineering.",
-        img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=1600",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI01792.JPG",
         icon: Rocket,
         color: "bg-primary"
     },
@@ -17,7 +17,7 @@ const eidcData = [
         title: "Angel Network",
         tag: "Capital Infusion",
         desc: "Direct-to-investor pipelines connecting high-potential startups with elite venture capital and private equity frameworks.",
-        img: "https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?auto=format&fit=crop&q=80&w=1600",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI01933.JPG",
         icon: Zap,
         color: "bg-amber-500"
     },
@@ -26,7 +26,7 @@ const eidcData = [
         title: "Mentor Panels",
         tag: "Domain Expertise",
         desc: "Exclusively curated advisory sessions with CXOs from Fortune 500 design houses and tech giants to refine market entry strategies.",
-        img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1600",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI01934.JPG",
         icon: Target,
         color: "bg-blue-600"
     },
@@ -35,9 +35,45 @@ const eidcData = [
         title: "IP Architecture",
         tag: "Asset Protection",
         desc: "Comprehensive patent and trademark ecosystems to ensure that your creative intellect remains your most fortified competitive advantage.",
-        img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1600",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI02049.JPG",
         icon: Shield,
         color: "bg-emerald-600"
+    },
+    {
+        id: "05",
+        title: "Global Outreach",
+        tag: "Market Expansion",
+        desc: "Strategic alliances with international brands to launch your products on a global scale.",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI02056.JPG",
+        icon: Rocket,
+        color: "bg-purple-600"
+    },
+    {
+        id: "06",
+        title: "Tech Innovation",
+        tag: "Digital Solutions",
+        desc: "Integration of cutting-edge tech frameworks to modernize the conventional design process.",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI02058.JPG",
+        icon: Zap,
+        color: "bg-cyan-500"
+    },
+    {
+        id: "07",
+        title: "Design Lab",
+        tag: "Creative Space",
+        desc: "An open forum for designers to experiment, fail, and succeed under the guidance of industry veterans.",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI02311.JPG",
+        icon: Target,
+        color: "bg-rose-500"
+    },
+    {
+        id: "08",
+        title: "Venture Builder",
+        tag: "Startup Engine",
+        desc: "End-to-end support system for transforming raw ideas into fully functional and profitable businesses.",
+        img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T065402Z-3-001/ARI02418.JPG",
+        icon: Shield,
+        color: "bg-indigo-500"
     }
 ];
 
@@ -89,14 +125,7 @@ const EIDC_Slider = () => {
                                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                                 className="space-y-6 md:space-y-8"
                             >
-                                <span className={`inline-block text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] px-5 py-2 rounded-full text-white shadow-lg shadow-black/5 ${activeItem.color}`}>
-                                    {activeItem.tag}
-                                </span>
-                                <h3 className="text-5xl md:text-8xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
-                                    {activeItem.title.split(' ').map((word, i) => (
-                                        <span key={i} className="block">{word}</span>
-                                    ))}
-                                </h3>
+
                                 <p className="text-lg md:text-2xl text-slate-500 font-medium leading-relaxed tracking-tight max-w-lg">
                                     {activeItem.desc}
                                 </p>
@@ -175,22 +204,7 @@ const EIDC_Slider = () => {
                             </div>
                         </div>
                         
-                        {/* Floating Status Card */}
-                        <motion.div 
-                            initial={{ x: 20, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-40 h-40 md:w-48 md:h-48 bg-white shadow-2xl rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-10 flex flex-col justify-end gap-1 md:gap-2 border border-slate-50 z-20"
-                        >
-                            <span className="text-[9px] md:text-[10px] font-black uppercase text-primary tracking-[0.4em]">Efficiency</span>
-                            <span className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter italic">98.4<span className="text-primary">%</span></span>
-                            <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden mt-2">
-                                <motion.div 
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: "98.4%" }}
-                                    className="h-full bg-primary"
-                                />
-                            </div>
-                        </motion.div>
+
                     </div>
 
                 </div>
