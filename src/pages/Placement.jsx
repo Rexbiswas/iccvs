@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import StudentTransformation from '../components/StudentTransformation';
 import HiringPartnersLogoCloud from '../components/HiringPartnersLogoCloud';
+import GlobalIndustryNetwork from '../components/GlobalIndustryNetwork';
+import LifeSupport from '../components/LifeSupport';
 import SuccessStory from '../components/SuccessStory';
 import Footer from '../components/Footer';
 
@@ -14,7 +16,7 @@ const Placement = () => {
 
     return (
         <main className="min-h-screen bg-[#fafafa]">
-            <SEO 
+            <SEO
                 title="Design Courses with 100% Placement in Delhi | INSD Career Success"
                 description="Explore INSD's record of 100% placement assistance for fashion, interior, and graphic design courses in Delhi. From classroom to career with top industry partners."
                 keywords="design courses with 100% placement in Delhi, job oriented design courses in Delhi, placement assistance for fashion design, interior design placement support, graphic design job guarantee"
@@ -46,8 +48,20 @@ const Placement = () => {
                 </div>
             </section>
 
+
+
             {/* Hiring Partners Logo Cloud */}
             <HiringPartnersLogoCloud />
+
+            {/* Placement Support Info */}
+            <LifeSupport />
+
+
+
+            {/* Global Ecosystem / Network */}
+            <GlobalIndustryNetwork />
+
+
 
             {/* StudentTransformation Component */}
             <motion.div
@@ -58,7 +72,7 @@ const Placement = () => {
                 <StudentTransformation />
             </motion.div>
 
-            <SuccessStory />
+            {/* <SuccessStory /> */}
 
             <Footer />
         </main>

@@ -5,9 +5,9 @@ import { ArrowUpRight, Star } from 'lucide-react';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 import Text from './text.jsx';
 
-const SuccessStory = ({ heading, subheading }) => {
+const SuccessStory = ({ heading, subheading, customStories }) => {
     const { openAdmissionModal } = useAdmissionModal();
-    const stories = [
+    const defaultStories = [
         {
             name: "Ankit Khera",
             placedAt: "Lifestyle",
@@ -37,6 +37,8 @@ const SuccessStory = ({ heading, subheading }) => {
             quote: "The placement cell connected me with a top interior design firm in Gurgaon. My 3D visualisation skills and studio projects made me job-ready from day one."
         }
     ];
+
+    const stories = customStories || defaultStories;
 
     return (
         <section className="section-py pb-24 md:pb-32 bg-slate-50 overflow-hidden relative">

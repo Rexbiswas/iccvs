@@ -58,7 +58,7 @@ const PlacementPartners = () => {
                 </div>
 
                 {/* Card Grid */}
-                <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 lg:gap-5">
+                <motion.div layout className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-5">
                     <AnimatePresence>
                         {visibleLogos.map((logo, idx) => (
                             <motion.div
@@ -72,7 +72,7 @@ const PlacementPartners = () => {
                                     delay: isExpanded ? Math.max(0, (idx - initialCount) * 0.05) : idx * 0.05,
                                     ease: "easeOut"
                                 }}
-                                className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 aspect-[1.8/1] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group"
+                                className="bg-white rounded-xl md:rounded-3xl p-2 sm:p-4 md:p-6 aspect-[1.8/1] sm:aspect-[1.8/1] flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 group"
                             >
                                 <img
                                     src={logo}

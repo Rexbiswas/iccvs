@@ -78,7 +78,7 @@ const zoneData = {
 
 const Location = () => {
     const navigate = useNavigate();
-    const [selectedZone, setSelectedZone] = useState("All");
+    const [selectedZone, setSelectedZone] = useState("West Zone");
     const [searchQuery, setSearchQuery] = useState("");
 
     const allCenters = Object.entries(zoneData).flatMap(([zone, centers]) =>
@@ -128,13 +128,32 @@ const Location = () => {
                         <span className="bg-gradient-to-r from-[#db3436] to-[#134a84] text-transparent bg-clip-text">Nationwide.</span>
                     </motion.h1>
                     <p className="text-slate-500 max-w-xl mx-auto text-base md:text-lg font-semibold uppercase tracking-wide">
-                        Explore our extensive network of 23+ state-of-the-art campuses across India.
+                        Explore our extensive network spanning across 23+ states of India
                     </p>
                 </div>
             </section>
 
             {/* --- ALL CENTERS GRID --- */}
             <main className="max-w-7xl mx-auto px-6 py-16">
+                
+                {/* --- FILTERS --- */}
+                <div className="flex justify-center mb-12">
+                    <div className="flex flex-wrap items-center justify-center gap-2 p-2 bg-white rounded-full border border-slate-100 shadow-xl shadow-slate-200/20">
+                        {["West Zone", "South Zone", "North Zone", "East Zone"].map((zone) => (
+                            <button
+                                key={zone}
+                                onClick={() => setSelectedZone(zone)}
+                                className={`px-5 md:px-8 py-3 rounded-full text-xs md:text-sm font-black uppercase tracking-widest transition-all ${
+                                    selectedZone === zone 
+                                        ? 'bg-[#c5a044] text-white shadow-md shadow-[#c5a044]/20' 
+                                        : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'
+                                }`}
+                            >
+                                {zone.replace(" Zone", "")}
+                            </button>
+                        ))}
+                    </div>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <AnimatePresence mode="popLayout">
                         {filteredCenters.map((center, idx) => (

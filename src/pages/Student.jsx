@@ -295,53 +295,53 @@ const Student = () => {
 
             {/* Campus Experience Section - High Fidelity Collage */}
             <section className="section-py bg-white overflow-hidden relative">
-                <div className="container mx-auto container-px">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 auto-rows-fr">
+                <div className="container mx-auto container-px relative">
+                    <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 relative z-0">
 
                         {/* Top Row */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02557.JPG?updatedAt=1777556820463" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02557.JPG?updatedAt=1777556820463" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02550.JPG?updatedAt=1777556820407" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02550.JPG?updatedAt=1777556820407" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02471.JPG?updatedAt=1777556820198" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02471.JPG?updatedAt=1777556820198" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02490.JPG?updatedAt=1777556819960" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02490.JPG?updatedAt=1777556819960" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02501.JPG?updatedAt=1777556819689" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02501.JPG?updatedAt=1777556819689" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
                         {/* Middle Row */}
@@ -351,14 +351,212 @@ const Student = () => {
                             viewport={{ once: true }}
                             className="lg:col-span-3 lg:row-span-1 rounded-2xl overflow-hidden shadow-lg"
                         >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02555.JPG?updatedAt=1777556819602" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02555.JPG?updatedAt=1777556819602" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
                         </motion.div>
 
-                        {/* Central Text Block */}
-                        <div className="lg:col-span-6 flex flex-col items-center justify-center text-center container-px bg-white">
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-3 lg:row-span-1 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02483.JPG?updatedAt=1777556819492" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+
+                        {/* Bottom Row */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02492.JPG?updatedAt=1777556819275" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02554.JPG?updatedAt=1777556819183" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02476.JPG?updatedAt=1777556818378" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02486.JPG?updatedAt=1777556818363" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+
+                        {/* Extra Row for More Images */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02484.JPG?updatedAt=1777556817796" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02494.JPG?updatedAt=1777556817711" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02481.JPG?updatedAt=1777556817558" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02485.JPG?updatedAt=1777556814042" className="w-full h-auto object-cover transition-all duration-700" alt="Campus Life" />
+                        </motion.div>
+
+                        {/* Student Artwork Row 1 */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1418.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1420.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-01.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-02.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+
+                        {/* Student Artwork Row 2 */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-03.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-04.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-05.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-06.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+
+                        {/* Student Artwork Row 3 */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-07.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-08.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-09.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="break-inside-avoid mb-4 rounded-2xl overflow-hidden shadow-lg"
+                        >
+                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-10.jpg" className="w-full h-auto object-cover transition-all duration-700" alt="Student Artwork" />
+                        </motion.div>
+
+                    </div>
+
+                    {/* Centered Floating Text Block */}
+                    <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-4">
+                        <div className="pointer-events-auto py-12 px-8 flex flex-col items-center justify-center text-center bg-white/10 backdrop-blur-xl rounded-[3rem] shadow-2xl border  max-w-lg w-full">
                             <motion.h2
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 className="text-clamp-3xl font-black uppercase tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-linear-to-br from-[#db3436] to-[#134a84] py-4"
                             >
@@ -368,202 +566,8 @@ const Student = () => {
                                 Perfect Training
                             </motion.h2>
                         </div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-3 lg:row-span-1 rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02483.JPG?updatedAt=1777556819492" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-
-                        {/* Bottom Row */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02492.JPG?updatedAt=1777556819275" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:col-span-4 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02554.JPG?updatedAt=1777556819183" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02476.JPG?updatedAt=1777556818378" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02486.JPG?updatedAt=1777556818363" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-
-                        {/* Extra Row for More Images */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02484.JPG?updatedAt=1777556817796" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02494.JPG?updatedAt=1777556817711" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02481.JPG?updatedAt=1777556817558" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260430T134248Z-3-001/ARI02485.JPG?updatedAt=1777556814042" className="w-full h-full object-cover transition-all duration-700" alt="Campus Life" />
-                        </motion.div>
-
-                        {/* Student Artwork Row 1 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1418.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:col-span-4 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1420.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-01.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-02.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-
-                        {/* Student Artwork Row 2 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-2 aspect-square rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-03.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-04.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="lg:col-span-4 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-05.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-06.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-
-                        {/* Student Artwork Row 3 */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-07.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-08.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-09.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="lg:col-span-3 aspect-square lg:aspect-auto rounded-2xl overflow-hidden shadow-lg"
-                        >
-                            <img src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260526T141903Z-3-001/Scanned_20260220-1422-10.jpg" className="w-full h-full object-cover transition-all duration-700" alt="Student Artwork" />
-                        </motion.div>
-
                     </div>
+
                 </div>
             </section>
 
@@ -661,19 +665,17 @@ const Student = () => {
                                 className="group"
                             >
                                 <div className="space-y-6">
-                                    <h3 className="text-clamp-2xl font-black text-slate-900 uppercase tracking-tighter leading-tight border-l-4 border-primary pl-4">
-                                        {item.label}
-                                    </h3>
-                                    
+
+
                                     <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-2 border-slate-100 block">
                                         <div className="relative w-full h-full overflow-hidden">
-                                            <img 
-                                                src={item.img} 
-                                                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110" 
-                                                alt={item.text} 
+                                            <img
+                                                src={item.img}
+                                                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                                                alt={item.text}
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent transition-colors duration-500" />
-                                            
+
                                             <div className="absolute bottom-8 left-6 right-6">
                                                 <p className="text-white font-black text-xl uppercase tracking-wider leading-snug">
                                                     {item.text}
@@ -801,21 +803,21 @@ const Student = () => {
                             className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <iframe 
-                                style={{ 
-                                    position: 'absolute', 
-                                    width: '125%', 
-                                    height: '130%', 
-                                    top: '-15%', 
+                            <iframe
+                                style={{
+                                    position: 'absolute',
+                                    width: '125%',
+                                    height: '130%',
+                                    top: '-15%',
                                     left: '-12.5%',
                                     zIndex: 1,
                                     pointerEvents: 'auto',
                                 }}
-                                src="https://www.youtube-nocookie.com/embed/FgYVSFwWD9k?autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&controls=0&playsinline=1" 
-                                title="Unlocking the Best Design Institute in Pune: INSD PUNE Campus Review" 
-                                frameBorder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerPolicy="strict-origin-when-cross-origin" 
+                                src="https://www.youtube-nocookie.com/embed/FgYVSFwWD9k?autoplay=1&mute=1&rel=0&modestbranding=1&iv_load_policy=3&controls=0&playsinline=1"
+                                title="Unlocking the Best Design Institute in Pune: INSD PUNE Campus Review"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
                             ></iframe>
                         </motion.div>
@@ -983,16 +985,15 @@ const WorkshopSlider = () => {
                                         {currentWorkshop.desc}
                                     </p>
                                 </div>
-                                
+
                                 {currentWorkshop.media.length > 1 && (
                                     <div className="flex gap-2 mb-2">
                                         {currentWorkshop.media.map((_, i) => (
                                             <button
                                                 key={i}
                                                 onClick={() => setActiveMediaIndex(i)}
-                                                className={`w-12 h-1 rounded-full transition-all duration-500 ${
-                                                    i === activeMediaIndex ? 'bg-primary w-20' : 'bg-white/20 hover:bg-white/40'
-                                                }`}
+                                                className={`w-12 h-1 rounded-full transition-all duration-500 ${i === activeMediaIndex ? 'bg-primary w-20' : 'bg-white/20 hover:bg-white/40'
+                                                    }`}
                                             />
                                         ))}
                                     </div>
@@ -1025,14 +1026,13 @@ const WorkshopSlider = () => {
                                         setActiveIndex(idx);
                                         setActiveMediaIndex(0);
                                     }}
-                                    className={`relative aspect-square rounded-2xl overflow-hidden transition-all duration-500 group ${
-                                        idx === activeIndex 
-                                            ? 'ring-2 ring-primary ring-offset-4 ring-offset-slate-950 scale-105' 
-                                            : 'opacity-40 hover:opacity-100 grayscale hover:grayscale-0'
-                                    }`}
+                                    className={`relative aspect-square rounded-2xl overflow-hidden transition-all duration-500 group ${idx === activeIndex
+                                        ? 'ring-2 ring-primary ring-offset-4 ring-offset-slate-950 scale-105'
+                                        : 'opacity-40 hover:opacity-100 grayscale hover:grayscale-0'
+                                        }`}
                                 >
-                                    <img 
-                                        src={ws.thumbnail || ws.media[0].url} 
+                                    <img
+                                        src={ws.thumbnail || ws.media[0].url}
                                         className="w-full h-full object-cover"
                                         alt={ws.title}
                                     />

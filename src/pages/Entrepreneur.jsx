@@ -22,6 +22,37 @@ import EntrepreneurTestimonials from '../components/EntrepreneurTestimonials';
 import GlobalCurrency from '../components/GlobalCurrency';
 
 const Entrepreneur = () => {
+    const entrepreneurStories = [
+        {
+            name: "Kajal Singhvi",
+            placedAt: "BLOSUME BOUTIQUE",
+            title: "Entrepreneur",
+            img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Kajal%20singhvi,%20BLOSUME%20BOUTIQUE.png?updatedAt=1779855654095",
+            quote: "The incubation cell at INSD helped me refine my brand identity and connect with a global network, launching my boutique into the spotlight."
+        },
+        {
+            name: "Chhaya Gupta",
+            placedAt: "CASTLEDECOR",
+            title: "Entrepreneur",
+            img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Chhaya%20gupta,%20CASTLEDECOR.png?updatedAt=1779855653337",
+            quote: "INSD gave me the vision to transform spaces and the business acumen to scale my studio. The journey from student to founder was seamless."
+        },
+        {
+            name: "Ms. Bhavyashree",
+            placedAt: "Vanya Fashion Studio",
+            title: "Entrepreneur",
+            img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Ms.%20Bhavyashree%20,%20Vanya%20Fashion%20Studio_.jpg?updatedAt=1779855651946",
+            quote: "My fashion startup was born in the EIDC lab at INSD. The mentorship and practical business modules were absolute game-changers."
+        },
+        {
+            name: "Yunus Shaikh",
+            placedAt: "YUNA INTERIOR",
+            title: "Entrepreneur",
+            img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Yunus%20shaikh,%20YUNA%20INTERIOR.png?updatedAt=1779855654066",
+            quote: "Thanks to INSD's incredible faculty and startup ecosystem, I was able to turn my passion for design into a lucrative business."
+        }
+    ];
+
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white overflow-x-hidden">
             <SEO
@@ -128,84 +159,13 @@ const Entrepreneur = () => {
             </section>
 
             {/* --- SUCCESS STORIES (Student Testimonials) --- */}
-            <SuccessStory heading="They Built It." subheading="Start Yours Today!" />
-
-            <section className="py-48 px-6 md:px-12 lg:px-24 bg-white relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-px bg-slate-100" />
-
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col lg:flex-row items-end justify-between gap-12 mb-32">
-                        <div className="space-y-6">
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                className="flex items-center gap-4"
-                            >
-                                <div className="w-12 h-px bg-primary" />
-                                <span className="text-primary font-black uppercase text-[10px] tracking-[0.8em]">Annual Global Summit</span>
-                            </motion.div>
-
-                            <h2 className="text-clamp-4xl font-black text-slate-900 uppercase tracking-tighter leading-[0.8]">
-                                DESIGN <br /> <span className="stroke-text-slate-900 opacity-20">CONCLAVE.</span>
-                            </h2>
-                        </div>
-
-                        <div className="max-w-md space-y-8">
-                            <p className="text-lg md:text-xl text-slate-500 font-medium leading-relaxed tracking-tight">
-                                Where industry titans and emerging visionaries converge to architect the next era of <span className="text-slate-900">creative commerce.</span>
-                            </p>
-                        </div>
-                    </div>
-
-
-
-                    {/* Final Event CTA */}
-                    <div className="mt-40 p-16 md:p-24 bg-slate-900 rounded-[5rem] relative overflow-hidden flex flex-col items-center text-center space-y-12">
-                        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none cyber-grid" />
-
-                        <div className="relative z-10 space-y-6">
-                            <span className="text-primary font-black uppercase text-xs tracking-[0.8em]">Exclusive Access Only</span>
-                            <h3 className="text-clamp-3xl font-black text-white uppercase tracking-tighter leading-none">
-                                SECURE YOUR <br /> <span className="stroke-text-white opacity-20">PRECINCT.</span>
-                            </h3>
-                        </div>
-
-                        <div className="relative z-10 flex flex-col md:flex-row gap-8">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-16 py-8 bg-primary text-white rounded-full font-black uppercase text-xs tracking-[0.4em] shadow-2xl shadow-primary/20"
-                            >
-                                Request Invitation
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-16 py-8 border-2 border-white/20 text-white rounded-full font-black uppercase text-xs tracking-[0.4em] hover:bg-white hover:text-slate-900 transition-all"
-                            >
-                                Conclave History
-                            </motion.button>
-                        </div>
-
-                        <div className="relative z-10 flex items-center gap-10 opacity-30">
-                            {["London", "Milan", "Dubai", "New Delhi"].map((city, i) => (
-                                <React.Fragment key={i}>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-white">{city}</span>
-                                    {i < 3 && <div className="w-1 h-1 rounded-full bg-white" />}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <SuccessStory heading="They Built It." subheading="Start Yours Today!" customStories={entrepreneurStories} />
 
 
 
             {/* --- GLOBAL DESIGN ECONOMY --- */}
             <GlobalDesignEconomy />
 
-            {/* --- GLOBAL INDUSTRY NETWORK --- */}
-            <GlobalIndustryNetwork />
 
             {/* --- GLOBAL CURRENCY SECTION --- */}
             <GlobalCurrency />
