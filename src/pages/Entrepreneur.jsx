@@ -22,7 +22,7 @@ import EntrepreneurTestimonials from '../components/EntrepreneurTestimonials';
 import GlobalCurrency from '../components/GlobalCurrency';
 
 const Entrepreneur = () => {
-    const entrepreneurStories = [
+    /* const entrepreneurStories = [
         {
             name: "Kajal Singhvi",
             placedAt: "BLOSUME BOUTIQUE",
@@ -51,7 +51,7 @@ const Entrepreneur = () => {
             img: "https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Yunus%20shaikh,%20YUNA%20INTERIOR.png?updatedAt=1779855654066",
             quote: "Thanks to INSD's incredible faculty and startup ecosystem, I was able to turn my passion for design into a lucrative business."
         }
-    ];
+    ]; */
 
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white overflow-x-hidden">
@@ -159,7 +159,7 @@ const Entrepreneur = () => {
             </section>
 
             {/* --- SUCCESS STORIES (Student Testimonials) --- */}
-            <SuccessStory heading="They Built It." subheading="Start Yours Today!" customStories={entrepreneurStories} />
+            {/* <SuccessStory heading="They Built It." subheading="Start Yours Today!" customStories={entrepreneurStories} /> */}
 
 
 

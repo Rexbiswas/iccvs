@@ -49,6 +49,7 @@ const GlobalCurrency = () => {
                         src="https://ik.imagekit.io/fmldynl4j4/drive-download-20260527T033750Z-3-001/Gemini_Generated_Image_cpaoc7cpaoc7cpao.png" 
                         alt="Global Currency Map" 
                         className="w-full h-auto object-contain"
+                        style={{ clipPath: 'inset(10% 0 0 0)', marginTop: '-10%' }}
                     />
                 </div>
             </div>

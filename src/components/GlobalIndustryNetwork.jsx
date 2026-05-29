@@ -48,9 +48,12 @@ const GlobalIndustryNetwork = () => {
     }, []);
 
     const partners = [
-        "Manish Malhotra", "Ritu Kumar", "Godrej Interio", "Hafele India",
-        "Asian Paints", "Sabyasachi", "Vogue India", "Tommy Hilfiger",
-        "Zara", "H&M", "Swarovski", "Raymond", "Pantaloons", "Shoppers Stop"
+        "Levi’s", "PC Jewellers", "Malabar gold", "Tissot", 
+        "Porche", "Shalini passi foundation", "Mash", "Marshall", 
+        "Accenture", "Pantaloons", "Liv space", "Asian paints", 
+        "Lakmé", "Jaipur rugs", "Gaurav Gupta", "Jigar mali", 
+        "IKEA", "RADO", "Study by Janak", "La polo", 
+        "Mufti", "Central park cocktails", "Kawasaki"
     ];
 
     return (
