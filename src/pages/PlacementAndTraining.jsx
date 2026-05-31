@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
+import HiringPartnersLogoCloud from '../components/HiringPartnersLogoCloud';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 
 const recentHiresData = [
@@ -320,6 +321,8 @@ const PlacementAndTraining = () => {
                     </div>
                 </div>
             </section>
+
+            <HiringPartnersLogoCloud />
 
             {/* --- TRAINING ECOSYSTEM --- */}
             <section className="py-32 px-6 md:px-12 lg:px-24 bg-white">

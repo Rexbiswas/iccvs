@@ -665,7 +665,12 @@ const Student = () => {
                                 className="group"
                             >
                                 <div className="space-y-6">
-
+                                    <div className="text-center px-2 min-h-[72px] flex flex-col justify-end">
+                                        <p className="text-slate-900 font-black text-xl uppercase tracking-wider leading-snug">
+                                            {item.text}
+                                        </p>
+                                        <div className="w-12 h-1 bg-primary mt-4 mx-auto transition-all duration-500 group-hover:w-24" />
+                                    </div>
 
                                     <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-2 border-slate-100 block">
                                         <div className="relative w-full h-full overflow-hidden">
@@ -674,14 +679,6 @@ const Student = () => {
                                                 className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
                                                 alt={item.text}
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent transition-colors duration-500" />
-
-                                            <div className="absolute bottom-8 left-6 right-6">
-                                                <p className="text-white font-black text-xl uppercase tracking-wider leading-snug">
-                                                    {item.text}
-                                                </p>
-                                                <div className="w-12 h-1 bg-primary mt-4 transition-all duration-500 group-hover:w-24" />
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

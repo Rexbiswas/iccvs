@@ -96,6 +96,16 @@ const EIDC_Slider = () => {
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
+                {/* --- Section Heading --- */}
+                <div className="text-center mb-16 md:mb-24 space-y-4">
+                    <span className="text-primary font-black uppercase text-[10px] tracking-[0.5em]">EIDC</span>
+                    <h2 className="text-5xl md:text-7xl font-black text-slate-900 uppercase tracking-tighter leading-none">
+                        East India a <br className="hidden md:block" />
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary">Design Conclave</span>
+                    </h2>
+                    <h3 className="text-lg md:text-xl text-slate-500 font-bold uppercase tracking-widest">Bridging Ideas Shaping Futures</h3>
+                </div>
+
                 <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-24">
                     
                     {/* Content Section */}

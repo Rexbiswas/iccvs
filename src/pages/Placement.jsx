@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import StudentTransformation from '../components/StudentTransformation';
-import HiringPartnersLogoCloud from '../components/HiringPartnersLogoCloud';
+
 import GlobalIndustryNetwork from '../components/GlobalIndustryNetwork';
 import LifeSupport from '../components/LifeSupport';
 import SuccessStory from '../components/SuccessStory';
@@ -50,8 +50,6 @@ const Placement = () => {
 
 
 
-            {/* Hiring Partners Logo Cloud */}
-            <HiringPartnersLogoCloud />
 
             {/* Placement Support Info */}
             <LifeSupport />

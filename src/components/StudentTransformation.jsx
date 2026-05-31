@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
 import { ArrowRight, User, Briefcase, Star, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const TransformationCard = ({ student, index }) => {
     return (
@@ -329,9 +330,9 @@ const StudentTransformation = () => {
                     </div>
 
                     <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-8">Ready to write your own story?</p>
-                    <button className="h-16 md:h-20 px-12 bg-slate-900 text-white rounded-full font-black uppercase tracking-widest hover:bg-primary transition-all duration-500 shadow-xl flex items-center justify-center mx-auto">
+                    <Link to="/course-apply-now" className="h-16 md:h-20 px-12 bg-slate-900 text-white rounded-full font-black uppercase tracking-widest hover:bg-primary transition-all duration-500 shadow-xl inline-flex items-center justify-center mx-auto w-max">
                         Start Your Evolution
-                    </button>
+                    </Link>
                 </motion.div>
             </div>
         </section>

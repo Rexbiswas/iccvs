@@ -260,44 +260,7 @@ const IndustryInteraction = () => {
                         </div>
                     </div>
 
-                    <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                        {[
-                            { title: "Industry Summit", tag: "Conclave '25", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.06.59%20(1).jpeg" },
-                            { title: "Global Benchmarking", tag: "Strategy", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.06.59%20(2).jpeg" },
-                            { title: "Creative Exchange", tag: "Innovation", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.06.59.jpeg" },
-                            { title: "Leadership Panel", tag: "Summit", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.07.00.jpeg" },
-                            { title: "Visionary Talks", tag: "Expertise", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.07.01%20(1).jpeg" },
-                            { title: "Design Innovation", tag: "Masterclass", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.07.01%20(2).jpeg" },
-                            { title: "Career Fair", tag: "Placements", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.07.01.jpeg" },
-                            { title: "Portfolio Lab", tag: "Mentorship", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.07.02.jpeg" },
-                            { title: "Alumnae Meet", tag: "Networking", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.09.17.jpeg" },
-                            { title: "Curator Series", tag: "Elite", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.09.18%20(1).jpeg" },
-                            { title: "Future Trends", tag: "Roundtable", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.09.18.jpeg" },
-                            { title: "Mastery Session", tag: "Workshop", img: "https://ik.imagekit.io/fmldynl4j4/qwe/WhatsApp%20Image%202025-04-24%20at%2014.09.19.jpeg" }
-                        ].map((card, i) => (
-                            <motion.div 
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.05 }}
-                                className="relative break-inside-avoid rounded-[2.5rem] overflow-hidden group shadow-2xl mb-8"
-                            >
-                                <img 
-                                    src={card.img} 
-                                    alt={card.title} 
-                                    className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/10 to-transparent" />
-                                <div className="absolute bottom-8 left-8 space-y-3">
-                                    <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[8px] font-black text-white uppercase tracking-widest border border-white/10">
-                                        {card.tag}
-                                    </span>
-                                    <h4 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter leading-none">{card.title}</h4>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+
 
                     {/* Conclave Moments Slider */}
                     <div className="relative z-10 -mx-6 md:-mx-12 lg:-mx-24 mt-24">
