@@ -122,7 +122,7 @@ const Location = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl md:text-7xl lg:text-[6.5rem] font-black uppercase tracking-tighter leading-[0.85] text-slate-900"
+                        className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-black uppercase tracking-tighter leading-[0.85] text-slate-900"
                     >
                         Design Hubs. <br/>
                         <span className="bg-gradient-to-r from-[#db3436] to-[#134a84] text-transparent bg-clip-text">Nationwide.</span>
@@ -137,13 +137,14 @@ const Location = () => {
             <main className="max-w-7xl mx-auto px-6 py-16">
                 
                 {/* --- FILTERS --- */}
-                <div className="flex justify-center mb-12">
-                    <div className="flex flex-wrap items-center justify-center gap-2 p-2 bg-white rounded-full border border-slate-100 shadow-xl shadow-slate-200/20">
+                <div className="relative mb-12 -mx-6 px-6 md:mx-0 md:px-0">
+                    <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-4 -mb-4 md:pb-0 md:mb-0 md:justify-center">
+                        <div className="flex flex-nowrap items-center gap-2 p-2 bg-white rounded-full border border-slate-100 shadow-xl shadow-slate-200/20 w-max md:mx-auto">
                         {["West Zone", "South Zone", "North Zone", "East Zone"].map((zone) => (
                             <button
                                 key={zone}
                                 onClick={() => setSelectedZone(zone)}
-                                className={`px-5 md:px-8 py-3 rounded-full text-xs md:text-sm font-black uppercase tracking-widest transition-all ${
+                                className={`shrink-0 whitespace-nowrap px-5 md:px-8 py-3 rounded-full text-xs md:text-sm font-black uppercase tracking-widest transition-all ${
                                     selectedZone === zone 
                                         ? 'bg-[#c5a044] text-white shadow-md shadow-[#c5a044]/20' 
                                         : 'text-slate-400 hover:text-slate-900 hover:bg-slate-50'
@@ -152,6 +153,7 @@ const Location = () => {
                                 {zone.replace(" Zone", "")}
                             </button>
                         ))}
+                        </div>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -164,7 +166,7 @@ const Location = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.3, delay: idx * 0.02 }}
-                                className="group bg-white border border-slate-100 rounded-[2rem] p-8 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 relative overflow-hidden flex flex-col justify-between h-[300px]"
+                                className="group bg-white border border-slate-100 rounded-[2rem] p-6 sm:p-8 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 relative overflow-hidden flex flex-col justify-between min-h-[300px]"
                             >
                                 <div className="absolute top-0 right-0 p-8 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity pointer-events-none">
                                     <MapPin size={140} />
