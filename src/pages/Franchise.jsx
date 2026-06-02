@@ -16,10 +16,8 @@ const Franchise = () => {
     const sealRef = useRef(null);
     const gridRef = useRef(null);
 
-    useEffect(() => {
-        // Lenis Smooth Scroll (optimized for Safari/Chrome)
-        useLenisSmoothScroll({ lerp: 0.1 });
-    }, []);
+    // Lenis Smooth Scroll (optimized for Safari/Chrome)
+    useLenisSmoothScroll({ lerp: 0.1 });
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {

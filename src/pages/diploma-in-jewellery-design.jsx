@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-    Sparkles,
-    ArrowRight,
-    GraduationCap,
-    Clock,
+import { 
+    Sparkles, 
+    ArrowRight, 
+    GraduationCap, 
+    Clock, 
     BookOpen
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,7 @@ const DiplomaInJewelleryDesign = () => {
     const { openAdmissionModal } = useAdmissionModal();
 
     const toolsData = [
-        { name: "Rhinoceros 3D", desc: "For precision CAD modeling, prototype rendering, and parametric jewellery geometry systems.", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Rhinoceros_3D_Logo.svg" },
+        { name: "Rhinoceros 3D", desc: "For precision CAD modeling, prototype rendering, and parametric jewellery geometry systems.", logo: "https://img.icons8.com/ios_filled/1200/rhinoceros-6.jpg" },
         { name: "Adobe Photoshop", desc: "For professional gemstone visualization, digital rendering, surface texture, and high-end design presentations.", logo: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" },
         { name: "Adobe Illustrator", desc: "For vector-based technical drawings, line sketches, brand patterns, and jewellery design documentation.", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" },
         { name: "CorelDRAW", desc: "For precision vector layout, product engraving graphics, and professional jewellery artwork presentation.", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/CorelDRAW_X7_icon.png" }
@@ -25,7 +25,7 @@ const DiplomaInJewelleryDesign = () => {
 
     return (
         <div className="bg-slate-50 min-h-screen font-sans selection:bg-primary selection:text-white text-slate-800">
-            <SEO
+            <SEO 
                 title="Diploma in Jewellery Design Courses in Delhi - INSD"
                 description="Study a premium Diploma in Jewellery Design at INSD. Gain hands-on expertise in gemology, metal craft, CAD jewellery modeling, and luxury brand design."
                 keywords="diploma in jewellery design, jewellery design course Delhi, design school, learn gem design, luxury jewellery diploma"
@@ -45,7 +45,7 @@ const DiplomaInJewelleryDesign = () => {
 
                 <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-end gap-12">
                     <div className="flex-1">
-                        <motion.div
+                        <motion.div 
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
@@ -53,18 +53,18 @@ const DiplomaInJewelleryDesign = () => {
                         >
                             <Sparkles size={14} /> Premium Diploma Program
                         </motion.div>
-                        <motion.h1
+                        <motion.h1 
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-5xl md:text-7xl lg:text-[7rem] font-black uppercase tracking-tighter leading-[0.85] text-slate-900"
                         >
-                            Precious <br />
+                            Precious <br/>
                             <span className="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">Mastery.</span>
                         </motion.h1>
                     </div>
-
-                    <motion.div
+                    
+                    <motion.div 
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -123,7 +123,7 @@ const DiplomaInJewelleryDesign = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {toolsData.map((tool, idx) => (
-                            <motion.div
+                            <motion.div 
                                 key={idx}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}

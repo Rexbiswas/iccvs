@@ -15,7 +15,7 @@ const ShortTermInteriorDesign = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-slate-50 min-h-screen font-sans selection:bg-[#db3436] selection:text-white text-slate-800">
+        <div className="bg-slate-50 min-h-screen font-sans selection:bg-[#c5a044] selection:text-white text-slate-800">
             <SEO 
                 title="Short Term Interior Design Courses in Delhi - INSD"
                 description="Fast-track your design career. Choose from intensive 4 to 10-week specialized modules in Residential Styling, CAD drafting, Vastu Shastra, or AI-Driven Spatial Design."
