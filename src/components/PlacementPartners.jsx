@@ -19,7 +19,7 @@ const allLogos = [
     { name: "Gaurav Gupta", logo: "https://gauravguptastudio.com/cdn/shop/files/GG-Logo_-_black.webp?v=1750926479" },
     { name: "Jigar mali", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKrUgdAxbX3Z6O8SCTpbu4hWyHNn2ZsnU60g&s" },
     { name: "IKEA", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg" },
-    { name: "RADO", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmK77DBcV-241hRe4xp5rBgTr62WHpgtA8IA&s" },
+    { name: "RADO", logo: "https://cdn.freebiesupply.com/logos/thumbs/2x/rado-logo.png" },
     { name: "Study by Janak", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb_azHJMLSOR5apAGNVjca3nRQXZmUd7pRtw&s" },
     { name: "La polo", logo: "https://media.licdn.com/dms/image/v2/C511BAQE8GMc43jhrtA/company-background_10000/company-background_10000/0/1584026514880/lapolo_india_cover?e=2147483647&v=beta&t=gnwe5vne0jK1uNxVosHrvp2xb2wN82cslLSB64p2PDg" },
     { name: "Mufti", logo: "https://www.credobrands.in/wp-content/uploads/2025/09/new_logo_footer.png" },
