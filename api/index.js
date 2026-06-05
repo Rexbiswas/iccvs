@@ -73,5 +73,6 @@ app.post('/admission', async (req, res) => {
 
 // Health Check
 app.get('/health', (req, res) => res.send('API is Online'));
+app.get('/api', (req, res) => res.send('Working now!'));
 
 export default app;
