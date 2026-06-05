@@ -107,7 +107,8 @@ const Footer = () => {
                                     { name: "Advance Diploma in Animation", path: "/courses/advanced-diploma-in-animation" },
                                     { name: "Short Term Courses", path: "/courses/short-term-courses" },
                                     { name: "Short Term Interior Design", path: "/courses/short-term-interior-design" },
-                                    { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" }
+                                    { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" },
+                                    { name: "Aviation & Cabin Crew", path: "/courses/aviation" }
                                 ].map((item, i) => (
                                     <motion.li
                                         key={i}

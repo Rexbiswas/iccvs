@@ -42,6 +42,7 @@ async function generateSitemap() {
         { path: '/courses/beauty-and-makeup', priority: '0.8' },
         { path: '/courses/photography', priority: '0.8' },
         { path: '/courses/textile-designing', priority: '0.8' },
+        { path: '/courses/aviation', priority: '0.8' },
         { path: '/insd-luxe', priority: '0.8' },
         { path: '/student-careers', priority: '0.8' },
         { path: '/franchise', priority: '0.8' },

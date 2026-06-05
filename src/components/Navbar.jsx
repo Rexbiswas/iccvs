@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import SocialIcons from './SocialIcons';
 import {
     Menu as MenuIcon, X, ArrowRight, Home, Sparkles, GraduationCap, LayoutGrid, User,
-    Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store,
+    Search, Folder, Users, CreditCard, Box, HelpCircle, LogOut, ChevronLeft, ChevronsLeft, Store, Plane,
     Phone, Calendar, UserPlus, FileDown, Instagram, Linkedin, Facebook, MapPin, Mail, MessageSquare, Globe, BookOpen, Youtube, Info, Headset, MessageCircle, Bot, Share2, FilePenLine
 } from 'lucide-react';
 import gsap from 'gsap';
@@ -275,11 +275,13 @@ const Navbar = () => {
                 { title: 'Photography', path: '/courses/photography', icon: 'camera', desc: 'Visual Storytelling' },
                 { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
                 { title: 'Short Term Courses', path: '/courses/short-term-courses', icon: 'zap', desc: 'Intensive Skill Modules' },
-                { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
+                { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' },
+                { title: 'Aviation', path: '/courses/aviation', icon: 'aviation', desc: 'Aviation & Cabin Crew Management', badge: 'New' }
             ]
         },
         { title: 'Admissions', path: '/course-apply-now', icon: CreditCard, section: 'OVERVIEW' },
         { title: 'Franchise', path: '/franchise', icon: Store, section: 'OVERVIEW' },
+        { title: 'Aviation', path: '/courses/aviation', icon: Plane, section: 'OVERVIEW' },
         {
             title: 'Careers & Exposure',
             path: '/placement',
@@ -505,6 +507,7 @@ const Navbar = () => {
                                                     { title: 'Photography', path: '/courses/photography', icon: 'photography', desc: 'Visual Storytelling Art' },
                                                     { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
                                                     { title: 'INSD Luxe', path: '/insd-luxe', icon: 'textile', desc: 'Premium Luxury Arts' },
+                                                    { title: 'Aviation & Cabin Crew', path: '/courses/aviation', icon: 'aviation', desc: 'Aviation & Cabin Crew Management' },
                                                 ].map((item, i) => (
                                                     <Link
                                                         key={i}
@@ -522,6 +525,7 @@ const Navbar = () => {
                                                             {item.icon === 'beauty' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M3 5h4" /><path d="M21 17v4" /><path d="M19 19h4" /></svg>}
                                                             {item.icon === 'photography' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>}
                                                             {item.icon === 'textile' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20.22 8.66 14a2 2 0 0 1 2.68 0L18 20.22" /><path d="m2 15.22 6.66-6.22a2 2 0 0 1 2.68 0L18 15.22" /><path d="m2 10.22 6.66-6.22a2 2 0 0 1 2.68 0L18 10.22" /></svg>}
+                                                            {item.icon === 'aviation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 20.19 12 14.39l-5.8 5.8a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.42L9.89 12.3 4.29 6.7A1 1 0 0 1 4 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 .7.29l5.6 5.6 5.8-5.8a1 1 0 0 1 1.42 0l.7.7a1 1 0 0 1 0 1.42l-5.8 5.8 5.6 5.6a1 1 0 0 1 .29.7v2a1 1 0 0 1-1 1h-.2a1 1 0 0 1-.7-.29z"/></svg>}
                                                         </div>
                                                         <div className="flex flex-col relative z-10">
                                                             <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-primary dark:group-hover/item:text-white transition-colors">{item.title}</span>
@@ -606,12 +610,19 @@ const Navbar = () => {
                                 >
                                     Admission
                                 </RollerLink>
-                                <RollerLink
+                                 <RollerLink
                                     to="/franchise"
                                     colorClass="nav-hover-gradient"
                                     baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
                                 >
                                     Franchise
+                                </RollerLink>
+                                <RollerLink
+                                    to="/courses/aviation"
+                                    colorClass="nav-hover-gradient"
+                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
+                                >
+                                    Aviation
                                 </RollerLink>
                             </motion.div>
                         )}

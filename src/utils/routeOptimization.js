@@ -47,6 +47,7 @@ export const routeChunks = {
   // Special routes
   paris: () => import('../pages/Paris(CDP)'),
   franchise: () => import('../pages/Franchise'),
+  aviation: () => import('../pages/Aviation'),
   successStory: () => import('../pages/SuccessStory'),
   
   // Policy routes (load on demand)

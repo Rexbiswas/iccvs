@@ -10,6 +10,7 @@ import hpp from 'hpp';
 import os from 'os';
 import dns from 'dns';
 import authRoutes from './routes/auth.js';
+import userRouter from './routes/auth.js';
 import leadRoutes from './routes/leadauth.js';
 import stepLeadRoutes from './routes/stepleads.js';
 import admissionRoutes from './routes/admission.js';
@@ -239,6 +240,10 @@ apiRouter.use('/blogs', blogRoutes);
 
 // Compatibility Aliases
 apiRouter.use('/blog', blogRoutes);
+
+// Custom routes mounted on sub-router
+apiRouter.use('/users', userRouter);
+apiRouter.get('/', (req, res) => res.send("Welcome to the API"));
 
 // Health Check / Ping
 apiRouter.get('/ping', (req, res) => {

@@ -46,6 +46,7 @@ const Legacy = lazy(() => import('./pages/Legacy'));
 const Location = lazy(() => import('./pages/location'));
 const FutureOfDesign = lazy(() => import('./pages/FutureOfDesign'));
 const ProfileDashboard = lazy(() => import('./pages/ProfileDashboard'));
+const Aviation = lazy(() => import('./pages/Aviation'));
 const FashionDesigning = lazy(() => import('./pages/FashionDesigning'));
 const InteriorDesigning = lazy(() => import('./pages/InteriorDesigning'));
 const GraphicDesigning = lazy(() => import('./pages/GraphicDesigning'));
@@ -147,6 +148,7 @@ function App() {
                                         <Route path="/insd-luxe" element={<InsdLuxe />} />
                                         <Route path="/student-careers" element={<StudentCareers />} />
                                         <Route path="/franchise" element={<Franchise />} />
+                                        <Route path="/courses/aviation" element={<Aviation />} />
                                         <Route path="/contact-us" element={<Contact />} />
                                         <Route path="/international-partners" element={<InternationalPartner />} />
                                         <Route path="/course-apply-now" element={<Admission />} />

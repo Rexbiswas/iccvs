@@ -340,8 +340,8 @@ const Courses = () => {
                                 key={cat}
                                 onClick={() => setActiveFilter(cat)}
                                 className={`px-5 py-2.5 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] transition-all whitespace-nowrap ${activeFilter === cat
-                                        ? "bg-black text-white"
-                                        : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-black"
+                                    ? "bg-black text-white"
+                                    : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-black"
                                     }`}
                             >
                                 {cat}
