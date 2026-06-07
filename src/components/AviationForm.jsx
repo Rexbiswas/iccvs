@@ -116,14 +116,12 @@ const AviationForm = ({ isOpen, onClose }) => {
             if (response.ok) {
                 setStatus('success');
                 const submittedName = formData.name;
+                navigate('/aviation-thankyou', { state: { name: submittedName } });
                 setFormData({
                     name: '', email: '', phone: '', state: '', city: '', 
                     program: 'certificate course', course: 'Aviation & Cabin Crew', marketingConsent: false
                 });
                 onClose();
-                setTimeout(() => {
-                    navigate('/thank-you', { state: { name: submittedName, type: 'admission' } });
-                }, 300);
             } else {
                 setErrorMessage(data.message || `Submission failed (${response.status}).`);
                 setStatus('error');

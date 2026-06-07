@@ -60,6 +60,7 @@ const SuccessStory = lazy(() => import('./pages/SuccessStory'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const InsdLuxe = lazy(() => import('./pages/InsdLuxe'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
+const AviationThankYou = lazy(() => import('./pages/AviationThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
@@ -166,6 +167,7 @@ function App() {
                                         <Route path="/success-stories" element={<SuccessStory />} />
                                         <Route path="/gallery" element={<Gallery />} />
                                         <Route path="/thank-you" element={<ThankYou />} />
+                                        <Route path="/aviation-thankyou" element={<AviationThankYou />} />
                                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                                         <Route path="/faq" element={<FAQ />} />
                                         <Route path="/cookie-policy" element={<CookiePolicy />} />

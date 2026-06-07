@@ -53,11 +53,11 @@ const Aviation = () => {
 
 
     const growthFacts = [
-        { count: "157+ Airports", text: "Active airports operating across India with massive passenger traffic.", icon: Plane, label: "Expanding Reach", color: "text-[#db3436] bg-red-50 border-red-100" },
-        { count: "UDAN Scheme", text: "Government policy driving regional connectivity & affordable flying.", icon: Globe, label: "Connectivity Boost", color: "text-blue-600 bg-blue-50 border-blue-100" },
-        { count: "400+ Projects", text: "Ongoing airport development, expansion, and modernization plans.", icon: TrendingUp, label: "Infrastructure Growth", color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
-        { count: "Booming Tourism", text: "Hospitality & travel industry driving double-digit employment growth.", icon: Sparkles, label: "Market Demand", color: "text-amber-600 bg-amber-50 border-amber-100" },
-        { count: "Careers Demand", text: "Surging requirements for certified service and cabin crew staff.", icon: GraduationCap, label: "Career Security", color: "text-purple-600 bg-purple-50 border-purple-100" }
+        { count: "157+ Airports", text: "Active airports operating across India with massive passenger traffic.", icon: Plane, label: "Expanding Reach", color: "text-[#db3436] bg-red-50" },
+        { count: "UDAN Scheme", text: "Government policy driving regional connectivity & affordable flying.", icon: Globe, label: "Connectivity Boost", color: "text-blue-600 bg-blue-50" },
+        { count: "400+ Projects", text: "Ongoing airport development, expansion, and modernization plans.", icon: TrendingUp, label: "Infrastructure Growth", color: "text-emerald-600 bg-emerald-50" },
+        { count: "Booming Tourism", text: "Hospitality & travel industry driving double-digit employment growth.", icon: Sparkles, label: "Market Demand", color: "text-amber-600 bg-amber-50" },
+        { count: "Careers Demand", text: "Surging requirements for certified service and cabin crew staff.", icon: GraduationCap, label: "Career Security", color: "text-purple-600 bg-purple-50" }
     ];
 
     const lifestyleBullets = [
@@ -92,7 +92,7 @@ const Aviation = () => {
             badge: "Popular",
             modalTitle: "Aviation & Hospitality",
             modalQuote: "From in-flight cabin services to airport check-in desks — step into global aviation.",
-            image: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80&w=600",
+            image: "https://ik.imagekit.io/fmldynl4j4/New%20folder/832d6436-39c4-4e81-a25a-34f17dbd5064_1.jfif",
             sectors: [
                 { name: "Airlines Operations", icon: Plane },
                 { name: "Cabin Services", icon: Users },
@@ -108,7 +108,7 @@ const Aviation = () => {
             badge: "Recommended",
             modalTitle: "Hospitality & Customer Care",
             modalQuote: "Master client relations, front-desk operations, and premium services for elite hospitality networks.",
-            image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
+            image: "https://ik.imagekit.io/fmldynl4j4/New%20folder/92b3d960-c0fd-4d1a-9060-8904251fe134_2.jfif",
             sectors: [
                 { name: "Luxury Hotels", icon: Hotel },
                 { name: "Travel & Tourism", icon: Globe },
@@ -116,6 +116,7 @@ const Aviation = () => {
                 { name: "Premium Retail", icon: Briefcase }
             ]
         },
+        
         {
             title: "Advance Certificate Course in Aviation, Hospitality, Travel and Customer Service",
             type: "Advanced",
@@ -124,7 +125,7 @@ const Aviation = () => {
             badge: "Premium",
             modalTitle: "Aviation & Travel Management",
             modalQuote: "An advanced track merging in-flight leadership, operations coordination, VVIP styling, and terminal management.",
-            image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=600",
+            image: "https://ik.imagekit.io/fmldynl4j4/New%20folder/ebd8322c-d3c0-47a1-8f4a-53725f09571c_3.jfif",
             sectors: [
                 { name: "In-Flight Management", icon: Plane },
                 { name: "VVIP Airport Lounges", icon: Award },
@@ -305,9 +306,9 @@ const Aviation = () => {
                                     return (
                                         <div 
                                             key={idx} 
-                                            className="flex gap-4 items-center p-3.5 bg-slate-50/50 hover:bg-white border border-slate-100/30 hover:border-slate-200/80 rounded-2xl transition-all duration-300 group hover:shadow-md hover:shadow-slate-100/50"
+                                            className="flex gap-4 items-center p-3.5 bg-slate-50/50 hover:bg-white rounded-2xl transition-all duration-300 group hover:shadow-md hover:shadow-slate-100/50"
                                         >
-                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-110 ${fact.color}`}>
+                                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 ${fact.color}`}>
                                                 <IconComponent size={18} className="group-hover:rotate-12 transition-transform duration-300" />
                                             </div>
                                             <div className="flex-1 min-w-0">
@@ -697,7 +698,7 @@ const Aviation = () => {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
-                            className="relative z-10 w-full max-w-4xl bg-white rounded-[2rem] shadow-2xl flex flex-col md:flex-row min-h-0 max-h-[90vh] md:max-h-[85vh] lg:max-h-none overflow-y-auto overflow-x-hidden md:overflow-hidden"
+                            className="relative z-10 w-full max-w-5xl bg-white rounded-[2rem] shadow-2xl flex flex-col md:flex-row min-h-0 max-h-[90vh] md:max-h-[85vh] lg:max-h-none overflow-y-auto overflow-x-hidden md:overflow-hidden"
                         >
                             {/* Close Button */}
                             <button 
@@ -708,7 +709,7 @@ const Aviation = () => {
                             </button>
 
                             {/* Left Side: Visual Image & Heading overlay */}
-                            <div className="relative w-full md:w-[40%] h-48 md:h-auto min-h-[160px] md:min-h-auto shrink-0">
+                            <div className="relative w-full md:w-[48%] aspect-[4/5] md:aspect-auto md:h-auto shrink-0">
                                 <img 
                                     src={selectedCourse.image} 
                                     alt={selectedCourse.title} 
@@ -724,7 +725,7 @@ const Aviation = () => {
                             </div>
 
                             {/* Right Side: Details & Sectors */}
-                            <div className="w-full md:w-[60%] p-6 md:p-10 flex flex-col justify-between flex-1">
+                            <div className="w-full md:w-[52%] p-6 md:p-10 flex flex-col justify-between flex-1">
                                 <div className="space-y-5">
                                     {/* Header */}
                                     <div>
