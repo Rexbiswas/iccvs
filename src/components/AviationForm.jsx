@@ -94,7 +94,7 @@ const AviationForm = ({ isOpen, onClose }) => {
         setErrorMessage('');
 
         try {
-            const response = await fetch('/api/admission', {
+            const response = await fetch('/api/aviation', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
