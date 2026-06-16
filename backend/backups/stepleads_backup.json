@@ -31,5 +31,16 @@
       "readyToStart": "Immediately",
       "inquiryType": "Career Guide"
     }
+  },
+  {
+    "timestamp": "2026-06-16T18:18:12.792Z",
+    "data": {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "mobile": "9876543210",
+      "city": "New Delhi",
+      "readyToStart": "Immediately",
+      "inquiryType": "Career Guide"
+    }
   }
 ]
