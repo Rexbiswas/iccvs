@@ -1,4 +1,5 @@
 import { sanitize } from '../api/utils/sanitize.js';
+import { schemas } from '../api/utils/validate.js';
 
 const longInput = "a".repeat(6000);
 
@@ -63,16 +64,99 @@ const checks = [
     }
 ];
 
-console.log("\n=== TEST RESULTS ===");
+console.log("\n=== SANITIZATION TEST RESULTS ===");
 let allPassed = true;
 for (const check of checks) {
     console.log(`${check.pass ? '✅' : '❌'} ${check.name}`);
     if (!check.pass) allPassed = false;
 }
 
+console.log("\n=== TESTING ALLOW-LIST JOI VALIDATION ===");
+
+const validAdmission = {
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    phone: "9876543210",
+    city: "New Delhi",
+    course: "Interior Designing"
+};
+
+const invalidAdmissionName = {
+    name: "Jane Smith <script>", // contains invalid characters
+    email: "jane.smith@example.com",
+    phone: "9876543210"
+};
+
+const invalidAdmissionEmail = {
+    name: "Jane Smith",
+    email: "not-an-email",
+    phone: "9876543210"
+};
+
+const resValid = schemas.admission.validate(validAdmission);
+const resInvalidName = schemas.admission.validate(invalidAdmissionName);
+const resInvalidEmail = schemas.admission.validate(invalidAdmissionEmail);
+
+// Paris Tests
+const validParis = { name: "Jean Luc", email: "jean@paris.fr", phone: "9876543210" };
+const invalidParisName = { name: "Jean Luc <script>", email: "jean@paris.fr", phone: "9876543210" };
+const resValidParis = schemas.paris.validate(validParis);
+const resInvalidParisName = schemas.paris.validate(invalidParisName);
+
+// Partner Tests
+const validPartner = { name: "ABC Group", email: "info@abc.com", phone: "9876543210", city: "Mumbai" };
+const invalidPartnerPhone = { name: "ABC Group", email: "info@abc.com", phone: "invalid-phone", city: "Mumbai" };
+const resValidPartner = schemas.partner.validate(validPartner);
+const resInvalidPartnerPhone = schemas.partner.validate(invalidPartnerPhone);
+
+console.log(`Valid payload validation error: ${resValid.error ? resValid.error.message : 'None (Passed)'}`);
+console.log(`Invalid name validation error: ${resInvalidName.error ? resInvalidName.error.message : 'None'}`);
+console.log(`Invalid email validation error: ${resInvalidEmail.error ? resInvalidEmail.error.message : 'None'}`);
+console.log(`Valid Paris validation error: ${resValidParis.error ? resValidParis.error.message : 'None (Passed)'}`);
+console.log(`Invalid Paris Name validation error: ${resInvalidParisName.error ? resInvalidParisName.error.message : 'None'}`);
+console.log(`Valid Partner validation error: ${resValidPartner.error ? resValidPartner.error.message : 'None (Passed)'}`);
+console.log(`Invalid Partner Phone validation error: ${resInvalidPartnerPhone.error ? resInvalidPartnerPhone.error.message : 'None'}`);
+
+const validationChecks = [
+    {
+        name: "Allows valid admission data",
+        pass: !resValid.error
+    },
+    {
+        name: "Rejects invalid names with special characters (HTML tags)",
+        pass: !!resInvalidName.error
+    },
+    {
+        name: "Rejects malformed emails",
+        pass: !!resInvalidEmail.error
+    },
+    {
+        name: "Allows valid Paris Project data",
+        pass: !resValidParis.error
+    },
+    {
+        name: "Rejects invalid Paris names with special characters",
+        pass: !!resInvalidParisName.error
+    },
+    {
+        name: "Allows valid Partner/Franchise data",
+        pass: !resValidPartner.error
+    },
+    {
+        name: "Rejects invalid Partner phone numbers",
+        pass: !!resInvalidPartnerPhone.error
+    }
+];
+
+console.log("\n=== VALIDATION TEST RESULTS ===");
+for (const check of validationChecks) {
+    console.log(`${check.pass ? '✅' : '❌'} ${check.name}`);
+    if (!check.pass) allPassed = false;
+}
+
 if (allPassed) {
-    console.log("\n🎉 ALL SECURITY SANITIZATION CHECKS PASSED!");
+    console.log("\n🎉 ALL SECURITY SANITIZATION & VALIDATION CHECKS PASSED!");
 } else {
-    console.log("\n🛑 SOME SECURITY SANITIZATION CHECKS FAILED!");
+    console.log("\n🛑 SOME SECURITY CHECKS FAILED!");
     process.exit(1);
 }

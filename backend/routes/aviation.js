@@ -1,13 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import AviationLead from '../models/AviationLead.js';
+import { validateAviation } from '../middleware/validate.js';
 
 import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
 import { backupOfflineData } from '../utils/offlineLogger.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/', validateAviation, async (req, res) => {
     console.log(`\n[Aviation] New Request Received at ${new Date().toISOString()}`);
     console.log(`[Aviation] Body:`, JSON.stringify(req.body, null, 2));
     

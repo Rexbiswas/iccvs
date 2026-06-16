@@ -14,9 +14,9 @@ router.post('/', async (req, res) => {
         const { name, mobile, phone, email, city, readyToStart, inquiryType, marketingConsent } = req.body;
 
         if (!name || !email || (!mobile && !phone) || !city || !readyToStart || !inquiryType) {
-            return res.status(400).json({ 
-                success: false, 
-                message: 'Required fields missing (Name, Email, Mobile, City, Ready to Start, Inquiry Type)' 
+            return res.status(400).json({
+                success: false,
+                message: 'Required fields missing (Name, Email, Mobile, City, Ready to Start, Inquiry Type)'
             });
         }
 
@@ -71,10 +71,10 @@ router.post('/', async (req, res) => {
             }, "Step Lead Inquiry")
         ]).catch(err => console.error('[StepLead Notifications] Error:', err.message));
 
-        res.status(201).json({ 
-            success: true, 
+        res.status(201).json({
+            success: true,
             message: isRealDBSave ? 'Lead saved successfully' : 'Lead stored in offline buffer',
-            lead: savedLead 
+            lead: savedLead
         });
     } catch (err) {
         console.error('❌ [StepLead] Fatal Error:', err.message);

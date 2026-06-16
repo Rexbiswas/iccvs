@@ -1,11 +1,12 @@
 import express from 'express';
 import PartnerLead from '../models/PartnerLead.js';
 import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
+import { validatePartner } from '../middleware/validate.js';
 
 const router = express.Router();
 
 
-router.post('/leads', async (req, res) => {
+router.post('/leads', validatePartner, async (req, res) => {
     try {
         const { 
             name, email, mobile, phone, investment, preference, state, city, 

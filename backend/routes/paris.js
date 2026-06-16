@@ -3,10 +3,11 @@ import mongoose from 'mongoose';
 import ParisLead from '../models/ParisLead.js';
 import { sendWelcomeEmail, sendSMS, sendAdminLeadEmail } from '../utils/notifications.js';
 import { backupOfflineData } from '../utils/offlineLogger.js';
+import { validateParis } from '../middleware/validate.js';
 
 const router = express.Router();
 
-router.post('/lead', async (req, res) => {
+router.post('/lead', validateParis, async (req, res) => {
     console.log(`\n📩 [Paris] New Request: ${req.body.name}`);
     try {
         const { name, email, phone } = req.body;

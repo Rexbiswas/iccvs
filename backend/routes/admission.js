@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import AdmissionLead from '../models/AdmissionLead.js';
+import { validateAdmission } from '../middleware/validate.js';
 
 import { sendSMS, sendWelcomeEmail, sendWhatsApp, sendAdminLeadEmail } from '../utils/notifications.js';
 import { backupOfflineData } from '../utils/offlineLogger.js';
@@ -8,7 +9,7 @@ import { backupOfflineData } from '../utils/offlineLogger.js';
 const router = express.Router();
 
 
-router.post('/', async (req, res) => {
+router.post('/', validateAdmission, async (req, res) => {
     console.log(`\n📩 [Admission] New Request Received at ${new Date().toISOString()}`);
     console.log(`📦 [Admission] Body:`, JSON.stringify(req.body, null, 2));
     

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import { sanitize } from '../utils/sanitize.js';
+import { schemas, validateRequest } from '../utils/validate.js';
 
 dotenv.config();
 
@@ -20,6 +22,15 @@ const ParisLeadSchema = new mongoose.Schema({
 const ParisLead = mongoose.models.ParisLead || mongoose.model('ParisLead', ParisLeadSchema);
 
 export default async function handler(req, res) {
+    // Sanitize inputs
+    if (req.body) req.body = sanitize(req.body);
+    if (req.query) req.query = sanitize(req.query);
+
+    // Validate inputs
+    if (req.method === 'POST') {
+        if (!validateRequest(schemas.paris, req, res)) return;
+    }
+
     // Handle CORS
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');

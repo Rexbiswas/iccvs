@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 import { sanitize } from './utils/sanitize.js';
+import { schemas, validateRequest } from './utils/validate.js';
 
 // StepLead Schema
 const stepLeadSchema = new mongoose.Schema({
@@ -20,6 +21,11 @@ export default async function handler(req, res) {
     // Sanitize inputs
     if (req.body) req.body = sanitize(req.body);
     if (req.query) req.query = sanitize(req.query);
+
+    // Validate inputs
+    if (req.method === 'POST') {
+        if (!validateRequest(schemas.stepLead, req, res)) return;
+    }
 
     // Handle CORS
     res.setHeader('Access-Control-Allow-Credentials', true);

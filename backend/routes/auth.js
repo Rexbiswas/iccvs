@@ -6,10 +6,11 @@ import User from '../models/User.js';
 import axios from 'axios';
 import { getGoogleTransporter } from '../utils/email.js';
 import { sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
+import { validateRegister, validateLogin } from '../middleware/validate.js';
 
 
 // Register User
-router.post('/register', async (req, res) => {
+router.post('/register', validateRegister, async (req, res) => {
     try {
         const {
             username, email, password, firstName, lastName, phone, dob, country,
@@ -78,7 +79,7 @@ router.post('/register', async (req, res) => {
 });
 
 // Login User
-router.post('/login', async (req, res) => {
+router.post('/login', validateLogin, async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });

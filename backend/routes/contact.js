@@ -1,11 +1,12 @@
 import express from 'express';
 import ContactLead from '../models/ContactLead.js';
 import { sendSMS, sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
+import { validateContact } from '../middleware/validate.js';
 
 const router = express.Router();
 
 
-router.post('/', async (req, res) => {
+router.post('/', validateContact, async (req, res) => {
     try {
         const { name, email, phone, subject, message } = req.body;
 
