@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "timestamp": "2026-06-16T18:08:14.396Z",
+    "data": {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "mobile": "9876543210",
+      "city": "New Delhi",
+      "readyToStart": "Immediately",
+      "inquiryType": "Career Guide"
+    }
+  },
+  {
+    "timestamp": "2026-06-16T18:08:55.458Z",
+    "data": {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "mobile": "9876543210",
+      "city": "New Delhi",
+      "readyToStart": "Immediately",
+      "inquiryType": "Career Guide"
+    }
+  },
+  {
+    "timestamp": "2026-06-16T18:09:43.619Z",
+    "data": {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "mobile": "9876543210",
+      "city": "New Delhi",
+      "readyToStart": "Immediately",
+      "inquiryType": "Career Guide"
+    }
+  }
+]
