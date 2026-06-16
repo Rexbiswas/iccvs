@@ -6,7 +6,7 @@ import User from '../models/User.js';
 import axios from 'axios';
 import { getGoogleTransporter } from '../utils/email.js';
 import { sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
-import { validateRegister, validateLogin } from '../middleware/validate.js';
+import { validateRegister, validateLogin, validateResetPassword } from '../middleware/validate.js';
 
 
 // Register User
@@ -225,7 +225,7 @@ router.post('/forgot-password', async (req, res) => {
 });
 
 // Verify Token and Update Password
-router.post('/reset-password', async (req, res) => {
+router.post('/reset-password', validateResetPassword, async (req, res) => {
     try {
         const { email, code, newPassword } = req.body;
 

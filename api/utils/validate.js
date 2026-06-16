@@ -75,6 +75,40 @@ export const schemas = {
         potential: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
         message: Joi.string().trim().max(5000).optional().allow(''),
         address: Joi.string().trim().max(500).optional().allow('')
+    }).unknown(true),
+
+    register: Joi.object({
+        username: Joi.string().trim().pattern(usernamePattern).min(3).max(50).required()
+            .messages({ 'string.pattern.base': 'Username must contain only letters, numbers, underscores, or hyphens' }),
+        email: Joi.string().trim().email().max(150).required(),
+        password: Joi.string().min(6).max(128).required(),
+        firstName: Joi.string().trim().pattern(namePattern).min(2).max(50).required(),
+        lastName: Joi.string().trim().pattern(namePattern).min(2).max(50).required(),
+        phone: Joi.string().trim().pattern(phonePattern).min(10).max(20).required(),
+        dob: Joi.string().trim().max(50).optional().allow(''),
+        country: Joi.string().trim().pattern(namePattern).max(100).optional().allow(''),
+        street1: Joi.string().trim().max(150).optional().allow(''),
+        street2: Joi.string().trim().max(150).optional().allow(''),
+        city: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        state: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        pinCode: Joi.string().trim().alphanum().max(15).optional().allow(''),
+        centre: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        level: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        stream: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        scholarship: Joi.string().trim().pattern(textPattern).max(100).optional().allow(''),
+        comments: Joi.string().trim().max(1000).optional().allow(''),
+        communications: Joi.object().optional()
+    }).unknown(true),
+
+    login: Joi.object({
+        email: Joi.string().trim().email().required(),
+        password: Joi.string().max(128).required()
+    }).unknown(true),
+
+    resetPassword: Joi.object({
+        email: Joi.string().trim().email().required(),
+        code: Joi.string().trim().required(),
+        newPassword: Joi.string().min(6).max(128).required()
     }).unknown(true)
 };
 

@@ -149,7 +149,7 @@ export const validateRegister = (req, res, next) => {
         username: Joi.string().trim().pattern(usernamePattern).min(3).max(50).required()
             .messages({ 'string.pattern.base': 'Username must contain only letters, numbers, underscores, or hyphens' }),
         email: Joi.string().trim().email().max(150).required(),
-        password: Joi.string().min(6).max(100).required(),
+        password: Joi.string().min(6).max(128).required(),
         firstName: Joi.string().trim().pattern(namePattern).min(2).max(50).required(),
         lastName: Joi.string().trim().pattern(namePattern).min(2).max(50).required(),
         phone: Joi.string().trim().pattern(phonePattern).min(10).max(20).required(),
@@ -180,7 +180,23 @@ export const validateRegister = (req, res, next) => {
 export const validateLogin = (req, res, next) => {
     const schema = Joi.object({
         email: Joi.string().trim().email().required(),
-        password: Joi.string().required()
+        password: Joi.string().max(128).required()
+    }).unknown(true);
+
+    const { error, value } = schema.validate(req.body);
+    if (error) return handleValidationError(error, res);
+    req.body = value;
+    next();
+};
+
+/**
+ * Validation schema for User Password Reset Route
+ */
+export const validateResetPassword = (req, res, next) => {
+    const schema = Joi.object({
+        email: Joi.string().trim().email().required(),
+        code: Joi.string().trim().required(),
+        newPassword: Joi.string().min(6).max(128).required()
     }).unknown(true);
 
     const { error, value } = schema.validate(req.body);

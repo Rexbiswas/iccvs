@@ -109,6 +109,23 @@ const invalidPartnerPhone = { name: "ABC Group", email: "info@abc.com", phone: "
 const resValidPartner = schemas.partner.validate(validPartner);
 const resInvalidPartnerPhone = schemas.partner.validate(invalidPartnerPhone);
 
+// Password LP DoS Tests
+const validRegister = {
+    username: "testuser",
+    email: "test@example.com",
+    password: "safePassword123",
+    firstName: "First",
+    lastName: "Last",
+    phone: "9876543210"
+};
+const invalidRegisterPassword = {
+    ...validRegister,
+    password: "a".repeat(150) // exceeds 128 characters
+};
+
+const resValidRegister = schemas.register.validate(validRegister);
+const resInvalidRegisterPassword = schemas.register.validate(invalidRegisterPassword);
+
 console.log(`Valid payload validation error: ${resValid.error ? resValid.error.message : 'None (Passed)'}`);
 console.log(`Invalid name validation error: ${resInvalidName.error ? resInvalidName.error.message : 'None'}`);
 console.log(`Invalid email validation error: ${resInvalidEmail.error ? resInvalidEmail.error.message : 'None'}`);
@@ -116,6 +133,8 @@ console.log(`Valid Paris validation error: ${resValidParis.error ? resValidParis
 console.log(`Invalid Paris Name validation error: ${resInvalidParisName.error ? resInvalidParisName.error.message : 'None'}`);
 console.log(`Valid Partner validation error: ${resValidPartner.error ? resValidPartner.error.message : 'None (Passed)'}`);
 console.log(`Invalid Partner Phone validation error: ${resInvalidPartnerPhone.error ? resInvalidPartnerPhone.error.message : 'None'}`);
+console.log(`Valid Register validation error: ${resValidRegister.error ? resValidRegister.error.message : 'None (Passed)'}`);
+console.log(`Invalid Register Password (LP DoS attempt) validation error: ${resInvalidRegisterPassword.error ? resInvalidRegisterPassword.error.message : 'None'}`);
 
 const validationChecks = [
     {
@@ -145,6 +164,14 @@ const validationChecks = [
     {
         name: "Rejects invalid Partner phone numbers",
         pass: !!resInvalidPartnerPhone.error
+    },
+    {
+        name: "Allows valid user registration details",
+        pass: !resValidRegister.error
+    },
+    {
+        name: "Blocks registration with long password (LP DoS prevention)",
+        pass: !!resInvalidRegisterPassword.error
     }
 ];
 
