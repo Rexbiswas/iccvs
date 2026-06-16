@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
+import { sanitize } from './utils/sanitize.js';
 
 // StepLead Schema
 const stepLeadSchema = new mongoose.Schema({
@@ -16,6 +17,10 @@ const stepLeadSchema = new mongoose.Schema({
 const StepLead = mongoose.models.StepLead || mongoose.model('StepLead', stepLeadSchema);
 
 export default async function handler(req, res) {
+    // Sanitize inputs
+    if (req.body) req.body = sanitize(req.body);
+    if (req.query) req.query = sanitize(req.query);
+
     // Handle CORS
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');

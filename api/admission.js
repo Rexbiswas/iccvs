@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import { sanitize } from './utils/sanitize.js';
 
 dotenv.config();
 
@@ -19,6 +20,10 @@ const admissionSchema = new mongoose.Schema({
 const Admission = mongoose.models.Admission || mongoose.model('Admission', admissionSchema);
 
 export default async function handler(req, res) {
+    // Sanitize inputs
+    if (req.body) req.body = sanitize(req.body);
+    if (req.query) req.query = sanitize(req.query);
+
     // Handle CORS
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');

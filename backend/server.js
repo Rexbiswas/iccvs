@@ -19,6 +19,7 @@ import aviationRoutes from './routes/aviation.js';
 import partnerRoutes from './routes/partner.js';
 import contactRoutes from './routes/contact.js';
 import blogRoutes from './routes/blogs.js';
+import { sanitizeRequest } from './middleware/sanitize.js';
 
 // Models
 import Lead from './models/Lead.js';
@@ -86,6 +87,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(hpp());
+app.use(sanitizeRequest);
 
 // Diagnostic Ping
 app.get('/api/ping', (req, res) => res.send('pong'));

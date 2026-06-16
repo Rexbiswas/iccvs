@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import { sanitize } from './utils/sanitize.js';
 
 dotenv.config();
 
@@ -17,6 +18,10 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 
 export default async function handler(req, res) {
+    // Sanitize inputs
+    if (req.body) req.body = sanitize(req.body);
+    if (req.query) req.query = sanitize(req.query);
+
     // Handle CORS
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
