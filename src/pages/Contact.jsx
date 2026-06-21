@@ -31,7 +31,7 @@ const Contact = () => {
         }
 
         setIsSubmitting(true);
-        
+
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -83,11 +83,11 @@ const Contact = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         let finalValue = value;
-        
+
         if (name === 'phone') {
             finalValue = value.replace(/\D/g, '').slice(0, 10);
         }
-        
+
         setFormState({ ...formState, [name]: finalValue });
     };
 
@@ -109,7 +109,7 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 relative overflow-hidden">
-            <SEO 
+            <SEO
                 title="Contact US - Reach Out to INSD"
                 description="Have questions about our programs or admissions? Get in touch with our expert counselors today. Visit our main campus in Delhi or contact us via phone or email."
                 keywords="INSD contact, design school admission help, INSD Delhi address, contact design institute"
@@ -167,85 +167,108 @@ const Contact = () => {
                                     <div className="w-12 h-12 rounded-2xl bg-secondary/5 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300 shadow-inner">
                                         <MapPin size={24} />
                                     </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-slate-900 mb-2">Campuses</h3>
-                                        <p className="text-slate-600 leading-relaxed mb-4">
-                                            International School of Design,<br />
-                                            Gujranwala Town, Part 1,<br />
-                                            Delhi - 110009
-                                        </p>
-                                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-bold text-secondary hover:text-primary transition-colors">
-                                            Get Directions <ArrowRight size={14} className="ml-1" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Contact Card 2: Contact Info */}
-                            <motion.div variants={itemVars} className="group relative p-8 bg-white/80 backdrop-blur-xl border border-white/40 rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                                <div className="absolute inset-x-0 bottom-0 h-1 bg-linear-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-[2rem]" />
-                                <div className="flex flex-col gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                            <Phone size={20} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
-                                            <div className="flex flex-col">
-                                                <a href="tel:+919804443300" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 98044 43300</a>
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="text-lg font-bold text-slate-900 mb-4">Campuses</h3>
+                                        <div className="space-y-6 max-h-[280px] overflow-y-auto pr-2 dropdown-scrollbar">
+                                            <div className="space-y-1">
+                                                <h4 className="font-bold text-sm text-slate-800">INSD Corporate Headquarters</h4>
+                                                <p className="text-slate-600 text-xs leading-relaxed">
+                                                    International School of Design,<br />
+                                                    Gujranwala Town, Part 1,<br />
+                                                    Delhi - 110009
+                                                </p>
+                                                <a href="https://maps.google.com/?q=International+School+of+Design+Gujranwala+Town+Delhi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
+                                                    Get Directions <ArrowRight size={12} className="ml-1" />
+                                                </a>
+                                            </div>
+                                            <div className="space-y-1 pt-4 border-t border-slate-100">
+                                                <h4 className="font-bold text-sm text-slate-800">INSD Vijayawada</h4>
+                                                <p className="text-slate-600 text-xs leading-relaxed">
+                                                    3rd floor, above Indian Bank, opposite Jade suites, Acharya Ranga Nagar, Benz Circle, Vijayawada, Andhra Pradesh 520010
+                                                </p>
+                                                <a href="https://maps.google.com/?q=INSD+Vijayawada+Acharya+Ranga+Nagar+Benz+Circle+Vijayawada+Andhra+Pradesh+520010" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
+                                                    Get Directions <ArrowRight size={12} className="ml-1" />
+                                                </a>
+                                            </div>
+                                            <div className="space-y-1 pt-4 border-t border-slate-100">
+                                                <h4 className="font-bold text-sm text-slate-800">INSD - Thrissur</h4>
+                                                <p className="text-slate-600 text-xs leading-relaxed">
+                                                    G65F+2HQ Fabis Arcade, High Rd, Kuriachira, Thrissur, Kerala 680006
+                                                </p>
+                                                <a href="https://maps.google.com/?q=INSD+Thrissur+Fabis+Arcade+High+Rd+Kuriachira+Thrissur+Kerala+680006" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
+                                                    Get Directions <ArrowRight size={12} className="ml-1" />
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-full h-px bg-slate-100" />
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
-                                            <MessageSquare size={20} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp</p>
-                                            <a href="https://wa.me/919804443300" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-green-500 transition-colors">+91 98044 43300</a>
-                                        </div>
-                                    </div>
-                                    <div className="w-full h-px bg-slate-100" />
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                            <Mail size={20} />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</p>
-                                            <a href="mailto:info@insd.edu.in" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">info@insd.edu.in</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </motion.div>
 
-                            {/* Contact Card 3: Socials */}
-                            <motion.div variants={itemVars} className="p-8 bg-slate-900 text-white rounded-[2rem] shadow-2xl overflow-hidden relative group">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/40 transition-colors duration-500" />
-                                <div className="relative z-10">
-                                    <h3 className="text-xl font-bold mb-6">Connect With Us</h3>
-                                    <div className="flex gap-4">
-                                        {[
-                                            { icon: Instagram, href: "https://www.instagram.com/insd_official" },
-                                            { icon: Facebook, href: "https://www.facebook.com/share/1CMuRdTV69/" },
-                                            { icon: Linkedin, href: "https://www.linkedin.com/school/international-school-of-design/" },
-                                            { icon: Youtube, href: "https://youtube.com/@insd-internationalschoolof5139?feature=shared" }
-                                        ].map((soc, idx) => (
-                                            <a 
-                                                key={idx} 
-                                                href={soc.href} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
-                                                className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
-                                            >
-                                                <soc.icon size={20} />
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
+                                    {/* Contact Card 2: Contact Info */}
+                                    <motion.div variants={itemVars} className="group relative p-8 bg-white/80 backdrop-blur-xl border border-white/40 rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                                        <div className="absolute inset-x-0 bottom-0 h-1 bg-linear-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-b-[2rem]" />
+                                        <div className="flex flex-col gap-6">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                                    <Phone size={20} />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
+                                                    <div className="flex flex-col">
+                                                        <a href="tel:+919804443300" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 98044 43300</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="w-full h-px bg-slate-100" />
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
+                                                    <MessageSquare size={20} />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp</p>
+                                                    <a href="https://wa.me/919804443300" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-green-500 transition-colors">+91 98044 43300</a>
+                                                </div>
+                                            </div>
+                                            <div className="w-full h-px bg-slate-100" />
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                                    <Mail size={20} />
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</p>
+                                                    <a href="mailto:info@insd.edu.in" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">info@insd.edu.in</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
 
-                        </motion.div>
+                                    {/* Contact Card 3: Socials */}
+                                    <motion.div variants={itemVars} className="p-8 bg-slate-900 text-white rounded-[2rem] shadow-2xl overflow-hidden relative group">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/40 transition-colors duration-500" />
+                                        <div className="relative z-10">
+                                            <h3 className="text-xl font-bold mb-6">Connect With Us</h3>
+                                            <div className="flex gap-4">
+                                                {[
+                                                    { icon: Instagram, href: "https://www.instagram.com/insd_official" },
+                                                    { icon: Facebook, href: "https://www.facebook.com/share/1CMuRdTV69/" },
+                                                    { icon: Linkedin, href: "https://www.linkedin.com/school/international-school-of-design/" },
+                                                    { icon: Youtube, href: "https://youtube.com/@insd-internationalschoolof5139?feature=shared" }
+                                                ].map((soc, idx) => (
+                                                    <a
+                                                        key={idx}
+                                                        href={soc.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+                                                    >
+                                                        <soc.icon size={20} />
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+
+                            </motion.div>
                     </div>
 
                     {/* Right Column: Interactive Form */}

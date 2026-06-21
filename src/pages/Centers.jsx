@@ -37,7 +37,9 @@ const zoneData = {
         { city: "Trivandrum", address: "Santhram, Swathy Nagar Lane 6A, Pipinmoodu Jn, Sasthamangalam, Trivandrum – 695010", state: "Kerala" },
         { city: "JP Nagar BLR", address: "262/1, Doresani Palya, 8th Cross, Panduranga Nagar Layout, JP Nagar 7th phase, Bangalore – 560076", state: "Karnataka" },
         { city: "Mysore", address: "4647/1, Shivaji Road, Near Shivaji Park, N R Mohalla, Rajendra Nagar, Mysuru – 570007", state: "Karnataka" },
-        { city: "Davangere", address: "VHV Heights, 492/3, Hadadi Road, Davangere – 577002", state: "Karnataka" }
+        { city: "Davangere", address: "VHV Heights, 492/3, Hadadi Road, Davangere – 577002", state: "Karnataka" },
+        { city: "Vijayawada", address: "3rd floor, above Indian Bank, opposite Jade suites, Acharya Ranga Nagar, Benz Circle, Vijayawada, Andhra Pradesh 520010", state: "Andhra Pradesh" },
+        { city: "Thrissur", address: "G65F+2HQ Fabis Arcade, High Rd, Kuriachira, Thrissur, Kerala 680006", state: "Kerala" }
     ],
     "North Zone": [
         { city: "Jammu", address: "H No. 13, Sector 5-A, main road, Trikuta Nagar, Jammu", state: "J&K" },
