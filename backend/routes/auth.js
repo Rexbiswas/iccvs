@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import axios from 'axios';
 import { getGoogleTransporter } from '../utils/email.js';
-import { sendWelcomeEmail, sendAdminLeadEmail } from '../utils/notifications.js';
+import { sendWelcomeEmail, sendAdminLeadEmail, pushToNPF } from '../utils/notifications.js';
 import { validateRegister, validateLogin, validateResetPassword } from '../middleware/validate.js';
 
 
@@ -67,7 +67,8 @@ router.post('/register', validateRegister, async (req, res) => {
                 centre,
                 program: `${level || ''} ${stream || ''}`,
                 scholarship: scholarship || "No"
-            })
+            }),
+            pushToNPF(req.body)
         ]).then(() => {
             console.log(`[Registration Notifications] Processed for ${firstName}`);
         }).catch(err => console.error('[Registration Notification Error]', err.message));

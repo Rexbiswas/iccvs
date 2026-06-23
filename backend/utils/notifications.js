@@ -197,12 +197,16 @@ export const pushToNPF = async (leadData) => {
 
     try {
         const payload = {
-            name: leadData.name || leadData.fullName || 'Lead',
+            country_dial_code: leadData.country_dial_code || '+91',
+            name: leadData.name || leadData.fullName || leadData.username || 'Lead',
             email: email,
             mobile: cleanedPhone,
-            search_criteria: email ? 'email' : 'mobile',
+            search_criteria: leadData.search_criteria || (email ? 'email' : 'mobile'),
             email_verification_status: true,
-            lead_stage: 'hot'
+            lead_stage: 'hot',
+            source: leadData.source || 'Wesbite',
+            medium: leadData.medium || 'Google Ads',
+            campaign: leadData.campaign || 'B2B'
         };
 
         // Add custom fields only if they have truthy values (not empty strings)
@@ -210,6 +214,11 @@ export const pushToNPF = async (leadData) => {
         if (leadData.city) payload.city = leadData.city;
         if (leadData.course) payload.course = leadData.course;
         if (leadData.program) payload.program = leadData.program;
+        
+        const courseVal = leadData.course || leadData.program;
+        if (courseVal) {
+            payload.cf_course_of_interest = courseVal;
+        }
         
         const campusVal = leadData.campus || leadData.centre || leadData.center || leadData.city;
         if (campusVal) {

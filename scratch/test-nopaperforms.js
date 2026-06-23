@@ -22,12 +22,21 @@ async function testCreateOrUpdateLead() {
 
     const url = 'https://api.nopaperforms.io/lead/v1/createOrUpdate';
     const payload = {
-        name: 'Test Lead Antigravity',
-        email: 'admissions@insd.edu.in',
-        mobile: '8876543210',
-        search_criteria: 'email',
-        lead_stage: 'hot',
-        email_verification_status: true
+        country_dial_code: "+91",
+        mobile: "9087876509",
+        search_criteria: "mobile",
+        name: "Rishi test",
+        source: "Wesbite",
+        medium: "Google Ads",
+        campaign: "B2B",
+        cf_course_of_interest: "Photography",
+        source: "custom",
+        medium: "custom",
+        campaign_1: "custom",
+        state: "Delhi",
+        city: "South Delhi",
+        cf_investment: "25 to 30 lakhs",
+        cf_preference: "Immediately"
     };
 
     console.log('\nSending POST request to:', url);
