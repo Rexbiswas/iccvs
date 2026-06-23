@@ -23,10 +23,10 @@ async function testCreateOrUpdateLead() {
     const url = 'https://api.nopaperforms.io/lead/v1/createOrUpdate';
     const payload = {
         country_dial_code: "+91",
-        mobile: "9884961154",
+        mobile: "9876543210",
         search_criteria: "mobile",
-        name: "rohit test",
-        email: "utkal.k@meritto.com",
+        name: "prachi test",
+        email: "prachi123@gmail.com",
         source: "Organic",
         medium: "Google Ads",
         campaign: "B2C",
