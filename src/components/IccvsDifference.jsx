@@ -4,7 +4,7 @@ import { Target, Briefcase, Building2, Globe, Rocket, Play, CheckCircle2 } from 
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 
 
-const InsdDifference = () => {
+const IccvsDifference = () => {
     const { openAdmissionModal } = useAdmissionModal();
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -181,4 +181,4 @@ const InsdDifference = () => {
     );
 };
 
-export default InsdDifference;
+export default IccvsDifference;

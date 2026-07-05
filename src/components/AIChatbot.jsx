@@ -389,7 +389,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                             : 'bg-white/90 backdrop-blur-xl border-slate-100 hover:border-primary/30'
                             } border shadow-[0_10px_30px_rgba(0,0,0,0.1)]`}
                     >
-                        <div className={`absolute inset-0 bg-linear-to-tr from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isOpen ? 'opacity-100' : ''}`} />
+                        <div className={`absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isOpen ? 'opacity-100' : ''}`} />
 
                         <AnimatePresence mode="wait">
                             {isOpen ? (

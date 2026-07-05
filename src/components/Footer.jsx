@@ -67,9 +67,9 @@ const Footer = () => {
                         <div className="mb-12">
                             <div className="mb-6">
                                 <img
-                                    src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
-                                    alt="INSD Logo"
-                                    className="h-[84px] w-auto object-contain brightness-0 invert"
+                                    src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
+                                    alt="ICCVS Logo"
+                                    className="h-[56px] w-[56px] rounded-full object-cover border border-white/10"
                                 />
                             </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
@@ -90,24 +90,12 @@ const Footer = () => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-                                    { name: "Fashion Design", path: "/courses/fashion-designing" },
-                                    { name: "Interior Design", path: "/courses/interior-designing" },
-                                    { name: "Graphic Design", path: "/courses/graphic-designing" },
-                                    { name: "Bachelors in Graphic Design", path: "/courses/bachelors-in-graphic-design" },
-                                    { name: "Diploma in Graphic Design", path: "/courses/diploma-in-graphic-design" },
-                                    { name: "Diploma in Textile Design", path: "/courses/diploma-in-textile-design" },
                                     { name: "Animation Design", path: "/courses/animation-and-vfx" },
+                                    { name: "Bachelors in Graphic Design", path: "/courses/bachelors-in-graphic-design" },
                                     { name: "Masters in Animation", path: "/courses/masters-in-animation" },
-                                    { name: "Jewellery Design", path: "/courses/jewellery-designing" },
-                                    { name: "Diploma in Jewellery Design", path: "/courses/diploma-in-jewellery-design" },
-                                    { name: "UI/UX Design", path: "/courses/uiux-designing" },
-                                    { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
-                                    { name: "Photography", path: "/courses/photography" },
-                                    { name: "Textile Design", path: "/courses/textile-designing" },
                                     { name: "Advance Diploma in Animation", path: "/courses/advanced-diploma-in-animation" },
-                                    { name: "Short Term Courses", path: "/courses/short-term-courses" },
-                                    { name: "Short Term Interior Design", path: "/courses/short-term-interior-design" },
-                                    { name: "INSD Luxe", path: "/courses/msc-luxury-brand-management" },
+                                    { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
+                                    { name: "ICCVS Luxe", path: "/iccvs-luxe" },
                                     { name: "Aviation & Cabin Crew", path: "/courses/aviation" }
                                 ].map((item, i) => (
                                     <motion.li
@@ -133,13 +121,10 @@ const Footer = () => {
                             <ul className="space-y-4">
                                 {[
 
-                                    { name: "15 Years Legacy", path: "/15-years-legacy" },
                                     { name: "Mentors", path: "/mentors" },
                                     { name: "Center Across India", path: "/locations" },
-                                    { name: "Paris Project", path: "/insd-360/paris-project" },
                                     { name: "Awards", path: "/awards-recognition" },
-                                    { name: "Enquiry", path: "/course-apply-now" },
-                                    { name: "Franchise", path: "/franchise" }
+                                    { name: "Enquiry", path: "/course-apply-now" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                                         <Link to={item.path} className="text-[13px] text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
@@ -159,17 +144,8 @@ const Footer = () => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-                                    { name: "Life at INSD", path: "/student" },
-                                    { name: "Placements", path: "/placement" },
-                                    { name: "Entrepreneurs", path: "/entrepreneur" },
-                                    { name: "Industry Visits", path: "/industry-potential" },
-                                    { name: "Expert Interactions", path: "/industry-interaction" },
-                                    { name: "Training Partners", path: "/placementandtraining" },
-                                    { name: "Future of Design", path: "/future-of-design" },
-                                    { name: "Events", path: "/events" },
                                     { name: "Blogs", path: "/insd-360/blog" },
-                                    { name: "Success Stories", path: "/success-stories" },
-                                    { name: "locations", path: "/locations" }
+                                    { name: "Locations", path: "/locations" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                                         <Link to={item.path} className="text-[13px] text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">

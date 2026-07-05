@@ -14,9 +14,6 @@ import userRouter from './routes/auth.js';
 import leadRoutes from './routes/leadauth.js';
 import stepLeadRoutes from './routes/stepleads.js';
 import admissionRoutes from './routes/admission.js';
-import parisRoutes from './routes/paris.js';
-import aviationRoutes from './routes/aviation.js';
-import partnerRoutes from './routes/partner.js';
 import contactRoutes from './routes/contact.js';
 import blogRoutes from './routes/blogs.js';
 import { sanitizeRequest } from './middleware/sanitize.js';
@@ -239,9 +236,6 @@ apiRouter.use('/auth', authRoutes);
 apiRouter.use('/leads', leadRoutes);
 apiRouter.use('/step-leads', stepLeadRoutes);
 apiRouter.use('/admission', admissionRoutes);
-apiRouter.use('/paris', parisRoutes);
-apiRouter.use('/aviation', aviationRoutes);
-apiRouter.use('/partner', partnerRoutes);
 apiRouter.use('/contact', contactRoutes);
 apiRouter.use('/blogs', blogRoutes);
 
@@ -281,7 +275,7 @@ app.all('/api/*', (req, res) => {
     res.status(404).json({
         success: false,
         message: `API Route not found: ${req.method} ${req.url}.`,
-        availableEndpoints: ['/api/auth/register', '/api/admission', '/api/step-leads', '/api/paris/lead', '/api/partner/leads', '/api/contact', '/api/blogs', '/api/aviation']
+        availableEndpoints: ['/api/auth/register', '/api/admission', '/api/step-leads', '/api/contact', '/api/blogs']
     });
 });
 

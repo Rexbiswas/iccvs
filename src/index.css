@@ -2,14 +2,14 @@
 @import "./styles/performance.css";
 
 ::selection {
-  background-color: var(--color-primary);
-  color: white;
+  background-color: var(--color-secondary); /* #00D893 */
+  color: #ffffff;
 }
 
 @theme {
-  --color-primary: #db3436;
-  --color-secondary: #134a84;
-  --color-gold: #c5a044;
+  --color-primary: #A62B2B; /*Dark Red*/
+  --color-secondary: #00D893; /*Green Shape*/
+  --color-gold: #C2B223; /*Mustard Leaf*/
   --font-sans: 'Outfit', sans-serif;
 
   /* Animation keyframes */
@@ -455,14 +455,15 @@ body::-webkit-scrollbar {
 }
 
 .nav-hover-gradient {
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease;
 }
 
 .group:hover .nav-hover-gradient {
-  background: linear-gradient(to right, #db3436, #134a84) !important;
-  background-clip: text !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
+  color: #00D893 !important;
+  -webkit-text-fill-color: #00D893 !important;
+  background: none !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
 }
 
 /* Responsive Font Utilities */

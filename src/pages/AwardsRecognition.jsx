@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Award } from 'lucide-react';
-import TOICertification from '../components/TOICertification';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
@@ -76,8 +75,6 @@ const AwardsRecognition = () => {
 
             </section>
 
-            {/* --- ACCOMPLISHMENTS REVEAL --- */}
-            <TOICertification />
             <Footer />
         </div>
     );

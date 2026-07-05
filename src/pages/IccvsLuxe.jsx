@@ -5,30 +5,30 @@ import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 
-const InsdLuxe = () => {
+const IccvsLuxe = () => {
     const navigate = useNavigate();
     const [openFaq, setOpenFaq] = useState(null);
 
     const faqs = [
         {
-            question: "What programs or courses does INSD Luxe offer?",
-            answer: "INSD Luxe offers elite programs in Luxury Brand Management, Fashion Design Management, and specialized courses focusing on Indian craftsmanship and Parisian luxury standards."
+            question: "What programs or courses does ICCVS Luxe offer?",
+            answer: "ICCVS Luxe offers elite programs in Luxury Brand Management, Fashion Design Management, and specialized courses focusing on Indian craftsmanship and Parisian luxury standards."
         },
         {
-            question: "How do i apply for admission to INSD Luxe?",
+            question: "How do i apply for admission to ICCVS Luxe?",
             answer: "You can apply through our online portal or by visiting our flagship campus. The selection process involves a portfolio review and a personal interview to assess your potential in the luxury sector."
         },
         {
-            question: "Are Scholarships or Financial Aids available for students at INSD Luxe?",
-            answer: "Yes, INSD Luxe provides merit-based scholarships for high-potential transformation artists. Details can be requested during the application process or through our academic counselors."
+            question: "Are Scholarships or Financial Aids available for students at ICCVS Luxe?",
+            answer: "Yes, ICCVS Luxe provides merit-based scholarships for high-potential transformation artists. Details can be requested during the application process or through our academic counselors."
         }
     ];
 
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-secondary selection:text-white">
             <SEO 
-                title="INSD Luxe Mumbai | International School of Design"
-                description="Experience a first-of-its-kind luxury education in India & Paris. INSD Luxe Mumbai offers elite programs in fashion and design management."
+                title="ICCVS Luxe Mumbai | International School of Design"
+                description="Experience a first-of-its-kind luxury education in India & Paris. ICCVS Luxe Mumbai offers elite programs in fashion and design management."
             />
 
             {/* --- HERO SECTION --- */}
@@ -45,7 +45,7 @@ const InsdLuxe = () => {
                         >
                             <span className="text-sm tracking-[0.4em] text-slate-400 uppercase">Premium Experience</span>
                             <h1 className="text-5xl md:text-7xl lg:text-8xl text-gold uppercase tracking-tighter leading-[0.9]">
-                                INSD LUXE <br />
+                                ICCVS LUXE <br />
                                 <span className="text-black">MUMBAI</span>
                             </h1>
                         </motion.div>
@@ -169,7 +169,7 @@ const InsdLuxe = () => {
                         </p>
                         <div className="space-y-4">
                             <p className="text-slate-500 font-medium">
-                                INSD Luxe is a curated platform for the next generation of creative leaders. We bridge the gap between Indian craftsmanship and Parisian luxury standards through our exclusive partnership with ESG Luxe & ESG Sport.
+                                ICCVS Luxe is a curated platform for the next generation of creative leaders. We bridge the gap between Indian craftsmanship and Parisian luxury standards through our exclusive partnership with ESG Luxe & ESG Sport.
                             </p>
                         </div>
                         <button className="flex items-center gap-4 text-secondary font-black uppercase text-xs tracking-widest hover:translate-x-3 transition-transform">
@@ -182,7 +182,7 @@ const InsdLuxe = () => {
                         <div className="absolute top-0 left-0 w-[80%] h-[80%] rounded-[3rem] overflow-hidden shadow-xl border-4 border-white z-10 hover:shadow-2xl transition-shadow duration-500">
                             <img 
                                 src="https://ik.imagekit.io/fmldynl4j4/ESG%20Luxe/WhatsApp%20Image%202025-04-11%20at%2012.03.36%20(1).jpeg?updatedAt=1774285587686" 
-                                alt="INSD Luxe Education" 
+                                alt="ICCVS Luxe Education" 
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                             />
                         </div>
@@ -313,4 +313,4 @@ const InsdLuxe = () => {
     );
 };
 
-export default InsdLuxe;
+export default IccvsLuxe;

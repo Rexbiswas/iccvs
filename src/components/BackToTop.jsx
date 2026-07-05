@@ -44,7 +44,7 @@ const BackToTop = ({ isFloatingPanel = false }) => {
             className={`${isFloatingPanel ? 'relative' : 'fixed bottom-[272px] md:bottom-[200px] right-6 md:right-10'} z-999 group flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl bg-white/90 backdrop-blur-xl border border-slate-200/50 hover:border-primary/50 hover:shadow-primary/20 transition-all duration-300`}
             aria-label="Back to top"
         >
-            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             {/* Ring animation */}
             <div className="absolute inset-0 rounded-full border-2 border-primary/30 scale-100 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />

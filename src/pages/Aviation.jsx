@@ -31,14 +31,11 @@ import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
-import AviationForm from '../components/AviationForm';
-
 const Aviation = () => {
     const navigate = useNavigate();
     const { openAdmissionModal } = useAdmissionModal();
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isFormModalOpen, setIsFormModalOpen] = useState(false);
 
     useEffect(() => {
         if (isModalOpen) {
@@ -202,7 +199,7 @@ const Aviation = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             <button
-                                onClick={() => setIsFormModalOpen(true)}
+                                onClick={() => openAdmissionModal({ title: 'Talk to our experts', subtitle: 'Get professional guidance for your aviation career.' })}
                                 className="group bg-[#db3436] hover:bg-[#db3436]/95 text-white font-black uppercase text-xs tracking-widest px-6 lg:px-8 py-3 lg:py-3.5 rounded-full flex items-center justify-center gap-2.5 shadow-[0_12px_30px_rgba(219,52,54,0.35)] hover:shadow-[0_15px_35px_rgba(219,52,54,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 w-fit"
                             >
                                 Talk to our experts
@@ -777,7 +774,7 @@ const Aviation = () => {
                                     <button
                                         onClick={() => {
                                             setIsModalOpen(false);
-                                            setIsFormModalOpen(true);
+                                            openAdmissionModal({ title: 'Apply for Aviation Course' });
                                         }}
                                         className="w-full py-3 md:py-3.5 px-6 bg-[#db3436] hover:bg-[#db3436]/90 text-white rounded-xl font-bold uppercase tracking-widest text-[10px] text-center transition-all shadow-md shadow-red-500/10 hover:shadow-red-500/20"
                                     >
@@ -792,9 +789,6 @@ const Aviation = () => {
                     </div>
                 )}
             </AnimatePresence>
-
-            {/* --- TALK TO EXPERTS FORM MODAL --- */}
-            <AviationForm isOpen={isFormModalOpen} onClose={() => setIsFormModalOpen(false)} />
         </div>
     );
 };

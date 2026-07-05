@@ -10,55 +10,23 @@ import CookieConsent from './components/CookieConsent';
 const Home = lazy(() => import('./pages/Home'));
 const Courses = lazy(() => import('./pages/Courses'));
 const AwardsRecognition = lazy(() => import('./pages/AwardsRecognition'));
-const Student = lazy(() => import('./pages/Student'));
-const Entrepreneur = lazy(() => import('./pages/Entrepreneur'));
-const IndustryInteraction = lazy(() => import('./pages/IndustryInteraction'));
-const IndustryPotential = lazy(() => import('./pages/IndustryPotential'));
-const PlacementAndTraining = lazy(() => import('./pages/PlacementAndTraining'));
-const Placement = lazy(() => import('./pages/Placement'));
 const Campus = lazy(() => import('./pages/Campus'));
-const Franchise = lazy(() => import('./pages/Franchise'));
 const Admission = lazy(() => import('./pages/Admission'));
-const InternationalPartner = lazy(() => import('./pages/InternationalPartner'));
-const ParisCDP = lazy(() => import('./pages/Paris(CDP)'));
-const Undergraduate = lazy(() => import('./pages/Undergraduate'));
-const Postgraduate = lazy(() => import('./pages/Postgraduate'));
 const DiplomaAndCertificate = lazy(() => import('./pages/DiplomaAndCertificate'));
-const ShortTermCourse = lazy(() => import('./pages/ShortTermCourse'));
-const ShortTermInteriorDesign = lazy(() => import('./pages/short-term-interior-design'));
-const DiplomaInGraphicDesign = lazy(() => import('./pages/diploma-in-graphic-design'));
-const DiplomaInTextileDesign = lazy(() => import('./pages/diploma-in-textile-design'));
 const BachelorsInGraphicDesign = lazy(() => import('./pages/bachelors-in-graphic-design'));
 const MastersInAnimation = lazy(() => import('./pages/masters-in-animation'));
 const AdvancedDiplomaInAnimation = lazy(() => import('./pages/advanced-diploma-in-animation'));
-const DiplomaInJewelleryDesign = lazy(() => import('./pages/diploma-in-jewellery-design'));
 const Contact = lazy(() => import('./pages/Contact'));
-const MscLuxury = lazy(() => import('./pages/MscLuxury'));
-const LuxuryBrandManagementMsc = lazy(() => import('./pages/luxury-brand-management-msc'));
-const StudentCareers = lazy(() => import('./pages/StudentCareers'));
 const OnlineCourse = lazy(() => import('./pages/OnlineCourse'));
 const Blog = lazy(() => import('./pages/Blog'));
-const FashionWeek = lazy(() => import('./pages/FashionWeek'));
-const ParisProject = lazy(() => import('./pages/ParisProject'));
-const Events = lazy(() => import('./pages/Events'));
 const Mentors = lazy(() => import('./pages/Mentors'));
-const Legacy = lazy(() => import('./pages/Legacy'));
 const Location = lazy(() => import('./pages/location'));
-const FutureOfDesign = lazy(() => import('./pages/FutureOfDesign'));
 const ProfileDashboard = lazy(() => import('./pages/ProfileDashboard'));
 const Aviation = lazy(() => import('./pages/Aviation'));
-const FashionDesigning = lazy(() => import('./pages/FashionDesigning'));
-const InteriorDesigning = lazy(() => import('./pages/InteriorDesigning'));
-const GraphicDesigning = lazy(() => import('./pages/GraphicDesigning'));
 const AnimationAndVFX = lazy(() => import('./pages/AnimationAndVFX'));
-const JewelleryDesigning = lazy(() => import('./pages/JewelleryDesigning'));
-const UIUXDesigning = lazy(() => import('./pages/UIUXDesigning'));
 const BeautyAndMakeup = lazy(() => import('./pages/BeautyAndMakeup'));
-const Photography = lazy(() => import('./pages/Photography'));
-const TextileDesigning = lazy(() => import('./pages/TextileDesigning'));
-const SuccessStory = lazy(() => import('./pages/SuccessStory'));
 const Gallery = lazy(() => import('./pages/Gallery'));
-const InsdLuxe = lazy(() => import('./pages/InsdLuxe'));
+const IccvsLuxe = lazy(() => import('./pages/IccvsLuxe'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
 const AviationThankYou = lazy(() => import('./pages/AviationThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -66,6 +34,7 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const MockTest = lazy(() => import('./pages/MockTest'));
 
 // Components
 import RegistrationModal from './components/RegistrationModal';
@@ -113,59 +82,28 @@ function App() {
                                         <Route path="/" element={<Home />} />
 
                                         <Route path="/awards-recognition" element={<AwardsRecognition />} />
-                                        <Route path="/student" element={<Student />} />
-                                        <Route path="/entrepreneur" element={<Entrepreneur />} />
-                                        <Route path="/industry-interaction" element={<IndustryInteraction />} />
-                                        <Route path="/industry-potential" element={<IndustryPotential />} />
-                                        <Route path="/placementandtraining" element={<PlacementAndTraining />} />
-                                        <Route path="/placement" element={<Placement />} />
-                                        <Route path="/future-of-design" element={<FutureOfDesign />} />
                                         <Route path="/campuses" element={<Campus />} />
                                         <Route path="/campuses/:campusId" element={<Campus />} />
-                                        <Route path="/campuses/paris-cdp" element={<ParisCDP />} />
 
                                         <Route path="/courses" element={<Courses />} />
-                                        <Route path="/courses/undergraduate" element={<Undergraduate />} />
-                                        <Route path="/courses/postgraduate" element={<Postgraduate />} />
                                         <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
-                                        <Route path="/courses/short-term-courses" element={<ShortTermCourse />} />
-                                        <Route path="/courses/short-term-interior-design" element={<ShortTermInteriorDesign />} />
-                                        <Route path="/courses/diploma-in-graphic-design" element={<DiplomaInGraphicDesign />} />
-                                        <Route path="/courses/diploma-in-textile-design" element={<DiplomaInTextileDesign />} />
                                         <Route path="/courses/bachelors-in-graphic-design" element={<BachelorsInGraphicDesign />} />
                                         <Route path="/courses/masters-in-animation" element={<MastersInAnimation />} />
                                         <Route path="/courses/advanced-diploma-in-animation" element={<AdvancedDiplomaInAnimation />} />
-                                        <Route path="/courses/diploma-in-jewellery-design" element={<DiplomaInJewelleryDesign />} />
-                                        <Route path="/courses/msc-luxury-brand-management" element={<LuxuryBrandManagementMsc />} />
-                                        <Route path="/courses/fashion-designing" element={<FashionDesigning />} />
-                                        <Route path="/courses/interior-designing" element={<InteriorDesigning />} />
-                                        <Route path="/courses/graphic-designing" element={<GraphicDesigning />} />
                                         <Route path="/courses/animation-and-vfx" element={<AnimationAndVFX />} />
-                                        <Route path="/courses/jewellery-designing" element={<JewelleryDesigning />} />
-                                        <Route path="/courses/uiux-designing" element={<UIUXDesigning />} />
                                         <Route path="/courses/beauty-and-makeup" element={<BeautyAndMakeup />} />
-                                        <Route path="/courses/photography" element={<Photography />} />
-                                        <Route path="/courses/textile-designing" element={<TextileDesigning />} />
-                                        <Route path="/insd-luxe" element={<InsdLuxe />} />
-                                        <Route path="/student-careers" element={<StudentCareers />} />
-                                        <Route path="/franchise" element={<Franchise />} />
+                                        <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
                                         <Route path="/courses/aviation" element={<Aviation />} />
                                         <Route path="/contact-us" element={<Contact />} />
-                                        <Route path="/international-partners" element={<InternationalPartner />} />
                                         <Route path="/course-apply-now" element={<Admission />} />
                                         <Route path="/apply" element={<Navigate to="/course-apply-now" replace />} />
                                         <Route path="/admissions" element={<Navigate to="/course-apply-now" replace />} />
                                         <Route path="/courses/online-courses" element={<OnlineCourse />} />
                                         <Route path="/insd-360/blog" element={<Blog />} />
-                                        <Route path="/insd-360/fashion-week" element={<FashionWeek />} />
-                                        <Route path="/insd-360/paris-project" element={<ParisProject />} />
-                                        <Route path="/events" element={<Events />} />
                                         <Route path="/mentors" element={<Mentors />} />
-                                        <Route path="/15-years-legacy" element={<Legacy />} />
                                         <Route path="/locations" element={<Location />} />
                                         <Route path="/centers-across-india" element={<Navigate to="/locations" replace />} />
                                         <Route path="/profile" element={<ProfileDashboard />} />
-                                        <Route path="/success-stories" element={<SuccessStory />} />
                                         <Route path="/gallery" element={<Gallery />} />
                                         <Route path="/thank-you" element={<ThankYou />} />
                                         <Route path="/aviation-thankyou" element={<AviationThankYou />} />
@@ -173,6 +111,7 @@ function App() {
                                         <Route path="/faq" element={<FAQ />} />
                                         <Route path="/cookie-policy" element={<CookiePolicy />} />
                                         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                                        <Route path="/mock-test" element={<MockTest />} />
                                         <Route path="/test-404" element={<NotFound />} />
                                         <Route path="*" element={<NotFound />} />
                                     </Routes>

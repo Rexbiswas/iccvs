@@ -66,7 +66,7 @@ const RegisterButton = ({ className = "", isDarkTheme = false, isScrolled = fals
             className={`group relative overflow-hidden shadow-lg transition-all duration-300 rounded-full ${isLightMode ? 'bg-slate-900/5 border-slate-900/10' : 'bg-white/10 hover:bg-white/20 border-white/20'} backdrop-blur-xl border ${className} flex items-center justify-center`}
         >
             {/* Animated Gradient Background */}
-            <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
 
             {/* Shimmer Effect */}
             <div className="absolute inset-0 pointer-events-none">
@@ -77,7 +77,7 @@ const RegisterButton = ({ className = "", isDarkTheme = false, isScrolled = fals
             <div className="absolute inset-0 border border-white/20 group-hover:border-primary/50 rounded-full transition-colors duration-500" />
 
             {/* Outer Glow Halo */}
-            <div className="absolute -inset-[2px] bg-linear-to-r from-primary to-secondary rounded-full blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500 -z-10" />
+            <div className="absolute -inset-[2px] bg-secondary rounded-full blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500 -z-10" />
         </button>
     );
 };
@@ -148,18 +148,8 @@ const Navbar = () => {
     const darkPages = [
         '/course-apply-now',
         '/insd-360/blog',
-        '/entrepreneur',
-        '/courses/fashion-designing',
-        '/courses/interior-designing',
-        '/courses/graphic-designing',
         '/courses/animation-and-vfx',
-        '/courses/jewellery-designing',
-        '/courses/uiux-designing',
-        '/courses/beauty-and-makeup',
-        '/courses/photography',
-        '/courses/textile-designing',
-        '/courses/msc-luxury-brand-management',
-        '/student'
+        '/courses/beauty-and-makeup'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
 
@@ -247,16 +237,13 @@ const Navbar = () => {
     const menuItems = [
         { title: 'Dashboard', path: '/', icon: LayoutGrid, section: 'OVERVIEW' },
         {
-            title: 'About INSD',
+            title: 'About Us',
             path: '#',
             icon: Info,
             section: 'OVERVIEW',
             subItems: [
-
-                { title: '15 Years Legacy', path: '/15-years-legacy', icon: 'zap', desc: 'Our national award-winning history' },
-                { title: 'Mentors', path: '/mentors', icon: 'users', desc: 'Expert creative leadership' },
-                { title: 'Center Across India', path: '/centers-across-india', icon: 'trending-up', desc: 'Our regional network' },
-                { title: 'Paris Project', path: '/insd-360/paris-project', icon: 'globe', desc: 'International design showcase', badge: 'Featured' }
+                { title: 'About Us', path: '/about', icon: 'info', desc: 'Our legacy and mission' },
+                { title: 'Founder', path: '/mentors', icon: 'users', desc: 'Learn about our leadership' }
             ]
         },
         {
@@ -265,39 +252,12 @@ const Navbar = () => {
             icon: GraduationCap,
             section: 'OVERVIEW',
             subItems: [
-                { title: 'Fashion Design', path: '/courses/fashion-designing', icon: 'fashion', desc: 'Couture & Apparel Design' },
-                { title: 'Interior Design', path: '/courses/interior-designing', icon: 'interior', desc: 'Spatial & Interior Styling' },
-                { title: 'Graphic Design', path: '/courses/graphic-designing', icon: 'graphic', desc: 'Visual Branding & Media' },
                 { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
-                { title: 'Jewellery Design', path: '/courses/jewellery-designing', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
-                { title: 'UI/UX Design', path: '/courses/uiux-designing', icon: 'uiux', desc: 'User Experience & Interface' },
                 { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'makeup', desc: 'Aesthetic Arts' },
-                { title: 'Photography', path: '/courses/photography', icon: 'camera', desc: 'Visual Storytelling' },
-                { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
-                { title: 'Short Term Courses', path: '/courses/short-term-courses', icon: 'zap', desc: 'Intensive Skill Modules' },
-                { title: 'INSD Luxe', path: '/courses/msc-luxury-brand-management', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
+                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
             ]
         },
         { title: 'Admissions', path: '/course-apply-now', icon: CreditCard, section: 'OVERVIEW' },
-        { title: 'Franchise', path: '/franchise', icon: Store, section: 'OVERVIEW' },
-        { title: 'Aviation', path: '/courses/aviation', icon: Plane, section: 'OVERVIEW' },
-        {
-            title: 'Careers & Exposure',
-            path: '/placement',
-            icon: Sparkles,
-            section: 'OVERVIEW',
-            subItems: [
-                { title: 'Life at INSD', path: '/student', icon: 'users', desc: 'Campus life & community' },
-                { title: 'Placements', path: '/placement', icon: 'briefcase', desc: 'Career opportunities' },
-                { title: 'Entrepreneurs', path: '/entrepreneur', icon: 'zap', desc: 'Startup incubation' },
-                { title: 'Industry Visits', path: '/industry-potential', icon: 'map-pin', desc: 'Real-world exposure' },
-                { title: 'Industry Interaction', path: '/industry-interaction', icon: 'users', desc: 'Expert sessions' },
-                { title: 'Placement & Training Partners', path: '/placementandtraining', icon: 'award', desc: 'Our corporate network' },
-                { title: 'Future of Design', path: '/future-of-design', icon: 'sparkles', desc: 'Trends & innovations' },
-            ]
-        },
-
-        { title: 'Events', path: '/events', icon: Calendar, section: 'OVERVIEW' },
         { title: 'Blogs', path: '/insd-360/blog', icon: BookOpen, section: 'OVERVIEW' },
         {
             title: 'Contact Us',
@@ -305,7 +265,7 @@ const Navbar = () => {
             icon: Phone,
             section: 'OVERVIEW',
             subItems: [
-                { title: 'Call Us Now', path: 'tel:+919804443300', icon: Phone, desc: 'Direct support line' },
+                { title: 'Call Us Now', path: 'tel:+919868444888', icon: Phone, desc: 'Direct support line' },
                 { title: 'Enquiry Now', path: '/course-apply-now', icon: Headset, desc: 'Get in touch with us' },
                 { title: 'Career Counselling', path: '/course-apply-now', icon: Calendar, desc: 'Book a session' },
                 { title: 'Download Brochure', path: '#', icon: FileDown, desc: 'Course catalogues' }
@@ -397,236 +357,153 @@ const Navbar = () => {
                 className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-4 items-center justify-between pointer-events-auto"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 block h-[65px]" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 flex items-center h-[85px]" onClick={() => setIsOpen(false)}>
                     <motion.img
                         whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className={`h-[90px] w-auto object-contain transition-all duration-500 ${isHeaderDark && !isScrolled ? 'brightness-0 invert' : 'drop-shadow-sm'}`}
-                        src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
-                        alt="INSD Logo"
+                        className="h-[100px] w-[210px]  object-cover transition-all duration-500"
+                        src="https://ik.imagekit.io/fmldynl4j4/1111-removebg-preview.png"
+                        alt="ICCVS Logo"
                     />
                 </Link>
-                {/* Right: Actions */}
-                <div className="flex items-center gap-2 md:gap-3 lg:gap-4 2xl:gap-6">
-                    {/* Quick Links - Visible on Desktop */}
-                    <AnimatePresence>
-                        {!isOpen && (
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 20 }}
-                                className="hidden md:flex items-center gap-1 lg:gap-2 xl:gap-3 2xl:gap-4"
+                {/* Middle: Quick Links - Centered between Logo and Contact Button */}
+                <AnimatePresence>
+                    {!isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="hidden lg:flex items-center gap-1 lg:gap-2 xl:gap-3 2xl:gap-4 absolute left-1/2 -translate-x-1/2 z-50"
+                        >
+                            <div className="relative group/dropdown">
+                                <div className="flex items-center gap-1 cursor-pointer py-2">
+                                    <RollerLink
+                                        to="#"
+                                        colorClass="nav-hover-gradient"
+                                        baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
+                                    >
+                                        About
+                                    </RollerLink>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 group-hover/dropdown:rotate-180 ${isHeaderDark && !isScrolled ? 'text-white/70' : 'text-slate-500'}`}><path d="m6 9 6 6 6-6" /></svg>
+                                </div>
+
+                                {/* Dropdown Menu */}
+                                <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-64 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
+                                        <div
+                                            className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
+                                            onWheel={(e) => e.stopPropagation()}
+                                        >
+                                            {[
+                                                { title: 'About Us', path: '/15-years-legacy', icon: 'info', desc: 'Our legacy and mission' },
+                                                { title: 'Founder', path: '/mentors', icon: 'users', desc: 'Learn about our leadership' }
+
+                                            ].map((item, i) => (
+                                                <Link
+                                                    key={i}
+                                                    to={item.path}
+                                                    className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 group/item transition-all duration-300 relative overflow-hidden"
+                                                >
+                                                    <div className="absolute inset-0 bg-linear-to-r from-secondary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                                                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-linear-to-br group-hover/item:from-[#053F2C] group-hover/item:to-[#00D893] group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
+                                                        {item.icon === 'info' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>}
+                                                        {item.icon === 'zap' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>}
+                                                        {item.icon === 'award' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>}
+                                                        {item.icon === 'users' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>}
+                                                        {item.icon === 'briefcase' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>}
+                                                        {item.icon === 'map-pin' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>}
+                                                        {item.icon === 'trending-up' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>}
+                                                        {item.icon === 'globe' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>}
+                                                    </div>
+                                                    <div className="flex flex-col relative z-10">
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-secondary dark:group-hover/item:text-white transition-colors">{item.title}</span>
+                                                            {item.badge && (
+                                                                <span className="px-1.5 py-0.5 rounded-md bg-primary/10 text-primary text-[8px] font-black uppercase tracking-widest animate-pulse border border-primary/20">
+                                                                    {item.badge}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <span className="text-[11px] font-medium text-slate-400 group-hover/item:text-slate-500 transition-colors uppercase tracking-wider">{item.desc}</span>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="relative group/dropdown">
+                                <div className="flex items-center gap-1 cursor-pointer py-2">
+                                    <RollerLink
+                                        to="/courses"
+                                        colorClass="nav-hover-gradient"
+                                        baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
+                                    >
+                                        Our Courses
+                                    </RollerLink>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 group-hover/dropdown:rotate-180 ${isHeaderDark && !isScrolled ? 'text-white/70' : 'text-slate-500'}`}><path d="m6 9 6 6 6-6" /></svg>
+                                </div>
+
+                                <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-80 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none">
+                                        <div
+                                            className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
+                                            onWheel={(e) => e.stopPropagation()}
+                                        >
+                                            {[
+                                                { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
+                                                { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
+                                                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'textile', desc: 'Premium Luxury Arts' }
+                                            ].map((item, i) => (
+                                                <Link
+                                                    key={i}
+                                                    to={item.path}
+                                                    className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 group/item transition-all duration-300 relative overflow-hidden"
+                                                >
+                                                    <div className="absolute inset-0 bg-linear-to-r from-secondary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                                                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-linear-to-br group-hover/item:from-[#053F2C] group-hover/item:to-[#00D893] group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
+                                                        {item.icon === 'fashion' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" /><path d="M6 8a2 2 0 0 0 2 2h7a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1" /><path d="M12 22v-4" /><path d="M9 18v-2" /><path d="M15 18v-2" /></svg>}
+                                                        {item.icon === 'interior' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>}
+                                                        {item.icon === 'graphic' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.61 0-.43-.17-.83-.44-1.13-.29-.3-.47-.7-.47-1.13 0-.88.72-1.59 1.61-1.59h1.91c2.51 0 4.69-2.03 4.69-4.55 0-4.41-4.03-8-9-8z" /></svg>}
+                                                        {item.icon === 'animation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>}
+                                                        {item.icon === 'jewellery' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9z" /><path d="M11 3 8 9l4 13 4-13-3-6" /><path d="M2 9h20" /></svg>}
+                                                        {item.icon === 'uiux' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="M7 14l5-5 5 5" /></svg>}
+                                                        {item.icon === 'beauty' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M3 5h4" /><path d="M21 17v4" /><path d="M19 19h4" /></svg>}
+                                                        {item.icon === 'photography' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>}
+                                                        {item.icon === 'textile' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20.22 8.66 14a2 2 0 0 1 2.68 0L18 20.22" /><path d="m2 15.22 6.66-6.22a2 2 0 0 1 2.68 0L18 15.22" /><path d="m2 10.22 6.66-6.22a2 2 0 0 1 2.68 0L18 10.22" /></svg>}
+                                                        {item.icon === 'aviation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 20.19 12 14.39l-5.8 5.8a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.42L9.89 12.3 4.29 6.7A1 1 0 0 1 4 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 .7.29l5.6 5.6 5.8-5.8a1 1 0 0 1 1.42 0l.7.7a1 1 0 0 1 0 1.42l-5.8 5.8 5.6 5.6a1 1 0 0 1 .29.7v2a1 1 0 0 1-1 1h-.2a1 1 0 0 1-.7-.29z" /></svg>}
+                                                    </div>
+                                                    <div className="flex flex-col relative z-10">
+                                                        <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-secondary dark:group-hover/item:text-white transition-colors">{item.title}</span>
+                                                        <span className="text-[11px] font-medium text-slate-400 group-hover/item:text-slate-500 transition-colors uppercase tracking-wider">{item.desc}</span>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <RollerLink
+                                to="/insd-360/blog"
+                                colorClass="nav-hover-gradient"
+                                baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
                             >
-                                <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-2">
-                                        <RollerLink
-                                            to="#"
-                                            colorClass="nav-hover-gradient"
-                                            baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                        >
-                                            About
-                                        </RollerLink>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 group-hover/dropdown:rotate-180 ${isHeaderDark && !isScrolled ? 'text-white/70' : 'text-slate-500'}`}><path d="m6 9 6 6 6-6" /></svg>
-                                    </div>
+                                Blogs
+                            </RollerLink>
+                            <RollerLink
+                                to="/course-apply-now"
+                                colorClass="nav-hover-gradient"
+                                baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
+                            >
+                                Admission
+                            </RollerLink>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-                                    {/* Dropdown Menu */}
-                                    <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-64 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
-                                            <div
-                                                className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
-                                                onWheel={(e) => e.stopPropagation()}
-                                            >
-                                                {[
-                                                    { title: '15 Years Legacy', path: '/15-years-legacy', icon: 'zap', desc: 'Explore industry trends' },
-                                                    { title: 'Mentors', path: '/mentors', icon: 'users', desc: 'Meet our community' },
-                                                    { title: 'Awards & Recognition', path: '/awards-recognition', icon: 'map-pin', desc: 'Our locations' },
-                                                    { title: 'Center Across India', path: '/centers-across-india', icon: 'trending-up', desc: 'Our national presence' },
-                                                    { title: 'Paris Project', path: '/insd-360/paris-project', icon: 'globe', desc: 'International design showcase', badge: 'Featured' }
-
-                                                ].map((item, i) => (
-                                                    <Link
-                                                        key={i}
-                                                        to={item.path}
-                                                        className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 group/item transition-all duration-300 relative overflow-hidden"
-                                                    >
-                                                        <div className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                                                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
-                                                            {item.icon === 'info' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>}
-                                                            {item.icon === 'zap' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>}
-                                                            {item.icon === 'award' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>}
-                                                            {item.icon === 'users' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>}
-                                                            {item.icon === 'briefcase' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>}
-                                                            {item.icon === 'map-pin' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>}
-                                                            {item.icon === 'trending-up' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>}
-                                                            {item.icon === 'globe' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>}
-                                                        </div>
-                                                        <div className="flex flex-col relative z-10">
-                                                            <div className="flex items-center gap-2">
-                                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-primary dark:group-hover/item:text-white transition-colors">{item.title}</span>
-                                                                {item.badge && (
-                                                                    <span className="px-1.5 py-0.5 rounded-md bg-primary/10 text-primary text-[8px] font-black uppercase tracking-widest animate-pulse border border-primary/20">
-                                                                        {item.badge}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                            <span className="text-[11px] font-medium text-slate-400 group-hover/item:text-slate-500 transition-colors uppercase tracking-wider">{item.desc}</span>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-2">
-                                        <RollerLink
-                                            to="/courses"
-                                            colorClass="nav-hover-gradient"
-                                            baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                        >
-                                            Our Courses
-                                        </RollerLink>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 group-hover/dropdown:rotate-180 ${isHeaderDark && !isScrolled ? 'text-white/70' : 'text-slate-500'}`}><path d="m6 9 6 6 6-6" /></svg>
-                                    </div>
-
-                                    <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-80 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none">
-                                            <div
-                                                className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
-                                                onWheel={(e) => e.stopPropagation()}
-                                            >
-                                                {[
-                                                    { title: 'Fashion Design', path: '/courses/fashion-designing', icon: 'fashion', desc: 'Couture & Apparel Design' },
-                                                    { title: 'Interior Design', path: '/courses/interior-designing', icon: 'interior', desc: 'Spatial & Interior Styling' },
-                                                    { title: 'Graphic Design', path: '/courses/graphic-designing', icon: 'graphic', desc: 'Visual Branding & Media' },
-                                                    { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
-                                                    { title: 'Jewellery Design', path: '/courses/jewellery-designing', icon: 'jewellery', desc: 'Gems & Jewelry Craft' },
-                                                    { title: 'UI/UX Design', path: '/courses/uiux-designing', icon: 'uiux', desc: 'User Experience & Interface' },
-                                                    { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
-                                                    { title: 'Photography', path: '/courses/photography', icon: 'photography', desc: 'Visual Storytelling Art' },
-                                                    { title: 'Textile Design', path: '/courses/textile-designing', icon: 'textile', desc: 'Material Science Arts' },
-                                                    { title: 'INSD Luxe', path: '/insd-luxe', icon: 'textile', desc: 'Premium Luxury Arts' }
-                                                ].map((item, i) => (
-                                                    <Link
-                                                        key={i}
-                                                        to={item.path}
-                                                        className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 group/item transition-all duration-300 relative overflow-hidden"
-                                                    >
-                                                        <div className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                                                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
-                                                            {item.icon === 'fashion' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" /><path d="M6 8a2 2 0 0 0 2 2h7a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1" /><path d="M12 22v-4" /><path d="M9 18v-2" /><path d="M15 18v-2" /></svg>}
-                                                            {item.icon === 'interior' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>}
-                                                            {item.icon === 'graphic' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.61 0-.43-.17-.83-.44-1.13-.29-.3-.47-.7-.47-1.13 0-.88.72-1.59 1.61-1.59h1.91c2.51 0 4.69-2.03 4.69-4.55 0-4.41-4.03-8-9-8z" /></svg>}
-                                                            {item.icon === 'animation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>}
-                                                            {item.icon === 'jewellery' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9z" /><path d="M11 3 8 9l4 13 4-13-3-6" /><path d="M2 9h20" /></svg>}
-                                                            {item.icon === 'uiux' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="M7 14l5-5 5 5" /></svg>}
-                                                            {item.icon === 'beauty' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M3 5h4" /><path d="M21 17v4" /><path d="M19 19h4" /></svg>}
-                                                            {item.icon === 'photography' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>}
-                                                            {item.icon === 'textile' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20.22 8.66 14a2 2 0 0 1 2.68 0L18 20.22" /><path d="m2 15.22 6.66-6.22a2 2 0 0 1 2.68 0L18 15.22" /><path d="m2 10.22 6.66-6.22a2 2 0 0 1 2.68 0L18 10.22" /></svg>}
-                                                            {item.icon === 'aviation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 20.19 12 14.39l-5.8 5.8a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.42L9.89 12.3 4.29 6.7A1 1 0 0 1 4 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 .7.29l5.6 5.6 5.8-5.8a1 1 0 0 1 1.42 0l.7.7a1 1 0 0 1 0 1.42l-5.8 5.8 5.6 5.6a1 1 0 0 1 .29.7v2a1 1 0 0 1-1 1h-.2a1 1 0 0 1-.7-.29z" /></svg>}
-                                                        </div>
-                                                        <div className="flex flex-col relative z-10">
-                                                            <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-primary dark:group-hover/item:text-white transition-colors">{item.title}</span>
-                                                            <span className="text-[11px] font-medium text-slate-400 group-hover/item:text-slate-500 transition-colors uppercase tracking-wider">{item.desc}</span>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="relative group/dropdown">
-                                    <div className="flex items-center gap-1 cursor-pointer py-2">
-                                        <RollerLink
-                                            to="#"
-                                            colorClass="nav-hover-gradient"
-                                            baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                        >
-                                            Careers & Exposure
-                                        </RollerLink>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 group-hover/dropdown:rotate-180 ${isHeaderDark && !isScrolled ? 'text-white/70' : 'text-slate-500'}`}><path d="m6 9 6 6 6-6" /></svg>
-                                    </div>
-
-                                    <div className="absolute top-12 left-1/2 -translate-x-1/2 pt-6 w-80 opacity-0 invisible translate-y-4 group-hover/dropdown:opacity-100 group-hover/dropdown:visible group-hover/dropdown:translate-y-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] z-50">
-                                        <div className="bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-white/10 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] p-2 relative before:content-[''] before:absolute before:inset-0 before:bg-linear-to-b before:from-white/40 before:to-transparent before:pointer-events-none after:content-[''] after:absolute after:-top-px after:left-10 after:right-10 after:h-px after:bg-linear-to-r after:from-transparent after:via-primary/30 after:to-transparent">
-                                            <div
-                                                className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
-                                                onWheel={(e) => e.stopPropagation()}
-                                            >
-                                                {[
-                                                    { title: 'Life at INSD', path: '/student', icon: 'users', desc: 'Campus life & community' },
-                                                    { title: 'Placements', path: '/placement', icon: 'briefcase', desc: 'Career opportunities' },
-                                                    { title: 'Entrepreneurs', path: '/entrepreneur', icon: 'zap', desc: 'Startup incubation' },
-                                                    { title: 'Industry Visits', path: '/industry-potential', icon: 'map-pin', desc: 'Real-world exposure' },
-                                                    { title: 'Industry Interaction', path: '/industry-interaction', icon: 'users', desc: 'Expert sessions' },
-                                                    { title: 'Placement & Training Partners', path: '/placementandtraining', icon: 'award', desc: 'Our corporate network' },
-                                                    { title: 'Future of Design', path: '/future-of-design', icon: 'sparkles', desc: 'Trends & innovations' },
-                                                ].map((item, i) => (
-                                                    <Link
-                                                        key={i}
-                                                        to={item.path}
-                                                        className="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 group/item transition-all duration-300 relative overflow-hidden"
-                                                    >
-                                                        <div className="absolute inset-0 bg-linear-to-r from-primary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                                                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-primary group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
-                                                            {item.icon === 'users' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>}
-                                                            {item.icon === 'briefcase' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>}
-                                                            {item.icon === 'zap' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>}
-                                                            {item.icon === 'map-pin' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>}
-                                                            {item.icon === 'award' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>}
-                                                            {item.icon === 'sparkles' && <Sparkles size={18} />}
-                                                        </div>
-                                                        <div className="flex flex-col relative z-10">
-                                                            <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-primary dark:group-hover/item:text-white transition-colors">{item.title}</span>
-                                                            <span className="text-[11px] font-medium text-slate-400 group-hover/item:text-slate-500 transition-colors uppercase tracking-wider">{item.desc}</span>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <RollerLink
-                                    to="/events"
-                                    colorClass="nav-hover-gradient"
-                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                >
-                                    Events
-                                </RollerLink>
-
-                                <RollerLink
-                                    to="/insd-360/blog"
-                                    colorClass="nav-hover-gradient"
-                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                >
-                                    Blogs
-                                </RollerLink>
-                                <RollerLink
-                                    to="/course-apply-now"
-                                    colorClass="nav-hover-gradient"
-                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                >
-                                    Admission
-                                </RollerLink>
-                                <RollerLink
-                                    to="/franchise"
-                                    colorClass="nav-hover-gradient"
-                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                >
-                                    Franchise
-                                </RollerLink>
-                                <RollerLink
-                                    to="/courses/aviation"
-                                    colorClass="nav-hover-gradient"
-                                    baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                                >
-                                    Aviation
-                                </RollerLink>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-
+                {/* Right: Actions */}
+                <div className="flex items-center gap-2 md:gap-3 lg:gap-4 2xl:gap-6 relative z-50">
                     {/* Menu Toggle - Desktop Only */}
                     <motion.button
                         whileHover={{ scale: 1.05 }}
@@ -634,12 +511,11 @@ const Navbar = () => {
                         onClick={() => setIsOpen(!isOpen)}
                         className={`group relative hidden lg:flex items-center gap-3 px-5 py-2.5 rounded-full overflow-hidden shadow-lg transition-all duration-300 ${isHeaderDark && !isScrolled ? 'bg-white text-slate-900 shadow-white/10' : 'bg-slate-900 text-white shadow-slate-900/20'}`}
                     >
-                        <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                        <div className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                         <span className={`relative z-10 font-bold text-[10px] md:text-xs hidden sm:inline-block tracking-widest transition-colors duration-300 ${isHeaderDark && !isScrolled ? 'group-hover:text-white' : ''}`}>
                             {isOpen ? "CLOSE" : "CONTACT"}
                         </span>
                     </motion.button>
-
                     {/* Profile Component - Commented Out */}
                     {/* 
                     {user ? (
@@ -693,9 +569,9 @@ const Navbar = () => {
                 <div className="relative w-full h-full flex items-center justify-center px-8 py-3 pointer-events-auto">
                     <Link to="/" onClick={() => setIsOpen(false)} className="h-full flex items-center justify-center">
                         <img
-                            className="h-[53px] lg:h-[65px] w-auto object-contain drop-shadow-sm"
-                            src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
-                            alt="INSD Logo"
+                            className="h-[60px] w-[60px] rounded-full object-cover border border-slate-200/50"
+                            src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
+                            alt="ICCVS Logo"
                         />
                     </Link>
                 </div>
@@ -988,7 +864,7 @@ const Navbar = () => {
                                                                                     key={sIdx}
                                                                                     to={sub.path}
                                                                                     onClick={() => setIsOpen(false)}
-                                                                                    className="block p-3 text-xs font-bold text-slate-500 hover:text-primary transition-colors border-l border-slate-100 ml-2"
+                                                                                    className="block p-3 text-xs font-bold text-slate-500 hover:text-secondary transition-colors border-l border-slate-100 ml-2"
                                                                                 >
                                                                                     {sub.title}
                                                                                 </Link>
@@ -1052,11 +928,11 @@ const Navbar = () => {
                                 variants={itemVariants}
                                 className="flex items-center justify-between px-6 md:px-12 py-7 relative z-10"
                             >
-                                <Link to="/" onClick={() => setIsOpen(false)} className="h-[72px] md:h-[83px]">
+                                <Link to="/" onClick={() => setIsOpen(false)} className="h-[72px] md:h-[83px] flex items-center">
                                     <img
-                                        src="https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png"
-                                        alt="INSD Logo"
-                                        className="h-full w-auto object-contain brightness-0 invert"
+                                        src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
+                                        alt="ICCVS Logo"
+                                        className="h-[72px] w-[72px] rounded-full object-cover border border-white/20"
                                     />
                                 </Link>
 

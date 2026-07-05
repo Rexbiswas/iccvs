@@ -12,28 +12,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const coursesData = [
     {
-        id: "fashion",
-        title: "Fashion Design",
-        category: "Fashion",
-        duration: "3 Years Bachelors",
-        path: "/courses/fashion-designing",
-        description: "Master the art of haute couture, drape, and structural design in our state-of-the-art studios. Focus heavily on modern fabric manipulation, sustainable design strategies, and direct-to-runway seasonal collections."
-    },
-    {
-        id: "interior",
-        title: "Interior Design",
-        category: "Interior",
-        duration: "3 Years Bachelors",
-        path: "/courses/interior-designing",
-        description: "Learn to build immersive environments that blend high-performance luxury with human ergonomics. Modules strictly revolve around spatial psychology, architectural lighting, and 3D environment drafting."
-    },
-    {
-        id: "graphic",
-        title: "Graphic Design",
+        id: "animation",
+        title: "Animation & VFX",
         category: "VFX",
-        duration: "2 Years Masters",
-        path: "/courses/graphic-designing",
-        description: "From brand logic to motion design, define the visual language of the next digital era. Intensive focus on typography, brand identity synthesis, and algorithmic visual generation."
+        duration: "6 Months",
+        path: "/courses/animation-and-vfx",
+        description: "Focused animation course for digital content artists and visual storytellers. Jump straight into compositing, keyframe rigging, and render pipeline management for OTT platforms."
     },
     {
         id: "bachelors-graphic",
@@ -44,52 +28,44 @@ const coursesData = [
         description: "Master the visual code of modern commerce. A comprehensive studio-oriented degree framework covering typography, brand engineering, package layouts, and high-performance UI/UX design."
     },
     {
-        id: "adv-graphic",
-        title: "Advanced Graphic Design",
+        id: "masters-animation",
+        title: "Masters in Animation",
         category: "VFX",
-        duration: "1 Year Diploma",
-        path: "/courses/diploma-in-graphic-design",
-        description: "An intensive diploma designed specifically for career changers looking to enter the design industry. Master standard industry tools including the Adobe Suite, Figma, and Cinema 4D."
+        duration: "2 Years Masters",
+        path: "/courses/masters-in-animation",
+        description: "Advance your skills in digital character design, layout lighting, and complex VFX workflows. Prepares you for lead visual development roles at top studios globally."
     },
     {
-        id: "diploma-textile",
-        title: "Diploma in Textile Design",
+        id: "adv-animation",
+        title: "Advance Diploma in Animation",
+        category: "VFX",
+        duration: "1 Year Diploma",
+        path: "/courses/advanced-diploma-in-animation",
+        description: "Comprehensive training in 3D pipeline execution, animation logic, and compositor setups. Perfect for career transitions into gaming, cinema, and digital media."
+    },
+    {
+        id: "beauty",
+        title: "Beauty & Makeup",
         category: "Fashion",
-        duration: "1 Year Diploma",
-        path: "/courses/diploma-in-textile-design",
-        description: "Craft the fabrics of tomorrow. Master digital repeats, organic dyes, yarn structures, and visual strategies for premium apparel and home collections."
-    },
-    {
-        id: "animation",
-        title: "Animation & VFX",
-        category: "VFX",
         duration: "6 Months",
-        path: "/courses/animation-and-vfx",
-        description: "Focused animation course for digital content artists and visual storytellers. Jump straight into compositing, keyframe rigging, and render pipeline management for OTT platforms."
+        path: "/courses/beauty-and-makeup",
+        description: "Master the aesthetics of luxury editorial makeups, bridal transformations, and screen cosmetics. Includes skin diagnostics and hair styling modules."
     },
     {
-        id: "luxury",
-        title: "Luxury Brand Management",
+        id: "aviation",
+        title: "Aviation & Cabin Crew",
         category: "Management",
-        duration: "1 Year PG",
-        path: "/courses/msc-luxury-brand-management",
-        description: "Understand the psychology of high-end consumerism and manage global luxury conglomerates. Explore elite supply chain logistics, heritage brand marketing, and exclusive event direction."
+        duration: "1 Year Diploma",
+        path: "/courses/aviation",
+        description: "Professional preparation for cabin service, ground operations, and premium hospitality roles in leading airlines globally."
     },
     {
-        id: "jewellery",
-        title: "Jewellery Design",
-        category: "Fashion",
-        duration: "2 Years Diploma",
-        path: "/courses/jewellery-designing",
-        description: "The intersection of material engineering and fine art. Craft the heirlooms of tomorrow while understanding gemology, precious metal casting, and 3D CAD modeling for rapid prototyping."
-    },
-    {
-        id: "photo",
-        title: "Photography",
-        category: "VFX",
-        duration: "2 Years Diploma",
-        path: "/courses/photography",
-        description: "From editorial high-fashion to cinematic digital storytelling, master the clinical lens. Study studio lighting, color grading theory, and high-end retouching workflows for magazine print."
+        id: "iccvs-luxe",
+        title: "ICCVS Luxe",
+        category: "Management",
+        duration: "Premium Exchange",
+        path: "/iccvs-luxe",
+        description: "Curated luxury education in association with international schools. Focuses on luxury brand marketing, exclusive supply chains, and customer relationship protocols."
     }
 ];
 

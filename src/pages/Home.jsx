@@ -7,29 +7,18 @@ import useLenisSmoothScroll from '../hooks/useLenisSmoothScroll';
 
 
 
-import NationalAwards from '../components/NationalAwards';
 import StepLeadForm from '../components/StepLeadForm';
 import ProgramSearch from '../components/ProgramSearch';
-import TestimonialSlider from '../components/TestimonialSlider';
 import FeaturedIn from '../components/FeaturedIn';
 
 import StepVisual from '../components/StepVisual';
 import EventBlogs from '../components/EventBlogs';
 import InstagramGallery from '../components/InstagramGallery';
-import InsdiansByDesign from '../components/InsdiansByDesign';
 import Footer from '../components/Footer';
-import NetworkCounter from '../components/NetworkCounter';
-import WhyInsd from '../components/WhyInsd';
-import AiFutureDesign from '../components/AiFutureDesign';
-import CelebritySlider from '../components/CelebritySlider';
-import LegacyTimeline from '../components/LegacyTimeline';
 import ProgramGrid from '../components/ProgramGrid';
-import InsdDifference from '../components/InsdDifference';
-import IndustryInsights from '../components/IndustryInsights';
+import IccvsDifference from '../components/IccvsDifference';
 import HeroSlider from '../components/HeroSlider';
 import { ArrowRight, CheckCircle2, Sparkles, Briefcase, Rocket, FileDown } from 'lucide-react';
-import PlacementPartners from '../components/PlacementPartners';
-import SuccessStory from '../components/SuccessStory';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 import CreativeRevolution from '../components/CreativeRevolution';
 
@@ -279,9 +268,9 @@ const Home = () => {
     return (
         <div ref={containerRef} className="min-h-screen text-slate-900 relative overflow-x-hidden">
             <SEO
-                title="Best Design Institute for Fashion, Interior & Graphic Courses in Delhi | INSD"
-                description="Best design institute in Delhi, India. Join INSD is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG."
-                keywords="best design institute in Delhi, skill-based design school Delhi, job-ready design institute, 100% placement design course, fashion design course in Delhi, interior design course in Delhi, graphic design course in Delhi, animation VFX course in Delhi, INSD Delhi placement"
+                title="ICCVS Computer Education | Best Computer Institute in Delhi for Coding & IT Courses"
+                description="ICCVS Computer Education is the leading IT and computer training institute in Delhi, offering courses in Coding, Software Engineering, Web Development, UI/UX Design, and digital skills."
+                keywords="computer education Delhi, best computer institute in Delhi, coding classes Delhi, software training institute, web design course, python programming Delhi, digital marketing, computer academy Delhi, ICCVS"
                 canonical="https://insd.edu.in/"
                 ogImage="https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-1200,h-630,fo-auto"
                 robots="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
@@ -304,11 +293,11 @@ const Home = () => {
                         <div className="space-y-4">
 
                             <h1 className="text-clamp-3xl font-black text-slate-900 tracking-tighter leading-[0.95]">
-                                20 Lakh Professionals <br />
-                                <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-slate-400 italic text-[0.9em]">Needed by 2030.</span>
+                                Your gateway to <br />
+                                <span className="text-secondary italic text-[0.9em]">the IT industry.</span>
                             </h1>
                             <p className="text-clamp-lg font-bold text-slate-600 tracking-tight max-w-xl">
-                                Study with INSD to start a high-impact career in Fashion, Interior, Graphic Design UI/UX, Animation & VFX, Jewellery, Textile, Photography or Make-up
+                                Your gateway to the IT industry. ICCVS Computer Education transforms aspiring students into high-earning tech professionals through hands-on coding and software engineering programs
                             </p>
                         </div>
 
@@ -322,35 +311,13 @@ const Home = () => {
                                     subtitle: 'Get professional guidance for your design career.',
                                     ctaText: 'Connect Now'
                                 })}
-                                className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-16 bg-primary text-white rounded-full font-black uppercase tracking-widest text-[11px] shadow-xl flex items-center justify-center gap-3 transition-all hover:bg-slate-950"
+                                className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-16 bg-secondary text-slate-950 rounded-full font-black uppercase tracking-widest text-[11px] shadow-xl flex items-center justify-center gap-3 transition-all hover:bg-slate-950 hover:text-white"
                             >
                                 TALK TO OUR EXPERTS
                                 <ArrowRight size={18} />
                             </motion.button>
                         </div>
 
-                        {/* Stats Highlights */}
-                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center lg:justify-start gap-y-8 gap-x-4 md:gap-6 pt-8">
-                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">15+</span>
-                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Years Legacy</span>
-                            </div>
-                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
-                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">75+</span>
-                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Centres</span>
-                            </div>
-                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
-                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">30,000+</span>
-                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Students Trained</span>
-                            </div>
-                            <div className="w-px h-8 bg-slate-100 hidden sm:block" />
-                            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                                <span className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-linear-to-r from-[#db3436] to-[#134a84]">18 Lakh</span>
-                                <span className="text-[9px] md:text-[11px] font-black uppercase tracking-widest text-slate-900 mt-1">Highest Salary</span>
-                            </div>
-                        </div>
 
                         {/* Transformation Vision - Pills removed */}
 
@@ -368,23 +335,16 @@ const Home = () => {
 
             </div>
 
-            <IndustryInsights />
             <ProgramGrid />
 
 
             <div className="w-full bg-white py-16 md:py-24 container-px">
-                <div className="max-w-7xl mx-auto mb-16 md:mb-24">
-                    <PlacementPartners />
-                </div>
                 {/* Monumental CTA Section */}
                 <CreativeRevolution />
             </div>
 
 
-            {/* <NetworkCounter /> */}
-            <InsdDifference />
-            <CelebritySlider />
-            <SuccessStory />
+            <IccvsDifference />
             {/* <InstagramGallery /> */}
 
 
@@ -426,12 +386,8 @@ const Home = () => {
                 </div>
             </div> */}
 
-            {/* <WhyInsd /> */}
             {/* <StepLeadForm /> */}
             {/* <ProgramSearch /> */}
-            {/* <NationalAwards /> */}
-            {/* <AiFutureDesign /> */}
-            {/* <TestimonialSlider /> */}
 
 
             {/* Student Spotlight Section - High Fashion Editorial Style */}
@@ -492,7 +448,6 @@ const Home = () => {
 
             {/* <FeaturedIn /> */}
             {/* <EventBlogs /> */}
-            <InsdiansByDesign />
             <div className="relative z-50">
                 <Footer />
             </div>

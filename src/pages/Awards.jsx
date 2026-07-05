@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import TOICertification from '../components/TOICertification';
+
 import { Award } from 'lucide-react';
 import SEO from '../components/SEO';
 
@@ -44,14 +44,7 @@ const Awards = () => {
                 </div>
             </section>
 
-            {/* TOI Certification Content */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-            >
-                <TOICertification />
-            </motion.div>
+
         </main>
     );
 };

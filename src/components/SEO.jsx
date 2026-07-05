@@ -14,7 +14,7 @@ const SEO = ({
     robots = 'max-snippet:-1, max-image-preview:large, max-video-preview:-1',
     courseSchema = null
 }) => {
-    const siteName = "INSD";
+    const siteName = "ICCVS Computer Education";
     const metaDescription = description || "Best design institute in Delhi, India. Join INSD is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG.";
     const metaKeywords = keywords || "best design institute in Delhi, skill school design, job oriented fashion design, interior design placement, graphic design course, INSD India";
 
@@ -24,7 +24,7 @@ const SEO = ({
         "@type": "EducationalOrganization",
         "name": siteName,
         "url": "https://insd.edu.in",
-        "logo": "https://ik.imagekit.io/fmldynl4j4/INSD-Logo_Horizontal-removebg-preview.png",
+        "logo": "https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg",
         "sameAs": [
             "https://www.facebook.com/INSD.Official/",
             "https://www.instagram.com/insd_official/",
