@@ -12,54 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const coursesData = [
     {
-        id: "animation",
-        title: "Animation & VFX",
-        category: "VFX",
-        duration: "6 Months",
-        path: "/courses/animation-and-vfx",
-        description: "Focused animation course for digital content artists and visual storytellers. Jump straight into compositing, keyframe rigging, and render pipeline management for OTT platforms."
-    },
-    {
-        id: "bachelors-graphic",
-        title: "Bachelors in Graphic Design",
-        category: "VFX",
-        duration: "3 Years Bachelors",
-        path: "/courses/bachelors-in-graphic-design",
-        description: "Master the visual code of modern commerce. A comprehensive studio-oriented degree framework covering typography, brand engineering, package layouts, and high-performance UI/UX design."
-    },
-    {
-        id: "masters-animation",
-        title: "Masters in Animation",
-        category: "VFX",
-        duration: "2 Years Masters",
-        path: "/courses/masters-in-animation",
-        description: "Advance your skills in digital character design, layout lighting, and complex VFX workflows. Prepares you for lead visual development roles at top studios globally."
-    },
-    {
-        id: "adv-animation",
-        title: "Advance Diploma in Animation",
-        category: "VFX",
-        duration: "1 Year Diploma",
-        path: "/courses/advanced-diploma-in-animation",
-        description: "Comprehensive training in 3D pipeline execution, animation logic, and compositor setups. Perfect for career transitions into gaming, cinema, and digital media."
-    },
-    {
-        id: "beauty",
-        title: "Beauty & Makeup",
-        category: "Fashion",
-        duration: "6 Months",
-        path: "/courses/beauty-and-makeup",
-        description: "Master the aesthetics of luxury editorial makeups, bridal transformations, and screen cosmetics. Includes skin diagnostics and hair styling modules."
-    },
-    {
-        id: "aviation",
-        title: "Aviation & Cabin Crew",
-        category: "Management",
-        duration: "1 Year Diploma",
-        path: "/courses/aviation",
-        description: "Professional preparation for cabin service, ground operations, and premium hospitality roles in leading airlines globally."
-    },
-    {
         id: "iccvs-luxe",
         title: "ICCVS Luxe",
         category: "Management",

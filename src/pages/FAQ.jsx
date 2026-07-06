@@ -49,7 +49,7 @@ const FAQ = () => {
   const faqData = {
     "About INSD": [
       { q: "What is INSD?", a: "INSD (International School of Design) is a private design institution offering industry‑oriented programs in fashion design, interior design, graphic design, textile design, jewellery design, animation and related disciplines." },
-      { q: "Where is INSD located?", a: "INSD has its main presence in Delhi NCR and operates a growing network of authorised campuses and centres across multiple cities in India through a franchise model. Please check our “Campuses” or “Locations” section for the latest list." },
+      { q: "Where is INSD located?", a: "INSD has its main presence in Delhi NCR and operates a growing network of authorised campuses and centres across multiple cities in India through a franchise model. Please check our “Locations” section for the latest list." },
       { q: "Who founded INSD?", a: "INSD was co‑founded by the Former-Director General of NIFT, along with Mr. Sunjey Aggarwal and Mr. Pranav Raaj Aggarwall, with the vision to provide globally relevant design education in India." },
       { q: "What makes INSD different from other design schools?", a: "INSD focuses on practical, industry‑oriented learning, collaborations with brands, live projects, and exposure through events such as fashion weeks, luxury projects and international initiatives. Students learn from experienced faculty and industry experts via workshops, masterclasses and portfolio‑driven assignments." }
     ],

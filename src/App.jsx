@@ -9,26 +9,17 @@ import CookieConsent from './components/CookieConsent';
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Courses = lazy(() => import('./pages/Courses'));
-const AwardsRecognition = lazy(() => import('./pages/AwardsRecognition'));
-const Campus = lazy(() => import('./pages/Campus'));
 const Admission = lazy(() => import('./pages/Admission'));
 const DiplomaAndCertificate = lazy(() => import('./pages/DiplomaAndCertificate'));
-const BachelorsInGraphicDesign = lazy(() => import('./pages/bachelors-in-graphic-design'));
-const MastersInAnimation = lazy(() => import('./pages/masters-in-animation'));
-const AdvancedDiplomaInAnimation = lazy(() => import('./pages/advanced-diploma-in-animation'));
 const Contact = lazy(() => import('./pages/Contact'));
-const OnlineCourse = lazy(() => import('./pages/OnlineCourse'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Mentors = lazy(() => import('./pages/Mentors'));
 const Location = lazy(() => import('./pages/location'));
 const ProfileDashboard = lazy(() => import('./pages/ProfileDashboard'));
 const Aviation = lazy(() => import('./pages/Aviation'));
-const AnimationAndVFX = lazy(() => import('./pages/AnimationAndVFX'));
-const BeautyAndMakeup = lazy(() => import('./pages/BeautyAndMakeup'));
 const Gallery = lazy(() => import('./pages/Gallery'));
 const IccvsLuxe = lazy(() => import('./pages/IccvsLuxe'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
-const AviationThankYou = lazy(() => import('./pages/AviationThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
@@ -81,24 +72,14 @@ function App() {
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 
-                                        <Route path="/awards-recognition" element={<AwardsRecognition />} />
-                                        <Route path="/campuses" element={<Campus />} />
-                                        <Route path="/campuses/:campusId" element={<Campus />} />
-
                                         <Route path="/courses" element={<Courses />} />
                                         <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
-                                        <Route path="/courses/bachelors-in-graphic-design" element={<BachelorsInGraphicDesign />} />
-                                        <Route path="/courses/masters-in-animation" element={<MastersInAnimation />} />
-                                        <Route path="/courses/advanced-diploma-in-animation" element={<AdvancedDiplomaInAnimation />} />
-                                        <Route path="/courses/animation-and-vfx" element={<AnimationAndVFX />} />
-                                        <Route path="/courses/beauty-and-makeup" element={<BeautyAndMakeup />} />
                                         <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
                                         <Route path="/courses/aviation" element={<Aviation />} />
                                         <Route path="/contact-us" element={<Contact />} />
                                         <Route path="/course-apply-now" element={<Admission />} />
                                         <Route path="/apply" element={<Navigate to="/course-apply-now" replace />} />
                                         <Route path="/admissions" element={<Navigate to="/course-apply-now" replace />} />
-                                        <Route path="/courses/online-courses" element={<OnlineCourse />} />
                                         <Route path="/insd-360/blog" element={<Blog />} />
                                         <Route path="/mentors" element={<Mentors />} />
                                         <Route path="/locations" element={<Location />} />
@@ -106,7 +87,6 @@ function App() {
                                         <Route path="/profile" element={<ProfileDashboard />} />
                                         <Route path="/gallery" element={<Gallery />} />
                                         <Route path="/thank-you" element={<ThankYou />} />
-                                        <Route path="/aviation-thankyou" element={<AviationThankYou />} />
                                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                                         <Route path="/faq" element={<FAQ />} />
                                         <Route path="/cookie-policy" element={<CookiePolicy />} />

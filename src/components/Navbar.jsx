@@ -147,9 +147,7 @@ const Navbar = () => {
     // Updated detection: Pages with permanent dark themes or sections
     const darkPages = [
         '/course-apply-now',
-        '/insd-360/blog',
-        '/courses/animation-and-vfx',
-        '/courses/beauty-and-makeup'
+        '/insd-360/blog'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
 
@@ -252,9 +250,8 @@ const Navbar = () => {
             icon: GraduationCap,
             section: 'OVERVIEW',
             subItems: [
-                { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
-                { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'makeup', desc: 'Aesthetic Arts' },
-                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' }
+                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' },
+                { title: 'Aviation & Cabin Crew', path: '/courses/aviation', icon: 'aviation', desc: 'Cabin Crew Training' }
             ]
         },
         { title: 'Admissions', path: '/course-apply-now', icon: CreditCard, section: 'OVERVIEW' },
@@ -451,9 +448,8 @@ const Navbar = () => {
                                             onWheel={(e) => e.stopPropagation()}
                                         >
                                             {[
-                                                { title: 'Animation Design', path: '/courses/animation-and-vfx', icon: 'animation', desc: '3D & Visual FX' },
-                                                { title: 'Beauty & Makeup', path: '/courses/beauty-and-makeup', icon: 'beauty', desc: 'Professional Esthetics' },
-                                                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'textile', desc: 'Premium Luxury Arts' }
+                                                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'textile', desc: 'Premium Luxury Arts' },
+                                                { title: 'Aviation & Cabin Crew', path: '/courses/aviation', icon: 'aviation', desc: 'Cabin Crew Training' }
                                             ].map((item, i) => (
                                                 <Link
                                                     key={i}

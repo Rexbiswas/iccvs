@@ -21,10 +21,10 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
 
     // Initialize chat history with personalized greeting
     useEffect(() => {
-        const greeting = user 
+        const greeting = user
             ? `Hi ${user.name}! Welcome back. How can I help you with your ${user.courseName || 'design'} journey today?`
             : "Hi there! I'm your INSD Design Assistant. How can I help you shape your creative future today?";
-        
+
         setChatHistory([{ role: 'bot', content: greeting }]);
     }, [user]);
 
@@ -43,23 +43,23 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         }
 
         const isAnyOpen = openChatbots.size > 0;
-        
+
         if (isAnyOpen) {
             document.body.classList.add('chatbot-open');
         } else {
             document.body.classList.remove('chatbot-open');
         }
 
-        window.dispatchEvent(new CustomEvent('chatbot-state', { 
-            detail: { isOpen: isAnyOpen } 
+        window.dispatchEvent(new CustomEvent('chatbot-state', {
+            detail: { isOpen: isAnyOpen }
         }));
 
         return () => {
             openChatbots.delete(instanceId.current);
             if (openChatbots.size === 0) {
                 document.body.classList.remove('chatbot-open');
-                window.dispatchEvent(new CustomEvent('chatbot-state', { 
-                    detail: { isOpen: false } 
+                window.dispatchEvent(new CustomEvent('chatbot-state', {
+                    detail: { isOpen: false }
                 }));
             }
         };
@@ -89,7 +89,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         const handleExternalOpen = (e) => {
             // Only the instance that is allowed to show the window should respond
             if (hideWindow) return;
-            
+
             setIsOpen(true);
             if (e.detail?.centered) {
                 setIsCentered(true);
@@ -106,7 +106,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         if (e && typeof e.preventDefault === 'function') {
             e.preventDefault();
         }
-        
+
         const msg = typeof e === 'string' ? e : message;
         if (!msg.trim()) return;
 
@@ -133,7 +133,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
     };
 
     const clearChat = () => {
-        const greeting = user 
+        const greeting = user
             ? `Hi ${user.name}! Chat cleared. How else can I help you?`
             : "Chat cleared! I'm here if you have more questions about INSD.";
         setChatHistory([{ role: 'bot', content: greeting }]);
@@ -182,7 +182,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
             return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} studies today?` : "Hello! I'm your INSD Assistant. I can help you with course details, timings, and admissions. What can I do for you?";
         }
-        
+
         return "I'm not sure about that specifically, but I can tell you about our Design courses, batch timings, or help you connect with a counselor. What would you prefer?";
     };
 
@@ -199,7 +199,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
 
     const ChatWindow = ({ centered }) => (
         <motion.div
-            initial={centered 
+            initial={centered
                 ? { opacity: 0, scale: 0.9, y: 20 }
                 : { opacity: 0, scale: 0.5, x: 100, y: 100, transformOrigin: 'bottom right' }
             }
@@ -212,10 +212,10 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                 : { opacity: 0, scale: 0.5, x: 100, y: 100 }
             }
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`${centered 
-                ? 'relative w-full max-w-[400px] h-[600px] max-h-[80vh]' 
+            className={`${centered
+                ? 'relative w-full max-w-[400px] h-[600px] max-h-[80vh]'
                 : 'absolute bottom-full right-0 md:bottom-0 md:right-full mb-4 md:mb-0 md:mr-6 w-[90vw] md:w-[400px] h-[600px] max-h-[70vh]'
-            } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col pointer-events-auto chatbot-window-active`}
+                } bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex flex-col pointer-events-auto chatbot-window-active`}
         >
             {/* Header */}
             <div className="p-6 bg-linear-to-r from-primary to-secondary text-white flex items-center justify-between shrink-0">
@@ -354,12 +354,12 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                             onClick={() => { setIsOpen(false); setIsCentered(false); }}
                             className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[4999] lg:hidden"
                         />
-                        
+
                         {/* Mobile Centered Layout - Forced on Mobile */}
                         <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 lg:hidden">
                             <ChatWindow centered={true} />
                         </div>
-                        
+
                         {/* Desktop Side Layout - Hidden on Mobile */}
                         <div className="hidden lg:block relative z-[5000]">
                             <ChatWindow centered={isCentered} />
@@ -443,7 +443,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
 
                         {/* Pulse Ring */}
                         {!isOpen && (
-                        <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-0 group-hover:opacity-100" />
+                            <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping opacity-0 group-hover:opacity-100" />
                         )}
                     </motion.button>
                 </div>

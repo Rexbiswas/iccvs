@@ -13,17 +13,14 @@ export const routeChunks = {
   // Public routes
   home: () => import('../pages/Home'),
   admission: () => import('../pages/Admission'),
-  campus: () => import('../pages/Campus'),
   contact: () => import('../pages/Contact'),
   
   // Program routes
   fashion: () => import('../pages/FashionDesigning'),
   interior: () => import('../pages/InteriorDesigning'),
   graphic: () => import('../pages/GraphicDesigning'),
-  animation: () => import('../pages/AnimationAndVFX'),
   jewellery: () => import('../pages/JewelleryDesigning'),
   uiux: () => import('../pages/UIUXDesigning'),
-  beauty: () => import('../pages/BeautyAndMakeup'),
   photography: () => import('../pages/Photography'),
   textile: () => import('../pages/TextileDesigning'),
   
@@ -33,12 +30,10 @@ export const routeChunks = {
   diploma: () => import('../pages/DiplomaAndCertificate'),
   shortterm: () => import('../pages/ShortTermCourse'),
   mscLuxury: () => import('../pages/MscLuxury'),
-  onlineCourse: () => import('../pages/OnlineCourse'),
   
   // Information routes
   placement: () => import('../pages/Placement'),
   placements: () => import('../pages/PlacementAndTraining'),
-  awards: () => import('../pages/AwardsRecognition'),
   events: () => import('../pages/Events'),
   blog: () => import('../pages/Blog'),
   gallery: () => import('../pages/Gallery'),
