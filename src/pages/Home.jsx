@@ -20,7 +20,6 @@ import IccvsDifference from '../components/IccvsDifference';
 import HeroSlider from '../components/HeroSlider';
 import { ArrowRight, CheckCircle2, Sparkles, Briefcase, Rocket, FileDown } from 'lucide-react';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
-import CreativeRevolution from '../components/CreativeRevolution';
 
 
 import SEO from '../components/SEO';
@@ -337,11 +336,6 @@ const Home = () => {
 
             <ProgramGrid />
 
-
-            <div className="w-full bg-white py-16 md:py-24 container-px">
-                {/* Monumental CTA Section */}
-                <CreativeRevolution />
-            </div>
 
 
             <IccvsDifference />

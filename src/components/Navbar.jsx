@@ -82,6 +82,26 @@ const RegisterButton = ({ className = "", isDarkTheme = false, isScrolled = fals
     );
 };
 
+const courseSubItems = [
+    { title: 'Basic Computer Course', path: '/courses/basic-computer-course', icon: 'Basic Computer Course', desc: 'Computer Fundamentals' },
+    { title: 'DTP (Desktop Publishing)', path: '/courses/dtp', icon: 'DTP', desc: 'Graphic & Print Design' },
+    { title: 'Diploma (Computer Applications)', path: '/courses/diploma', icon: 'Diploma', desc: 'Core Office & IT Skills' },
+    { title: 'Tally Prime / ERP 9', path: '/courses/tally', icon: 'Tally Prime', desc: 'Accounting & Inventory' },
+    { title: 'DFA (Diploma in Financial Accounting)', path: '/courses/dfa', icon: 'DFA', desc: 'Financial Accounting' },
+    { title: 'ADFA (Adv. Diploma in Financial Accounting)', path: '/courses/adfa', icon: 'ADFA', desc: 'Advanced Accounting' },
+    { title: 'PDFA (Professional Diploma in Financial Accounting)', path: '/courses/pdfa', icon: 'PDFA', desc: 'Professional Finance' },
+    { title: 'Taxation Course', path: '/courses/taxation', icon: 'Taxation', desc: 'GST, Income Tax & Return' },
+    { title: 'ADCA (Adv. Diploma in Computer Application)', path: '/courses/adca', icon: 'ADCA', desc: 'Comprehensive IT Skills' },
+    { title: 'NIIT Authorized Courses', path: '/courses/niit', icon: 'NIIT Authorized Courses', desc: 'Professional Tech Program' },
+    { title: 'DIT (Diploma in Information Technology)', path: '/courses/dit', icon: 'DIT', desc: 'Fundamentals of IT' },
+    { title: 'ADIT / A Level (Adv. Diploma in IT)', path: '/courses/adit', icon: 'ADIT/A Level', desc: 'Advance Software & IT' },
+    { title: 'Data Analyst', path: '/courses/data-analyst', icon: 'Data Analyst', desc: 'Python, SQL & Analytics' },
+    { title: 'Advance Excel', path: '/courses/advance-excel', icon: 'Advance Excel', desc: 'Spreadsheet Formulas & Data' },
+    { title: 'Advance Excel (MIS)', path: '/courses/advance-excel-mis', icon: 'Advance Excel(MIS)', desc: 'Management Info Systems' },
+    { title: 'Advance Excel (Macro)', path: '/courses/advance-excel-macro', icon: 'Advance Excel(Macro)', desc: 'VBA Macros & Automation' },
+    { title: 'Advance Excel (Dash Board)', path: '/courses/advance-excel-dashboard', icon: 'Advance Excel(Dash Board)', desc: 'Data Visualization' }
+];
+
 const Navbar = () => {
     const { openModal } = useRegisterModal();
     const { openAdmissionModal, isAdmissionOpen } = useAdmissionModal();
@@ -249,10 +269,7 @@ const Navbar = () => {
             path: '/courses',
             icon: GraduationCap,
             section: 'OVERVIEW',
-            subItems: [
-                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'sparkles', desc: 'Premium Luxury Arts', badge: 'New' },
-                { title: 'Aviation & Cabin Crew', path: '/courses/aviation', icon: 'aviation', desc: 'Cabin Crew Training' }
-            ]
+            subItems: courseSubItems
         },
         { title: 'Admissions', path: '/course-apply-now', icon: CreditCard, section: 'OVERVIEW' },
         { title: 'Blogs', path: '/insd-360/blog', icon: BookOpen, section: 'OVERVIEW' },
@@ -447,10 +464,7 @@ const Navbar = () => {
                                             className="max-h-[320px] overflow-y-auto dropdown-scrollbar pr-1 overscroll-contain"
                                             onWheel={(e) => e.stopPropagation()}
                                         >
-                                            {[
-                                                { title: 'ICCVS Luxe', path: '/iccvs-luxe', icon: 'textile', desc: 'Premium Luxury Arts' },
-                                                { title: 'Aviation & Cabin Crew', path: '/courses/aviation', icon: 'aviation', desc: 'Cabin Crew Training' }
-                                            ].map((item, i) => (
+                                            {courseSubItems.map((item, i) => (
                                                 <Link
                                                     key={i}
                                                     to={item.path}
@@ -458,16 +472,23 @@ const Navbar = () => {
                                                 >
                                                     <div className="absolute inset-0 bg-linear-to-r from-secondary/5 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
                                                     <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover/item:bg-linear-to-br group-hover/item:from-[#053F2C] group-hover/item:to-[#00D893] group-hover/item:text-white group-hover/item:scale-110 transition-all duration-400 shadow-sm relative z-10">
-                                                        {item.icon === 'fashion' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" /><path d="M6 8a2 2 0 0 0 2 2h7a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1" /><path d="M12 22v-4" /><path d="M9 18v-2" /><path d="M15 18v-2" /></svg>}
-                                                        {item.icon === 'interior' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>}
-                                                        {item.icon === 'graphic' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.61 0-.43-.17-.83-.44-1.13-.29-.3-.47-.7-.47-1.13 0-.88.72-1.59 1.61-1.59h1.91c2.51 0 4.69-2.03 4.69-4.55 0-4.41-4.03-8-9-8z" /></svg>}
-                                                        {item.icon === 'animation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>}
-                                                        {item.icon === 'jewellery' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9z" /><path d="M11 3 8 9l4 13 4-13-3-6" /><path d="M2 9h20" /></svg>}
-                                                        {item.icon === 'uiux' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="M7 14l5-5 5 5" /></svg>}
-                                                        {item.icon === 'beauty' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M3 5h4" /><path d="M21 17v4" /><path d="M19 19h4" /></svg>}
-                                                        {item.icon === 'photography' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>}
-                                                        {item.icon === 'textile' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20.22 8.66 14a2 2 0 0 1 2.68 0L18 20.22" /><path d="m2 15.22 6.66-6.22a2 2 0 0 1 2.68 0L18 15.22" /><path d="m2 10.22 6.66-6.22a2 2 0 0 1 2.68 0L18 10.22" /></svg>}
-                                                        {item.icon === 'aviation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 20.19 12 14.39l-5.8 5.8a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.42L9.89 12.3 4.29 6.7A1 1 0 0 1 4 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 .7.29l5.6 5.6 5.8-5.8a1 1 0 0 1 1.42 0l.7.7a1 1 0 0 1 0 1.42l-5.8 5.8 5.6 5.6a1 1 0 0 1 .29.7v2a1 1 0 0 1-1 1h-.2a1 1 0 0 1-.7-.29z" /></svg>}
+                                                        {item.icon === 'Basic Computer Course' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 18a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" /><path d="M6 8a2 2 0 0 0 2 2h7a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1" /><path d="M12 22v-4" /><path d="M9 18v-2" /><path d="M15 18v-2" /></svg>}
+                                                        {item.icon === 'DTP' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>}
+                                                        {item.icon === 'Diploma' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.7-.72 1.7-1.61 0-.43-.17-.83-.44-1.13-.29-.3-.47-.7-.47-1.13 0-.88.72-1.59 1.61-1.59h1.91c2.51 0 4.69-2.03 4.69-4.55 0-4.41-4.03-8-9-8z" /></svg>}
+                                                        {item.icon === 'Tally Prime' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" /><line x1="7" y1="2" x2="7" y2="22" /><line x1="17" y1="2" x2="17" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="2" y1="7" x2="7" y2="7" /><line x1="2" y1="17" x2="7" y2="17" /><line x1="17" y1="17" x2="22" y2="17" /><line x1="17" y1="7" x2="22" y2="7" /></svg>}
+                                                        {item.icon === 'DFA' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9z" /><path d="M11 3 8 9l4 13 4-13-3-6" /><path d="M2 9h20" /></svg>}
+                                                        {item.icon === 'ADFA' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="M7 14l5-5 5 5" /></svg>}
+                                                        {item.icon === 'PDFA' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /><path d="M5 3v4" /><path d="M3 5h4" /><path d="M21 17v4" /><path d="M19 19h4" /></svg>}
+                                                        {item.icon === 'Taxation' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" /><circle cx="12" cy="13" r="3" /></svg>}
+                                                        {item.icon === 'ADCA' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20.22 8.66 14a2 2 0 0 1 2.68 0L18 20.22" /><path d="m2 15.22 6.66-6.22a2 2 0 0 1 2.68 0L18 15.22" /><path d="m2 10.22 6.66-6.22a2 2 0 0 1 2.68 0L18 10.22" /></svg>}
+                                                        {item.icon === 'NIIT Authorized Courses' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.8 20.19 12 14.39l-5.8 5.8a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.42L9.89 12.3 4.29 6.7A1 1 0 0 1 4 6V4a1 1 0 0 1 1-1h2a1 1 0 0 1 .7.29l5.6 5.6 5.8-5.8a1 1 0 0 1 1.42 0l.7.7a1 1 0 0 1 0 1.42l-5.8 5.8 5.6 5.6a1 1 0 0 1 .29.7v2a1 1 0 0 1-1 1h-.2a1 1 0 0 1-.7-.29z" /></svg>}
+                                                        {item.icon === 'DIT' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>}
+                                                        {item.icon === 'ADIT/A Level' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
+                                                        {item.icon === 'Data Analyst' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
+                                                        {item.icon === 'Advance Excel' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
+                                                        {item.icon === 'Advance Excel(MIS)' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
+                                                        {item.icon === 'Advance Excel(Macro)' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
+                                                        {item.icon === 'Advance Excel(Dash Board)' && <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M9 3v18" /><path d="M15 3v18" /><path d="M3 9h18" /><path d="M3 15h18" /></svg>}
                                                     </div>
                                                     <div className="flex flex-col relative z-10">
                                                         <span className="font-bold text-sm text-slate-800 dark:text-slate-200 group-hover/item:text-secondary dark:group-hover/item:text-white transition-colors">{item.title}</span>
@@ -722,7 +743,7 @@ const Navbar = () => {
                                             <PhoneCTA isFloatingPanel />
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Call Us</span>
                                         </div>
-                                        {/* <div className="flex flex-col items-center gap-2">
+                                        <div className="flex flex-col items-center gap-2">
                                             <button
                                                 onClick={() => {
                                                     setIsSocialMenuOpen(false);
@@ -733,7 +754,7 @@ const Navbar = () => {
                                                 <Bot size={24} className="text-white group-hover:rotate-12 transition-transform" />
                                             </button>
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">AI Assistant</span>
-                                        </div> */}
+                                        </div>
                                     </div>
 
                                     <button

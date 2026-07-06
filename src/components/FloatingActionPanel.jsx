@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackToTop from './BackToTop';
-// import AIChatbot from './AIChatbot';
+import AIChatbot from './AIChatbot';
 import WhatsappCTA from './WhatsappCTA';
 import EnquiryCTA from './EnquiryCTA';
 import SocialPanel from './SocialPanel';
@@ -126,10 +126,9 @@ const FloatingActionPanel = () => {
             </div>
 
             {/* Headless AIChatbot for mobile event listening */}
-            
-            {/* <div className="lg:hidden pointer-events-auto">
+            <div className="lg:hidden pointer-events-auto">
                 <AIChatbot showTrigger={false} isFloatingPanel />
-            </div> */}
+            </div>
 
             {/* Scroll-Dependent Icons (Bot & Social) */}
             <AnimatePresence>
@@ -149,9 +148,9 @@ const FloatingActionPanel = () => {
                                 className="flex flex-col items-end gap-4"
                             >
                                 {/* Desktop Bot */}
-                                {/* <div className="hidden lg:block">
+                                <div className="hidden lg:block">
                                     <AIChatbot isFloatingPanel />
-                                </div> */}
+                                </div>
                             </motion.div>
                         )}
 

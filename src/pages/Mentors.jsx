@@ -7,7 +7,6 @@ import {
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Footer from '../components/Footer';
-import CoFoundingVisionary from '../components/CoFoundingVisionary';
 
 
 const Mentors = () => {
@@ -344,8 +343,6 @@ const Mentors = () => {
                 </div>
             </section>
 
-            {/* --- CO-FOUNDER TRIBUTE SECTION --- */}
-            <CoFoundingVisionary />
 
             {/* --- BOTTOM COLLABORATION STRIP --- */}
             <section className="py-24 px-6 md:px-12 lg:px-24 bg-white flex flex-col items-center">

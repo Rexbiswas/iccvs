@@ -22,8 +22,8 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
     // Initialize chat history with personalized greeting
     useEffect(() => {
         const greeting = user
-            ? `Hi ${user.name}! Welcome back. How can I help you with your ${user.courseName || 'design'} journey today?`
-            : "Hi there! I'm your INSD Design Assistant. How can I help you shape your creative future today?";
+            ? `Hi ${user.name}! Welcome back. How can I help you with your ${user.courseName || 'IT'} journey today?`
+            : "Hi there! I'm your ICCVS Computer Education Assistant. How can I help you shape your computer education future today?";
 
         setChatHistory([{ role: 'bot', content: greeting }]);
     }, [user]);
@@ -135,7 +135,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
     const clearChat = () => {
         const greeting = user
             ? `Hi ${user.name}! Chat cleared. How else can I help you?`
-            : "Chat cleared! I'm here if you have more questions about INSD.";
+            : "Chat cleared! I'm here if you have more questions about ICCVS Computer Education.";
         setChatHistory([{ role: 'bot', content: greeting }]);
     };
 
@@ -144,10 +144,11 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
 
         // Course Knowledge Base
         const coursesInfo = {
-            fashion: "Our Fashion Design programs range from 1-year Diplomas to 3-year Bachelors and 2-year Masters. They cover everything from pattern making to haute couture.",
-            interior: "Interior Design at INSD focuses on spatial planning, 3D modeling, and luxury residential/commercial projects. Available in Diploma, UG, and PG levels.",
-            graphic: "Graphic Design & UI/UX courses focus on visual communication, brand identity, and digital product design using industry-standard tools like Adobe Suite and Figma.",
-            timing: "Standard class timings are Monday to Friday. We have two main batches: Morning (10:00 AM - 1:00 PM) and Afternoon (2:00 PM - 5:00 PM). Some professional workshops also happen on Saturdays."
+            coding: "ICCVS offers cutting-edge IT & Coding programs: Full Stack Web Development, Python Programming, Software Engineering, and digital skills designed to place you in top tech firms.",
+            design: "Our Creative Design programs cover UI/UX Design, Graphic Design, Animation & VFX, Fashion Design, Photography, and Textile Design, focusing on hands-on practical skills.",
+            luxe: "ICCVS Luxe is our premium luxury education program focusing on Luxury Brand Management, Luxury Marketing, and Customer Relations.",
+            aviation: "Our Aviation & Cabin Crew training program offers industry-aligned prep for cabin crew careers, airport management, and aviation hospitality.",
+            timing: "Standard class timings at ICCVS are Monday to Friday. We offer flexible batches: Morning (10:00 AM - 1:00 PM) and Afternoon (2:00 PM - 5:00 PM)."
         };
 
         if (user) {
@@ -165,25 +166,34 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         }
 
         // Specific Course Queries
-        if (lowerInput.includes('fashion')) return coursesInfo.fashion;
-        if (lowerInput.includes('interior')) return coursesInfo.interior;
-        if (lowerInput.includes('graphic') || lowerInput.includes('ui/ux')) return coursesInfo.graphic;
+        if (lowerInput.includes('coding') || lowerInput.includes('python') || lowerInput.includes('software') || lowerInput.includes('web dev') || lowerInput.includes('full stack') || lowerInput.includes('program')) {
+            return coursesInfo.coding;
+        }
+        if (lowerInput.includes('design') || lowerInput.includes('ui/ux') || lowerInput.includes('graphic') || lowerInput.includes('fashion') || lowerInput.includes('animation') || lowerInput.includes('vfx')) {
+            return coursesInfo.design;
+        }
+        if (lowerInput.includes('luxe') || lowerInput.includes('luxury')) {
+            return coursesInfo.luxe;
+        }
+        if (lowerInput.includes('aviation') || lowerInput.includes('cabin crew') || lowerInput.includes('flight')) {
+            return coursesInfo.aviation;
+        }
 
         // General Responses
-        if (lowerInput.includes('course') || lowerInput.includes('program') || lowerInput.includes('study')) {
-            return "We offer premium courses in Fashion, Interior, Graphic, Animation, and Jewelry Design. Which field are you most interested in?";
+        if (lowerInput.includes('course') || lowerInput.includes('study') || lowerInput.includes('fee') || lowerInput.includes('syllabus')) {
+            return "ICCVS offers professional programs in IT/Coding (Python, Full Stack), Digital & UI/UX Design, Aviation, and Luxury Management. Which field are you interested in?";
         }
         if (lowerInput.includes('admission') || lowerInput.includes('apply') || lowerInput.includes('join')) {
-            return "The admission process for the 2026 session is open! You can apply online or visit our campus for a counseling session. Would you like the application link?";
+            return "Admissions for the 2026 academic year at ICCVS are open! You can apply online or schedule a counseling session with our expert advisors. Would you like the application link?";
         }
-        if (lowerInput.includes('campus') || lowerInput.includes('location')) {
-            return "INSD has 75+ centers across India, including major hubs in Delhi, Mumbai, and Kolkata. I can help you find the one closest to you!";
+        if (lowerInput.includes('campus') || lowerInput.includes('location') || lowerInput.includes('center') || lowerInput.includes('where')) {
+            return "ICCVS Computer Education is a leading institute based in Delhi/NCR, featuring state-of-the-art labs and infrastructure. I can help you find our location details!";
         }
         if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
-            return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} studies today?` : "Hello! I'm your INSD Assistant. I can help you with course details, timings, and admissions. What can I do for you?";
+            return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} journey today?` : "Hello! I'm your ICCVS Assistant. I can help you with IT, Design, or Aviation courses, batch timings, and admissions. What can I do for you?";
         }
 
-        return "I'm not sure about that specifically, but I can tell you about our Design courses, batch timings, or help you connect with a counselor. What would you prefer?";
+        return "I'm not sure about that specifically, but I can guide you regarding our IT/Coding courses, Design & Luxe programs, Aviation training, or connect you with a counselor. What would you prefer?";
     };
 
     const quickActions = user ? [
@@ -193,7 +203,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         { label: "Logout", icon: LogOut, action: () => logout() }
     ] : [
         { label: "Admission Process", icon: User, action: () => { navigate('/course-apply-now'); setIsOpen(false); } },
-        { label: "Campus Locations", icon: Bot, action: () => { navigate('/campuses'); setIsOpen(false); } },
+        { label: "Our Centers", icon: Bot, action: () => { navigate('/locations'); setIsOpen(false); } },
         { label: "Contact Counselor", icon: MessageCircle, action: () => { navigate('/contact-us'); setIsOpen(false); } }
     ];
 
@@ -225,7 +235,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                     </div>
                     <div>
                         <h3 className="font-bold text-sm tracking-tight text-white leading-none">
-                            {user ? `Hi, ${user.name.split(' ')[0]}` : "INSD Assistant"}
+                            {user ? `Hi, ${user.name.split(' ')[0]}` : "ICCVS Assistant"}
                         </h3>
                         <div className="flex items-center gap-1.5 mt-1">
                             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -374,7 +384,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                     {/* Tooltip */}
                     {!isOpen && (
                         <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 whitespace-nowrap shadow-2xl hidden md:block">
-                            {user ? `Helping ${user.name.split(' ')[0]}` : "INSD Assistance"}
+                            {user ? `Helping ${user.name.split(' ')[0]}` : "ICCVS Assistance"}
                             <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-slate-900 rotate-45" />
                         </div>
                     )}

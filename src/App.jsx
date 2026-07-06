@@ -25,12 +25,31 @@ const FAQ = lazy(() => import('./pages/FAQ'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const NotFound = lazy(() => import('./pages/NotFound'));
-const MockTest = lazy(() => import('./pages/MockTest'));
+
+// New Course Pages
+const BasicComputerCourse = lazy(() => import('./pages/BasicComputerCourse'));
+const DTP = lazy(() => import('./pages/DTP'));
+const Diploma = lazy(() => import('./pages/Diploma'));
+const Tally = lazy(() => import('./pages/Tally'));
+const DFA = lazy(() => import('./pages/DFA'));
+const ADFA = lazy(() => import('./pages/ADFA'));
+const PDFA = lazy(() => import('./pages/PDFA'));
+const Taxation = lazy(() => import('./pages/Taxation'));
+const ADCA = lazy(() => import('./pages/ADCA'));
+const NIIT = lazy(() => import('./pages/NIIT'));
+const DIT = lazy(() => import('./pages/DIT'));
+const ADIT = lazy(() => import('./pages/ADIT'));
+const DataAnalyst = lazy(() => import('./pages/DataAnalyst'));
+const AdvanceExcel = lazy(() => import('./pages/AdvanceExcel'));
+const AdvanceExcelMIS = lazy(() => import('./pages/AdvanceExcelMIS'));
+const AdvanceExcelMacro = lazy(() => import('./pages/AdvanceExcelMacro'));
+const AdvanceExcelDashboard = lazy(() => import('./pages/AdvanceExcelDashboard'));
+
 
 // Components
 import RegistrationModal from './components/RegistrationModal';
 import AdmissionModal from './components/AdmissionModal';
-// import AIChatbot from './components/AIChatbot';
+import AIChatbot from './components/AIChatbot';
 import FloatingActionPanel from './components/FloatingActionPanel';
 import { RegisterModalProvider } from './context/RegisterModalContext';
 import { AdmissionModalProvider } from './context/AdmissionModalContext';
@@ -72,7 +91,24 @@ function App() {
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 
-                                        <Route path="/courses" element={<Courses />} />
+                                         <Route path="/courses" element={<Courses />} />
+                                         <Route path="/courses/basic-computer-course" element={<BasicComputerCourse />} />
+                                         <Route path="/courses/dtp" element={<DTP />} />
+                                         <Route path="/courses/diploma" element={<Diploma />} />
+                                         <Route path="/courses/tally" element={<Tally />} />
+                                         <Route path="/courses/dfa" element={<DFA />} />
+                                         <Route path="/courses/adfa" element={<ADFA />} />
+                                         <Route path="/courses/pdfa" element={<PDFA />} />
+                                         <Route path="/courses/taxation" element={<Taxation />} />
+                                         <Route path="/courses/adca" element={<ADCA />} />
+                                         <Route path="/courses/niit" element={<NIIT />} />
+                                         <Route path="/courses/dit" element={<DIT />} />
+                                         <Route path="/courses/adit" element={<ADIT />} />
+                                         <Route path="/courses/data-analyst" element={<DataAnalyst />} />
+                                         <Route path="/courses/advance-excel" element={<AdvanceExcel />} />
+                                         <Route path="/courses/advance-excel-mis" element={<AdvanceExcelMIS />} />
+                                         <Route path="/courses/advance-excel-macro" element={<AdvanceExcelMacro />} />
+                                         <Route path="/courses/advance-excel-dashboard" element={<AdvanceExcelDashboard />} />
                                         <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
                                         <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
                                         <Route path="/courses/aviation" element={<Aviation />} />
@@ -91,7 +127,7 @@ function App() {
                                         <Route path="/faq" element={<FAQ />} />
                                         <Route path="/cookie-policy" element={<CookiePolicy />} />
                                         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                                        <Route path="/mock-test" element={<MockTest />} />
+
                                         <Route path="/test-404" element={<NotFound />} />
                                         <Route path="*" element={<NotFound />} />
                                     </Routes>
