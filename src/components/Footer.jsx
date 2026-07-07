@@ -5,6 +5,7 @@ import { ArrowUpRight, Globe } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SocialIcons from './SocialIcons';
+import ICCVSTagline from './ICCVSTagline';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +52,9 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer id="footer" ref={footerRef} className="relative bg-linear-to-r from-primary to-secondary text-white pt-32 pb-12 overflow-hidden">
+        <>
+            <ICCVSTagline />
+            <footer id="footer" ref={footerRef} className="relative bg-linear-to-r from-primary to-secondary text-white pt-32 pb-12 overflow-hidden">
 
             {/* Atmospheric Orbs */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none" />
@@ -242,6 +245,7 @@ const Footer = () => {
                 </div>
             </div >
         </footer >
+        </>
     );
 };
 
