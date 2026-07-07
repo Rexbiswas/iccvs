@@ -6,8 +6,8 @@ const WhatsappCTA = ({ isFloatingPanel = false }) => {
     const [isVisible, setIsVisible] = useState(false);
     const { scrollY } = useScroll();
 
-    const whatsappNumber = "919804443300";
-    const message = "Hi INSD, I would like to know more about your courses.";
+    const whatsappNumber = "919868444888";
+    const message = "Hi ICCVS, I would like to know more about your courses.";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     useMotionValueEvent(scrollY, "change", (latest) => {

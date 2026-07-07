@@ -1,14 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Youtube, Twitter, Phone } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Phone } from 'lucide-react';
 
 const socialLinks = [
     { icon: Instagram, label: "Instagram", color: "#E4405F", link: "https://www.instagram.com/insd_official" },
-    { icon: Linkedin, label: "LinkedIn", color: "#0A66C2", link: "https://www.linkedin.com/school/international-school-of-design/" },
     { icon: Facebook, label: "Facebook", color: "#1877F2", link: "https://www.facebook.com/share/1CMuRdTV69/" },
-    { icon: Youtube, label: "YouTube", color: "#FF0000", link: "https://youtube.com/@insd-internationalschoolof5139?feature=shared" },
-    { icon: Phone, label: "Phone", color: "#3b82f6", link: "tel:+919804443300" },
-
+    { icon: Phone, label: "Phone", color: "#3b82f6", link: "tel:+919868444888" },
 ];
 
 const SocialIcons = ({ className = "", dark = false }) => {

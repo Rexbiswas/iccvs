@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Phone } from 'lucide-react';
 
 const PhoneCTA = ({ isFloatingPanel = false }) => {
-    const phoneNumber = "+919804443300";
-    const displayPhone = "+91 98044 43300";
+    const phoneNumber = "+919868444888";
+    const displayPhone = "+91 98684 44888";
 
     const content = (
         <motion.a

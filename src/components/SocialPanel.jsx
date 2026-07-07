@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Share2, X } from 'lucide-react';
 import FacebookCTA from './FacebookCTA';
 import InstagramCTA from './InstagramCTA';
-import YoutubeCTA from './YoutubeCTA';
 import PhoneCTA from './PhoneCTA';
 import WhatsappCTA from './WhatsappCTA';
 
@@ -38,7 +37,6 @@ const SocialPanel = ({ isFloatingPanel = false, onToggle, isOpen: externalOpen }
                         exit={{ opacity: 0, y: 20, scale: 0.8 }}
                         className="flex flex-col items-end gap-4"
                     >
-                        <YoutubeCTA isFloatingPanel={true} />
                         <InstagramCTA isFloatingPanel={true} />
                         <FacebookCTA isFloatingPanel={true} />
                         

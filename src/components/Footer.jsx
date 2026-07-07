@@ -51,7 +51,7 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer id="footer" ref={footerRef} className="relative bg-linear-to-br from-[#801e20] to-[#0a2746] text-white pt-32 pb-12 overflow-hidden">
+        <footer id="footer" ref={footerRef} className="relative bg-linear-to-r from-primary to-secondary text-white pt-32 pb-12 overflow-hidden">
 
             {/* Atmospheric Orbs */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 blur-[150px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none" />
@@ -73,7 +73,7 @@ const Footer = () => {
                                 />
                             </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
-                                International School of Design is a global design education group. We don't teach design; we build visionaries. Our curriculum is an ever-evolving protocol for the future.
+                                ICCVS Computer Education is a leading IT training institute. We don't just teach coding; we build innovators. Our curriculum is an ever-evolving protocol for the future.
                             </p>
                         </div>
 
@@ -90,13 +90,23 @@ const Footer = () => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-                                    { name: "Animation Design", path: "/courses/animation-and-vfx" },
-                                    { name: "Bachelors in Graphic Design", path: "/courses/bachelors-in-graphic-design" },
-                                    { name: "Masters in Animation", path: "/courses/masters-in-animation" },
-                                    { name: "Advance Diploma in Animation", path: "/courses/advanced-diploma-in-animation" },
-                                    { name: "Beauty & Makeup", path: "/courses/beauty-and-makeup" },
-                                    { name: "ICCVS Luxe", path: "/iccvs-luxe" },
-                                    { name: "Aviation & Cabin Crew", path: "/courses/aviation" }
+                                    { name: "Basic Computer Course", path: "/courses/basic-computer-course" },
+                                    { name: "DTP (Desktop Publishing)", path: "/courses/dtp" },
+                                    { name: "Diploma (Computer Applications)", path: "/courses/diploma" },
+                                    { name: "Tally Prime / ERP 9", path: "/courses/tally" },
+                                    { name: "DFA (Financial Accounting)", path: "/courses/dfa" },
+                                    { name: "ADFA (Adv. Financial Accounting)", path: "/courses/adfa" },
+                                    { name: "PDFA (Professional Finance)", path: "/courses/pdfa" },
+                                    { name: "Taxation Course", path: "/courses/taxation" },
+                                    { name: "ADCA (Adv. Computer Application)", path: "/courses/adca" },
+                                    { name: "NIIT Authorized Courses", path: "/courses/niit" },
+                                    { name: "DIT (Diploma in IT)", path: "/courses/dit" },
+                                    { name: "ADIT / A Level (Adv. IT)", path: "/courses/adit" },
+                                    { name: "Data Analyst", path: "/courses/data-analyst" },
+                                    { name: "Advance Excel", path: "/courses/advance-excel" },
+                                    { name: "Advance Excel (MIS)", path: "/courses/advance-excel-mis" },
+                                    { name: "Advance Excel (Macro)", path: "/courses/advance-excel-macro" },
+                                    { name: "Advance Excel (Dash Board)", path: "/courses/advance-excel-dashboard" }
                                 ].map((item, i) => (
                                     <motion.li
                                         key={i}
@@ -120,10 +130,7 @@ const Footer = () => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-
                                     { name: "Mentors", path: "/mentors" },
-                                    { name: "Center Across India", path: "/locations" },
-                                    { name: "Awards", path: "/awards-recognition" },
                                     { name: "Enquiry", path: "/course-apply-now" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -165,7 +172,7 @@ const Footer = () => {
                             <div className="space-y-6">
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-primary mb-1">Enquiry</span>
-                                    <a href="tel:+919804443300" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98044 43300</a>
+                                    <a href="tel:+919868444888" className="text-sm font-bold border-b border-white/5 group-hover:border-primary transition-all pb-1">+91 98684 44888</a>
                                 </motion.div>
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-secondary mb-1">Email</span>
@@ -196,7 +203,7 @@ const Footer = () => {
                     {/* Layer 1: The "Ghost" Outline */}
                     {/* Layer 1: The "Ghost" Outline */}
                     <h1 className="giant-footer-text absolute text-[25vw] lg:text-[35vw] font-black text-transparent stroke-text-white/2 select-none whitespace-nowrap leading-none tracking-[-0.05em] uppercase pointer-events-none">
-                        INSD
+                        ICCVS
                     </h1>
 
                     {/* Layer 2: The "Spotlight" Reveal */}
@@ -207,7 +214,7 @@ const Footer = () => {
                             WebkitMaskImage: 'radial-gradient(circle 300px at var(--x) var(--y), black 20%, transparent 100%)',
                         }}
                     >
-                        INSD
+                        ICCVS
                     </h1>
 
                     {/* Ambient Luxury Detail */}
@@ -218,7 +225,7 @@ const Footer = () => {
                 <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
                     <div className="flex items-center gap-4">
                         <Globe className="w-3 h-3 text-primary animate-spin-slow" />
-                        Est. 2026 INSD Consortium
+                        Est. 2026 ICCVS Consortium
                     </div>
 
                     <div className="flex gap-10">

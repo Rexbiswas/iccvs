@@ -215,7 +215,7 @@ const Contact = () => {
                                                 <div>
                                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Call Us</p>
                                                     <div className="flex flex-col">
-                                                        <a href="tel:+919804443300" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 98044 43300</a>
+                                                         <a href="tel:+919868444888" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">+91 98684 44888</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +226,7 @@ const Contact = () => {
                                                 </div>
                                                 <div>
                                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400">WhatsApp</p>
-                                                    <a href="https://wa.me/919804443300" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-green-500 transition-colors">+91 98044 43300</a>
+                                                     <a href="https://wa.me/919868444888" target="_blank" rel="noopener noreferrer" className="text-lg font-bold text-slate-900 hover:text-green-500 transition-colors">+91 98684 44888</a>
                                                 </div>
                                             </div>
                                             <div className="w-full h-px bg-slate-100" />

@@ -91,24 +91,24 @@ function App() {
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 
-                                         <Route path="/courses" element={<Courses />} />
-                                         <Route path="/courses/basic-computer-course" element={<BasicComputerCourse />} />
-                                         <Route path="/courses/dtp" element={<DTP />} />
-                                         <Route path="/courses/diploma" element={<Diploma />} />
-                                         <Route path="/courses/tally" element={<Tally />} />
-                                         <Route path="/courses/dfa" element={<DFA />} />
-                                         <Route path="/courses/adfa" element={<ADFA />} />
-                                         <Route path="/courses/pdfa" element={<PDFA />} />
-                                         <Route path="/courses/taxation" element={<Taxation />} />
-                                         <Route path="/courses/adca" element={<ADCA />} />
-                                         <Route path="/courses/niit" element={<NIIT />} />
-                                         <Route path="/courses/dit" element={<DIT />} />
-                                         <Route path="/courses/adit" element={<ADIT />} />
-                                         <Route path="/courses/data-analyst" element={<DataAnalyst />} />
-                                         <Route path="/courses/advance-excel" element={<AdvanceExcel />} />
-                                         <Route path="/courses/advance-excel-mis" element={<AdvanceExcelMIS />} />
-                                         <Route path="/courses/advance-excel-macro" element={<AdvanceExcelMacro />} />
-                                         <Route path="/courses/advance-excel-dashboard" element={<AdvanceExcelDashboard />} />
+                                        <Route path="/courses" element={<Courses />} />
+                                        <Route path="/courses/basic-computer-course" element={<BasicComputerCourse />} />
+                                        <Route path="/courses/dtp" element={<DTP />} />
+                                        <Route path="/courses/diploma" element={<Diploma />} />
+                                        <Route path="/courses/tally" element={<Tally />} />
+                                        <Route path="/courses/dfa" element={<DFA />} />
+                                        <Route path="/courses/adfa" element={<ADFA />} />
+                                        <Route path="/courses/pdfa" element={<PDFA />} />
+                                        <Route path="/courses/taxation" element={<Taxation />} />
+                                        <Route path="/courses/adca" element={<ADCA />} />
+                                        <Route path="/courses/niit" element={<NIIT />} />
+                                        <Route path="/courses/dit" element={<DIT />} />
+                                        <Route path="/courses/adit" element={<ADIT />} />
+                                        <Route path="/courses/data-analyst" element={<DataAnalyst />} />
+                                        <Route path="/courses/advance-excel" element={<AdvanceExcel />} />
+                                        <Route path="/courses/advance-excel-mis" element={<AdvanceExcelMIS />} />
+                                        <Route path="/courses/advance-excel-macro" element={<AdvanceExcelMacro />} />
+                                        <Route path="/courses/advance-excel-dashboard" element={<AdvanceExcelDashboard />} />
                                         <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
                                         <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
                                         <Route path="/courses/aviation" element={<Aviation />} />

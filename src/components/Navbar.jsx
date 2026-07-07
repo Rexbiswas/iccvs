@@ -13,7 +13,6 @@ import { Sidebar, Menu, MenuItem, Submenu, Logo } from "react-mui-sidebar";
 // import AIChatbot from './AIChatbot';
 import FacebookCTA from './FacebookCTA';
 import InstagramCTA from './InstagramCTA';
-import YoutubeCTA from './YoutubeCTA';
 import PhoneCTA from './PhoneCTA';
 import WhatsappCTA from './WhatsappCTA';
 
@@ -558,9 +557,9 @@ const Navbar = () => {
             {/* SVG Gradient Definition for Icons */}
             <svg width="0" height="0" className="absolute pointer-events-none">
                 <defs>
-                    <linearGradient id="insd-icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#db3436" />
-                        <stop offset="100%" stopColor="#134a84" />
+                    <linearGradient id="icons" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#A62B2B" />
+                        <stop offset="100%" stopColor="#A62B2B" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -595,7 +594,7 @@ const Navbar = () => {
             </motion.div >
 
             <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-[400px] h-16 z-[1005] lg:hidden transition-all duration-500 mobile-bottom-nav ${isOpen || isSocialMenuOpen || isAdmissionOpen || isChatbotOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100 translate-y-0'}`}>
-                <div className={`w-full h-full flex items-center justify-around px-6 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen || isSocialMenuOpen ? 'bg-white border-slate-200' : 'bg-white border-white'}`}>
+                <div className={`w-full h-full flex items-center justify-around px-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 border ${isOpen || isSocialMenuOpen ? 'bg-white border-slate-200' : 'bg-white border-white'}`}>
 
                     {/* HOME */}
                     <NavLink
@@ -610,7 +609,7 @@ const Navbar = () => {
                                 {isActive && (
                                     <motion.div
                                         layoutId="activeBubble"
-                                        className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
+                                        className="absolute inset-0 bg-primary/10 rounded-xl border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
                                         transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                                     />
                                 )}
@@ -618,7 +617,7 @@ const Navbar = () => {
                                     size={22}
                                     strokeWidth={isActive ? 2.5 : 2}
                                     className="relative z-10"
-                                    stroke={isActive ? "url(#insd-icon-gradient)" : "currentColor"}
+                                    stroke={isActive ? "url(#icons)" : "currentColor"}
                                 />
                                 <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isActive ? 'text-slate-900 opacity-100' : 'opacity-60'}`}>Home</span>
                             </>
@@ -641,7 +640,7 @@ const Navbar = () => {
                             }}
                             className={`relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 scale-90 active:scale-75 text-slate-900/40 hover:text-slate-900`}
                         >
-                            <FilePenLine size={22} strokeWidth={2} stroke="url(#insd-icon-gradient)" />
+                            <FilePenLine size={22} strokeWidth={2} stroke="url(#icons)" />
                             <span className="text-[9px] font-bold mt-1.5 uppercase tracking-widest opacity-80 text-slate-900">Enquiry</span>
                         </button>
                     )}
@@ -657,8 +656,9 @@ const Navbar = () => {
                     >
                         {isSocialMenuOpen && (
                             <motion.div
+                                borderStyle="solid"
                                 layoutId="activeBubble"
-                                className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
+                                className="absolute inset-0 bg-primary/10 rounded-xl border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
                                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                             />
                         )}
@@ -666,7 +666,7 @@ const Navbar = () => {
                             size={22}
                             strokeWidth={2}
                             className="relative z-10"
-                            stroke={isSocialMenuOpen ? "url(#insd-icon-gradient)" : "url(#insd-icon-gradient)"}
+                            stroke={isSocialMenuOpen ? "url(#icons)" : "url(#icons)"}
                         />
                         <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isSocialMenuOpen ? 'text-slate-900 opacity-100' : 'text-slate-900 opacity-80'}`}>Social</span>
                     </button>
@@ -680,16 +680,17 @@ const Navbar = () => {
                     >
                         {isOpen && (
                             <motion.div
+                                borderStyle="solid"
                                 layoutId="activeBubble"
-                                className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
+                                className="absolute inset-0 bg-primary/10 rounded-xl border border-primary/20 shadow-[0_0_20px_rgba(219,52,54,0.1)]"
                                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                             />
                         )}
                         <div className="relative z-10">
                             {isOpen ? (
-                                <X size={24} strokeWidth={2.5} stroke="url(#insd-icon-gradient)" />
+                                <X size={24} strokeWidth={2.5} stroke="url(#icons)" />
                             ) : (
-                                <LayoutGrid size={22} strokeWidth={2} stroke="url(#insd-icon-gradient)" />
+                                <LayoutGrid size={22} strokeWidth={2} stroke="url(#icons)" />
                             )}
                         </div>
                         <span className={`text-[9px] font-bold mt-1.5 uppercase tracking-widest relative z-10 ${isOpen ? 'text-slate-900 opacity-100' : 'text-slate-900 opacity-80'}`}>{isOpen ? 'Close' : 'Menu'}</span>
@@ -734,10 +735,7 @@ const Navbar = () => {
                                             <FacebookCTA isFloatingPanel />
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Facebook</span>
                                         </div>
-                                        <div className="flex flex-col items-center gap-2">
-                                            <YoutubeCTA isFloatingPanel />
-                                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">YouTube</span>
-                                        </div>
+
 
                                         <div className="flex flex-col items-center gap-2">
                                             <PhoneCTA isFloatingPanel />
@@ -911,11 +909,11 @@ const Navbar = () => {
                                     <div className="mt-12 p-6 rounded-3xl bg-slate-50 border border-slate-100 space-y-6">
                                         <div className="space-y-4">
                                             <h4 className="text-[10px] font-black tracking-widest text-slate-400 uppercase">Emergency Help</h4>
-                                            <a href="tel:+919804443300" className="flex items-center gap-4 text-xs font-bold text-slate-800 hover:text-primary transition-colors">
+                                            <a href="tel:+919868444888" className="flex items-center gap-4 text-xs font-bold text-slate-800 hover:text-primary transition-colors">
                                                 <div className="w-8 h-8 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-primary shadow-sm">
                                                     <Phone size={14} />
                                                 </div>
-                                                +91 9804443300
+                                                +91 9868444888
                                             </a>
                                         </div>
 
@@ -975,7 +973,7 @@ const Navbar = () => {
                                 <div className="hidden md:flex w-full md:w-[65%] p-6 md:p-8 lg:p-12 md:flex-col justify-center relative z-10 overflow-y-auto dropdown-scrollbar">
                                     <div className="space-y-4 md:space-y-6">
                                         {[
-                                            { title: 'Call Us Now', sub: '+91 9804443300', icon: Phone, href: 'tel:+919804443300' },
+                                            { title: 'Call Us Now', sub: '+91 9868444888', icon: Phone, href: 'tel:+919868444888' },
                                             { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '/course-apply-now' },
                                             { title: 'Book Counselling', sub: 'Free Expert Session', icon: Calendar, action: 'modal' },
 
@@ -1074,8 +1072,8 @@ const Navbar = () => {
                                     <motion.div variants={itemVariants}>
                                         <h4 className="text-[9px] md:text-[10px] font-black tracking-[0.4em] text-primary uppercase mb-4 md:mb-6">Direct Lines</h4>
                                         <div className="space-y-3">
-                                            <a href="tel:+919804443300" className="block text-lg md:text-xl lg:text-2xl font-bold hover:text-primary transition-all group">
-                                                <span className="inline-block group-hover:translate-x-2 transition-transform">+91 9804443300</span>
+                                            <a href="tel:+919868444888" className="block text-lg md:text-xl lg:text-2xl font-bold hover:text-primary transition-all group">
+                                                <span className="inline-block group-hover:translate-x-2 transition-transform">+91 9868444888</span>
                                             </a>
                                         </div>
                                     </motion.div>
