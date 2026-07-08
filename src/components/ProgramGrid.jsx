@@ -1,67 +1,67 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X, Heart, TrendingUp, Award, DollarSign, Navigation, ArrowLeft, BarChart3, Users, Globe, Coffee, ShoppingBag, Film, Palette } from 'lucide-react';
+import { ArrowUpRight, X, Heart, TrendingUp, Award, DollarSign, Navigation, ArrowLeft, BarChart3, Users, Globe, Coffee, ShoppingBag, Film, Palette, MessageCircle, Coins, HeartPulse, Store } from 'lucide-react';
 import StepLeadForm from './StepLeadForm';
 
 const programs = [
     {
-        title: "FASHION DESIGN",
-        tag: "FASHION",
+        title: "DATA ANALYST",
+        tag: "DATA ANALYST",
         img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20Fd%20.png?updatedAt=1774326592482",
-        headline: "Create Trends. Build Your Label.",
-        subtitle: "From styling to runway — step into the world of fashion.",
+        headline: "Turn Data Into Decisions.",
+        subtitle: "Analyze complex data — transform it into strategy & growth",
         careerPath: {
-            title: "Fashion Design",
+            title: "Data Analyst",
             stats: {
-                industrySize: "₹45 Lakh Crore Industry",
-                demand: "15 Lakh designers till 2030"
+                industrySize: "₹12.3 Lakh Crore Industry",
+                demand: "10 Lakh Data Professionals by 2026"
             },
             tracks: [],
             salaries: { entry: "Rs. 20,000", mid: "Rs. 75,000", senior: "Rs. 1,50,000" },
             sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
+                { label: "Finance", icon: Coins },
+                { label: "E-commerce", icon: TrendingUp },
+                { label: "Healthcare", icon: HeartPulse },
+                { label: "Marketing", icon: BarChart3 }
             ]
         }
     },
     {
-        title: "INTERIOR DESIGN",
-        tag: "INTERIOR",
+        title: "WEB DESIGN",
+        tag: "WEB DESIGN",
         img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20ID%20.png?updatedAt=1774326590892",
-        headline: "Design Spaces That Inspire.",
-        subtitle: "Turn ideas into real-world environments people live in.",
+        headline: "Design Websites That Inspire.",
+        subtitle: "Turn ideas into real-world websites that people love.",
         careerPath: {
-            title: "Interior Design",
+            title: "Web Design",
             stats: {
-                industrySize: "₹2.88 Lakh Crore Industry",
+                industrySize: "₹1 Lakh Crore Industry",
                 demand: "26 Lakh designers till 2030"
             },
             tracks: [
-                { title: "Interior Designer", desc: "Design homes, offices & commercial spaces", img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "Space Planner", desc: "Optimize layouts for functionality & aesthetics", img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800" }
+                { title: "Web Designer", desc: "Design websites that people love", img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                { title: "UX UI Designer", desc: "Design interfaces that people love", img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=800" }
             ],
             salaries: { entry: "Rs. 20,000", mid: "Rs. 50,000", senior: "Rs. 1,00,000+" },
             sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
+                { label: "Ecommerce", icon: Store },
+                { label: "Digital Marketing", icon: BarChart3 },
+                { label: "Social Media", icon: MessageCircle },
+                { label: "Branding", icon: Palette }
             ]
         }
     },
     {
-        title: "GRAPHIC DESIGN",
-        tag: "GRAPHIC",
+        title: "DIGITAL MARKETING",
+        tag: "DIGITAL MARKETING",
         img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20GD%20.png?updatedAt=1774326590920",
-        headline: "Design Brands That Stand Out.",
-        subtitle: "Create visuals, identities & campaigns that people remember.",
+        headline: "Turn Clicks Into Customers.",
+        subtitle: "Transform online visibility into real business results.",
         careerPath: {
-            title: "Graphic Design",
+            title: "Digital Marketer",
             stats: {
-                industrySize: "₹1.2 Lakh Crore Digital Economy",
+                industrySize: "₹15 Lakh Crore Digital Economy",
                 demand: "18 Lakh designers till 2030"
             },
             tracks: [
@@ -69,156 +69,6 @@ const programs = [
                 { title: "Brand Identity Designer", desc: "Shape how brands look, feel & communicate", img: "https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=800" }
             ],
             salaries: { entry: "Rs. 20,000", mid: "Rs. 60,000", senior: "Rs. 1,20,000+" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "UI/UX DESIGN",
-        tag: "UI/UX",
-        img: "https://ik.imagekit.io/fmldynl4j4/UIUX%20.png",
-        headline: "Design the Digital World.",
-        subtitle: "Build apps, websites & experiences used by millions",
-        careerPath: {
-            title: "UI/UX Design",
-            stats: {
-                industrySize: "₹3.5 – ₹5 Lakh Crore Digital Economy",
-                demand: "20 Lakh designers till 2030"
-            },
-            tracks: [
-                { title: "UI Designer", desc: "Design apps, websites & interfaces", img: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "UX Designer", desc: "Improve user experience & product usability", img: "https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 35,000", mid: "Rs. 80,000", senior: "Rs. 2,00,000+" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "ANIMATION & VFX",
-        tag: "ANIMATION",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20animation%20.png?updatedAt=1774326593242",
-        headline: "Bring Stories to Life.",
-        subtitle: "Work in films, gaming & digital entertainment.",
-        careerPath: {
-            title: "Animation & VFX",
-            stats: {
-                industrySize: "$2.2 Billion creating 2 Million Jobs",
-                demand: "20 Lakh designers till 2030"
-            },
-            tracks: [
-                { title: "Animator", desc: "Work in films, OTT & gaming", img: "https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "VFX Artist", desc: "Create visual effects for movies & ads", img: "https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 25,000", mid: "Rs. 70,000", senior: "Rs. 1,50,000+" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "PHOTOGRAPHY",
-        tag: "PHOTOGRAPHY",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20photography%20.png?updatedAt=1774326593691",
-        headline: "Create Content That Connects.",
-        subtitle: "From shoots to social media — become a visual storyteller.",
-        careerPath: {
-            title: "Photography",
-            stats: {
-                industrySize: "₹679 Billion Industry",
-                demand: "8 Lakh photographers till 2030"
-            },
-            tracks: [
-                { title: "Photographer", desc: "Fashion, product, wedding & commercial shoots", img: "https://images.pexels.com/photos/1205033/pexels-photo-1205033.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "Content Creator", desc: "Build your personal brand or work with brands", img: "https://images.pexels.com/photos/3052848/pexels-photo-3052848.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 20,000", mid: "Rs. 50,000", senior: "High Potential" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "HAIR, BEAUTY & MAKEUP",
-        tag: "BEAUTY",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20hair%20&%20beauty%20.png?updatedAt=1774326593991",
-        headline: "Build a Career in Beauty & Glam.",
-        subtitle: "Work in fashion, media, salons & personal branding.",
-        careerPath: {
-            title: "Hair, Beauty & Makeup",
-            stats: {
-                industrySize: "₹410 Billion Industry (Projected ₹519B by 2031)",
-                demand: "11-15 Lakh artists till 2030"
-            },
-            tracks: [
-                { title: "Makeup Artist", desc: "Work in fashion, films & bridal industry", img: "https://images.pexels.com/photos/3373739/pexels-photo-3373739.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "Hair Stylist", desc: "Professional styling for salons & shoots", img: "https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 18,000", mid: "Rs. 45,000", senior: "High Potential" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "TEXTILE DESIGN",
-        tag: "TEXTILE",
-        img: "https://ik.imagekit.io/fmldynl4j4/ChatGPT%20Image%20Apr%2029,%202026,%2005_39_40%20PM.png",
-        headline: "Create Fabrics. Define Trends.",
-        subtitle: "Blend creativity with craftsmanship and innovation.",
-        careerPath: {
-            title: "Textile Design",
-            stats: {
-                industrySize: "₹12 – ₹15 Lakh Crore Industry",
-                demand: "5 Lakh designers till 2030"
-            },
-            tracks: [
-                { title: "Textile Designer", desc: "Create fabrics, patterns & materials for fashion and lifestyle brands", img: "https://images.pexels.com/photos/4622437/pexels-photo-4622437.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "Print & Surface Designer", desc: "Design prints for apparel, home décor, and global collections", img: "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 20,000", mid: "Rs. 55,000", senior: "Rs. 1,00,000+" },
-            sectors: [
-                { label: "Hospitality Industry", icon: Coffee },
-                { label: "Retail Industry", icon: ShoppingBag },
-                { label: "Media & Entertainment", icon: Film },
-                { label: "Design Industry", icon: Palette }
-            ]
-        }
-    },
-    {
-        title: "JEWELLERY DESIGN",
-        tag: "JEWELLERY",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20JD.PNG?updatedAt=1774326594063",
-        headline: "Design Precious Legacies.",
-        subtitle: "From gemstone styling to luxury manufacturing — become a master crafter.",
-        careerPath: {
-            title: "Jewellery Design",
-            stats: {
-                industrySize: "₹9.5 Lakh Crore Market",
-                demand: "5 Lakh professionals till 2030"
-            },
-            tracks: [
-                { title: "Jewellery Designer", desc: "Design bespoke pieces, wedding collections & brand labels", img: "https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=800" },
-                { title: "Gemologist / Stone Grader", desc: "Expert assessment, grading and sourcing of precious stones", img: "https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?auto=compress&cs=tinysrgb&w=800" }
-            ],
-            salaries: { entry: "Rs. 25,000", mid: "Rs. 65,000", senior: "Own Brand" },
             sectors: [
                 { label: "Hospitality Industry", icon: Coffee },
                 { label: "Retail Industry", icon: ShoppingBag },
@@ -305,7 +155,7 @@ const ProgramGrid = () => {
                 >
                     <h2 className="text-clamp-4xl font-black uppercase tracking-tighter leading-[0.9] text-slate-950">
                         Turn passion, <br />
-                        <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary to-slate-500 italic py-2 inline-block">into profession.</span>
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary italic py-2 inline-block">into profession.</span>
                     </h2>
 
                     <div className="space-y-4 max-w-2xl mx-auto pt-2">
@@ -325,7 +175,7 @@ const ProgramGrid = () => {
 
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                    {programs.slice(0, 9).map((program, index) => (
+                    {programs.slice(0, 3).map((program, index) => (
                         <ProgramCard
                             key={index}
                             program={program}

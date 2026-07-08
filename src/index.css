@@ -10,6 +10,7 @@
   --color-primary: #A62B2B; /*Dark Red*/
   --color-secondary: #00D893; /*Green Shape*/
   --color-gold: #C2B223; /*Mustard Leaf*/
+  --color-slate-950: #0a0a0a; /*Matte Black*/
   --font-sans: 'Outfit', sans-serif;
 
   /* Animation keyframes */
@@ -448,7 +449,7 @@ body::-webkit-scrollbar {
 }
 
 .mask-text {
-  background: linear-gradient(to right, #db3436, #134a84);
+  background: linear-gradient(to right, #A62B2B, #00D893);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import PageSkeleton from './components/PageSkeleton';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import CookieConsent from './components/CookieConsent';
@@ -70,24 +71,16 @@ function App() {
             <AdmissionModalProvider>
                 <RegisterModalProvider>
                     <Router>
-                        <Suspense fallback={
-                            <div className="min-h-screen bg-white">
-                                <div className="h-20 w-full border-b border-slate-100" /> {/* Navbar Placeholder */}
-                                <div className="max-w-7xl mx-auto px-6 py-20 animate-pulse">
-                                    <div className="h-12 w-2/3 bg-slate-50 rounded-lg mb-6" />
-                                    <div className="h-6 w-1/2 bg-slate-50 rounded-lg" />
-                                </div>
-                            </div>
-                        }>
-                            <ScrollTriggerRefresher />
-                            <Navbar />
-                            <div className="transition-opacity duration-1000 opacity-100">
-                                <RegistrationModal />
-                                <AdmissionModal />
-                                <CookieConsent />
+                        <ScrollTriggerRefresher />
+                        <Navbar />
+                        <div className="transition-opacity duration-1000 opacity-100">
+                            <RegistrationModal />
+                            <AdmissionModal />
+                            <CookieConsent />
 
-                                <ScrollToTop />
-                                <div className="relative z-0 bg-white min-h-screen app-content-wrapper overflow-x-hidden">
+                            <ScrollToTop />
+                            <div className="relative z-0 bg-white min-h-screen app-content-wrapper overflow-x-hidden">
+                                <Suspense fallback={<PageSkeleton />}>
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 
@@ -131,13 +124,13 @@ function App() {
                                         <Route path="/test-404" element={<NotFound />} />
                                         <Route path="*" element={<NotFound />} />
                                     </Routes>
-                                </div>
-                                <FloatingActionPanel />
-                                <Analytics />
-
-                                <SpeedInsights />
+                                </Suspense>
                             </div>
-                        </Suspense>
+                            <FloatingActionPanel />
+                            <Analytics />
+
+                            <SpeedInsights />
+                        </div>
                     </Router>
                 </RegisterModalProvider>
             </AdmissionModalProvider>

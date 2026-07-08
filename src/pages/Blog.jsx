@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { createPortal } from 'react-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-    Search, Clock, User, ArrowUpRight, 
+    Search, Clock, User, ArrowUpRight,
     Share2, Heart, BookOpen, ChevronRight,
     MessageSquare, X, Plus, Edit3, Trash2
 } from 'lucide-react';
@@ -511,9 +512,29 @@ const Blog = () => {
             {/* --- BLOG GRID --- */}
             <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-24">
                 {isLoading ? (
-                    <div className="flex flex-col items-center justify-center py-32 space-y-8">
-                        <div className="w-16 h-16 border-4 border-slate-100 border-t-primary rounded-full animate-spin" />
-                        <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400">Curating the latest insights...</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+                        {[1, 2, 3, 4, 5, 6].map((i) => (
+                            <div key={i} className="border border-slate-100 rounded-[2.5rem] overflow-hidden p-6 space-y-6 bg-slate-50/30">
+                                <SkeletonTheme baseColor="#f1f5f9" highlightColor="#cbd5e1">
+                                    <Skeleton height={200} borderRadius={24} />
+                                    <div className="space-y-4">
+                                        <div className="flex items-center gap-4">
+                                            <Skeleton width={60} height={12} />
+                                            <Skeleton width={80} height={12} />
+                                        </div>
+                                        <Skeleton height={28} width="95%" />
+                                        <Skeleton count={2} height={16} />
+                                    </div>
+                                    <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <Skeleton circle width={32} height={32} />
+                                            <Skeleton width={80} height={14} />
+                                        </div>
+                                        <Skeleton width={70} height={14} />
+                                    </div>
+                                </SkeletonTheme>
+                            </div>
+                        ))}
                     </div>
                 ) : filteredPosts.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
