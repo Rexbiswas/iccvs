@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { createPortal } from 'react-dom';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
     Search, Clock, User, ArrowUpRight,
     Share2, Heart, BookOpen, ChevronRight,
     MessageSquare, X, Plus, Edit3, Trash2
@@ -17,19 +15,19 @@ const Blog = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedPost, setSelectedPost] = useState(null);
     const [isWriting, setIsWriting] = useState(false);
-    const [newPost, setNewPost] = useState({ 
-        title: '', 
-        excerpt: '', 
+    const [newPost, setNewPost] = useState({
+        title: '',
+        excerpt: '',
         author: '',
-        category: 'Fashion', 
-        content: '', 
-        image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' 
+        category: 'Fashion',
+        content: '',
+        image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     });
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
     const categories = ['All', 'Fashion', 'Interior', 'Graphic', 'Luxury', 'Career'];
-    
+
     const templates = {
         Fashion: {
             title: "Trend Report: [Seasonal Trend Name] 2026",
@@ -294,13 +292,13 @@ const Blog = () => {
 
     const filteredPosts = posts.filter(post => {
         const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
-        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                             post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-        
+        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+
         // Filter out locally deleted posts (persistent across refresh)
         const deletedIds = JSON.parse(localStorage.getItem('deleted_blogs') || '[]');
         const isNotDeleted = !deletedIds.includes(String(post.id));
-        
+
         return matchesCategory && matchesSearch && isNotDeleted;
     });
 
@@ -311,7 +309,7 @@ const Blog = () => {
 
     const handleLike = async (e, postId) => {
         e.stopPropagation();
-        
+
         // 1. Determine action based on localStorage
         const likedBlogs = JSON.parse(localStorage.getItem('liked_blogs') || '[]');
         const isAlreadyLiked = likedBlogs.includes(String(postId));
@@ -352,7 +350,7 @@ const Blog = () => {
         if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
         console.log("Attempting to delete post with ID:", postId);
-        
+
         // 1. Permanent Local Storage Deletion (for dummy posts)
         const deletedIds = JSON.parse(localStorage.getItem('deleted_blogs') || '[]');
         if (!deletedIds.includes(String(postId))) {
@@ -378,7 +376,7 @@ const Blog = () => {
     const handleShare = async (e, post) => {
         e.stopPropagation();
         const shareUrl = `${window.location.origin}/blog?id=${post.id}`;
-        
+
         try {
             // Try Native Share first if available and on HTTPS
             if (navigator.share && window.isSecureContext) {
@@ -409,16 +407,16 @@ const Blog = () => {
     const handleCreatePost = async (e) => {
         e.preventDefault();
         if (!newPost.title || !newPost.excerpt || !newPost.content || !newPost.author) return;
-        
+
         try {
             const now = new Date();
-            const formattedDate = now.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
-            }) + " at " + now.toLocaleTimeString('en-US', { 
-                hour: '2-digit', 
-                minute: '2-digit' 
+            const formattedDate = now.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) + " at " + now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
             });
 
             const postObj = {
@@ -429,18 +427,18 @@ const Blog = () => {
             };
 
             const res = await axios.post('/api/blogs', postObj);
-            
+
             if (res.data.success) {
                 const finalPost = { ...res.data.blog, id: res.data.blog._id };
                 setPosts([finalPost, ...posts]);
                 setIsWriting(false);
-                setNewPost({ 
-                    title: '', 
-                    excerpt: '', 
+                setNewPost({
+                    title: '',
+                    excerpt: '',
                     author: '',
-                    category: 'Fashion', 
-                    content: '', 
-                    image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' 
+                    category: 'Fashion',
+                    content: '',
+                    image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                 });
             }
         } catch (error) {
@@ -451,7 +449,7 @@ const Blog = () => {
 
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-slate-900 selection:text-white">
-            <SEO 
+            <SEO
                 title="Design Perspectives - The INSD Official Blog"
                 description="Explore the latest insights in fashion, interior design, and creative industries. Professional trends and academic perspectives from INSD."
                 canonical="https://insd.edu.in/blog"
@@ -461,9 +459,9 @@ const Blog = () => {
             <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-4 md:px-12 lg:px-24 overflow-hidden">
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
-                    <img 
-                        src="https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG" 
-                        alt="INSD Campus Life" 
+                    <img
+                        src="https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG"
+                        alt="INSD Campus Life"
                         className="w-full h-full object-cover scale-105"
                         onError={handleImageError}
                     />
@@ -481,7 +479,7 @@ const Blog = () => {
                     <div className="max-w-xl mx-auto flex flex-col md:flex-row items-center gap-4 px-2">
                         <div className="relative w-full">
                             <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-                            <input 
+                            <input
                                 type="text"
                                 placeholder="Search articles..."
                                 value={searchQuery}
@@ -496,11 +494,10 @@ const Blog = () => {
                             <button
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
-                                className={`px-4 md:px-8 py-2 md:py-4 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${
-                                    activeCategory === cat 
-                                    ? 'bg-primary text-white shadow-xl shadow-primary/30 scale-105' 
-                                    : 'bg-white/5 text-white/60 hover:bg-white/10 border border-white/10'
-                                }`}
+                                className={`px-4 md:px-8 py-2 md:py-4 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest transition-all duration-300 ${activeCategory === cat
+                                        ? 'bg-primary text-white shadow-xl shadow-primary/30 scale-105'
+                                        : 'bg-white/5 text-white/60 hover:bg-white/10 border border-white/10'
+                                    }`}
                             >
                                 {cat}
                             </button>
@@ -512,42 +509,19 @@ const Blog = () => {
             {/* --- BLOG GRID --- */}
             <main className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-24">
                 {isLoading ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
-                            <div key={i} className="border border-slate-100 rounded-[2.5rem] overflow-hidden p-6 space-y-6 bg-slate-50/30">
-                                <SkeletonTheme baseColor="#f1f5f9" highlightColor="#cbd5e1">
-                                    <Skeleton height={200} borderRadius={24} />
-                                    <div className="space-y-4">
-                                        <div className="flex items-center gap-4">
-                                            <Skeleton width={60} height={12} />
-                                            <Skeleton width={80} height={12} />
-                                        </div>
-                                        <Skeleton height={28} width="95%" />
-                                        <Skeleton count={2} height={16} />
-                                    </div>
-                                    <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <Skeleton circle width={32} height={32} />
-                                            <Skeleton width={80} height={14} />
-                                        </div>
-                                        <Skeleton width={70} height={14} />
-                                    </div>
-                                </SkeletonTheme>
-                            </div>
-                        ))}
-                    </div>
+                    null
                 ) : filteredPosts.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
                         {filteredPosts.map((post, idx) => (
-                            <article 
+                            <article
                                 key={post.id}
                                 onClick={() => setSelectedPost(post)}
                                 className="group flex flex-col h-full bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 cursor-pointer"
                             >
                                 {/* Image Wrapper */}
                                 <div className="relative aspect-16/10 overflow-hidden">
-                                    <img 
-                                        src={post.image} 
+                                    <img
+                                        src={post.image}
                                         alt={post.title}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                                         onError={handleImageError}
@@ -583,21 +557,21 @@ const Blog = () => {
                                             <span className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">{post.author}</span>
                                         </div>
                                         <div className="flex items-center gap-2 md:gap-3">
-                                            <button 
+                                            <button
                                                 onClick={(e) => handleDelete(e, post.id)}
                                                 className="p-2.5 rounded-full bg-slate-50 text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all shadow-sm"
                                                 title="Delete Post"
                                             >
                                                 <Trash2 size={16} />
                                             </button>
-                                            <button 
+                                            <button
                                                 onClick={(e) => handleLike(e, post.id)}
                                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all group/like ${isPostLiked(post.id) ? 'bg-red-50 text-red-500' : 'hover:bg-red-50 text-slate-400 hover:text-red-500'}`}
                                             >
                                                 <Heart size={14} className={`${isPostLiked(post.id) ? 'fill-red-500' : 'group-hover/like:fill-red-500'} transition-all`} />
                                                 <span className="text-[10px] font-black">{post.likes || 0}</span>
                                             </button>
-                                            <button 
+                                            <button
                                                 onClick={(e) => handleShare(e, post)}
                                                 className="p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-primary transition-all"
                                                 title="Share Article"
@@ -622,8 +596,8 @@ const Blog = () => {
                             <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tighter">No articles found</h3>
                             <p className="text-slate-500 text-sm md:text-base font-medium">We couldn't find any results for "{searchQuery}"</p>
                         </div>
-                        <button 
-                            onClick={() => {setSearchQuery(''); setActiveCategory('All');}}
+                        <button
+                            onClick={() => { setSearchQuery(''); setActiveCategory('All'); }}
                             className="text-primary font-black uppercase text-[10px] tracking-widest hover:underline"
                         >
                             Clear all filters
@@ -632,7 +606,7 @@ const Blog = () => {
                 )}
 
                 <div className="mt-24 flex items-center justify-center">
-                    <button 
+                    <button
                         onClick={() => setIsWriting(true)}
                         className="flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-slate-900 transition-all duration-300 shadow-2xl hover:-translate-y-1"
                     >
@@ -648,7 +622,7 @@ const Blog = () => {
             {/* --- SHARE NOTIFICATION --- */}
             <AnimatePresence>
                 {copySuccess && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 100 }}
@@ -664,19 +638,19 @@ const Blog = () => {
             {selectedPost && createPortal(
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-12">
                     <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setSelectedPost(null)} />
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 50, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         className="relative w-full max-w-4xl bg-white rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
                     >
-                        <button 
+                        <button
                             onClick={() => setSelectedPost(null)}
                             className="absolute z-10 top-6 right-6 w-12 h-12 bg-white/90 backdrop-blur text-slate-900 rounded-full flex items-center justify-center hover:bg-slate-900 hover:text-white transition-all shadow-lg"
                         >
                             <X size={20} className="stroke-[3]" />
                         </button>
-                        
+
                         <div className="w-full h-48 sm:h-64 md:h-80 relative shrink-0">
                             <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-full object-cover" onError={handleImageError} />
                             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
@@ -704,21 +678,21 @@ const Blog = () => {
                                     </div>
                                 </div>
                                 <div className="flex gap-2">
-                                    <button 
+                                    <button
                                         onClick={(e) => handleDelete(e, selectedPost.id)}
                                         className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all"
                                         title="Delete Article"
                                     >
                                         <Trash2 size={16} />
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={(e) => handleLike(e, selectedPost.id)}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all group/modal-like ${isPostLiked(selectedPost.id) ? 'bg-red-50 text-red-500 border-red-100' : 'border-slate-200 text-slate-400 hover:bg-red-50 hover:text-red-500 hover:border-red-100'}`}
                                     >
                                         <Heart size={16} className={`${isPostLiked(selectedPost.id) ? 'fill-red-500' : 'group-hover/modal-like:fill-red-500'} transition-all`} />
                                         <span className="text-xs font-black">{selectedPost.likes || 0}</span>
                                     </button>
-                                    <button 
+                                    <button
                                         onClick={(e) => handleShare(e, selectedPost)}
                                         className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-primary transition-colors"
                                         title="Share Article"
@@ -727,7 +701,7 @@ const Blog = () => {
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <div className="prose prose-lg prose-slate max-w-none">
                                 <p className="text-xl md:text-2xl font-medium text-slate-600 leading-relaxed mb-8">
                                     {selectedPost.excerpt}
@@ -748,13 +722,13 @@ const Blog = () => {
                         </div>
                     </motion.div>
                 </div>
-            , document.body)}
+                , document.body)}
 
             {/* --- WRITE MODAL --- */}
             {isWriting && createPortal(
                 <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-8">
                     <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" onClick={() => setIsWriting(false)} />
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="relative w-full max-w-5xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row h-[90vh] max-h-[800px]"
@@ -766,22 +740,21 @@ const Blog = () => {
                                     <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Draft Article</h2>
                                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Publish to INSD Network</p>
                                 </div>
-                                <button onClick={() => setIsWriting(false)} className="md:hidden p-2 bg-slate-200 rounded-full"><X size={16}/></button>
+                                <button onClick={() => setIsWriting(false)} className="md:hidden p-2 bg-slate-200 rounded-full"><X size={16} /></button>
                             </div>
 
                             <div className="mb-8 p-6 bg-white rounded-3xl border border-slate-100">
                                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4 block">Quick Templates</span>
                                 <div className="flex flex-wrap gap-2">
                                     {Object.keys(templates).map(temp => (
-                                        <button 
+                                        <button
                                             key={temp}
                                             type="button"
                                             onClick={() => handleTemplateSelect(temp)}
-                                            className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${
-                                                newPost.category === temp 
-                                                ? 'bg-slate-900 text-white' 
-                                                : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
-                                            }`}
+                                            className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${newPost.category === temp
+                                                    ? 'bg-slate-900 text-white'
+                                                    : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
+                                                }`}
                                         >
                                             {temp}
                                         </button>
@@ -793,15 +766,14 @@ const Blog = () => {
                                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-4 block">Choose Cover Image</span>
                                 <div className="flex gap-4 overflow-x-auto pb-2 custom-scrollbar snap-x">
                                     {(categoryImages[newPost.category] || []).map((img, i) => (
-                                        <button 
+                                        <button
                                             key={i}
                                             type="button"
-                                            onClick={() => setNewPost({...newPost, image: img})}
-                                            className={`relative shrink-0 w-24 h-24 rounded-2xl overflow-hidden snap-start transition-all ${
-                                                newPost.image === img 
-                                                ? 'ring-4 ring-primary ring-offset-2' 
-                                                : 'opacity-60 hover:opacity-100'
-                                            }`}
+                                            onClick={() => setNewPost({ ...newPost, image: img })}
+                                            className={`relative shrink-0 w-24 h-24 rounded-2xl overflow-hidden snap-start transition-all ${newPost.image === img
+                                                    ? 'ring-4 ring-primary ring-offset-2'
+                                                    : 'opacity-60 hover:opacity-100'
+                                                }`}
                                         >
                                             <img src={img} className="w-full h-full object-cover" alt={`Template ${i}`} onError={handleImageError} />
                                             {newPost.image === img && (
@@ -813,15 +785,15 @@ const Blog = () => {
                                     ))}
                                 </div>
                             </div>
-                            
+
                             <form onSubmit={handleCreatePost} className="flex-1 flex flex-col space-y-6">
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Title</label>
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         required
                                         value={newPost.title}
-                                        onChange={e => setNewPost({...newPost, title: e.target.value})}
+                                        onChange={e => setNewPost({ ...newPost, title: e.target.value })}
                                         className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-base font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
                                         placeholder="Enter an engaging title..."
                                     />
@@ -829,21 +801,21 @@ const Blog = () => {
 
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Your Name</label>
-                                    <input 
-                                        type="text" 
+                                    <input
+                                        type="text"
                                         required
                                         value={newPost.author}
-                                        onChange={e => setNewPost({...newPost, author: e.target.value})}
+                                        onChange={e => setNewPost({ ...newPost, author: e.target.value })}
                                         className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none"
                                         placeholder="Enter your full name..."
                                     />
                                 </div>
-                                
+
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Category</label>
-                                    <select 
+                                    <select
                                         value={newPost.category}
-                                        onChange={e => setNewPost({...newPost, category: e.target.value})}
+                                        onChange={e => setNewPost({ ...newPost, category: e.target.value })}
                                         className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-bold focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none appearance-none"
                                     >
                                         {categories.filter(c => c !== 'All').map(cat => (
@@ -854,10 +826,10 @@ const Blog = () => {
 
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Excerpt (Short Description)</label>
-                                    <textarea 
+                                    <textarea
                                         required
                                         value={newPost.excerpt}
-                                        onChange={e => setNewPost({...newPost, excerpt: e.target.value})}
+                                        onChange={e => setNewPost({ ...newPost, excerpt: e.target.value })}
                                         className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm font-medium focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none resize-none h-24"
                                         placeholder="A brief summary of your article..."
                                     />
@@ -865,10 +837,10 @@ const Blog = () => {
 
                                 <div className="space-y-2 flex-1 flex flex-col">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-4">Full Content</label>
-                                    <textarea 
+                                    <textarea
                                         required
                                         value={newPost.content}
-                                        onChange={e => setNewPost({...newPost, content: e.target.value})}
+                                        onChange={e => setNewPost({ ...newPost, content: e.target.value })}
                                         className="w-full flex-1 min-h-[200px] bg-white border border-slate-200 rounded-2xl px-6 py-4 text-sm focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none resize-none"
                                         placeholder="Write your article here... Markdown-like text supported."
                                     />
@@ -886,7 +858,7 @@ const Blog = () => {
                         {/* Live Preview Side */}
                         <div className="hidden md:flex flex-col w-1/2 h-full bg-white border-l border-slate-100 relative overflow-y-auto custom-scrollbar">
                             <button onClick={() => setIsWriting(false)} className="absolute top-6 right-6 z-10 w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-600 transition-colors"><X size={16} /></button>
-                            
+
                             <div className="sticky top-0 bg-white/90 backdrop-blur z-0 p-6 border-b border-slate-50">
                                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">Live Preview</span>
                             </div>
@@ -898,7 +870,7 @@ const Blog = () => {
                                 <h1 className="text-4xl font-black text-slate-900 uppercase tracking-tighter leading-tight mb-6">
                                     {newPost.title || "Your Engaging Title Will Appear Here"}
                                 </h1>
-                                
+
                                 <div className="flex items-center gap-3 mb-10 pb-8 border-b border-slate-100">
                                     <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-400 text-xs uppercase">
                                         {newPost.author ? newPost.author[0] : 'U'}
@@ -925,7 +897,7 @@ const Blog = () => {
                         </div>
                     </motion.div>
                 </div>
-            , document.body)}
+                , document.body)}
         </div>
     );
 };

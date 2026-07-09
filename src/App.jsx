@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import PageSkeleton from './components/PageSkeleton';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import CookieConsent from './components/CookieConsent';
@@ -80,7 +79,7 @@ function App() {
 
                             <ScrollToTop />
                             <div className="relative z-0 bg-white min-h-screen app-content-wrapper overflow-x-hidden">
-                                <Suspense fallback={<PageSkeleton />}>
+                                <Suspense fallback={null}>
                                     <Routes>
                                         <Route path="/" element={<Home />} />
 
