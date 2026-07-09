@@ -1,7 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Loader from './components/Loader.jsx';
+import './components/loader.css';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import CookieConsent from './components/CookieConsent';
@@ -65,14 +67,17 @@ const ScrollToTop = () => {
 };
 
 function App() {
+    const [isLoaderActive, setIsLoaderActive] = useState(true);
+
     return (
         <AuthProvider>
             <AdmissionModalProvider>
                 <RegisterModalProvider>
                     <Router>
+                        {isLoaderActive && <Loader onComplete={() => setIsLoaderActive(false)} />}
                         <ScrollTriggerRefresher />
                         <Navbar />
-                        <div className="transition-opacity duration-1000 opacity-100">
+                        <div className={`transition-all duration-1000 ease-out ${isLoaderActive ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
                             <RegistrationModal />
                             <AdmissionModal />
                             <CookieConsent />

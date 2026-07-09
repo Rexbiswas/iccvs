@@ -1,0 +1,120 @@
+.staircase-loader-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  box-sizing: border-box;
+  pointer-events: all;
+  will-change: opacity, transform;
+}
+
+/* Slogan section at the top */
+.loader-slogan-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  will-change: opacity, transform;
+}
+
+.loader-slogan-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--color-primary, #A62B2B);
+  font-family: 'Outfit', sans-serif;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.loader-slogan-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-primary, #A62B2B);
+}
+
+/* Welcome section in the middle */
+.loader-welcome-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+  will-change: opacity, transform;
+}
+
+.loader-welcome-text {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #111111;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.3;
+}
+
+.loader-welcome-subtext {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #777777;
+  margin-top: 0.75rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Bottom section for progress indicators */
+.loader-bottom-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  will-change: opacity, transform;
+}
+
+.loader-progress-container {
+  position: relative;
+  width: 280px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+
+.loader-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--color-primary, #A62B2B);
+  box-shadow: 0 0 8px rgba(166, 43, 43, 0.25);
+  will-change: width;
+}
+
+.loader-percentage {
+  font-size: 2.4rem;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  color: #111111;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.03em;
+}
