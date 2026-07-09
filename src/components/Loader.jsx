@@ -7,9 +7,18 @@ const Loader = ({ onComplete }) => {
     const sloganRef = useRef(null);
     const welcomeRef = useRef(null);
     const bottomRef = useRef(null);
-    const progressContainerRef = useRef(null);
-    const progressBarRef = useRef(null);
     const percentageRef = useRef(null);
+    const wordsRef = useRef(null);
+    const panelsRef = useRef([]);
+
+    const numPanels = 6;
+    const panels = Array.from({ length: numPanels });
+
+    const words = [
+        "Computer Science",
+        "Financial Accounting",
+        "Creative Design"
+    ];
 
     useEffect(() => {
         // Prevent body scrolling while loader is active
@@ -31,6 +40,7 @@ const Loader = ({ onComplete }) => {
             gsap.set(sloganRef.current, { opacity: 0, y: -20 });
             gsap.set(welcomeRef.current, { opacity: 0, y: 20 });
             gsap.set(bottomRef.current, { opacity: 0, y: 20 });
+            gsap.set(panelsRef.current, { yPercent: 0 });
 
             // 2. Element Intro Animations
             tl.to([sloganRef.current, welcomeRef.current, bottomRef.current], {
@@ -41,30 +51,53 @@ const Loader = ({ onComplete }) => {
                 ease: 'power3.out'
             });
 
-            // 3. Progress Animation (Percentage and bar width)
+            // 3. Dynamic Words Animation (Cycles one by one)
+            const wordEls = gsap.utils.toArray('.loader-dynamic-word');
+            wordEls.forEach((el) => {
+                tl.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4,
+                    ease: 'power2.out'
+                })
+                .to(el, {
+                    opacity: 0,
+                    y: -15,
+                    duration: 0.4,
+                    ease: 'power2.in'
+                }, '+=0.4'); // Pause for 0.4 seconds before fading out
+            });
+
+            // 4. Progress Animation (Count up to 100 synchronized with the text length)
             const countObj = { value: 0 };
             tl.to(countObj, {
                 value: 100,
-                duration: 1.6,
-                ease: 'power2.out',
+                duration: 3.0,
+                ease: 'power1.inOut',
                 onUpdate: () => {
                     setPercentage(Math.floor(countObj.value));
                 }
-            }, '-=0.2');
+            }, '0.8'); // Starts right after intro elements enter
 
-            tl.to(progressBarRef.current, {
-                width: '100%',
-                duration: 1.6,
-                ease: 'power2.out'
-            }, '<');
-
-            // 4. Outro Slide Up Animation (Cinematic reveal of underlying page)
-            tl.to(containerRef.current, {
-                yPercent: -100,
+            // 5. Content Fade Out (prepare for staircase reveal)
+            tl.to([sloganRef.current, wordsRef.current, welcomeRef.current, bottomRef.current], {
                 opacity: 0,
-                duration: 0.8,
-                ease: 'power3.inOut'
+                y: -30,
+                duration: 0.5,
+                stagger: 0.05,
+                ease: 'power3.in'
             }, '+=0.2');
+
+            // 6. Staircase Transition: Slide the panels up sequentially
+            tl.to(panelsRef.current, {
+                yPercent: -100,
+                duration: 1.0,
+                ease: 'power4.inOut',
+                stagger: {
+                    each: 0.1,
+                    from: 'start'
+                }
+            }, '-=0.3');
 
         }, containerRef);
 
@@ -77,9 +110,29 @@ const Loader = ({ onComplete }) => {
 
     return (
         <div ref={containerRef} className="staircase-loader-container">
+            {/* Staircase Background Panels */}
+            <div className="staircase-panels-wrapper">
+                {panels.map((_, index) => (
+                    <div
+                        key={index}
+                        ref={(el) => (panelsRef.current[index] = el)}
+                        className="staircase-panel"
+                    />
+                ))}
+            </div>
+
             {/* Top: Slogan */}
             <div ref={sloganRef} className="loader-slogan-wrapper">
                 <span className="loader-slogan-text">Our Target Your Success</span>
+            </div>
+
+            {/* Middle: Dynamic Word Cycle */}
+            <div ref={wordsRef} className="loader-dynamic-words-container">
+                {words.map((word, idx) => (
+                    <span key={idx} className="loader-dynamic-word opacity-0 absolute">
+                        {word}
+                    </span>
+                ))}
             </div>
 
             {/* Middle: Welcome Text */}
@@ -88,11 +141,8 @@ const Loader = ({ onComplete }) => {
                 <span className="loader-welcome-subtext">Vocational &amp; Computer Studies</span>
             </div>
 
-            {/* Bottom: Progress bar and percentage */}
+            {/* Bottom Right: Percentage */}
             <div ref={bottomRef} className="loader-bottom-wrapper">
-                <div ref={progressContainerRef} className="loader-progress-container">
-                    <div ref={progressBarRef} className="loader-progress-bar" />
-                </div>
                 <div ref={percentageRef} className="loader-percentage">
                     {percentage}%
                 </div>

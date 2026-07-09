@@ -9,11 +9,40 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: #ffffff;
+  background: transparent;
   padding: 5rem 2rem;
   box-sizing: border-box;
   pointer-events: all;
   will-change: opacity, transform;
+  font-family: var(--font-sans), 'Outfit', sans-serif;
+}
+
+.staircase-panels-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.staircase-panel {
+  flex: 1;
+  height: 100%;
+  background-color: #ffffff;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  border-right: 1px solid rgba(0, 0, 0, 0.015);
+}
+
+.staircase-panel:last-child {
+  border-right: none;
+}
+
+.staircase-panel:nth-child(even) {
+  background-color: #f7f7f7;
 }
 
 /* Slogan section at the top */
@@ -23,15 +52,16 @@
   justify-content: center;
   text-align: center;
   will-change: opacity, transform;
+  position: relative;
+  z-index: 10;
 }
 
 .loader-slogan-text {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.4em;
   color: var(--color-primary, #A62B2B);
-  font-family: 'Outfit', sans-serif;
   position: relative;
   display: inline-block;
   padding-bottom: 0.5rem;
@@ -48,6 +78,29 @@
   background-color: var(--color-primary, #A62B2B);
 }
 
+/* Dynamic words cycling container */
+.loader-dynamic-words-container {
+  position: relative;
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: opacity, transform;
+  z-index: 10;
+}
+
+.loader-dynamic-word {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-primary, #A62B2B);
+  text-align: center;
+  transform: translate3d(0, 15px, 0);
+  will-change: opacity, transform;
+}
+
 /* Welcome section in the middle */
 .loader-welcome-wrapper {
   display: flex;
@@ -57,64 +110,59 @@
   text-align: center;
   max-width: 600px;
   will-change: opacity, transform;
+  position: relative;
+  z-index: 10;
 }
 
 .loader-welcome-text {
-  font-size: 2.2rem;
+  font-size: 3.5rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #111111;
-  font-family: 'Outfit', sans-serif;
   line-height: 1.3;
 }
 
 .loader-welcome-subtext {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: #777777;
   margin-top: 0.75rem;
-  font-family: 'Outfit', sans-serif;
 }
 
-/* Bottom section for progress indicators */
+/* Bottom section for progress indicators (shifted to bottom right in Awwwards style) */
 .loader-bottom-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  will-change: opacity, transform;
-}
-
-.loader-progress-container {
-  position: relative;
-  width: 280px;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-bottom: 1.2rem;
-}
-
-.loader-progress-bar {
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0%;
-  background: var(--color-primary, #A62B2B);
-  box-shadow: 0 0 8px rgba(166, 43, 43, 0.25);
-  will-change: width;
+  bottom: 4rem;
+  right: 5rem;
+  will-change: opacity, transform;
+  z-index: 10;
 }
 
 .loader-percentage {
-  font-size: 2.4rem;
+  font-size: 4.5rem;
   font-weight: 300;
   font-variant-numeric: tabular-nums;
   color: #111111;
-  font-family: 'Outfit', sans-serif;
   letter-spacing: -0.03em;
+}
+
+@media (max-width: 768px) {
+  .loader-bottom-wrapper {
+    bottom: 2rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  .loader-percentage {
+    font-size: 2rem;
+  }
+  .loader-welcome-text {
+    font-size: 2rem;
+  }
+  .loader-dynamic-word {
+    font-size: 1.1rem;
+  }
 }
