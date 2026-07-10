@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
  * Custom hook for Lenis smooth scroll with Safari optimization
@@ -26,16 +28,19 @@ export const useLenisSmoothScroll = (options = {}) => {
       ...options,
     });
 
-    let rafId;
-    function raf(time) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
+    // Synchronize GSAP ScrollTrigger with Lenis smooth scrolling
+    lenis.on('scroll', ScrollTrigger.update);
 
-    rafId = requestAnimationFrame(raf);
+    // Synchronize Lenis RAF with GSAP Ticker to eliminate any scroll/pin jitter
+    const tickLenis = (time) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(tickLenis);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      gsap.ticker.remove(tickLenis);
+      lenis.off('scroll', ScrollTrigger.update);
       lenis.destroy();
       document.documentElement.style.scrollBehavior = 'auto';
     };

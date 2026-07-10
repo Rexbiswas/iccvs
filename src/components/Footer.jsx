@@ -9,7 +9,7 @@ import ICCVSTagline from './ICCVSTagline';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Footer = () => {
+const Footer = ({ showTagline = false }) => {
     const footerRef = useRef(null);
     const gridRef = useRef(null);
 
@@ -53,7 +53,11 @@ const Footer = () => {
 
     return (
         <>
-            <ICCVSTagline />
+            {showTagline && (
+                <div className="bg-slate-950 w-full overflow-hidden">
+                    <ICCVSTagline />
+                </div>
+            )}
             <footer id="footer" ref={footerRef} className="relative bg-linear-to-r from-primary to-secondary text-white pt-32 pb-12 overflow-hidden">
 
             {/* Atmospheric Orbs */}
@@ -94,17 +98,17 @@ const Footer = () => {
                             <ul className="space-y-4">
                                 {[
                                     { name: "Basic Computer Course", path: "/courses/basic-computer-course" },
-                                    { name: "DTP (Desktop Publishing)", path: "/courses/dtp" },
-                                    { name: "Diploma (Computer Applications)", path: "/courses/diploma" },
+                                    { name: "DTP", path: "/courses/dtp" },
+                                    { name: "Diploma", path: "/courses/diploma" },
                                     { name: "Tally Prime / ERP 9", path: "/courses/tally" },
-                                    { name: "DFA (Financial Accounting)", path: "/courses/dfa" },
-                                    { name: "ADFA (Adv. Financial Accounting)", path: "/courses/adfa" },
-                                    { name: "PDFA (Professional Finance)", path: "/courses/pdfa" },
+                                    { name: "DFA", path: "/courses/dfa" },
+                                    { name: "ADFA", path: "/courses/adfa" },
+                                    { name: "PDFA", path: "/courses/pdfa" },
                                     { name: "Taxation Course", path: "/courses/taxation" },
-                                    { name: "ADCA (Adv. Computer Application)", path: "/courses/adca" },
+                                    { name: "ADCA", path: "/courses/adca" },
                                     { name: "NIIT Authorized Courses", path: "/courses/niit" },
-                                    { name: "DIT (Diploma in IT)", path: "/courses/dit" },
-                                    { name: "ADIT / A Level (Adv. IT)", path: "/courses/adit" },
+                                    { name: "DIT", path: "/courses/dit" },
+                                    { name: "ADIT / A Level", path: "/courses/adit" },
                                     { name: "Data Analyst", path: "/courses/data-analyst" },
                                     { name: "Advance Excel", path: "/courses/advance-excel" },
                                     { name: "Advance Excel (MIS)", path: "/courses/advance-excel-mis" },
@@ -134,7 +138,8 @@ const Footer = () => {
                             <ul className="space-y-4">
                                 {[
                                     { name: "Mentors", path: "/mentors" },
-                                    { name: "Enquiry", path: "/course-apply-now" }
+                                    { name: "Scholarship", path: "/scholarship" },
+                                    { name: "Enquiry", path: "/contact-us" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                                         <Link to={item.path} className="text-[13px] text-white/50 hover:text-white transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
@@ -179,7 +184,7 @@ const Footer = () => {
                                 </motion.div>
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-secondary mb-1">Email</span>
-                                    <a href="mailto:info@insd.edu.in" className="text-sm font-bold border-b border-white/5 group-hover:border-secondary transition-all pb-1">info@insd.edu.in</a>
+                                    <a href="mailto:iccvsinstitute@gmail.com" className="text-sm font-bold border-b border-white/5 group-hover:border-secondary transition-all pb-1">iccvsinstitute@gmail.com</a>
                                 </motion.div>
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-white/40 mb-1">Location</span>

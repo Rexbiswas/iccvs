@@ -270,7 +270,12 @@ const Navbar = () => {
             section: 'OVERVIEW',
             subItems: courseSubItems
         },
-        { title: 'Admissions', path: '/course-apply-now', icon: CreditCard, section: 'OVERVIEW' },
+        {
+            title: 'Scholarship',
+            path: '/scholarship',
+            icon: Sparkles,
+            section: 'OVERVIEW'
+        },
         { title: 'Blogs', path: '/insd-360/blog', icon: BookOpen, section: 'OVERVIEW' },
         {
             title: 'Contact Us',
@@ -279,8 +284,8 @@ const Navbar = () => {
             section: 'OVERVIEW',
             subItems: [
                 { title: 'Call Us Now', path: 'tel:+919868444888', icon: Phone, desc: 'Direct support line' },
-                { title: 'Enquiry Now', path: '/course-apply-now', icon: Headset, desc: 'Get in touch with us' },
-                { title: 'Career Counselling', path: '/course-apply-now', icon: Calendar, desc: 'Book a session' },
+                { title: 'Enquiry Now', path: '/contact-us', icon: Headset, desc: 'Get in touch with us' },
+                { title: 'Career Counselling', path: '/contact-us', icon: Calendar, desc: 'Book a session' },
                 { title: 'Download Brochure', path: '#', icon: FileDown, desc: 'Course catalogues' }
             ]
         },
@@ -499,20 +504,19 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-
+                            <RollerLink
+                                to="/scholarship"
+                                colorClass="nav-hover-gradient"
+                                baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
+                            >
+                                Scholarship
+                            </RollerLink>
                             <RollerLink
                                 to="/insd-360/blog"
                                 colorClass="nav-hover-gradient"
                                 baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
                             >
                                 Blogs
-                            </RollerLink>
-                            <RollerLink
-                                to="/course-apply-now"
-                                colorClass="nav-hover-gradient"
-                                baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
-                            >
-                                Admission
                             </RollerLink>
                         </motion.div>
                     )}
@@ -974,7 +978,7 @@ const Navbar = () => {
                                     <div className="space-y-4 md:space-y-6">
                                         {[
                                             { title: 'Call Us Now', sub: '+91 9868444888', icon: Phone, href: 'tel:+919868444888' },
-                                            { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '/course-apply-now' },
+                                            { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '#' },
                                             { title: 'Book Counselling', sub: 'Free Expert Session', icon: Calendar, action: 'modal' },
 
                                         ].map((cta, i) => (

@@ -98,7 +98,7 @@ const ThankYou = () => {
                         </div>
                         <div className="space-y-2">
                             <span className="text-[10px] font-black uppercase tracking-widest text-primary">Email Us</span>
-                            <p className="font-bold text-slate-900">info@insd.edu.in</p>
+                            <p className="font-bold text-slate-900">iccvsinstitute@gmail.com</p>
                         </div>
                         <div className="space-y-2">
                             <span className="text-[10px] font-black uppercase tracking-widest text-primary">Follow Us</span>

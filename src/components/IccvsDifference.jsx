@@ -40,18 +40,6 @@ const IccvsDifference = () => {
             desc: "Live projects, studios & internships",
             icon: <Building2 className="text-emerald-500" />,
             color: "bg-emerald-50"
-        },
-        {
-            title: "National Network",
-            desc: "75+ centres with local support",
-            icon: <Globe className="text-amber-500" />,
-            color: "bg-amber-50"
-        },
-        {
-            title: "Placement & Freelancing Support",
-            desc: "Career launch + independent earning opportunities",
-            icon: <Rocket className="text-purple-500" />,
-            color: "bg-purple-50"
         }
     ];
 
@@ -94,7 +82,7 @@ const IccvsDifference = () => {
                         </div>
 
                         {/* Interactive Scroller Tiles */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-4">
                             {tiles.map((tile, idx) => (
                                 <motion.div
                                     key={idx}
@@ -102,7 +90,7 @@ const IccvsDifference = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
-                                    className={`group p-8 rounded-4xl border border-slate-100 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:border-primary/20 relative overflow-hidden h-full ${idx === 4 ? 'md:col-span-2' : ''}`}
+                                    className="group p-8 rounded-4xl border border-slate-100 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:border-primary/20 relative overflow-hidden h-full"
                                 >
                                     <div className="relative z-10">
                                         <div className={`w-12 h-12 ${tile.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>

@@ -22,8 +22,6 @@ const FloatingActionPanel = () => {
     const isAnyModalOpen = isAdmissionOpen || isRegisterOpen || isModalVisible;
     const shouldHideIcons = isSocialOpen || isAnyModalOpen || isMenuOpen;
 
-    const [isFooterVisible, setIsFooterVisible] = useState(false);
-
     useEffect(() => {
         const checkScroll = () => {
             const show = window.scrollY > 50;
@@ -31,28 +29,6 @@ const FloatingActionPanel = () => {
         };
         checkScroll();
         window.addEventListener('scroll', checkScroll);
-
-        // Footer Intersection Observer
-        const footerObserver = new IntersectionObserver(
-            ([entry]) => {
-                setIsFooterVisible(entry.isIntersecting);
-            },
-            { threshold: 0 }
-        );
-
-        // Function to find and observe footer
-        const observeFooter = () => {
-            const footerElement = document.getElementById('footer');
-            if (footerElement) {
-                footerObserver.observe(footerElement);
-            }
-        };
-
-        // Initial check
-        observeFooter();
-        
-        // Small delay to ensure footer is rendered on page change
-        const timer = setTimeout(observeFooter, 500);
 
         // Initial check and event listener for social panel state
         const checkSocialStatus = () => {
@@ -89,13 +65,11 @@ const FloatingActionPanel = () => {
             window.removeEventListener('social-panel-state', handleSocialState);
             window.removeEventListener('menu-state', handleMenuState);
             observer.disconnect();
-            footerObserver.disconnect();
-            clearTimeout(timer);
         };
     }, [location.pathname]);
 
     return (
-        <div className={`fixed transition-all duration-300 ease-in-out ${isFooterVisible ? 'bottom-[195px] md:bottom-[170px]' : 'bottom-[140px] md:bottom-[40px]'} right-4 md:right-10 z-[1001] flex flex-col items-end gap-3 md:gap-4 pointer-events-none`}>
+        <div className="fixed bottom-4 md:bottom-10 right-4 md:right-10 z-[1001] flex flex-col items-end gap-3 md:gap-4 pointer-events-none">
             {/* Persistent Icons - Desktop and Mobile */}
             <div className="flex flex-col items-end gap-3 md:gap-4 pointer-events-auto">
                 <AnimatePresence>

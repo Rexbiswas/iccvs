@@ -11,7 +11,7 @@ import CookieConsent from './components/CookieConsent';
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Courses = lazy(() => import('./pages/Courses'));
-const Admission = lazy(() => import('./pages/Admission'));
+const Scholarship = lazy(() => import('./pages/Scholarship'));
 const DiplomaAndCertificate = lazy(() => import('./pages/DiplomaAndCertificate'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -77,7 +77,7 @@ function App() {
                         {isLoaderActive && <Loader onComplete={() => setIsLoaderActive(false)} />}
                         <ScrollTriggerRefresher />
                         <Navbar />
-                        <div className={`transition-all duration-1000 ease-out ${isLoaderActive ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'}`}>
+                        <div className={`transition-all duration-1000 ease-out ${isLoaderActive ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100'}`}>
                             <RegistrationModal />
                             <AdmissionModal />
                             <CookieConsent />
@@ -89,6 +89,7 @@ function App() {
                                         <Route path="/" element={<Home />} />
 
                                         <Route path="/courses" element={<Courses />} />
+                                        <Route path="/scholarship" element={<Scholarship />} />
                                         <Route path="/courses/basic-computer-course" element={<BasicComputerCourse />} />
                                         <Route path="/courses/dtp" element={<DTP />} />
                                         <Route path="/courses/diploma" element={<Diploma />} />
@@ -110,9 +111,9 @@ function App() {
                                         <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
                                         <Route path="/courses/aviation" element={<Aviation />} />
                                         <Route path="/contact-us" element={<Contact />} />
-                                        <Route path="/course-apply-now" element={<Admission />} />
-                                        <Route path="/apply" element={<Navigate to="/course-apply-now" replace />} />
-                                        <Route path="/admissions" element={<Navigate to="/course-apply-now" replace />} />
+                                        <Route path="/course-apply-now" element={<Navigate to="/contact-us" replace />} />
+                                        <Route path="/apply" element={<Navigate to="/contact-us" replace />} />
+                                        <Route path="/admissions" element={<Navigate to="/contact-us" replace />} />
                                         <Route path="/insd-360/blog" element={<Blog />} />
                                         <Route path="/mentors" element={<Mentors />} />
                                         <Route path="/locations" element={<Location />} />

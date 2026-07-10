@@ -236,7 +236,7 @@ const Contact = () => {
                                                 </div>
                                                 <div>
                                                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Email Us</p>
-                                                    <a href="mailto:info@insd.edu.in" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">info@insd.edu.in</a>
+                                                    <a href="mailto:iccvsinstitute@gmail.com" className="text-lg font-bold text-slate-900 hover:text-primary transition-colors">iccvsinstitute@gmail.com</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -48,7 +48,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     // Lenis Smooth Scroll Integration (optimized for Safari/Chrome)
-    useLenisSmoothScroll({ 
+    useLenisSmoothScroll({
         duration: 1.0,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
@@ -336,7 +336,73 @@ const Home = () => {
 
             <ProgramGrid />
 
+            {/* Scholarship Banner Section */}
+            <section className="py-20 md:py-24 bg-slate-950 text-white relative overflow-hidden">
+                {/* Visual highlights */}
+                <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#DB3436]/10 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#00D893]/5 blur-[120px] rounded-full pointer-events-none" />
 
+                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <div className="lg:col-span-7 space-y-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-black uppercase tracking-wider">
+                            <Sparkles size={12} className="animate-pulse" />
+                            <span>SCHOLARSHIP PROGRAM 2026</span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight">
+                            Build Your Tech Career <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DB3436] to-[#ff7b7b] italic font-serif font-light normal-case">
+                                With Up To 50% Waiver
+                            </span>
+                        </h2>
+                        <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-xl font-medium">
+                            Don't let financial limits block your learning. ICCVS offers merit-based scholarships, women in tech grants, and financial aid to make elite tech education accessible to everyone.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                            <div className="space-y-1">
+                                <span className="text-2xl font-black text-white">50% Max</span>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tuition waiver</p>
+                            </div>
+                            <div className="space-y-1">
+                                <span className="text-2xl font-black text-white">Easy Apply</span>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Counselling review</p>
+                            </div>
+                            <div className="space-y-1">
+                                <span className="text-2xl font-black text-white">All Courses</span>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Applicable program-wide</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end">
+                        <div className="w-full max-w-sm bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] space-y-6 shadow-2xl relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none">
+                            <h3 className="text-lg font-black uppercase tracking-tight text-white">Quick Eligibility Check</h3>
+                            <p className="text-xs text-slate-400 leading-relaxed font-medium">
+                                Take a 20-minute aptitude test or sit for a quick evaluation with our counselor to claim your fee waiver.
+                            </p>
+                            <div className="space-y-3 pt-2">
+                                <Link
+                                    to="/scholarship"
+                                    className="w-full h-12 bg-white text-slate-950 hover:bg-[#DB3436] hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg animate-pulse"
+                                >
+                                    Explore Scholarship
+                                    <ArrowRight size={14} />
+                                </Link>
+                                <button
+                                    onClick={() => openAdmissionModal({
+                                        title: 'SCHOLARSHIP APPLICATION',
+                                        subtitle: 'Enquire for tuition waiver and eligibility evaluation.',
+                                        ctaText: 'Claim Waiver Now'
+                                    })}
+                                    className="w-full h-12 bg-slate-900 border border-white/10 hover:border-red-500/30 text-slate-300 hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center transition-colors"
+                                >
+                                    Apply Directly
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <IccvsDifference />
             {/* <InstagramGallery /> */}
@@ -443,7 +509,7 @@ const Home = () => {
             {/* <FeaturedIn /> */}
             {/* <EventBlogs /> */}
             <div className="relative z-50">
-                <Footer />
+                <Footer showTagline={true} />
             </div>
         </div>
     );

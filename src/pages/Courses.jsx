@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { ArrowUpRight, Search, Sparkles, MoveRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useAdmissionModal } from '../context/AdmissionModalContext';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
@@ -104,6 +105,7 @@ const CourseCard = ({ course, index }) => {
 };
 
 const Courses = () => {
+    const { openAdmissionModal } = useAdmissionModal();
     const containerRef = useRef(null);
     const [activeFilter, setActiveFilter] = useState("All");
     const [searchQuery, setSearchQuery] = useState("");
@@ -348,9 +350,9 @@ const Courses = () => {
 
                     <div className="flex flex-col sm:flex-row gap-6">
                         <MagneticButton>
-                            <Link to="/apply" className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:bg-pink-500 hover:text-white transition-all">
+                            <button onClick={openAdmissionModal} className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 hover:bg-pink-500 hover:text-white transition-all">
                                 Apply Now <ArrowUpRight size={18} />
-                            </Link>
+                            </button>
                         </MagneticButton>
                     </div>
                 </div>

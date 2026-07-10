@@ -13,49 +13,40 @@ const ICCVSTagline = () => {
 
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            const chars = textRef.current.querySelectorAll('.char');
+            const words = textRef.current.querySelectorAll('.word');
 
-            // 1. Stable 3D Setup
-            gsap.set(chars, {
+            // 1. Setup Initial State (opacity: 0, y: 20px)
+            gsap.set(words, {
                 opacity: 0,
-                y: 100,
-                z: -500,
-                rotateX: -90,
-                filter: "blur(10px)",
-                transformPerspective: 1000
+                y: 20,
             });
 
-            // 2. Main Assemble Timeline
+            // 2. Main Pinning & Reveal Timeline (Pins the section so page scroll pauses during reveal)
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=120%", // PIN duration relative to scroll height
+                    end: "+=100%", // Pauses scroll for 100% of viewport height
                     pin: true,
-                    scrub: 0.5,
+                    pinSpacing: true,
+                    scrub: 1, // Controlled by scroll progress
                 }
             });
 
-            tl.to(chars, {
+            tl.to(words, {
                 opacity: 1,
                 y: 0,
-                z: 0,
-                rotateX: 0,
-                filter: "blur(0px)",
-                duration: 1,
-                stagger: {
-                    each: 0.05,
-                    from: "start"
-                },
-                ease: "power2.out"
+                stagger: 0.15, // Stagger delay of 150ms between words
+                ease: "power3.out"
             })
-                .to(layersRef.current, {
-                    opacity: 0.08,
-                    scale: 1.1,
-                    z: -100,
-                    duration: 0.5,
-                    stagger: 0.1
-                }, "-=0.5");
+            .to(layersRef.current, {
+                opacity: 0.08,
+                scale: 1.1,
+                z: -100,
+                duration: 1.2,
+                stagger: 0.1,
+                ease: "power3.out"
+            }, "-=0.2");
 
             // 3. Subtle breathing effect
             gsap.to(contentRef.current, {
@@ -135,15 +126,12 @@ const ICCVSTagline = () => {
                         {text.split(" ").map((word, wordIdx) => {
                             const isHighlight = word === "success";
                             return (
-                                <span key={wordIdx} className="inline-block whitespace-nowrap">
-                                    {word.split("").map((char, charIdx) => (
-                                        <span 
-                                            key={charIdx} 
-                                            className={`char inline-block whitespace-nowrap ${isHighlight ? 'text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary font-black' : ''}`}
-                                        >
-                                            {char}
-                                        </span>
-                                    ))}
+                                <span 
+                                    key={wordIdx} 
+                                    style={{ opacity: 0, transform: "translateY(20px)" }}
+                                    className={`word inline-block whitespace-nowrap ${isHighlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-black' : ''}`}
+                                >
+                                    {word}
                                 </span>
                             );
                         })}
