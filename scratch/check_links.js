@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const SRC_DIR = 'f:\\major project\\insd-project\\src';
+const SRC_DIR = 'f:\\major project\\iccvs-project\\src';
 const APP_FILE = path.join(SRC_DIR, 'App.jsx');
 
 // 1. Extract defined routes from App.jsx
@@ -31,7 +31,7 @@ function scanDirectory(dir) {
                 const target = match[1];
                 if (target.startsWith('/') && !target.includes(':')) {
                     if (!definedRoutes.has(target)) {
-                        // Check for common patterns like /blog vs /insd-360/blog
+                        // Check for common patterns like /blog vs /iccvs-360/blog
                         console.log(`Potential Broken Link: "${target}" in ${file}`);
                     }
                 }

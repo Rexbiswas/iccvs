@@ -91,7 +91,7 @@ export default async function handler(req, res) {
 
         await transporter.sendMail({
             from: process.env.GOOGLE_EMAIL,
-            to: 'insd.admissionleads@gmail.com',
+            to: 'iccvs.admissionleads@gmail.com',
             subject: `[New Paris Project Lead] ${name}`,
             text: `A new application has been received for the Paris Project.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nPlease follow up with the candidate.`
         });

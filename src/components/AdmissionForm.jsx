@@ -51,15 +51,23 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
     ];
 
     const courses = [
-        "Fashion Design",
-        "Interior Design",
-        "Graphic Design",
-        "Animation & VFX",
-        "Jewellery Design",
-        "UI/UX Design",
-        "Beauty & Makeup",
-        "Photography",
-        "Textile Design"
+        "Basic Computer Course",
+        "DTP",
+        "Diploma",
+        "Tally Prime / ERP 9",
+        "DFA",
+        "ADFA",
+        "PDFA",
+        "Taxation Course",
+        "ADCA",
+        "NIIT Authorized Courses",
+        "DIT",
+        "ADIT / A Level",
+        "Data Analyst",
+        "Advance Excel",
+        "Advance Excel (MIS)",
+        "Advance Excel (Macro)",
+        "Advance Excel (Dash Board)"
     ];
 
     const handleChange = (e) => {
@@ -156,7 +164,7 @@ const AdmissionForm = ({ isModal = false, title, subtitle }) => {
                 <div className="space-y-4">
                     <h2 className="text-4xl font-black uppercase tracking-tighter text-white">Application Received</h2>
                     <p className="text-slate-400 text-lg max-w-md mx-auto">
-                        Thank you for your interest in INSD. Our admissions team will get back to you within two business days.
+                        Thank you for your interest in ICCVS. Our admissions team will get back to you within two business days.
                     </p>
                 </div>
                 <button 

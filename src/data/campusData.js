@@ -49,9 +49,9 @@ export const campusData = {
             "https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg?auto=compress&cs=tinysrgb&w=1200"
         ],
         seo: {
-            title: "INSD South Delhi Campus | Best Design Institute in South Delhi",
-            description: "Experience world-class design education at INSD South Delhi. Our flagship campus in the heart of Delhi's luxury and design hub offers premium infrastructure for aspiring creators.",
-            keywords: "INSD South Delhi, design institute South Delhi, fashion designing South Delhi, interior design school Delhi, best design campus"
+            title: "ICCVS South Delhi Campus | Best Design Institute in South Delhi",
+            description: "Experience world-class design education at ICCVS South Delhi. Our flagship campus in the heart of Delhi's luxury and design hub offers premium infrastructure for aspiring creators.",
+            keywords: "ICCVS South Delhi, design institute South Delhi, fashion designing South Delhi, interior design school Delhi, best design campus"
         }
     },
     "north-delhi": {
@@ -84,9 +84,9 @@ export const campusData = {
             "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1200"
         ],
         seo: {
-            title: "INSD North Delhi Campus | Top Design Institute in GTB Nagar",
-            description: "Study fashion, interior, and graphic design at INSD North Delhi. Located in the vibrant heart of North Campus, we offer avant-garde creative training and state-of-the-art labs.",
-            keywords: "INSD North Delhi, design school GTB Nagar, fashion designing North Delhi, interior design institute Delhi, creative hub North Campus"
+            title: "ICCVS North Delhi Campus | Top Design Institute in GTB Nagar",
+            description: "Study fashion, interior, and graphic design at ICCVS North Delhi. Located in the vibrant heart of North Campus, we offer avant-garde creative training and state-of-the-art labs.",
+            keywords: "ICCVS North Delhi, design school GTB Nagar, fashion designing North Delhi, interior design institute Delhi, creative hub North Campus"
         }
     },
     "dubai": {
@@ -118,9 +118,9 @@ export const campusData = {
             "https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=2670"
         ],
         seo: {
-            title: "Study Design in Dubai | INSD & IBSW International Campus",
-            description: "Join INSD's Dubai campus at Tiffany Tower, JLT. Master design in the heart of futuristic architecture and retail innovation with world-class facilities and global exposure.",
-            keywords: "study design Dubai, design school Dubai, INSD Dubai campus, IBSW Dubai, fashion design Dubai, interior design school UAE"
+            title: "Study Design in Dubai | ICCVS & IBSW International Campus",
+            description: "Join ICCVS's Dubai campus at Tiffany Tower, JLT. Master design in the heart of futuristic architecture and retail innovation with world-class facilities and global exposure.",
+            keywords: "study design Dubai, design school Dubai, ICCVS Dubai campus, IBSW Dubai, fashion design Dubai, interior design school UAE"
         },
         theme: {
             primary: "#d4af37",
@@ -150,9 +150,9 @@ export const campusData = {
             "https://images.pexels.com/photos/14605963/pexels-photo-14605963.jpeg?auto=compress&cs=tinysrgb&w=2000"
         ],
         seo: {
-            title: "Study Design in Washington DC | INSD & IBSW Partnership",
-            description: "Expand your design horizons at the International Business School of Washington (IBSW). Study in the cultural and political hub of the USA with INSD's global partnership.",
-            keywords: "study design USA, Washington design school, IBSW Washington, INSD international campus, design education America"
+            title: "Study Design in Washington DC | ICCVS & IBSW Partnership",
+            description: "Expand your design horizons at the International Business School of Washington (IBSW). Study in the cultural and political hub of the USA with ICCVS's global partnership.",
+            keywords: "study design USA, Washington design school, IBSW Washington, ICCVS international campus, design education America"
         }
     },
     "united-kingdom": {
@@ -178,9 +178,9 @@ export const campusData = {
             "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=2670"
         ],
         seo: {
-            title: "Study Design in UK | INSD & UCA Global Partnership",
-            description: "Experience British design heritage at the University for the Creative Arts (UCA). INSD's partnership with UCA provides students access to top-tier UK design studios and global networking.",
-            keywords: "study design UK, UCA partnership, INSD international campus, fashion design UK, creative arts London, study interior design England"
+            title: "Study Design in UK | ICCVS & UCA Global Partnership",
+            description: "Experience British design heritage at the University for the Creative Arts (UCA). ICCVS's partnership with UCA provides students access to top-tier UK design studios and global networking.",
+            keywords: "study design UK, UCA partnership, ICCVS international campus, fashion design UK, creative arts London, study interior design England"
         }
     },
     "paris": {
@@ -206,9 +206,9 @@ export const campusData = {
             "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?q=80&w=800"
         ],
         seo: {
-            title: "The Paris Project - Global Exposure Program | INSD",
-            description: "Join INSD's exclusive global exposure program in Paris. A month-long intensive design journey in the fashion capital of the world, collaborating with luxury houses.",
-            keywords: "Paris design program, global exposure design, study in Paris, fashion design Paris, INSD global programs"
+            title: "The Paris Project - Global Exposure Program | ICCVS",
+            description: "Join ICCVS's exclusive global exposure program in Paris. A month-long intensive design journey in the fashion capital of the world, collaborating with luxury houses.",
+            keywords: "Paris design program, global exposure design, study in Paris, fashion design Paris, ICCVS global programs"
         }
     }
 };

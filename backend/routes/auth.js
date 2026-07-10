@@ -58,7 +58,7 @@ router.post('/register', validateRegister, async (req, res) => {
         // Unified Notifications
         Promise.allSettled([
             communications?.email ? sendWelcomeEmail(email, firstName, `${level || ''} in ${stream || 'Design'}`) : Promise.resolve(),
-            sendAdminLeadEmail("insd.admissionleads@gmail.com", {
+            sendAdminLeadEmail("iccvs.admissionleads@gmail.com", {
                 source: "Student Registration",
                 name: `${firstName} ${lastName}`,
                 email,
@@ -111,11 +111,11 @@ router.post('/send-test-email', async (req, res) => {
         const transporter = await getGoogleTransporter();
 
         await transporter.sendMail({
-            from: `"INSD Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
+            from: `"ICCVS Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
             to: email,
-            subject: "Welcome to INSD! Verification delivered",
+            subject: "Welcome to ICCVS! Verification delivered",
             html: `<h2>Hello ${firstName || 'Future Designer'},</h2>
-                   <p>You have explicitly opted-in to receive Email Communications from INSD.</p>
+                   <p>You have explicitly opted-in to receive Email Communications from ICCVS.</p>
                    <p>We are thrilled to welcome you to our creative network!</p><br/>
                    <p>Enjoy your real-time notification.</p>`,
         });
@@ -142,9 +142,9 @@ router.post('/send-test-sms', async (req, res) => {
 
         if (!API_KEY) {
             console.log(`\n[DEV MODE - FAST2SMS_API_KEY Missing in .env]`);
-            console.log(`From INSD institute`);
+            console.log(`From ICCVS institute`);
             console.log(`To: ${phone}`);
-            console.log(`Message: Hello ${firstName || 'Future Designer'}, welcome to the INSD network! Your SMS notifications are active.`);
+            console.log(`Message: Hello ${firstName || 'Future Designer'}, welcome to the ICCVS network! Your SMS notifications are active.`);
             console.log(`============================\n`);
             
             return res.status(200).json({ 
@@ -174,7 +174,7 @@ router.post('/send-test-sms', async (req, res) => {
                 // If DLT is active, use the Template ID. If not, use the fallback text.
                 message: process.env.FAST2SMS_TEMPLATE_ID 
                     ? process.env.FAST2SMS_TEMPLATE_ID 
-                    : `Hello ${firstName || 'Future Designer'}, You have explicitly opted-in to receive Email Communications from INSD. We are thrilled to welcome you to our creative network! Enjoy your real-time notification.\n\nFrom INSD (+91 7701933935)`,
+                    : `Hello ${firstName || 'Future Designer'}, You have explicitly opted-in to receive Email Communications from ICCVS. We are thrilled to welcome you to our creative network! Enjoy your real-time notification.\n\nFrom ICCVS (+91 7701933935)`,
                 
                 language: "english",
                 flash: 0,
@@ -221,7 +221,7 @@ router.post('/forgot-password', async (req, res) => {
         const transporter = await getGoogleTransporter();
 
         await transporter.sendMail({
-            from: `"INSD Security" <${process.env.GOOGLE_EMAIL || 'security@insd.edu.in'}>`,
+            from: `"ICCVS Security" <${process.env.GOOGLE_EMAIL || 'security@iccvs.edu.in'}>`,
             to: email,
             subject: "Your Password Reset Code",
             html: `<h2>Password Reset Request</h2><p>Your 6-digit verification code is: <strong>${resetToken}</strong></p><p>This code will expire in 15 minutes.</p>`

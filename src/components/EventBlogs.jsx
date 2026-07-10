@@ -33,10 +33,10 @@ const blogs = [
     },
     {
         id: 4,
-        title: "Building design careers at INSD",
+        title: "Building design careers at ICCVS",
         category: "Campus",
         image: "https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG",
-        link: "/insd-360/blog",
+        link: "/iccvs-360/blog",
         date: "Mar 20, 2026"
     }
 ];
@@ -68,7 +68,7 @@ const EventBlogs = () => {
                         Insights from the industry experts and highlights from our latest campus events.
                     </p>
                 </div>
-                <Link to="/insd-360/blog" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white hover:text-black transition-all duration-300 shadow-xl">
+                <Link to="/iccvs-360/blog" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white hover:text-black transition-all duration-300 shadow-xl">
                     <span className="uppercase text-[10px] font-black tracking-[0.2em] text-white group-hover:text-black transition-colors duration-300">Explore All</span>
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
@@ -79,7 +79,7 @@ const EventBlogs = () => {
                 {blogs.map((blog) => (
                     <Link 
                         key={blog.id} 
-                        to="/insd-360/blog"
+                        to="/iccvs-360/blog"
                         className="blog-card group relative h-[450px] lg:h-[450px] xl:h-[500px] bg-slate-900 rounded-3xl overflow-hidden cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20"
                     >
 

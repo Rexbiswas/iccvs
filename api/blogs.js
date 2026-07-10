@@ -94,7 +94,7 @@ app.post('/api/blogs', async (req, res) => {
 
         await transporter.sendMail({
             from: process.env.GOOGLE_EMAIL,
-            to: 'insd.admissionleads@gmail.com',
+            to: 'iccvs.admissionleads@gmail.com',
             subject: `[New Blog Post] ${req.body.title}`,
             text: `Author: ${req.body.author}\nCategory: ${req.body.category}\n\n${req.body.excerpt}`
         }).catch(err => console.error("Email Error:", err));

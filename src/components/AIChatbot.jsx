@@ -146,8 +146,6 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         const coursesInfo = {
             coding: "ICCVS offers cutting-edge IT & Coding programs: Full Stack Web Development, Python Programming, Software Engineering, and digital skills designed to place you in top tech firms.",
             design: "Our Creative Design programs cover UI/UX Design, Graphic Design, Animation & VFX, Fashion Design, Photography, and Textile Design, focusing on hands-on practical skills.",
-            luxe: "ICCVS Luxe is our premium luxury education program focusing on Luxury Brand Management, Luxury Marketing, and Customer Relations.",
-            aviation: "Our Aviation & Cabin Crew training program offers industry-aligned prep for cabin crew careers, airport management, and aviation hospitality.",
             timing: "Standard class timings at ICCVS are Monday to Friday. We offer flexible batches: Morning (10:00 AM - 1:00 PM) and Afternoon (2:00 PM - 5:00 PM)."
         };
 
@@ -172,16 +170,10 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         if (lowerInput.includes('design') || lowerInput.includes('ui/ux') || lowerInput.includes('graphic') || lowerInput.includes('fashion') || lowerInput.includes('animation') || lowerInput.includes('vfx')) {
             return coursesInfo.design;
         }
-        if (lowerInput.includes('luxe') || lowerInput.includes('luxury')) {
-            return coursesInfo.luxe;
-        }
-        if (lowerInput.includes('aviation') || lowerInput.includes('cabin crew') || lowerInput.includes('flight')) {
-            return coursesInfo.aviation;
-        }
 
         // General Responses
         if (lowerInput.includes('course') || lowerInput.includes('study') || lowerInput.includes('fee') || lowerInput.includes('syllabus')) {
-            return "ICCVS offers professional programs in IT/Coding (Python, Full Stack), Digital & UI/UX Design, Aviation, and Luxury Management. Which field are you interested in?";
+            return "ICCVS offers professional programs in IT/Coding (Python, Full Stack) and Digital & UI/UX Design. Which field are you interested in?";
         }
         if (lowerInput.includes('admission') || lowerInput.includes('apply') || lowerInput.includes('join')) {
             return "Admissions for the 2026 academic year at ICCVS are open! You can apply online or schedule a counseling session with our expert advisors. Would you like the application link?";
@@ -190,10 +182,10 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
             return "ICCVS Computer Education is a leading institute based in Delhi/NCR, featuring state-of-the-art labs and infrastructure. I can help you find our location details!";
         }
         if (lowerInput.includes('hello') || lowerInput.includes('hi')) {
-            return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} journey today?` : "Hello! I'm your ICCVS Assistant. I can help you with IT, Design, or Aviation courses, batch timings, and admissions. What can I do for you?";
+            return user ? `Hello again, ${user.name}! How can I help you with your ${user.courseName} journey today?` : "Hello! I'm your ICCVS Assistant. I can help you with IT or Design courses, batch timings, and admissions. What can I do for you?";
         }
 
-        return "I'm not sure about that specifically, but I can guide you regarding our IT/Coding courses, Design & Luxe programs, Aviation training, or connect you with a counselor. What would you prefer?";
+        return "I'm not sure about that specifically, but I can guide you regarding our IT/Coding or Design courses, or connect you with a counselor. What would you prefer?";
     };
 
     const quickActions = user ? [
@@ -203,7 +195,6 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
         { label: "Logout", icon: LogOut, action: () => logout() }
     ] : [
         { label: "Admission Process", icon: User, action: () => { navigate('/course-apply-now'); setIsOpen(false); } },
-        { label: "Our Centers", icon: Bot, action: () => { navigate('/locations'); setIsOpen(false); } },
         { label: "Contact Counselor", icon: MessageCircle, action: () => { navigate('/contact-us'); setIsOpen(false); } }
     ];
 
@@ -339,7 +330,7 @@ const AIChatbot = ({ isFloatingPanel = false, hideWindow = false, showTrigger = 
                     </button>
                 </form>
                 <p className="text-[10px] text-center text-slate-400 mt-3 font-medium tracking-tight uppercase">
-                    Powered by INSD Intelligence
+                    Powered by ICCVS Intelligence
                 </p>
             </div>
         </motion.div>

@@ -16,11 +16,8 @@ const DiplomaAndCertificate = lazy(() => import('./pages/DiplomaAndCertificate')
 const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
 const Mentors = lazy(() => import('./pages/Mentors'));
-const Location = lazy(() => import('./pages/location'));
 const ProfileDashboard = lazy(() => import('./pages/ProfileDashboard'));
-const Aviation = lazy(() => import('./pages/Aviation'));
 const Gallery = lazy(() => import('./pages/Gallery'));
-const IccvsLuxe = lazy(() => import('./pages/IccvsLuxe'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const FAQ = lazy(() => import('./pages/FAQ'));
@@ -108,16 +105,14 @@ function App() {
                                         <Route path="/courses/advance-excel-macro" element={<AdvanceExcelMacro />} />
                                         <Route path="/courses/advance-excel-dashboard" element={<AdvanceExcelDashboard />} />
                                         <Route path="/courses/diploma-and-certificates" element={<DiplomaAndCertificate />} />
-                                        <Route path="/iccvs-luxe" element={<IccvsLuxe />} />
-                                        <Route path="/courses/aviation" element={<Aviation />} />
                                         <Route path="/contact-us" element={<Contact />} />
                                         <Route path="/course-apply-now" element={<Navigate to="/contact-us" replace />} />
                                         <Route path="/apply" element={<Navigate to="/contact-us" replace />} />
                                         <Route path="/admissions" element={<Navigate to="/contact-us" replace />} />
-                                        <Route path="/insd-360/blog" element={<Blog />} />
+                                        <Route path="/iccvs-360/blog" element={<Blog />} />
                                         <Route path="/mentors" element={<Mentors />} />
-                                        <Route path="/locations" element={<Location />} />
-                                        <Route path="/centers-across-india" element={<Navigate to="/locations" replace />} />
+                                        <Route path="/locations" element={<Navigate to="/contact-us" replace />} />
+                                        <Route path="/centers-across-india" element={<Navigate to="/contact-us" replace />} />
                                         <Route path="/profile" element={<ProfileDashboard />} />
                                         <Route path="/gallery" element={<Gallery />} />
                                         <Route path="/thank-you" element={<ThankYou />} />

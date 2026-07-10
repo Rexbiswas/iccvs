@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
         import('../utils/offlineLogger.js').then(m => m.backupOfflineData('blogs', req.body));
 
         // Notify Admin
-        sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'New Blog Submission')
+        sendAdminLeadEmail('iccvs.admissionleads@gmail.com', req.body, 'New Blog Submission')
             .catch(err => console.error('[Blog Notification Error]', err.message));
 
         res.status(201).json({ success: true, blog: savedBlog });

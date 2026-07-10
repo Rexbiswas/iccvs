@@ -6,7 +6,7 @@ const YoutubeCTA = ({ isFloatingPanel = false }) => {
     const [isVisible, setIsVisible] = useState(false);
     const { scrollY } = useScroll();
 
-    const youtubeUrl = "https://youtube.com/@insd-internationalschoolof5139?feature=shared";
+    const youtubeUrl = "https://youtube.com/@iccvs-internationalschoolof5139?feature=shared";
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         if (isFloatingPanel) return;

@@ -17,6 +17,7 @@ import InstagramGallery from '../components/InstagramGallery';
 import Footer from '../components/Footer';
 import ProgramGrid from '../components/ProgramGrid';
 import IccvsDifference from '../components/IccvsDifference';
+import ICCVSTagline from '../components/ICCVSTagline';
 import HeroSlider from '../components/HeroSlider';
 import { ArrowRight, CheckCircle2, Sparkles, Briefcase, Rocket, FileDown } from 'lucide-react';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
@@ -232,7 +233,7 @@ const Home = () => {
     //         link: "/industry-potential"
     //     },
     //     {
-    //         title: "INSD",
+    //         title: "ICCVS",
     //         img: `https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_u2ubidu2ubidu2ub.png?tr=w-${isMobile ? 800 : 1800},fo-auto`,
     //         link: "/student"
     //     },
@@ -270,7 +271,7 @@ const Home = () => {
                 title="ICCVS Computer Education | Best Computer Institute in Delhi for Coding & IT Courses"
                 description="ICCVS Computer Education is the leading IT and computer training institute in Delhi, offering courses in Coding, Software Engineering, Web Development, UI/UX Design, and digital skills."
                 keywords="computer education Delhi, best computer institute in Delhi, coding classes Delhi, software training institute, web design course, python programming Delhi, digital marketing, computer academy Delhi, ICCVS"
-                canonical="https://insd.edu.in/"
+                canonical="https://iccvs.edu.in/"
                 ogImage="https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-1200,h-630,fo-auto"
                 robots="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
             />
@@ -306,13 +307,13 @@ const Home = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => openAdmissionModal({
-                                    title: 'TALK TO OUR EXPERTS',
+                                    title: 'ENQUIRY NOW',
                                     subtitle: 'Get professional guidance for your design career.',
                                     ctaText: 'Connect Now'
                                 })}
                                 className="w-full sm:w-auto h-12 md:h-14 px-12 md:px-16 bg-secondary text-slate-950 rounded-full font-black uppercase tracking-widest text-[11px] shadow-xl flex items-center justify-center gap-3 transition-all hover:bg-slate-950 hover:text-white"
                             >
-                                TALK TO OUR EXPERTS
+                                ENQUIRY NOW
                                 <ArrowRight size={18} />
                             </motion.button>
                         </div>
@@ -335,74 +336,6 @@ const Home = () => {
             </div>
 
             <ProgramGrid />
-
-            {/* Scholarship Banner Section */}
-            <section className="py-20 md:py-24 bg-slate-950 text-white relative overflow-hidden">
-                {/* Visual highlights */}
-                <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#DB3436]/10 blur-[120px] rounded-full pointer-events-none" />
-                <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#00D893]/5 blur-[120px] rounded-full pointer-events-none" />
-
-                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <div className="lg:col-span-7 space-y-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-black uppercase tracking-wider">
-                            <Sparkles size={12} className="animate-pulse" />
-                            <span>SCHOLARSHIP PROGRAM 2026</span>
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight">
-                            Build Your Tech Career <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DB3436] to-[#ff7b7b] italic font-serif font-light normal-case">
-                                With Up To 50% Waiver
-                            </span>
-                        </h2>
-                        <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-xl font-medium">
-                            Don't let financial limits block your learning. ICCVS offers merit-based scholarships, women in tech grants, and financial aid to make elite tech education accessible to everyone.
-                        </p>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-                            <div className="space-y-1">
-                                <span className="text-2xl font-black text-white">50% Max</span>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Tuition waiver</p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-2xl font-black text-white">Easy Apply</span>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Counselling review</p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-2xl font-black text-white">All Courses</span>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Applicable program-wide</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end">
-                        <div className="w-full max-w-sm bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 rounded-[2.5rem] space-y-6 shadow-2xl relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:pointer-events-none">
-                            <h3 className="text-lg font-black uppercase tracking-tight text-white">Quick Eligibility Check</h3>
-                            <p className="text-xs text-slate-400 leading-relaxed font-medium">
-                                Take a 20-minute aptitude test or sit for a quick evaluation with our counselor to claim your fee waiver.
-                            </p>
-                            <div className="space-y-3 pt-2">
-                                <Link
-                                    to="/scholarship"
-                                    className="w-full h-12 bg-white text-slate-950 hover:bg-[#DB3436] hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg animate-pulse"
-                                >
-                                    Explore Scholarship
-                                    <ArrowRight size={14} />
-                                </Link>
-                                <button
-                                    onClick={() => openAdmissionModal({
-                                        title: 'SCHOLARSHIP APPLICATION',
-                                        subtitle: 'Enquire for tuition waiver and eligibility evaluation.',
-                                        ctaText: 'Claim Waiver Now'
-                                    })}
-                                    className="w-full h-12 bg-slate-900 border border-white/10 hover:border-red-500/30 text-slate-300 hover:text-white rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center transition-colors"
-                                >
-                                    Apply Directly
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <IccvsDifference />
             {/* <InstagramGallery /> */}
@@ -482,7 +415,7 @@ const Home = () => {
                         <div className="lg:col-span-5 flex flex-col justify-between h-full pl-0 lg:pl-8">
                             <div className="mb-12">
                                 <p className="text-clamp-xl font-light leading-relaxed mb-8 opacity-80 flex flex-wrap gap-x-2 quote-container">
-                                    {splitText("\"INSD gave me the freedom to fail, which is the only way to truly succeed in design. My final collection was a direct result of that chaos.\"", "quote-word")}
+                                    {splitText("\"ICCVS gave me the freedom to fail, which is the only way to truly succeed in design. My final collection was a direct result of that chaos.\"", "quote-word")}
                                 </p>
                                 <div className="flex items-center gap-4">
                                     <div className="w-8 md:w-12 h-px bg-current"></div>
@@ -508,8 +441,72 @@ const Home = () => {
 
             {/* <FeaturedIn /> */}
             {/* <EventBlogs /> */}
+
+            {/* Scholarship Banner Section (White Theme) */}
+            <section className="py-20 md:py-24 bg-white text-slate-950 relative overflow-hidden border-t border-slate-100">
+                {/* Visual highlights */}
+                <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#DB3436]/5 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#00D893]/5 blur-[120px] rounded-full pointer-events-none" />
+
+                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                    <div className="lg:col-span-7 space-y-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A62B2B]/5 border border-[#A62B2B]/10 text-[#A62B2B] text-xs font-black uppercase tracking-wider">
+                            <Sparkles size={12} className="animate-pulse" />
+                            <span>SCHOLARSHIP PROGRAM 2026</span>
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight text-slate-950">
+                            Build Your Tech Career
+                        </h2>
+                        <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-xl font-medium">
+                            Don't let financial limits block your learning. ICCVS offers merit-based scholarships and financial aid to make elite tech education accessible to everyone.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                            <div className="space-y-1">
+                                <span className="text-2xl font-black text-slate-950">Easy Apply</span>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Counselling review</p>
+                            </div>
+                            <div className="space-y-1">
+                                <span className="text-2xl font-black text-slate-950">All Courses</span>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Applicable program-wide</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-5 flex flex-col justify-center items-center lg:items-end">
+                        <div className="w-full max-w-sm bg-slate-50/50 backdrop-blur-xl border border-slate-100 p-8 rounded-[2.5rem] space-y-6 shadow-xl relative">
+                            <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">Quick Eligibility Check</h3>
+                            <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                                Take a 20-minute aptitude test or sit for a quick evaluation with our counselor to check your eligibility.
+                            </p>
+                            <div className="space-y-3 pt-2">
+                                <Link
+                                    to="/scholarship"
+                                    className="w-full h-12 bg-slate-950 text-white hover:bg-[#A62B2B] rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg"
+                                >
+                                    Explore Scholarship
+                                    <ArrowRight size={14} />
+                                </Link>
+                                <button
+                                    onClick={() => openAdmissionModal({
+                                        title: 'SCHOLARSHIP APPLICATION',
+                                        subtitle: 'Enquire for scholarship and eligibility evaluation.',
+                                        ctaText: 'Apply Now'
+                                    })}
+                                    className="w-full h-12 bg-white border border-slate-200 hover:border-[#A62B2B]/30 text-slate-700 hover:text-slate-950 rounded-full font-black uppercase tracking-wider text-[10px] flex items-center justify-center transition-colors"
+                                >
+                                    Apply Directly
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <ICCVSTagline />
+
             <div className="relative z-50">
-                <Footer showTagline={true} />
+                <Footer showTagline={false} />
             </div>
         </div>
     );

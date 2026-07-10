@@ -10,25 +10,16 @@ const scholarshipTypes = [
         title: "Merit-Based Excellence",
         tag: "Academic Achievers",
         desc: "Designed for high-performing students who have demonstrated outstanding academic results or technical aptitude.",
-        waiver: "Up to 50% Waiver",
+        waiver: "Merit Scholarship",
         eligibility: "80% and above in school/college examinations or high score in ICCVS Aptitude Test.",
         gradient: "from-[#DB3436] to-[#ff6b6b]",
         icon: Award
     },
     {
-        title: "Women in Tech",
-        tag: "Gender Diversity",
-        desc: "An initiative aimed at empowering female students to build high-impact careers in coding, software development, and UI/UX design.",
-        waiver: "Up to 50% Waiver",
-        eligibility: "Open to all female candidates applying for digital and technical programs.",
-        gradient: "from-[#00D893] to-[#2cdbb0]",
-        icon: Sparkles
-    },
-    {
         title: "Need-Based Financial Aid",
         tag: "Equal Opportunity",
         desc: "Dedicated to supporting brilliant minds from economically constrained backgrounds who wish to acquire industry-ready computer skills.",
-        waiver: "Flexible Waiver",
+        waiver: "Financial Aid",
         eligibility: "Based on family income statements, academic inclination, and a personal counselor interview.",
         gradient: "from-[#2563EB] to-[#60A5FA]",
         icon: Gift
@@ -48,15 +39,15 @@ const steps = [
     },
     {
         number: "03",
-        title: "Waiver & Enrollment",
+        title: "Scholarship & Enrollment",
         desc: "Once approved, receive your scholarship offer details and enroll directly into your tech program with a reduced fee structure."
     }
 ];
 
 const faqs = [
     {
-        q: "What is the maximum scholarship amount a student can receive?",
-        a: "Students can receive up to a 50% tuition fee waiver, depending on their eligibility, academic records, and performance in our counselor assessment."
+        q: "How are the scholarship amounts decided?",
+        a: "Scholarships are awarded based on student eligibility, academic records, and performance in our counselor evaluation."
     },
     {
         q: "Are these scholarships applicable to all computer and design courses?",
@@ -79,8 +70,8 @@ const Scholarship = () => {
     return (
         <div className="bg-slate-950 min-h-screen text-slate-100 font-sans selection:bg-[#DB3436] selection:text-white overflow-hidden">
             <SEO 
-                title="ICCVS Scholarship Program | Up to 50% Tuition Waiver for Tech & Coding Courses"
-                description="Apply for the ICCVS Computer Education Scholarship. Get up to 50% waiver on premium IT training, Python coding, data analytics, web designing, and accounting programs."
+                title="ICCVS Scholarship Program | Technical & Coding Courses"
+                description="Apply for the ICCVS Computer Education Scholarship. Get scholarship support on premium IT training, Python coding, data analytics, web designing, and accounting programs."
                 keywords="computer education scholarship, computer courses scholarship Delhi, coding scholarship, web design financial aid, ICCVS, free computer course evaluation"
             />
 
@@ -118,7 +109,7 @@ const Scholarship = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-slate-400 text-lg md:text-xl max-w-2xl mt-8 leading-relaxed font-medium"
                 >
-                    We believe financial constraints should never stand in the way of ambition. Access up to 50% tuition waivers on our premium coding, IT, and creative courses.
+                    We believe financial constraints should never stand in the way of ambition. Access scholarship opportunities on our premium coding, IT, and creative courses.
                 </motion.p>
 
                 <motion.div
@@ -145,11 +136,7 @@ const Scholarship = () => {
 
             {/* STATS OVERVIEW */}
             <section className="border-y border-white/5 bg-white/[0.02] backdrop-blur-xl">
-                <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/5">
-                    <div className="flex flex-col items-center p-4">
-                        <span className="text-4xl md:text-5xl font-black text-white">Up to 50%</span>
-                        <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-[0.2em] mt-2">Tuition Fee Waivers</span>
-                    </div>
+                <div className="max-w-4xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/5">
                     <div className="flex flex-col items-center p-4">
                         <span className="text-4xl md:text-5xl font-black text-white">1000+</span>
                         <span className="text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-[0.2em] mt-2">Scholarships Awarded</span>
@@ -172,7 +159,7 @@ const Scholarship = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     {scholarshipTypes.map((type, idx) => (
                         <motion.div
                             key={idx}
@@ -310,7 +297,7 @@ const Scholarship = () => {
                         Without Fee Burden.
                     </h2>
                     <p className="text-slate-400 text-base md:text-lg max-w-xl mx-auto font-medium">
-                        Begin your enrollment application today. Our counselors are ready to help you navigate through the process and secure your maximum waiver.
+                        Begin your enrollment application today. Our counselors are ready to help you navigate through the process and secure your scholarship.
                     </p>
                     <div className="pt-4">
                         <button

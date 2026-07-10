@@ -17,18 +17,18 @@ const Mentors = () => {
     const visitingLegends = [
         {
             name: "Sunjey Aggarwal",
-            title: "Founder & Chairman, INSD",
+            title: "Founder & Chairman, ICCVS",
             tags: ["Visionary Leader", "Educational Pioneer", "Chairman"],
             img: "https://ik.imagekit.io/fmldynl4j4/co-founder/Sunjey%20Aggarwal.png",
-            desc: "The visionary behind INSD's global footprint. Sunjey has dedicated decades to revolutionizing design education in India, bridging the gap between local talent and international standards.",
+            desc: "The visionary behind ICCVS's global footprint. Sunjey has dedicated decades to revolutionizing design education in India, bridging the gap between local talent and international standards.",
             impact: "Global Design Vision"
         },
         {
             name: "Pranav Raj Aggarwal",
-            title: "CEO, INSD",
+            title: "CEO, ICCVS",
             tags: ["Global Strategy", "Tech Optimist", "Executive Board"],
             img: "https://ik.imagekit.io/fmldynl4j4/co-founder/Pranav%20Raaj%20Aggarwall.png",
-            desc: "Driving the next wave of innovation at INSD. Pranav focuses on integrating emerging technologies and international alliances into the core curriculum for 21st-century designers.",
+            desc: "Driving the next wave of innovation at ICCVS. Pranav focuses on integrating emerging technologies and international alliances into the core curriculum for 21st-century designers.",
             impact: "Future Tech & Strategy"
         }
     ];
@@ -55,7 +55,7 @@ const Mentors = () => {
             title: "Founder & CEO, HMLC",
             tags: ["Luxury Consultant", "CEO - Harsh Mann Consultancy"],
             img: "https://media.licdn.com/dms/image/v2/D5605AQH3VHDbxoEw8w/videocover-high/B56ZZiR90cGUCU-/0/1745405603228?e=2147483647&v=beta&t=tQ-kgpgTCWJ5lrLA1LEM1zeeuVb5G2j-9R7dGJy494o",
-            desc: "The authority on luxury branding and heritage ecosystems. Harsh consults for global ultra-premium brands, bringing the 'HMLC' perspective to INSD students.",
+            desc: "The authority on luxury branding and heritage ecosystems. Harsh consults for global ultra-premium brands, bringing the 'HMLC' perspective to ICCVS students.",
             impact: "Luxury Branding"
         },
         {
@@ -140,8 +140,8 @@ const Mentors = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-slate-900 selection:text-white overflow-x-hidden">
             <SEO
-                title="Industry Mentors | The Visionaries of INSD"
-                description="Learn from the legends. INSD's mentor network includes NID alumni, luxury consultants, and award-winning architects who guide our students."
+                title="Industry Mentors | The Visionaries of ICCVS"
+                description="Learn from the legends. ICCVS's mentor network includes NID alumni, luxury consultants, and award-winning architects who guide our students."
             />
 
             {/* --- HERO SECTION --- */}
@@ -177,7 +177,7 @@ const Mentors = () => {
                     <div className="mt-8 space-y-16">
                         <div className="text-center space-y-4">
                             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tightest">Our <span className="text-primary italic">Founders.</span></h2>
-                            <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">INSD Leadership & Visionary Pioneers</p>
+                            <p className="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">ICCVS Leadership & Visionary Pioneers</p>
                         </div>
 
                         <div className="relative max-w-6xl mx-auto">

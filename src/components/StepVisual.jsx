@@ -91,7 +91,7 @@ const StepVisual = () => {
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row items-end justify-between mb-24 md:mb-40 gap-8">
                     <div className="max-w-4xl">
-                        <span className="block text-xs font-mono tracking-[0.5em] uppercase text-slate-400 mb-6 font-bold">The INSD Protocol</span>
+                        <span className="block text-xs font-mono tracking-[0.5em] uppercase text-slate-400 mb-6 font-bold">The ICCVS Protocol</span>
                         <h2 className="text-[10vw] md:text-[7vw] leading-[0.8] font-black uppercase tracking-tighter mb-8">
                             <span className="step-title-part block opacity-40">Not Just</span>
                             <span className="step-title-part block text-transparent bg-clip-text bg-linear-to-r from-secondary to-primary">Education.</span>

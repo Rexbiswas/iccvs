@@ -39,7 +39,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 };
 
 const FAQ = () => {
-  const [activeCategory, setActiveCategory] = useState('About INSD');
+  const [activeCategory, setActiveCategory] = useState('About ICCVS');
   const [openIndex, setOpenIndex] = useState(0);
 
   useEffect(() => {
@@ -47,31 +47,31 @@ const FAQ = () => {
   }, []);
 
   const faqData = {
-    "About INSD": [
-      { q: "What is INSD?", a: "INSD (International School of Design) is a private design institution offering industry‑oriented programs in fashion design, interior design, graphic design, textile design, jewellery design, animation and related disciplines." },
-      { q: "Where is INSD located?", a: "INSD has its main presence in Delhi NCR and operates a growing network of authorised campuses and centres across multiple cities in India through a franchise model. Please check our “Locations” section for the latest list." },
-      { q: "Who founded INSD?", a: "INSD was co‑founded by the Former-Director General of NIFT, along with Mr. Sunjey Aggarwal and Mr. Pranav Raaj Aggarwall, with the vision to provide globally relevant design education in India." },
-      { q: "What makes INSD different from other design schools?", a: "INSD focuses on practical, industry‑oriented learning, collaborations with brands, live projects, and exposure through events such as fashion weeks, luxury projects and international initiatives. Students learn from experienced faculty and industry experts via workshops, masterclasses and portfolio‑driven assignments." }
+    "About ICCVS": [
+      { q: "What is ICCVS?", a: "ICCVS (International School of Design) is a private design institution offering industry‑oriented programs in fashion design, interior design, graphic design, textile design, jewellery design, animation and related disciplines." },
+      { q: "Where is ICCVS located?", a: "ICCVS has its main presence in Delhi NCR and operates a growing network of authorised campuses and centres across multiple cities in India through a franchise model. Please check our “Locations” section for the latest list." },
+      { q: "Who founded ICCVS?", a: "ICCVS was co‑founded by the Former-Director General of NIFT, along with Mr. Sunjey Aggarwal and Mr. Pranav Raaj Aggarwall, with the vision to provide globally relevant design education in India." },
+      { q: "What makes ICCVS different from other design schools?", a: "ICCVS focuses on practical, industry‑oriented learning, collaborations with brands, live projects, and exposure through events such as fashion weeks, luxury projects and international initiatives. Students learn from experienced faculty and industry experts via workshops, masterclasses and portfolio‑driven assignments." }
     ],
     "Courses": [
-      { q: "What courses does INSD offer?", a: "INSD offers undergraduate, postgraduate, diploma, advanced diploma and certificate programs in Fashion Design, Interior Design, Graphic Design, UI/UX, Textile Design, Jewellery Design, Animation, Photography, Beauty & Make-up, and Luxury Brand Management." },
+      { q: "What courses does ICCVS offer?", a: "ICCVS offers undergraduate, postgraduate, diploma, advanced diploma and certificate programs in Fashion Design, Interior Design, Graphic Design, UI/UX, Textile Design, Jewellery Design, Animation, Photography, Beauty & Make-up, and Luxury Brand Management." },
       { q: "What is the duration of the programs?", a: "Program duration varies by level: Undergraduate (3-4 years), Postgraduate (2 years), Diplomas (1-2 years), and Certificate courses (few months to 1 year)." },
-      { q: "Do I need a design background to apply?", a: "No. Many students join from science, commerce, arts and other non-design backgrounds. INSD focuses on building fundamentals and creative thinking from the ground up." }
+      { q: "Do I need a design background to apply?", a: "No. Many students join from science, commerce, arts and other non-design backgrounds. ICCVS focuses on building fundamentals and creative thinking from the ground up." }
     ],
     "Admissions": [
       { q: "What is the basic eligibility for undergraduate courses?", a: "Most undergraduate programs require successful completion of Class 12 from a recognised board in any stream." },
       { q: "Is there an entrance exam?", a: "Admissions may be based on a combination of portfolio review, aptitude evaluation, interviews and, where applicable, written tests. We also consider scores from recognised design entrance exams." },
-      { q: "How do I apply to INSD?", a: "You can apply via our website form, contact our admissions team via phone/WhatsApp, or visit any INSD campus for in-person counseling." }
+      { q: "How do I apply to ICCVS?", a: "You can apply via our website form, contact our admissions team via phone/WhatsApp, or visit any ICCVS campus for in-person counseling." }
     ],
     "Experience": [
       { q: "What is the teaching approach?", a: "The focus is on practical, studio-based learning with a strong emphasis on hands-on projects, software training, workshops, and portfolio development." },
-      { q: "Does INSD provide internships?", a: "Yes, students are encouraged to participate in internships, live projects, and exhibitions with brands and agencies to gain real-world exposure." },
+      { q: "Does ICCVS provide internships?", a: "Yes, students are encouraged to participate in internships, live projects, and exhibitions with brands and agencies to gain real-world exposure." },
       { q: "What placement support is available?", a: "We provide career support through industry partners, portfolio guidance, interview preparation, and dedicated placement cells." }
     ]
   };
 
   const categories = [
-    { name: "About INSD", icon: HelpCircle },
+    { name: "About ICCVS", icon: HelpCircle },
     { name: "Courses", icon: BookOpen },
     { name: "Admissions", icon: GraduationCap },
     { name: "Experience", icon: Award }
@@ -81,7 +81,7 @@ const FAQ = () => {
     <div className="bg-white min-h-screen font-sans selection:bg-primary/10 selection:text-primary">
       <SEO 
         title="FAQs | International School of Design"
-        description="Find answers to frequently asked questions about INSD, our courses, admissions, and design career opportunities."
+        description="Find answers to frequently asked questions about ICCVS, our courses, admissions, and design career opportunities."
       />
       <Navbar />
 
@@ -97,7 +97,7 @@ const FAQ = () => {
                 Common <span className="text-primary">Questions.</span>
               </h1>
               <p className="text-slate-500 font-medium max-w-2xl mx-auto text-lg">
-                Everything you need to know about starting your design journey at INSD. Can't find what you're looking for? Reach out to us.
+                Everything you need to know about starting your design journey at ICCVS. Can't find what you're looking for? Reach out to us.
               </p>
             </motion.div>
           </div>

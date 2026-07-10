@@ -114,13 +114,13 @@ export default async function handler(req, res) {
             .join('');
 
         await transporter.sendMail({
-            from: `"INSD Lead System" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
-            to: 'insd.admissionleads@gmail.com',
+            from: `"ICCVS Lead System" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
+            to: 'iccvs.admissionleads@gmail.com',
             subject: `[New Aviation Lead] ${name}`,
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
                     <h2 style="color: #db3436; border-bottom: 2px solid #db3436; padding-bottom: 10px;">New Aviation Submission</h2>
-                    <p>A new lead has been captured on the INSD Aviation page.</p>
+                    <p>A new lead has been captured on the ICCVS Aviation page.</p>
                     <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
                         <ul style="list-style: none; padding: 0;">
                             ${detailsHtml}

@@ -450,9 +450,9 @@ const Blog = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-slate-900 selection:text-white">
             <SEO
-                title="Design Perspectives - The INSD Official Blog"
-                description="Explore the latest insights in fashion, interior design, and creative industries. Professional trends and academic perspectives from INSD."
-                canonical="https://insd.edu.in/blog"
+                title="Design Perspectives - The ICCVS Official Blog"
+                description="Explore the latest insights in fashion, interior design, and creative industries. Professional trends and academic perspectives from ICCVS."
+                canonical="https://iccvs.edu.in/blog"
             />
 
             {/* --- HERO SECTION --- */}
@@ -461,7 +461,7 @@ const Blog = () => {
                 <div className="absolute inset-0 z-0">
                     <img
                         src="https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG"
-                        alt="INSD Campus Life"
+                        alt="ICCVS Campus Life"
                         className="w-full h-full object-cover scale-105"
                         onError={handleImageError}
                     />
@@ -472,7 +472,7 @@ const Blog = () => {
                     <div className="space-y-2 md:space-y-4">
                         <span className="text-primary font-black uppercase text-[8px] md:text-[10px] tracking-[0.4em] block">The Official Journal</span>
                         <h1 className="text-4xl md:text-7xl lg:text-[8rem] font-black text-white tracking-tighter leading-[0.9]">
-                            INSD <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-white/50 to-secondary">BLOGS.</span>
+                            ICCVS <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-white/50 to-secondary">BLOGS.</span>
                         </h1>
                     </div>
 
@@ -738,7 +738,7 @@ const Blog = () => {
                             <div className="flex items-center justify-between mb-8">
                                 <div>
                                     <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Draft Article</h2>
-                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Publish to INSD Network</p>
+                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Publish to ICCVS Network</p>
                                 </div>
                                 <button onClick={() => setIsWriting(false)} className="md:hidden p-2 bg-slate-200 rounded-full"><X size={16} /></button>
                             </div>

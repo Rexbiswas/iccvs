@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
       id: "intro",
       title: "Introduction",
       icon: Shield,
-      content: "International School of Design (“INSD”, “we”, “us”, “our”) is a national award‑winning design school offering undergraduate, postgraduate, diploma and short‑term programs in fashion, interior, graphic, textile, jewellery and related disciplines across India. We are committed to protecting the privacy of all visitors to our websites, including insd.edu.in, its subdomains, and any related online platforms or applications (collectively, the “Website”), in accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023 (“DPDPA”) and, where applicable, the General Data Protection Regulation (“GDPR”). This Privacy Policy explains how we collect, use, disclose and protect your personal information when you interact with us online and offline."
+      content: "International School of Design (“ICCVS”, “we”, “us”, “our”) is a national award‑winning design school offering undergraduate, postgraduate, diploma and short‑term programs in fashion, interior, graphic, textile, jewellery and related disciplines across India. We are committed to protecting the privacy of all visitors to our websites, including iccvs.edu.in, its subdomains, and any related online platforms or applications (collectively, the “Website”), in accordance with applicable data protection laws, including the Digital Personal Data Protection Act, 2023 (“DPDPA”) and, where applicable, the General Data Protection Regulation (“GDPR”). This Privacy Policy explains how we collect, use, disclose and protect your personal information when you interact with us online and offline."
     },
     {
       id: "scope",
@@ -66,7 +66,7 @@ const PrivacyPolicy = () => {
       id: "sharing",
       title: "Sharing of Information",
       icon: ChevronRight,
-      content: "We may share your personal information only as necessary with INSD group entities, service providers, recruiters (with consent), professional advisors, and government bodies when required by law. We do not sell your personal data."
+      content: "We may share your personal information only as necessary with ICCVS group entities, service providers, recruiters (with consent), professional advisors, and government bodies when required by law. We do not sell your personal data."
     },
     {
       id: "security",
@@ -86,7 +86,7 @@ const PrivacyPolicy = () => {
     <div className="bg-white min-h-screen font-sans selection:bg-primary/10 selection:text-primary">
       <SEO 
         title="Privacy Policy | International School of Design"
-        description="Read our privacy policy to understand how INSD handles and protects your personal data."
+        description="Read our privacy policy to understand how ICCVS handles and protects your personal data."
       />
       <Navbar />
 
@@ -164,11 +164,11 @@ const PrivacyPolicy = () => {
                   If you have any questions about this Privacy Policy or wish to exercise your rights, please reach out to us.
                 </p>
                 <a 
-                  href="mailto:office@insd.edu.in" 
+                  href="mailto:office@iccvs.edu.in" 
                   className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-full font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform"
                 >
                   <Lock size={16} />
-                  office@insd.edu.in
+                  office@iccvs.edu.in
                 </a>
               </motion.section>
             </div>

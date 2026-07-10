@@ -58,7 +58,7 @@ const CookiePolicy = () => {
     <div className="bg-white min-h-screen font-sans">
       <SEO 
         title="Cookie Policy | International School of Design"
-        description="Understand how and why we use cookies to improve your experience on the INSD website."
+        description="Understand how and why we use cookies to improve your experience on the ICCVS website."
       />
       <Navbar />
 
@@ -124,8 +124,8 @@ const CookiePolicy = () => {
               >
                 Manage Preferences
               </button>
-              <a href="mailto:office@insd.edu.in" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-white transition-colors mt-4">
-                office@insd.edu.in
+              <a href="mailto:office@iccvs.edu.in" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-white transition-colors mt-4">
+                office@iccvs.edu.in
               </a>
             </div>
           </motion.div>

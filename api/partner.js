@@ -62,7 +62,7 @@ export default async function handler(req, res) {
 
         await transporter.sendMail({
             from: process.env.GOOGLE_EMAIL,
-            to: 'insd.franchiseleads@gmail.com',
+            to: 'iccvs.franchiseleads@gmail.com',
             subject: `[New Franchise Lead] ${req.body.name}`,
             text: JSON.stringify(req.body, null, 2)
         });

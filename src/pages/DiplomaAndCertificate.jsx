@@ -58,7 +58,7 @@ const DiplomaAndCertificate = () => {
         <div className="bg-[#f2f2f2] min-h-screen font-sans selection:bg-[#111] selection:text-white">
             <SEO 
                 title="Diploma & Certificate Courses in Design - Fashion, Interior, Graphic"
-                description="Fast-track your creative career with INSD's professional diplomas and certificates. Intensive 3-month to 1-year programs in fashion, interior design, and graphic design."
+                description="Fast-track your creative career with ICCVS's professional diplomas and certificates. Intensive 3-month to 1-year programs in fashion, interior design, and graphic design."
                 keywords="design diploma Delhi, design certificate courses, fast track design course, fashion design diploma, interior design certification, graphic design short course"
             />
             
@@ -83,7 +83,7 @@ const DiplomaAndCertificate = () => {
                     <svg viewBox="0 0 200 200" className="w-full h-full animate-[spin_30s_linear_infinite]">
                         <path id="textPath" d="M 100, 100 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" fill="none" />
                         <text className="text-[12px] font-bold uppercase tracking-[0.2em] fill-black">
-                            <textPath href="#textPath" startOffset="0%">INSD • Certified • Excellence • Authentic • </textPath>
+                            <textPath href="#textPath" startOffset="0%">ICCVS • Certified • Excellence • Authentic • </textPath>
                         </text>
                     </svg>
                 </motion.div>

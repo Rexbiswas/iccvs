@@ -143,7 +143,7 @@ const SocialProof = () => {
                                 <span className="text-slate-800 italic font-serif">Visionary Leadership</span>
                             </h3>
                             <p className="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-                                Co-founded by the <span className="text-slate-900 font-bold">IAS Officer & 1st Director General of NIFT</span>, INSD has pioneered design education in India for over 15 years, building a community of world-class artists and entrepreneurs.
+                                Co-founded by the <span className="text-slate-900 font-bold">IAS Officer & 1st Director General of NIFT</span>, ICCVS has pioneered design education in India for over 15 years, building a community of world-class artists and entrepreneurs.
                             </p>
                         </div>
 

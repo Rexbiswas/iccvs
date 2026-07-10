@@ -92,7 +92,7 @@ router.post('/', validateAdmission, async (req, res) => {
                 await Promise.allSettled([
                     sendWelcomeEmail(email, name, course || program || 'Design Course'),
                     sendSMS(phone || mobile || '', name),
-                    sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Admission Inquiry'),
+                    sendAdminLeadEmail('iccvs.admissionleads@gmail.com', req.body, 'Admission Inquiry'),
                     pushToNPF(req.body)
                 ]);
                 console.log(`[Notifications] Processed for ${name}`);

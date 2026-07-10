@@ -63,8 +63,8 @@ app.use('/api/', limiter);
 
 // Optimized CORS for Production
 const allowedOrigins = [
-    'https://subdomain.insd.edu.in',
-    'https://insd.edu.in',
+    'https://subdomain.iccvs.edu.in',
+    'https://iccvs.edu.in',
     'http://localhost:5173',
     'http://localhost:5174'
 ];
@@ -114,7 +114,7 @@ const connectDB = async () => {
         return mongoose.connection;
     }
 
-    const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/insd';
+    const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/iccvs';
     const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
 
     const runSync = () => {
@@ -306,7 +306,7 @@ if (!process.env.VERCEL) {
     const localIp = getLocalIp();
     
     app.listen(port, '0.0.0.0', () => {
-        console.log(`\n🚀 INSD Backend is live on port ${port}!`);
+        console.log(`\n🚀 ICCVS Backend is live on port ${port}!`);
         if (process.env.NODE_ENV !== 'production') {
             console.log(`🏠 Local:   http://localhost:${port}`);
             console.log(`📱 Mobile:  http://${localIp}:${port}\n`);

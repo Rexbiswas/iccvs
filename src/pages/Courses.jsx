@@ -11,16 +11,7 @@ import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const coursesData = [
-    {
-        id: "iccvs-luxe",
-        title: "ICCVS Luxe",
-        category: "Management",
-        duration: "Premium Exchange",
-        path: "/iccvs-luxe",
-        description: "Curated luxury education in association with international schools. Focuses on luxury brand marketing, exclusive supply chains, and customer relationship protocols."
-    }
-];
+const coursesData = [];
 
 const categories = ["All", "Fashion", "Interior", "VFX", "Management"];
 
@@ -162,8 +153,8 @@ const Courses = () => {
     return (
         <div ref={containerRef} className="bg-white min-h-screen text-zinc-900 font-sans selection:bg-pink-100 selection:text-pink-900">
             <SEO
-                title="Academic Programs | INSD India's Skill School"
-                description="Explore ultra-modern job-oriented design programs at INSD."
+                title="Academic Programs | ICCVS India's Skill School"
+                description="Explore ultra-modern job-oriented design programs at ICCVS."
             />
 
             {/* MINIMALIST TYPOGRAPHIC HERO */}

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'insd-cache-v2';
+const CACHE_NAME = 'iccvs-cache-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',

@@ -5,7 +5,7 @@ const SEO = ({
     title, 
     description, 
     keywords, 
-    canonical = "https://insd.edu.in/",
+    canonical = "https://iccvs.edu.in/",
     ogTitle, 
     ogDescription, 
     ogImage = "https://ik.imagekit.io/fmldynl4j4/insd-awards/Gemini_Generated_Image_wy3si8wy3si8wy3s.png?tr=w-1200,h-630,fo-auto", 
@@ -15,18 +15,18 @@ const SEO = ({
     courseSchema = null
 }) => {
     const siteName = "ICCVS Computer Education";
-    const metaDescription = description || "Best design institute in Delhi, India. Join INSD is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG.";
-    const metaKeywords = keywords || "best design institute in Delhi, skill school design, job oriented fashion design, interior design placement, graphic design course, INSD India";
+    const metaDescription = description || "Best design institute in Delhi, India. Join ICCVS is one of the top design colleges in Delhi, NCR offers fashion, interior, textile and graphic design courses in UG and PG.";
+    const metaKeywords = keywords || "best design institute in Delhi, skill school design, job oriented fashion design, interior design placement, graphic design course, ICCVS India";
 
     // JSON-LD Structured Data for Ranking Enhancement
     const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
         "name": siteName,
-        "url": "https://insd.edu.in",
+        "url": "https://iccvs.edu.in",
         "logo": "https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg",
         "sameAs": [
-            "https://www.facebook.com/INSD.Official/",
+            "https://www.facebook.com/ICCVS.Official/",
             "https://www.instagram.com/insd_official/",
             "https://twitter.com/INSDofficial",
             "https://www.youtube.com/user/INSDofficial"

@@ -71,8 +71,8 @@ const NotFound = () => {
     return (
         <div ref={containerRef} className="fixed inset-0 z-1000 bg-[#0f172b] flex items-center justify-center overflow-hidden font-sans">
             <SEO 
-                title="404 - Page Not Found | INSD"
-                description="The page you are looking for does not exist or has been moved. Return to the home page to continue exploring INSD."
+                title="404 - Page Not Found | ICCVS"
+                description="The page you are looking for does not exist or has been moved. Return to the home page to continue exploring ICCVS."
                 robots="noindex, follow"
             />
             {/* Liquid Background Orbs */}

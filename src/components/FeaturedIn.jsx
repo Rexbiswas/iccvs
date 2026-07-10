@@ -12,17 +12,17 @@ const FeaturedIn = () => {
     const brands = [
         {
             name: "India Today",
-            url: "https://insd.edu.in/wp-content/uploads/2021/04/India_Today_Group_Logo.png",
+            url: "https://iccvs.edu.in/wp-content/uploads/2021/04/India_Today_Group_Logo.png",
             w: "w-32 md:w-48"
         },
         {
             name: "The Hindu",
-            url: "https://insd.edu.in/wp-content/uploads/2021/04/TheHindu-Logo.png",
+            url: "https://iccvs.edu.in/wp-content/uploads/2021/04/TheHindu-Logo.png",
             w: "w-40 md:w-60"
         },
         {
             name: "The Tribune", // JPEG with a white background -> fixed by mix-blend-multiply
-            url: "https://insd.edu.in/wp-content/uploads/2021/04/tribune-india-logo.jpg",
+            url: "https://iccvs.edu.in/wp-content/uploads/2021/04/tribune-india-logo.jpg",
             w: "w-44 md:w-64"
         },
         {

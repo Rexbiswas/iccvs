@@ -12,12 +12,12 @@ const TermsAndConditions = () => {
     const sections = [
         {
             title: "1. Acceptance of Terms",
-            content: "By accessing or using insd.edu.in, its subdomains, or any related online platforms or applications (collectively, the “Website”), you (“User”, “you”, “your”) agree to be bound by these Terms and Conditions (“Terms”). If you do not agree to these Terms, you should not access or use the Website.",
+            content: "By accessing or using iccvs.edu.in, its subdomains, or any related online platforms or applications (collectively, the “Website”), you (“User”, “you”, “your”) agree to be bound by these Terms and Conditions (“Terms”). If you do not agree to these Terms, you should not access or use the Website.",
             icon: <Scale className="w-6 h-6 text-primary" />
         },
         {
-            title: "2. About INSD and Website Content",
-            content: "International School of Design (“INSD”, “we”, “us”, “our”) is a design education institution offering various programs and courses in fashion, interior, graphic and related fields across India. We aim to keep the information on the Website accurate and up to date; however, course structures, modules, locations, fees, schedules and other details are subject to change, modification, suspension or discontinuation at any time without prior notice. Nothing on the Website constitutes a binding offer of admission or guarantee of course availability.",
+            title: "2. About ICCVS and Website Content",
+            content: "International School of Design (“ICCVS”, “we”, “us”, “our”) is a design education institution offering various programs and courses in fashion, interior, graphic and related fields across India. We aim to keep the information on the Website accurate and up to date; however, course structures, modules, locations, fees, schedules and other details are subject to change, modification, suspension or discontinuation at any time without prior notice. Nothing on the Website constitutes a binding offer of admission or guarantee of course availability.",
             icon: <FileText className="w-6 h-6 text-primary" />
         },
         {
@@ -27,17 +27,17 @@ const TermsAndConditions = () => {
         },
         {
             title: "4. Permitted Use and User Conduct",
-            content: "You agree to use the Website only for lawful purposes. You agree that you will not: use the Website in any manner that could damage or disable any INSD server; attempt to gain unauthorised access; upload defamatory or obscene content; infringe intellectual property rights; or send unsolicited advertising/spam.",
+            content: "You agree to use the Website only for lawful purposes. You agree that you will not: use the Website in any manner that could damage or disable any ICCVS server; attempt to gain unauthorised access; upload defamatory or obscene content; infringe intellectual property rights; or send unsolicited advertising/spam.",
             icon: <Gavel className="w-6 h-6 text-primary" />
         },
         {
             title: "5. Intellectual Property",
-            content: "All content on the Website—including text, graphics, logos, icons, images, and software—is owned by or licensed to INSD and protected by applicable intellectual property laws. You may download or print limited portions solely for personal, non-commercial reference.",
+            content: "All content on the Website—including text, graphics, logos, icons, images, and software—is owned by or licensed to ICCVS and protected by applicable intellectual property laws. You may download or print limited portions solely for personal, non-commercial reference.",
             icon: <Scale className="w-6 h-6 text-primary" />
         },
         {
             title: "6. User Content",
-            content: "Where the Website allows you to submit content, you remain solely responsible for it. By submitting, you grant INSD a worldwide, royalty-free licence to use, reproduce, and distribute such content for academic and promotional purposes.",
+            content: "Where the Website allows you to submit content, you remain solely responsible for it. By submitting, you grant ICCVS a worldwide, royalty-free licence to use, reproduce, and distribute such content for academic and promotional purposes.",
             icon: <FileText className="w-6 h-6 text-primary" />
         },
         {
@@ -47,17 +47,17 @@ const TermsAndConditions = () => {
         },
         {
             title: "8. Third-Party Links",
-            content: "The Website may contain links to third-party sites not owned by INSD. INSD does not endorse and is not responsible for the content or practices of such third-party sites; your use of them is at your own risk.",
+            content: "The Website may contain links to third-party sites not owned by ICCVS. ICCVS does not endorse and is not responsible for the content or practices of such third-party sites; your use of them is at your own risk.",
             icon: <AlertCircle className="w-6 h-6 text-primary" />
         },
         {
             title: "9. Disclaimers",
-            content: "The Website is provided on an “as is” basis without warranties. INSD does not warrant that the Website will be uninterrupted or error-free. Any reliance on Website information is strictly at your own risk.",
+            content: "The Website is provided on an “as is” basis without warranties. ICCVS does not warrant that the Website will be uninterrupted or error-free. Any reliance on Website information is strictly at your own risk.",
             icon: <AlertCircle className="w-6 h-6 text-primary" />
         },
         {
             title: "10. Limitation of Liability",
-            content: "To the fullest extent permitted by law, INSD will not be liable for any direct, indirect, or consequential damages arising from your use of the Website or reliance on its content.",
+            content: "To the fullest extent permitted by law, ICCVS will not be liable for any direct, indirect, or consequential damages arising from your use of the Website or reliance on its content.",
             icon: <Gavel className="w-6 h-6 text-primary" />
         }
     ];
@@ -65,9 +65,9 @@ const TermsAndConditions = () => {
     return (
         <div className="bg-slate-50 min-h-screen font-sans selection:bg-primary/10 selection:text-primary">
             <SEO 
-                title="Terms and Conditions | INSD Legal"
+                title="Terms and Conditions | ICCVS Legal"
                 description="Read the official terms and conditions for using the International School of Design website and our educational services."
-                canonical="https://insd.edu.in/terms-and-conditions"
+                canonical="https://iccvs.edu.in/terms-and-conditions"
             />
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-white border-b border-slate-200">
@@ -139,7 +139,7 @@ const TermsAndConditions = () => {
                                 <p>For sections 11 through 16 including Indemnity, Force Majeure, and Governing Law, please refer to our full legal framework. These terms are governed by the laws of India, and the courts at New Delhi shall have exclusive jurisdiction.</p>
                                 <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
                                     <h4 className="text-white font-bold mb-2 uppercase tracking-widest text-xs">Contact Legal Department</h4>
-                                    <p className="text-slate-400">For any questions or concerns regarding these Terms, please contact: <a href="mailto:office@insd.edu.in" className="text-primary hover:underline transition-all font-black">office@insd.edu.in</a></p>
+                                    <p className="text-slate-400">For any questions or concerns regarding these Terms, please contact: <a href="mailto:office@iccvs.edu.in" className="text-primary hover:underline transition-all font-black">office@iccvs.edu.in</a></p>
                                 </div>
                             </div>
                         </motion.div>

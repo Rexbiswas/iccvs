@@ -185,7 +185,7 @@ for (const check of validationChecks) {
 console.log("\n=== TESTING CLIPBOARD SECURITY UTILITY ===");
 
 // Mock browser globals for Node.js context
-global.window = { location: { origin: "https://insd.edu.in" } };
+global.window = { location: { origin: "https://iccvs.edu.in" } };
 let lastWrittenClipboardText = "";
 global.navigator = {
     clipboard: {
@@ -202,7 +202,7 @@ const clipboardChecks = [];
 
 // Check 1: Allows valid same-origin link
 try {
-    const text = "https://insd.edu.in/blog?id=65ed3c2e1f4a5b6c7d8e9f01";
+    const text = "https://iccvs.edu.in/blog?id=65ed3c2e1f4a5b6c7d8e9f01";
     await safeCopyToClipboard(text);
     clipboardChecks.push({
         name: "Allows copying same-origin URL",
@@ -225,10 +225,10 @@ try {
 
 // Check 3: Pastejacking defense (strips newlines)
 try {
-    await safeCopyToClipboard("https://insd.edu.in/blog\n\nmalicious_cmd_here");
+    await safeCopyToClipboard("https://iccvs.edu.in/blog\n\nmalicious_cmd_here");
     clipboardChecks.push({
         name: "Pastejacking defense (strips newlines and carriage returns)",
-        pass: lastWrittenClipboardText === "https://insd.edu.in/blogmalicious_cmd_here"
+        pass: lastWrittenClipboardText === "https://iccvs.edu.in/blogmalicious_cmd_here"
     });
 } catch (err) {
     clipboardChecks.push({ name: "Pastejacking defense (strips newlines and carriage returns)", pass: false });

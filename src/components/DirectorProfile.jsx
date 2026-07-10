@@ -17,7 +17,7 @@ const DirectorProfile = () => {
                         <span className="block text-primary font-mono text-[10px] md:text-xs tracking-widest uppercase mb-4">Leadership</span>
                         <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
                             The Vision <br />
-                            <span className="text-slate-400 italic font-serif font-light">Behind INSD</span>
+                            <span className="text-slate-400 italic font-serif font-light">Behind ICCVS</span>
                         </h2>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ const DirectorProfile = () => {
                             
                             <div className="space-y-6 text-slate-600 font-light text-lg md:text-xl leading-relaxed relative z-10">
                                 <p>
-                                    As the driving force behind INSD, Mr. Aggarwal envisioned an ecosystem where raw creative talent could be nurtured into global professional excellence. His leadership has transformed INSD into a premier institution recognized across the design industry.
+                                    As the driving force behind ICCVS, Mr. Aggarwal envisioned an ecosystem where raw creative talent could be nurtured into global professional excellence. His leadership has transformed ICCVS into a premier institution recognized across the design industry.
                                 </p>
                                 <p>
                                     With decades of experience bridging the gap between academia and industry requirements, he has established a curriculum that doesn't just teach design, but engineers future industry leaders.

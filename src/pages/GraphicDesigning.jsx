@@ -186,7 +186,7 @@ const GraphicDesigning = () => {
     return (
         <div className="bg-white min-h-screen font-sans selection:bg-primary selection:text-white">
             <SEO 
-                title="Graphic Designing Degree | Visual Communication & Branding @ INSD"
+                title="Graphic Designing Degree | Visual Communication & Branding @ ICCVS"
                 description="Engineers the future of visual communication. Our Graphic Designing program balances creative alchemy with high-impact digital branding strategy."
             />
 
@@ -495,7 +495,7 @@ const GraphicDesigning = () => {
                 <div className="max-w-7xl mx-auto space-y-20">
                     <div className="text-center space-y-4">
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase tracking-tighter leading-none">
-                            Why Choose <br /> <span className="text-primary">INSD</span> Graphic Design Courses?
+                            Why Choose <br /> <span className="text-primary">ICCVS</span> Graphic Design Courses?
                         </h2>
                     </div>
 

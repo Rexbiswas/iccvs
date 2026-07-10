@@ -27,8 +27,8 @@ const ProfileDashboard = () => {
     return (
         <div className="min-h-screen bg-[#f3f3f3] text-slate-900 pt-32 pb-20 selection:bg-primary selection:text-white">
             <SEO 
-                title={`${user.firstName || 'Student'} Profile | Student Portal | INSD`}
-                description="Access your academic records, course schedule, and study materials via the INSD Student Portal."
+                title={`${user.firstName || 'Student'} Profile | Student Portal | ICCVS`}
+                description="Access your academic records, course schedule, and study materials via the ICCVS Student Portal."
                 robots="noindex, nofollow"
             />
             <div className="max-w-7xl mx-auto px-6">
@@ -164,7 +164,7 @@ const ProfileDashboard = () => {
                                     {user.courseName}
                                 </h2>
                                 <p className="text-slate-400 max-w-xl text-sm md:text-base font-light">
-                                    Your academic journey at INSD began in the {user.admissionYear} session. You are currently active and cleared for all campus facilities.
+                                    Your academic journey at ICCVS began in the {user.admissionYear} session. You are currently active and cleared for all campus facilities.
                                 </p>
                             </div>
                         </motion.div>

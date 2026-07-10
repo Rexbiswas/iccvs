@@ -11,7 +11,7 @@ const instaPosts = [
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdy7wo3bQ63AsnxuZlamIumVTLn8gqw__Q3Q&s",
         likes: "1.2k",
         comments: "45",
-        caption: "Republic Day Celebrations at INSD Campus! 🇮🇳 #INSD #Design"
+        caption: "Republic Day Celebrations at ICCVS Campus! 🇮🇳 #ICCVS #Design"
     },
     {
         id: 2,
@@ -44,10 +44,10 @@ const instaPosts = [
     },
     {
         id: 6,
-        img: "https://insd.edu.in/wp-content/uploads/sb-instagram-feed-images/326394436_5758005604315310_2132658014813759388_nfull.jpg",
+        img: "https://iccvs.edu.in/wp-content/uploads/sb-instagram-feed-images/326394436_5758005604315310_2132658014813759388_nfull.jpg",
         likes: "3.1k",
         comments: "210",
-        caption: "INSD x ESG Luxe Partnership Announcement! 🚀",
+        caption: "ICCVS x ESG Luxe Partnership Announcement! 🚀",
         featured: true // Wide card
     },
     {

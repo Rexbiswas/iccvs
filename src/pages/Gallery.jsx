@@ -52,9 +52,9 @@ const Gallery = () => {
     return (
         <div ref={containerRef} className="min-h-screen bg-white text-slate-900 font-sans selection:bg-primary selection:text-white overflow-x-hidden">
             <SEO 
-                title="Design Portfolios & Campus Gallery - INSD Showcase"
-                description="Explore the visual creative journey at INSD. Our gallery showcases the best in fashion, interior design, and student portfolios from across our global campuses."
-                keywords="INSD gallery, design portfolios, fashion design showcase, interior design student work, campus gallery"
+                title="Design Portfolios & Campus Gallery - ICCVS Showcase"
+                description="Explore the visual creative journey at ICCVS. Our gallery showcases the best in fashion, interior design, and student portfolios from across our global campuses."
+                keywords="ICCVS gallery, design portfolios, fashion design showcase, interior design student work, campus gallery"
             />
             {/* --- HERO SECTION --- */}
             <section className="gallery-hero relative h-[50vh] md:h-[65vh] flex flex-col items-center justify-center overflow-hidden bg-slate-50 border-b border-slate-100">
@@ -84,7 +84,7 @@ const Gallery = () => {
                             GALLERY<span className="text-transparent stroke-text-slate opacity-10">.</span>
                         </h1>
                         <p className="text-slate-400 font-bold text-xs md:text-sm uppercase tracking-widest max-w-xl mx-auto">
-                            The definitive collection of avant-garde design across all INSD global verticals.
+                            The definitive collection of avant-garde design across all ICCVS global verticals.
                         </p>
                     </motion.div>
                 </div>
@@ -188,7 +188,7 @@ const Gallery = () => {
                                     <h2 className="text-clamp-3xl font-black text-slate-900 uppercase tracking-tighter leading-[0.85]">{selectedImage.title}</h2>
                                 </div>
                                 <p className="text-slate-500 font-bold text-sm md:text-lg uppercase tracking-tight leading-relaxed">
-                                    Showcasing the pinnacle of design excellence at INSD. This work represents the intersection of technology, art, and human-centric design.
+                                    Showcasing the pinnacle of design excellence at ICCVS. This work represents the intersection of technology, art, and human-centric design.
                                 </p>
                                 <div className="space-y-4 pt-4">
                                     <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Global Vertical Impact</p>

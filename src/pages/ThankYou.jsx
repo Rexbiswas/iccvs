@@ -22,7 +22,7 @@ const ThankYou = () => {
     return (
         <div className="min-h-screen bg-white">
             <SEO 
-                title="Thank You | Submission Received | INSD"
+                title="Thank You | Submission Received | ICCVS"
                 description="Thank you for contacting the International School of Design. We have received your request and will get back to you shortly."
                 robots="noindex, follow"
             />
@@ -56,7 +56,7 @@ const ThankYou = () => {
                         >
                             {isPlacementReport 
                                 ? "Your request for the 2025/26 Placement Report has been received. Our team is processing the audited data and will send the PDF to your registered email shortly."
-                                : "Thank you for reaching out to INSD. Your request has been received, and our experts will contact you within 24 hours to guide you through your creative journey."
+                                : "Thank you for reaching out to ICCVS. Your request has been received, and our experts will contact you within 24 hours to guide you through your creative journey."
                             }
                         </motion.p>
                     </div>

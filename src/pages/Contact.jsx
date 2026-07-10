@@ -110,9 +110,9 @@ const Contact = () => {
     return (
         <div className="min-h-screen bg-slate-50 relative overflow-hidden">
             <SEO
-                title="Contact US - Reach Out to INSD"
+                title="Contact US - Reach Out to ICCVS"
                 description="Have questions about our programs or admissions? Get in touch with our expert counselors today. Visit our main campus in Delhi or contact us via phone or email."
-                keywords="INSD contact, design school admission help, INSD Delhi address, contact design institute"
+                keywords="ICCVS contact, design school admission help, ICCVS Delhi address, contact design institute"
             />
             {/* Background Abstract Elements */}
             <div className="fixed inset-0 pointer-events-none z-0">
@@ -171,7 +171,7 @@ const Contact = () => {
                                         <h3 className="text-lg font-bold text-slate-900 mb-4">Campuses</h3>
                                         <div className="space-y-6 max-h-[280px] overflow-y-auto pr-2 dropdown-scrollbar">
                                             <div className="space-y-1">
-                                                <h4 className="font-bold text-sm text-slate-800">INSD Corporate Headquarters</h4>
+                                                <h4 className="font-bold text-sm text-slate-800">ICCVS Corporate Headquarters</h4>
                                                 <p className="text-slate-600 text-xs leading-relaxed">
                                                     International School of Design,<br />
                                                     Gujranwala Town, Part 1,<br />
@@ -182,20 +182,20 @@ const Contact = () => {
                                                 </a>
                                             </div>
                                             <div className="space-y-1 pt-4 border-t border-slate-100">
-                                                <h4 className="font-bold text-sm text-slate-800">INSD Vijayawada</h4>
+                                                <h4 className="font-bold text-sm text-slate-800">ICCVS Vijayawada</h4>
                                                 <p className="text-slate-600 text-xs leading-relaxed">
                                                     3rd floor, above Indian Bank, opposite Jade suites, Acharya Ranga Nagar, Benz Circle, Vijayawada, Andhra Pradesh 520010
                                                 </p>
-                                                <a href="https://maps.google.com/?q=INSD+Vijayawada+Acharya+Ranga+Nagar+Benz+Circle+Vijayawada+Andhra+Pradesh+520010" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
+                                                <a href="https://maps.google.com/?q=ICCVS+Vijayawada+Acharya+Ranga+Nagar+Benz+Circle+Vijayawada+Andhra+Pradesh+520010" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
                                                     Get Directions <ArrowRight size={12} className="ml-1" />
                                                 </a>
                                             </div>
                                             <div className="space-y-1 pt-4 border-t border-slate-100">
-                                                <h4 className="font-bold text-sm text-slate-800">INSD - Thrissur</h4>
+                                                <h4 className="font-bold text-sm text-slate-800">ICCVS - Thrissur</h4>
                                                 <p className="text-slate-600 text-xs leading-relaxed">
                                                     G65F+2HQ Fabis Arcade, High Rd, Kuriachira, Thrissur, Kerala 680006
                                                 </p>
-                                                <a href="https://maps.google.com/?q=INSD+Thrissur+Fabis+Arcade+High+Rd+Kuriachira+Thrissur+Kerala+680006" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
+                                                <a href="https://maps.google.com/?q=ICCVS+Thrissur+Fabis+Arcade+High+Rd+Kuriachira+Thrissur+Kerala+680006" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-secondary hover:text-primary transition-colors mt-1">
                                                     Get Directions <ArrowRight size={12} className="ml-1" />
                                                 </a>
                                             </div>
@@ -252,7 +252,7 @@ const Contact = () => {
                                                     { icon: Instagram, href: "https://www.instagram.com/insd_official" },
                                                     { icon: Facebook, href: "https://www.facebook.com/share/1CMuRdTV69/" },
                                                     { icon: Linkedin, href: "https://www.linkedin.com/school/international-school-of-design/" },
-                                                    { icon: Youtube, href: "https://youtube.com/@insd-internationalschoolof5139?feature=shared" }
+                                                    { icon: Youtube, href: "https://youtube.com/@iccvs-internationalschoolof5139?feature=shared" }
                                                 ].map((soc, idx) => (
                                                     <a
                                                         key={idx}

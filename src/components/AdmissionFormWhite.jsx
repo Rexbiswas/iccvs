@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, X, ChevronDown, Send } from 'lucide-react';
-import { stateCityData } from '../data/locations';
 
 const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText, successMsg }) => {
     const navigate = useNavigate();
@@ -18,8 +17,6 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
 
     const [status, setStatus] = useState('idle'); // idle, loading, success, error
     const [errorMessage, setErrorMessage] = useState('');
-
-    const states = ["Select State", ...Object.keys(stateCityData)];
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -158,57 +155,17 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                 </button>
             )}
 
-            {/* Left Content - Marketing - Redesigned for Premium UI */}
-            <div className={`w-full md:w-[42%] bg-gradient-to-br from-[#134a84] via-[#134a84] to-[#db3436] text-white flex flex-col justify-center relative overflow-hidden ${isModal ? 'h-[250px] md:h-auto' : 'min-h-[300px] md:min-h-[650px]'}`}>
-                {/* Decorative background element */}
-                <div className="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[300px] h-[300px] bg-[#db3436]/20 rounded-full blur-3xl pointer-events-none" />
-
-                <div className="p-8 md:p-12 relative z-10 text-center space-y-4 md:space-y-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className="text-2xl md:text-5xl font-black leading-[1.1] tracking-tighter uppercase italic drop-shadow-2xl">
-                            Are you ready <br />
-                            <span className="text-white/90">to be part of this</span><br />
-                            <span className="text-[#db3436] drop-shadow-[0_0_15px_rgba(219,52,54,0.4)] not-italic">
-                                Billion-dollar <br />
-                                Industry?
-                            </span>
-                        </h2>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col items-center gap-4"
-                    >
-                        <div className="w-12 h-1 bg-white/20 rounded-full" />
-                        <p className="text-white/80 font-black text-sm md:text-xl uppercase tracking-[0.2em] drop-shadow-lg">
-                            Start your creative <br className="hidden md:block" />
-                            career today!
-                        </p>
-                    </motion.div>
-                </div>
-
-                {/* Subtle bottom accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-linear-to-r from-transparent via-white/10 to-transparent" />
-            </div>
-
-            {/* Right Content - Form */}
-            <div className={`flex-1 bg-white flex flex-col relative ${isModal ? 'overflow-y-auto max-h-[65vh] md:max-h-full' : ''}`}>
-                {/* Visual Accent Line on far right */}
-                <div className="absolute right-0 top-0 bottom-0 w-2 bg-[#db3436] opacity-10 pointer-events-none hidden md:block" />
-                <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-[#db3436] opacity-30 pointer-events-none hidden md:block" />
+            {/* Left Content - Form */}
+            <div className={`flex-1 bg-white flex flex-col relative ${isModal ? 'overflow-y-auto max-h-[85vh] md:max-h-full' : ''}`}>
+                {/* Visual Accent Line on far left */}
+                <div className="absolute left-0 top-0 bottom-0 w-2 bg-[#db3436] opacity-10 pointer-events-none hidden md:block" />
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[#db3436] opacity-30 pointer-events-none hidden md:block" />
                 
-                <div className="p-4 md:p-8 space-y-4 md:space-y-6">
+                <div className="p-4 md:p-8 space-y-3 md:space-y-6">
                     <div className="flex items-center justify-between gap-4">
                         <div className="space-y-1">
                             <h3 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight uppercase">
-                                {title || "TALK TO OUR EXPERTS"}
+                                {title || "ENQUIRY NOW"}
                             </h3>
                             <p className="text-slate-500 font-bold text-sm md:text-base">
                                 {subtitle || "Our experts will call you within 24 hours"}
@@ -216,8 +173,8 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                         </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    <form onSubmit={handleSubmit} className="space-y-2.5 md:space-y-3">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-4">
                             {/* Name Field */}
                             <div className="space-y-1">
                                 <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">Full Name</label>
@@ -246,7 +203,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-6">
                             {/* Phone Number Field */}
                             <div className="space-y-1">
                                 <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">Phone Number</label>
@@ -303,63 +260,23 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                                         className="w-full h-10 md:h-12 px-5 bg-slate-50/50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:border-[#134a84] appearance-none text-slate-900 font-bold text-sm md:text-base cursor-pointer"
                                     >
                                         <option value="" disabled>Select Course</option>
-                                        <option value="Fashion Design">Fashion Design</option>
-                                        <option value="Interior Design">Interior Design</option>
-                                        <option value="Graphic Design">Graphic Design</option>
-                                        <option value="Animation VFX">Animation VFX</option>
-                                        <option value="UI/UX Design">UI/UX Design</option>
-                                        <option value="Jewellery Design">Jewellery Design</option>
-                                        <option value="Photography">Photography</option>
-                                        <option value="Beauty Make-up">Beauty Make-up</option>
-                                        <option value="Textile Design">Textile Design</option>
-                                    </select>
-                                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                        <ChevronDown size={18} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                            {/* State Dropdown */}
-                            <div className="space-y-1">
-                                <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">State</label>
-                                <div className="relative">
-                                    <select 
-                                        name="state"
-                                        value={formData.state}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full h-10 md:h-12 px-5 bg-slate-50/50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:border-[#134a84] appearance-none text-slate-900 font-bold text-sm md:text-base cursor-pointer"
-                                    >
-                                        {states.map(opt => (
-                                            <option key={opt} value={opt === states[0] ? "" : opt} disabled={opt === states[0]}>
-                                                {opt}
-                                            </option>
-                                        ))}
-                                    </select>
-                                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                        <ChevronDown size={18} />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* City Dropdown */}
-                            <div className="space-y-1">
-                                <label className="text-[10px] md:text-xs font-black text-slate-800 ml-1 uppercase tracking-wider">City</label>
-                                <div className="relative">
-                                    <select 
-                                        name="city"
-                                        value={formData.city}
-                                        onChange={handleChange}
-                                        disabled={!formData.state}
-                                        required
-                                        className="w-full h-10 md:h-12 px-5 bg-slate-50/50 border border-slate-200 rounded-xl md:rounded-2xl focus:outline-none focus:border-[#134a84] appearance-none text-slate-900 font-bold text-sm md:text-base cursor-pointer disabled:opacity-50"
-                                    >
-                                        <option value="">Select City</option>
-                                        {(formData.state ? stateCityData[formData.state] : []).map(city => (
-                                            <option key={city} value={city}>{city}</option>
-                                        ))}
+                                        <option value="Basic Computer Course">Basic Computer Course</option>
+                                        <option value="DTP">DTP</option>
+                                        <option value="Diploma">Diploma</option>
+                                        <option value="Tally Prime / ERP 9">Tally Prime / ERP 9</option>
+                                        <option value="DFA">DFA</option>
+                                        <option value="ADFA">ADFA</option>
+                                        <option value="PDFA">PDFA</option>
+                                        <option value="Taxation Course">Taxation Course</option>
+                                        <option value="ADCA">ADCA</option>
+                                        <option value="NIIT Authorized Courses">NIIT Authorized Courses</option>
+                                        <option value="DIT">DIT</option>
+                                        <option value="ADIT / A Level">ADIT / A Level</option>
+                                        <option value="Data Analyst">Data Analyst</option>
+                                        <option value="Advance Excel">Advance Excel</option>
+                                        <option value="Advance Excel (MIS)">Advance Excel (MIS)</option>
+                                        <option value="Advance Excel (Macro)">Advance Excel (Macro)</option>
+                                        <option value="Advance Excel (Dash Board)">Advance Excel (Dash Board)</option>
                                     </select>
                                     <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                                         <ChevronDown size={18} />
@@ -379,7 +296,7 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                         <button
                             type="submit"
                             disabled={status === 'loading'}
-                            className="w-full h-11 md:h-13 bg-linear-to-r from-[#134a84] to-[#db3436] hover:brightness-110 disabled:opacity-50 text-white font-black uppercase tracking-[0.25em] text-sm md:text-base rounded-full transition-all shadow-2xl hover:shadow-[0_10px_40px_-10px_rgba(219,52,54,0.6)] active:scale-[0.95] mt-2 flex items-center justify-center gap-3"
+                            className="w-full h-11 md:h-13 bg-linear-to-r from-[#A62B2B] to-[#00D893] hover:brightness-110 disabled:opacity-50 text-white font-black uppercase tracking-[0.25em] text-sm md:text-base rounded-full transition-all shadow-2xl hover:shadow-[0_10px_40px_-10px_rgba(0,216,147,0.4)] active:scale-[0.95] mt-2 flex items-center justify-center gap-3"
                         >
                             {status === 'loading' ? (
                                 <>
@@ -395,6 +312,39 @@ const AdmissionFormWhite = ({ isModal = false, onClose, title, subtitle, ctaText
                         </button>
                     </form>
                 </div>
+            </div>
+
+            {/* Right Content - Marketing Image Panel (reflected to right side) */}
+            <div className={`hidden md:flex w-full md:w-[42%] bg-gradient-to-br from-[#A62B2B] to-[#00D893] text-white flex-col justify-end items-center gap-2 md:gap-4 relative overflow-hidden ${isModal ? 'h-[320px] md:h-auto' : 'min-h-[350px] md:min-h-[650px]'}`}>
+                {/* Decorative background element */}
+                <div className="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-[-10%] left-[-10%] w-[300px] h-[300px] bg-[#db3436]/20 rounded-full blur-3xl pointer-events-none" />
+
+                {/* Header Text */}
+                <div className="pt-6 md:pt-8 px-6 relative z-20 text-center select-none w-full">
+                    <motion.h2 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-xl md:text-3xl font-black leading-tight tracking-tighter uppercase italic drop-shadow-2xl text-white"
+                    >
+                        Are you ready <br />
+                        <span className="text-white/90">to be part of this institute</span>
+                    </motion.h2>
+                </div>
+
+                {/* Student Image */}
+                <motion.img
+                    src="https://ik.imagekit.io/fmldynl4j4/7388f7fd-68aa-4b03-86f2-695cd2f42114-removebg-preview.png"
+                    alt="ICCVS Student"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="w-auto h-[70%] md:h-[75%] object-contain relative z-10 drop-shadow-[0_15px_30px_rgba(0,0,0,0.3)]"
+                />
+
+                {/* Subtle bottom accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-linear-to-r from-transparent via-white/10 to-transparent" />
             </div>
         </div>
     );

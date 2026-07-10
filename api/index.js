@@ -60,7 +60,7 @@ app.post('/admission', async (req, res) => {
 
         await transporter.sendMail({
             from: process.env.GOOGLE_EMAIL,
-            to: 'insd.admissionleads@gmail.com',
+            to: 'iccvs.admissionleads@gmail.com',
             subject: `[New Lead] ${req.body.name}`,
             text: JSON.stringify(req.body, null, 2)
         });

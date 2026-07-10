@@ -26,7 +26,7 @@ async function testEmail() {
     console.error('\n--- TROUBLESHOOTING ---');
     console.error('1. Go to https://myaccount.google.com/apppasswords');
     console.error('2. Delete the old "ryhahusnajfwylog" password if it exists.');
-    console.error('3. Generate a NEW App Password (select "Other" and name it "INSD Website").');
+    console.error('3. Generate a NEW App Password (select "Other" and name it "ICCVS Website").');
     console.error('4. Copy the new 16-character code and update GOOGLE_APP_PASSWORD in .env');
     console.error('5. If you are on Vercel, update it in Vercel Settings > Environment Variables.');
   }

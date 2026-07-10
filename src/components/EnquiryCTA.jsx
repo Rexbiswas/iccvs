@@ -33,7 +33,7 @@ const EnquiryCTA = ({ isFloatingPanel = false }) => {
         */
         openAdmissionModal({
             formType: 'admission',
-            title: 'TALK TO OUR EXPERTS',
+            title: 'ENQUIRY NOW',
             subtitle: 'Get professional guidance for your design career.'
         });
     };

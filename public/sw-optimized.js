@@ -3,7 +3,7 @@
  * Caches critical assets and serves them offline
  */
 
-const CACHE_NAME = 'insd-v2';
+const CACHE_NAME = 'iccvs-v2';
 const urlsToCache = [
   '/',
   '/index.html',

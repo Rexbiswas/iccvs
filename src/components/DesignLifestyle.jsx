@@ -177,7 +177,7 @@ const DesignLifestyle = () => {
 
                 <div className="mt-20 flex justify-center">
                     <div className="text-[12vw] font-black text-slate-200/50 select-none pointer-events-none uppercase tracking-widest italic">
-                        INSD
+                        ICCVS
                     </div>
                 </div>
             </div>

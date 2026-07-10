@@ -75,7 +75,7 @@ router.post('/', validateStepLead, async (req, res) => {
         Promise.allSettled([
             sendWelcomeEmail(email, name, "Career Roadmap"),
             sendSMS(mobileNumber, name),
-            sendAdminLeadEmail("insd.admissionleads@gmail.com", {
+            sendAdminLeadEmail("iccvs.admissionleads@gmail.com", {
                 ...req.body,
                 phone: mobileNumber
             }, "Step Lead Inquiry"),

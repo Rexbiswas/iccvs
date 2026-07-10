@@ -43,7 +43,7 @@ router.post('/', validateContact, async (req, res) => {
         Promise.allSettled([
             sendWelcomeEmail(email, name, subject || 'General Inquiry'),
             sendSMS(phone || '', name),
-            sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Contact Form Inquiry'),
+            sendAdminLeadEmail('iccvs.admissionleads@gmail.com', req.body, 'Contact Form Inquiry'),
             pushToNPF(req.body)
         ]).catch(err => console.error('[Contact Notification Error]', err.message));
 

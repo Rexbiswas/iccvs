@@ -31,7 +31,7 @@ router.post('/submit', async (req, res) => {
         // Fire off notifications async
         Promise.allSettled([
             sendWelcomeEmail(email, fullName, industry || 'Design Course'),
-            sendAdminLeadEmail('insd.admissionleads@gmail.com', req.body, 'Web Application Lead')
+            sendAdminLeadEmail('iccvs.admissionleads@gmail.com', req.body, 'Web Application Lead')
         ]).catch(err => console.error('[LeadAuth Notification Error]', err.message));
 
         res.status(201).json({ message: "Lead submitted successfully!", lead: newLead });

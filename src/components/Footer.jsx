@@ -159,8 +159,7 @@ const Footer = ({ showTagline = false }) => {
                             </h5>
                             <ul className="space-y-4">
                                 {[
-                                    { name: "Blogs", path: "/insd-360/blog" },
-                                    { name: "Locations", path: "/locations" }
+                                    { name: "Blogs", path: "/iccvs-360/blog" }
                                 ].map((item, i) => (
                                     <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                                         <Link to={item.path} className="text-[13px] text-white/50 hover:text-primary transition-all duration-300 flex items-center gap-2 group/link whitespace-nowrap">
@@ -188,7 +187,7 @@ const Footer = ({ showTagline = false }) => {
                                 </motion.div>
                                 <motion.div whileHover={{ x: 5 }} className="group cursor-pointer">
                                     <span className="block text-[10px] uppercase tracking-widest text-white/40 mb-1">Location</span>
-                                    <Link to="/locations" className="text-sm font-bold border-b border-white/5 group-hover:border-white transition-all pb-1">Delhi, India</Link>
+                                    <Link to="/contact-us" className="text-sm font-bold border-b border-white/5 group-hover:border-white transition-all pb-1">Delhi, India</Link>
                                 </motion.div>
                             </div>
                         </div>

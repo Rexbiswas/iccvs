@@ -9,17 +9,17 @@ export const sendWelcomeEmail = async (email, name, course) => {
         const transporter = await getGoogleTransporter();
         if (!transporter) return false;
         const mailOptions = {
-            from: `"INSD Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
+            from: `"ICCVS Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
             to: email,
-            subject: "Welcome to INSD - Inquiry Received!",
+            subject: "Welcome to ICCVS - Inquiry Received!",
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
                     <h2 style="color: #db3436;">Hello ${name},</h2>
-                    <p>Thank you for reaching out to **International School of Design (INSD)**!</p>
+                    <p>Thank you for reaching out to **International School of Design (ICCVS)**!</p>
                     <p>We have received your inquiry for the <strong>${course}</strong> program. Our admissions team is currently reviewing your details and will get back to you within two business days.</p>
                     <p>In the meantime, feel free to explore our website or prepare some questions for our counselors.</p>
                     <br/>
-                    <p>Best Regards,<br/><strong>The INSD Admissions Team</strong></p>
+                    <p>Best Regards,<br/><strong>The ICCVS Admissions Team</strong></p>
                 </div>
             `
         };
@@ -50,7 +50,7 @@ export const sendSMS = async (phone, name) => {
         const isDLT = !!process.env.FAST2SMS_TEMPLATE_ID;
         const payload = {
             route: isDLT ? "dlt" : "q", // 'q' (Quick) route is better for testing without DLT
-            message: isDLT ? process.env.FAST2SMS_TEMPLATE_ID : `Hello ${name}, thank you for your inquiry at INSD. Our team will contact you soon.`,
+            message: isDLT ? process.env.FAST2SMS_TEMPLATE_ID : `Hello ${name}, thank you for your inquiry at ICCVS. Our team will contact you soon.`,
             language: "english",
             flash: 0,
             numbers: phoneNo,
@@ -102,13 +102,13 @@ export const sendAdminLeadEmail = async (adminEmail, leadData, type = "General I
             .join('');
 
         const mailOptions = {
-            from: `"INSD Lead System" <${process.env.GOOGLE_EMAIL || 'admissions@insd.edu.in'}>`,
+            from: `"ICCVS Lead System" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
             to: adminEmail,
             subject: `[NEW LEAD] ${type} - ${leadData.name || leadData.fullName || 'Unknown'}`,
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
                     <h2 style="color: #db3436; border-bottom: 2px solid #db3436; padding-bottom: 10px;">New ${type} Submission</h2>
-                    <p>A new lead has been captured on the INSD website.</p>
+                    <p>A new lead has been captured on the ICCVS website.</p>
                     <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
                         <ul style="list-style: none; padding: 0;">
                             ${detailsHtml}

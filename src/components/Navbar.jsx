@@ -166,7 +166,7 @@ const Navbar = () => {
     // Updated detection: Pages with permanent dark themes or sections
     const darkPages = [
         '/course-apply-now',
-        '/insd-360/blog'
+        '/iccvs-360/blog'
     ];
     const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
 
@@ -276,7 +276,7 @@ const Navbar = () => {
             icon: Sparkles,
             section: 'OVERVIEW'
         },
-        { title: 'Blogs', path: '/insd-360/blog', icon: BookOpen, section: 'OVERVIEW' },
+        { title: 'Blogs', path: '/iccvs-360/blog', icon: BookOpen, section: 'OVERVIEW' },
         {
             title: 'Contact Us',
             path: '/contact-us',
@@ -512,7 +512,7 @@ const Navbar = () => {
                                 Scholarship
                             </RollerLink>
                             <RollerLink
-                                to="/insd-360/blog"
+                                to="/iccvs-360/blog"
                                 colorClass="nav-hover-gradient"
                                 baseTextClass={isHeaderDark && !isScrolled ? "text-white" : "text-slate-800"}
                             >
@@ -819,7 +819,7 @@ const Navbar = () => {
                                                 {user ? user.username : 'Signin / Signup'}
                                             </span>
                                             <span className="text-[8px] font-bold text-white/60 tracking-widest uppercase">
-                                                {user ? 'View Profile' : 'INSD Student Protocol'}
+                                                {user ? 'View Profile' : 'ICCVS Student Protocol'}
                                             </span>
                                         </div>
                                     </button>
@@ -1040,7 +1040,7 @@ const Navbar = () => {
                                                 ) : (
                                                     <a
                                                         href={cta.href}
-                                                        download={cta.isDownload ? "INSD-Prospectus-2026.pdf" : undefined}
+                                                        download={cta.isDownload ? "ICCVS-Prospectus-2026.pdf" : undefined}
                                                         onClick={() => { if (!cta.isDownload) setIsOpen(false); }}
                                                         className="flex items-center gap-6 md:gap-8 text-left"
                                                     >
@@ -1084,7 +1084,7 @@ const Navbar = () => {
                                     <motion.div variants={itemVariants}>
                                         <h4 className="text-[9px] md:text-[10px] font-black tracking-[0.4em] text-secondary uppercase mb-4 md:mb-6">Location</h4>
                                         <div className="space-y-3 max-w-xs">
-                                            <h5 className="font-black text-[10px] md:text-xs uppercase tracking-wider text-white/80">INSD Corporate Centres</h5>
+                                            <h5 className="font-black text-[10px] md:text-xs uppercase tracking-wider text-white/80">ICCVS Corporate Centres</h5>
                                             <button className="flex items-center gap-3 text-[10px] md:text-xs font-bold text-primary group">
                                                 VIEW ON MAPS
                                                 <div className="w-5 h-5 rounded-full border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
