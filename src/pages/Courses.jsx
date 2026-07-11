@@ -11,9 +11,146 @@ import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const coursesData = [];
+const coursesData = [
+    {
+        id: 1,
+        title: "Basic Computer Course",
+        category: "Diplomas",
+        duration: "3 Months",
+        description: "Learn computer fundamentals, operating systems, and essential office tools. Perfect for beginners to establish core digital skills.",
+        path: "/courses/basic-computer-course"
+    },
+    {
+        id: 2,
+        title: "DTP (Desktop Publishing)",
+        category: "IT & Code",
+        duration: "3 Months",
+        description: "Master graphic design and print publishing using standard tools. Acquire specialized printing and layout publishing skills.",
+        path: "/courses/dtp"
+    },
+    {
+        id: 3,
+        title: "Diploma (Computer Applications)",
+        category: "Diplomas",
+        duration: "6 Months",
+        description: "Build a strong foundation in office automation, data management, and basic accounting. Comfortable with everyday business operations.",
+        path: "/courses/diploma"
+    },
+    {
+        id: 4,
+        title: "Tally Prime / ERP 9",
+        category: "Accounting",
+        duration: "3 Months",
+        description: "Master commercial accounting, invoicing, inventory management, and taxation using the industry-standard Tally Prime ERP software.",
+        path: "/courses/tally"
+    },
+    {
+        id: 5,
+        title: "DFA (Diploma in Financial Accounting)",
+        category: "Accounting",
+        duration: "6 Months",
+        description: "Build a strong career in commercial accounting, finance operations, and tax processing. Bridges accounting theory with computer bookkeeping.",
+        path: "/courses/dfa"
+    },
+    {
+        id: 6,
+        title: "ADFA (Adv. Diploma in Financial Accounting)",
+        category: "Accounting",
+        duration: "1 Year",
+        description: "Our advanced professional-track accounting diploma prepares you to manage financial records of mid-to-large scale business houses.",
+        path: "/courses/adfa"
+    },
+    {
+        id: 7,
+        title: "PDFA (Professional Diploma in Financial Accounting)",
+        category: "Accounting",
+        duration: "1 Year",
+        description: "Become a corporate financial accountant with advanced tax filing. Our flagship professional diploma equips you to handle corporate finance.",
+        path: "/courses/pdfa"
+    },
+    {
+        id: 8,
+        title: "Taxation Course",
+        category: "Accounting",
+        duration: "3 Months",
+        description: "Develop specialized expertise in GST, Income Tax return e-filing, and TDS compliance. Focuses strictly on Indian direct/indirect tax computation.",
+        path: "/courses/taxation"
+    },
+    {
+        id: 9,
+        title: "ADCA (Adv. Diploma in Computer Application)",
+        category: "Diplomas",
+        duration: "1 Year",
+        description: "Our advanced diploma equips you with multiple domains—office automation, business bookkeeping, graphic design, and web programming.",
+        path: "/courses/adca"
+    },
+    {
+        id: 10,
+        title: "NIIT Authorized Courses",
+        category: "IT & Code",
+        duration: "Varies",
+        description: "Industry-aligned tech curriculums design for professional programming careers. Builds structured software engineering logic using C++, Java, and SQL.",
+        path: "/courses/niit"
+    },
+    {
+        id: 11,
+        title: "DIT (Diploma in Information Technology)",
+        category: "Diplomas",
+        duration: "6 Months",
+        description: "Acquire fundamental network engineering, hardware assembly, and web programming. Prepare for IT support and web setup environments.",
+        path: "/courses/dit"
+    },
+    {
+        id: 12,
+        title: "ADIT / A Level (Adv. Diploma in IT)",
+        category: "Diplomas",
+        duration: "1 Year",
+        description: "Become a software engineer with advanced programming, database administration, and security capabilities. Prepares you to code backend software databases.",
+        path: "/courses/adit"
+    },
+    {
+        id: 13,
+        title: "Data Analyst",
+        category: "IT & Code",
+        duration: "6 Months",
+        description: "Build dashboards and extract commercial data insights using SQL, Python, and Power BI. Prepares you for high-paying corporate analyst roles.",
+        path: "/courses/data-analyst"
+    },
+    {
+        id: 14,
+        title: "Advance Excel",
+        category: "Excel",
+        duration: "2 Months",
+        description: "Master advanced formulas, lookup functions, data sorting, and pivot tables. Covers advanced spreadsheet formatting, essential for corporate roles.",
+        path: "/courses/advance-excel"
+    },
+    {
+        id: 15,
+        title: "Advance Excel (MIS)",
+        category: "Excel",
+        duration: "2 Months",
+        description: "Master Management Information System (MIS) setups and executive dashboards. Focuses on configuring automated data summary systems.",
+        path: "/courses/advance-excel-mis"
+    },
+    {
+        id: 16,
+        title: "Advance Excel (Macro)",
+        category: "Excel",
+        duration: "2 Months",
+        description: "Automate repetitive calculations and reports using VBA macros. Teaches you Visual Basic programming inside Excel to design automated systems.",
+        path: "/courses/advance-excel-macro"
+    },
+    {
+        id: 17,
+        title: "Advance Excel (Dash Board)",
+        category: "Excel",
+        duration: "2 Months",
+        description: "Build interactive dashboards and tracking tools for business performance. Turn spreadsheets into visual interfaces for management reporting.",
+        path: "/courses/advance-excel-dashboard"
+    }
+];
 
-const categories = ["All", "Fashion", "Interior", "VFX", "Management"];
+const categories = ["All", "Accounting", "IT & Code", "Excel", "Diplomas"];
 
 const MagneticButton = ({ children, className }) => {
     const buttonRef = useRef(null);
@@ -174,7 +311,7 @@ const Courses = () => {
                         className="mb-8"
                     >
                         <span className="font-mono text-xs md:text-sm uppercase tracking-[0.4em] text-pink-600 bg-pink-50 px-6 py-2 rounded-full border border-pink-100">
-                            The Design Academics
+                            The Technical Academics
                         </span>
                     </motion.div>
                     <motion.h1
@@ -192,7 +329,7 @@ const Courses = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="mt-12 max-w-2xl text-zinc-600 font-light text-lg md:text-xl leading-relaxed"
                     >
-                        Our carefully curated degree and diploma programs focus purely on skill-extraction and industry preparation, entirely stripping away redundant theory to bring you directly to the bleeding edge of the creative market.
+                        Our carefully curated IT, coding, and business accounting programs focus purely on practical skill-extraction and career readiness, preparing you directly for the demands of the modern market.
                     </motion.p>
                 </div>
             </section>
