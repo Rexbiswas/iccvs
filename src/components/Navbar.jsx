@@ -372,14 +372,14 @@ const Navbar = () => {
                     borderStyle: "solid",
                 }}
                 ref={navRef}
-                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-4 items-center justify-between pointer-events-auto"
+                className="hidden lg:flex fixed top-0 left-0 right-0 z-1000 px-10 lg:px-14 xl:px-20 py-2 items-center justify-between pointer-events-auto"
             >
                 {/* Left: Logo */}
-                <Link to="/" className="nav-logo relative z-50 shrink-0 flex items-center h-[85px]" onClick={() => setIsOpen(false)}>
+                <Link to="/" className="nav-logo relative z-50 shrink-0 flex items-center h-[60px]" onClick={() => setIsOpen(false)}>
                     <motion.img
                         whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                        className="h-[100px] w-[210px]  object-cover transition-all duration-500"
+                        className="h-[72px] w-[150px]  object-cover transition-all duration-500"
                         src="https://ik.imagekit.io/fmldynl4j4/1111-removebg-preview.png"
                         alt="ICCVS Logo"
                     />
@@ -978,7 +978,6 @@ const Navbar = () => {
                                     <div className="space-y-4 md:space-y-6">
                                         {[
                                             { title: 'Call Us Now', sub: '+91 9868444888', icon: Phone, href: 'tel:+919868444888' },
-                                            { title: 'Apply Now', sub: 'Admission Cycle 2026', icon: UserPlus, href: '#' },
                                             { title: 'Book Counselling', sub: 'Free Expert Session', icon: Calendar, action: 'modal' },
 
                                         ].map((cta, i) => (

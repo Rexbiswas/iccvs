@@ -8,7 +8,8 @@ const programs = [
     {
         title: "DATA ANALYST",
         tag: "DATA ANALYST",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20Fd%20.png?updatedAt=1774326592482",
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+        innerImg: "https://mail.google.com/mail/u/0/?ui=2&ik=983243c9d9&attid=0.1&permmsgid=msg-a:r638054330728342572&th=19f4f6a347dc2278&view=fimg&realattid=19f4f6a1c9493dd9eaf1&disp=thd&attbid=ANGjdJ-tkcUNWDBTIZ6Nqwve21jRnwjJcDNnY3Tu3sqeRyqLAd2wJyNa4IQQWSF3l5Z9QPCn2mb9TAVAPm_d0EXWY87mieZ9QMUJKlfXiQlZcVEhk6-1WlXEg-eTuXk&ats=2524608000000&sz=w1366-h641&auditContext=forDisplay",
         headline: "Turn Data Into Decisions.",
         subtitle: "Analyze complex data — transform it into strategy & growth",
         careerPath: {
@@ -30,7 +31,8 @@ const programs = [
     {
         title: "WEB DESIGN",
         tag: "WEB DESIGN",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20ID%20.png?updatedAt=1774326590892",
+        img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+        innerImg: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80",
         headline: "Design Websites That Inspire.",
         subtitle: "Turn ideas into real-world websites that people love.",
         careerPath: {
@@ -55,7 +57,8 @@ const programs = [
     {
         title: "DIGITAL MARKETING",
         tag: "DIGITAL MARKETING",
-        img: "https://ik.imagekit.io/fmldynl4j4/Untitled%20folder/Copy%20of%20GD%20.png?updatedAt=1774326590920",
+        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+        innerImg: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
         headline: "Turn Clicks Into Customers.",
         subtitle: "Transform online visibility into real business results.",
         careerPath: {
@@ -224,7 +227,7 @@ const ProgramGrid = () => {
                                 <div className="hidden lg:flex lg:w-1/3 relative overflow-hidden bg-slate-900 group/modal">
                                     <div className="absolute inset-0 bg-slate-950/60 z-10" />
                                     <img
-                                        src={selectedProgram.img}
+                                        src={selectedProgram.innerImg || selectedProgram.img}
                                         className="absolute inset-0 w-full h-full object-cover -50 group-hover/modal:-0 group-hover/modal:scale-110 transition-all duration-1000"
                                         alt={selectedProgram.title}
                                     />

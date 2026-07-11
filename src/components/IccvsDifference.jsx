@@ -86,14 +86,14 @@ const IccvsDifference = () => {
                                 className="flex items-center gap-3 mb-4"
                             >
                                 <div className="w-12 h-px bg-[#A62B2B]"></div>
-                                <span className="text-[#A62B2B] font-black uppercase tracking-[0.4em] text-xs">Why Choose ICCVS?</span>
+                                <span className="text-[#A62B2B] font-black uppercase tracking-[0.4em] text-sm md:text-base">Why Choose ICCVS?</span>
                             </motion.div>
 
                             <motion.h2
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="text-3xl md:text-5xl font-black text-slate-950 leading-tight tracking-tighter mb-4 uppercase"
+                                className="text-4xl md:text-6xl font-black text-slate-950 leading-tight tracking-tighter mb-4 uppercase"
                             >
                                 Transform Your Passion <br />
                                 <span className="text-[#A62B2B] italic">Into a Successful Career</span>
