@@ -32,8 +32,7 @@ router.post('/', verifyAdmin, async (req, res) => {
             }).save();
         } catch (logErr) {}
 
-        // Backup data locally (Fail-Safe)
-        import('../utils/offlineLogger.js').then(m => m.backupOfflineData('blogs', req.body));
+
 
         // Notify Admin
         sendAdminLeadEmail('iccvs.admissionleads@gmail.com', req.body, 'New Blog Submission')

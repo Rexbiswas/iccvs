@@ -48,8 +48,7 @@ router.post('/', validateContact, async (req, res) => {
             }).save();
         } catch (logErr) {}
 
-        // Backup data locally (Triple Redundancy)
-        import('../utils/offlineLogger.js').then(m => m.backupOfflineData('contacts', req.body));
+
 
         // Send notifications
         Promise.allSettled([

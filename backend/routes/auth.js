@@ -66,8 +66,7 @@ router.post('/register', validateRegister, async (req, res) => {
             console.error('[History Log Error] Failed to log registration:', logErr.message);
         }
 
-        // Backup data locally (Fail-Safe)
-        import('../utils/offlineLogger.js').then(m => m.backupOfflineData('users', req.body));
+
 
         // Unified Notifications
         Promise.allSettled([

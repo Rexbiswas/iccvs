@@ -23,8 +23,7 @@ import Enquiry from './models/Enquiry.js';
 import Blog from './models/Blog.js';
 import Contact from './models/Contact.js';
 
-// Utils
-import { syncBackups } from './utils/offlineLogger.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -111,15 +110,7 @@ const connectDB = async () => {
     const localURI = process.env.MONGO_URI_LOCAL || 'mongodb://127.0.0.1:27017/iccvs';
     const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL;
 
-    const runSync = () => {
-        const models = {
-            enquiry: Enquiry,
-            contacts: Contact,
-            users: User,
-            blogs: Blog
-        };
-        syncBackups(models);
-    };
+
 
     const cloudURI = process.env.MONGO_URI;
     console.log("🔍 [Debug] MONGO_URI from process.env:", cloudURI);
@@ -138,7 +129,6 @@ const connectDB = async () => {
             console.log(`✅ [DB Connected] Name: ${conn.connection.name}`);
             console.log(`=========================================\n`);
             isConnected = true;
-            if (!process.env.VERCEL) runSync();
             return conn;
         } catch (cloudErr) {
             console.error(`❌ MongoDB Connection Error: ${cloudErr.message}`);
@@ -152,12 +142,11 @@ const connectDB = async () => {
             const conn = await mongoose.connect(localURI, localOptions);
             console.log('✅ Local MongoDB Connected');
             isConnected = true;
-            runSync();
             return conn;
         } catch (localErr) {
             console.error(`🛑 No database found at ${localURI}.`);
             console.info('💡 Ensure MongoDB is running locally (run "mongod" in terminal).');
-            console.info('💡 Entering Buffer Mode (Data will be saved to local JSON backups).');
+            console.info('💡 Retrying connection in 30 seconds...');
             // We don't await the retry
             setTimeout(connectDB, 30000);
         }
