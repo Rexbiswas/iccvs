@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDB } from './_utils/db.js';
-import authRoutes from '../backend/routes/auth.js';
+import enquiryRoutes from '../backend/routes/enquiry.js';
 
 dotenv.config();
 const app = express();
@@ -14,7 +14,6 @@ app.use(async (req, res, next) => {
     next();
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/users', authRoutes);
+app.use('/api/enquiry', enquiryRoutes);
 
 export default app;

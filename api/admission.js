@@ -1,121 +1,86 @@
-import mongoose from 'mongoose';
-import nodemailer from 'nodemailer';
+import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
-import { sanitize } from './_utils/sanitize.js';
-import { schemas, validateRequest } from './_utils/validate.js';
+import { connectDB } from './_utils/db.js';
+import Enquiry from '../backend/models/Enquiry.js';
+import History from '../backend/models/History.js';
+import { sendWelcomeEmail, sendAdminLeadEmail, pushToNPF } from '../backend/utils/notifications.js';
 
 dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Admission Schema
-const admissionSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    phone: String,
-    course: String,
-    state: String,
-    city: String,
-    center: String,
-    createdAt: { type: Date, default: Date.now }
+app.use(async (req, res, next) => {
+    await connectDB();
+    next();
 });
 
-const Admission = mongoose.models.Admission || mongoose.model('Admission', admissionSchema);
-
-export default async function handler(req, res) {
-    // Sanitize inputs
-    if (req.body) req.body = sanitize(req.body);
-    if (req.query) req.query = sanitize(req.query);
-
-    // Validate inputs
-    if (req.method === 'POST') {
-        if (!validateRequest(schemas.admission, req, res)) return;
-    }
-
-    // Handle CORS
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
-
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
-
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method Not Allowed' });
-    }
-
+app.post('/api/admission', async (req, res) => {
     try {
-        // --- EXTENDED DEBUG LOGGING ---
-        console.log('--- Serverless Diagnostic ---');
-        console.log('MONGO_URI:', process.env.MONGO_URI ? `Defined (len: ${process.env.MONGO_URI.length})` : 'UNDEFINED');
-        console.log('GOOGLE_EMAIL:', process.env.GOOGLE_EMAIL ? 'Defined' : 'UNDEFINED');
-        console.log('--- End Diagnostic ---');
-
-        // Connect to DB with user requested options
-        if (mongoose.connection.readyState < 1) {
-            if (!process.env.MONGO_URI) {
-                throw new Error('[DEPLOYMENT_V2_CHECK]: MONGO_URI is missing from Vercel. Please go to Settings > Environment Variables, add it, and then click REDEPLOY.');
-            }
-            console.log('📡 Connecting to MongoDB Atlas (Serverless)...');
-            await mongoose.connect(process.env.MONGO_URI, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-                serverSelectionTimeoutMS: 8000
-            });
-            console.log("✅ MongoDB Connected Successfully");
+        const { name, email, phone, mobile, course, program, city, state, centre, center } = req.body;
+        
+        if (!name || !email || (!phone && !mobile)) {
+            return res.status(400).json({ success: false, message: "Name, email, and phone are required" });
         }
 
-        // 10-Digit Validation (Slice last 10 to ignore +91)
-        const phone = (req.body.phone || req.body.mobile || '').replace(/\D/g, '').slice(-10);
-        if (phone.length !== 10) {
-            return res.status(400).json({ success: false, message: 'Please enter a valid 10-digit mobile number' });
-        }
+        const cleanedPhone = (phone || mobile || '').replace(/\D/g, '').slice(-10);
 
-        // Save Lead with field normalization
-        const leadData = {
-            ...req.body,
-            phone: phone // Store the cleaned 10-digit number
-        };
-
-        // 5-Minute Cooldown Check (Throttle to prevent replay spamming)
-        const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
-        const duplicate = await Admission.findOne({ email: leadData.email, createdAt: { $gte: fiveMinutesAgo } });
-        if (duplicate) {
-            return res.status(409).json({ success: false, message: 'You have already submitted an inquiry recently. Please wait 5 minutes.' });
-        }
-
-        const lead = new Admission(leadData);
-        await lead.save();
-        console.log(`✅ Lead saved: ${leadData.name}`);
-
-        // Send Email
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.GOOGLE_EMAIL,
-                pass: process.env.GOOGLE_APP_PASSWORD
-            }
+        const newEnquiry = new Enquiry({
+            name,
+            email,
+            phone: cleanedPhone,
+            type: 'admission',
+            course: course || program,
+            city,
+            state,
+            centre: centre || center,
+            additionalInfo: { ...req.body }
         });
 
-        await transporter.sendMail({
-            from: process.env.GOOGLE_EMAIL,
-            to: 'iccvs.admissionleads@gmail.com',
-            subject: `[New Admission Lead] ${req.body.name}`,
-            text: JSON.stringify(req.body, null, 2)
-        });
-        console.log('✅ Notification email sent');
+        await newEnquiry.save();
 
-        return res.status(200).json({ 
+        // Log action in history
+        try {
+            await new History({
+                action: 'ENQUIRY_SUBMIT',
+                details: { enquiryId: newEnquiry._id, name, email, type: 'admission' },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {}
+
+        // Send notifications
+        Promise.allSettled([
+            sendWelcomeEmail(email, name, course || program || 'Design'),
+            sendAdminLeadEmail("iccvs.admissionleads@gmail.com", {
+                source: "Website Admission Inquiry",
+                name,
+                email,
+                phone: cleanedPhone,
+                city,
+                centre: centre || center,
+                program: course || program
+            }),
+            pushToNPF({
+                name,
+                email,
+                phone: cleanedPhone,
+                city,
+                state,
+                course: course || program,
+                source: "Website Admission"
+            })
+        ]).catch(err => console.error('[Admission Notification Error]', err.message));
+
+        res.status(200).json({ 
             success: true, 
             message: "Admission inquiry submitted successfully!",
             dbStatus: 'Connected'
         });
     } catch (err) {
-        console.error("❌ Admission Error:", err.message);
-        return res.status(500).json({ 
-            success: false, 
-            message: "Server Error: " + err.message,
-            error: err.message
-        });
+        res.status(500).json({ success: false, message: err.message });
     }
-}
+});
+
+export default app;

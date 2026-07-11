@@ -1,9 +1,12 @@
 import express from 'express';
 import Blog from '../models/Blog.js';
+import History from '../models/History.js';
+import { verifyAdmin } from '../middleware/auth.js';
 import { sendAdminLeadEmail } from '../utils/notifications.js';
 
 const router = express.Router();
 
+// Get all blogs
 router.get('/', async (req, res) => {
     try {
         const blogs = await Blog.find().sort({ createdAt: -1 });
@@ -13,11 +16,22 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+// Create blog post (Admin only)
+router.post('/', verifyAdmin, async (req, res) => {
     try {
         const newBlog = new Blog(req.body);
         const savedBlog = await newBlog.save();
         
+        // Log action in history
+        try {
+            await new History({
+                action: 'BLOG_CREATE',
+                details: { blogId: savedBlog._id, title: savedBlog.title },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {}
+
         // Backup data locally (Fail-Safe)
         import('../utils/offlineLogger.js').then(m => m.backupOfflineData('blogs', req.body));
 
@@ -31,6 +45,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Like / unlike blog post
 router.patch('/:id/like', async (req, res) => {
     try {
         const { id } = req.params;
@@ -52,10 +67,23 @@ router.patch('/:id/like', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+// Delete blog post (Admin only)
+router.delete('/:id', verifyAdmin, async (req, res) => {
     try {
         const { id } = req.params;
-        await Blog.findByIdAndDelete(id);
+        const blog = await Blog.findByIdAndDelete(id);
+        if (!blog) return res.status(404).json({ success: false, message: 'Blog not found' });
+
+        // Log action in history
+        try {
+            await new History({
+                action: 'BLOG_DELETE',
+                details: { blogId: id, title: blog.title },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {}
+
         res.status(200).json({ success: true, message: 'Blog deleted' });
     } catch (err) {
         res.status(500).json({ success: false, message: 'Server Error' });

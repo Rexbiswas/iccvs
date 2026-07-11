@@ -3,11 +3,12 @@ const router = express.Router();
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import History from '../models/History.js';
 import axios from 'axios';
 import { getGoogleTransporter } from '../utils/email.js';
 import { sendWelcomeEmail, sendAdminLeadEmail, pushToNPF } from '../utils/notifications.js';
 import { validateRegister, validateLogin, validateResetPassword } from '../middleware/validate.js';
-
+import { verifyAdmin } from '../middleware/auth.js';
 
 // Register User
 router.post('/register', validateRegister, async (req, res) => {
@@ -52,6 +53,19 @@ router.post('/register', validateRegister, async (req, res) => {
 
         await newUser.save();
 
+        // Log user registration history
+        try {
+            await new History({
+                userId: newUser._id,
+                action: 'USER_REGISTER',
+                details: { username, email },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {
+            console.error('[History Log Error] Failed to log registration:', logErr.message);
+        }
+
         // Backup data locally (Fail-Safe)
         import('../utils/offlineLogger.js').then(m => m.backupOfflineData('users', req.body));
 
@@ -95,9 +109,23 @@ router.post('/login', validateLogin, async (req, res) => {
             { expiresIn: "10d" }
         );
 
+        // Log user login history
+        try {
+            await new History({
+                userId: user._id,
+                action: 'USER_LOGIN',
+                details: { username: user.username, email: user.email },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {
+            console.error('[History Log Error] Failed to log login:', logErr.message);
+        }
+
         const { password: _, ...userInfo } = user._doc;
         res.status(200).json({ ...userInfo, token });
     } catch (err) {
+        console.error("Login Error:", err);
         res.status(500).json({ error: "Server error during login." });
     }
 });
@@ -109,23 +137,21 @@ router.post('/send-test-email', async (req, res) => {
         if (!email) return res.status(400).json({ message: "Email required" });
 
         const transporter = await getGoogleTransporter();
+        if (!transporter) return res.status(500).json({ message: "Transporter not available" });
 
         await transporter.sendMail({
-            from: `"ICCVS Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
+            from: `"Admissions" <${process.env.GOOGLE_EMAIL || 'admissions@iccvs.edu.in'}>`,
             to: email,
-            subject: "Welcome to ICCVS! Verification delivered",
+            subject: "Welcome! Verification delivered",
             html: `<h2>Hello ${firstName || 'Future Designer'},</h2>
                    <p>You have explicitly opted-in to receive Email Communications from ICCVS.</p>
                    <p>We are thrilled to welcome you to our creative network!</p><br/>
                    <p>Enjoy your real-time notification.</p>`,
         });
 
-        console.log("Real OAuth2 Message sent successfully to", email);
-
         res.status(200).json({
             message: "Email sent successfully in real time!"
         });
-
     } catch (err) {
         console.error("Email API Failed:", err);
         res.status(500).json({ message: "Server error sending email." });
@@ -141,19 +167,12 @@ router.post('/send-test-sms', async (req, res) => {
         const API_KEY = process.env.FAST2SMS_API_KEY;
 
         if (!API_KEY) {
-            console.log(`\n[DEV MODE - FAST2SMS_API_KEY Missing in .env]`);
-            console.log(`From ICCVS institute`);
-            console.log(`To: ${phone}`);
-            console.log(`Message: Hello ${firstName || 'Future Designer'}, welcome to the ICCVS network! Your SMS notifications are active.`);
-            console.log(`============================\n`);
-            
             return res.status(200).json({ 
                 message: "SMS logged in console! To get real SMS, add FAST2SMS_API_KEY to your backend .env" 
             });
         }
 
-        // Fast2SMS Axios API Call
-        const response = await axios({
+        await axios({
             method: 'POST',
             url: 'https://www.fast2sms.com/dev/bulkV2',
             headers: {
@@ -161,39 +180,30 @@ router.post('/send-test-sms', async (req, res) => {
                 "Content-Type": "application/json"
             },
             data: {
-                // Option A: DLT Premium Route (INSDIN Sender Name)
-                // Automatically switches to verified INSDIN header when FAST2SMS_TEMPLATE_ID is added to .env
                 route: process.env.FAST2SMS_TEMPLATE_ID ? "dlt" : "q", 
-                
-                // If DLT is active, use the INSDIN Sender ID and pass the user's name as a dynamic variable
                 ...(process.env.FAST2SMS_TEMPLATE_ID && { 
                     sender_id: "INSDIN", 
                     variables_values: firstName || 'Future Designer' 
                 }),
-                
-                // If DLT is active, use the Template ID. If not, use the fallback text.
                 message: process.env.FAST2SMS_TEMPLATE_ID 
                     ? process.env.FAST2SMS_TEMPLATE_ID 
-                    : `Hello ${firstName || 'Future Designer'}, You have explicitly opted-in to receive Email Communications from ICCVS. We are thrilled to welcome you to our creative network! Enjoy your real-time notification.\n\nFrom ICCVS (+91 7701933935)`,
-                
+                    : `Hello ${firstName || 'Future Designer'}, You have explicitly opted-in to receive Email Communications from ICCVS.`,
                 language: "english",
                 flash: 0,
-                numbers: phone.replace(/[^0-9]/g, '').slice(-10), // Send to user's phone from frontend form
+                numbers: phone.replace(/[^0-9]/g, '').slice(-10),
             }
         });
 
-        console.log("Real SMS successfully sent via Fast2SMS to:", phone);
         res.status(200).json({ 
             message: "SMS successfully sent in real time via Fast2SMS!" 
         });
-
     } catch (err) {
         console.error("SMS API Failed:", err?.response?.data || err.message);
         res.status(500).json({ message: "Server error sending SMS. API failed." });
     }
 });
 
-// Mock In-Memory Store for Password Reset Tokens (In production, use Redis or DB fields)
+// Reset password maps
 export const resetTokens = new Map();
 
 // Generate Password Reset Token & Email it
@@ -201,7 +211,6 @@ router.post('/forgot-password', async (req, res) => {
     try {
         const { email } = req.body;
 
-        // 60-Second Cooldown Check (Throttle to prevent replay email bombing)
         const record = resetTokens.get(email);
         if (record && (Date.now() - record.createdAt < 60 * 1000)) {
             return res.status(429).json({ message: "Please wait 60 seconds before requesting another reset code." });
@@ -210,26 +219,24 @@ router.post('/forgot-password', async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(404).json({ message: "No account found with this email." });
 
-        // Generate 6 digit code
         const resetToken = Math.floor(100000 + Math.random() * 900000).toString();
         resetTokens.set(email, { 
             token: resetToken, 
             expires: Date.now() + 15 * 60 * 1000, 
             createdAt: Date.now() 
-        }); // 15 mins
-
-        const transporter = await getGoogleTransporter();
-
-        await transporter.sendMail({
-            from: `"ICCVS Security" <${process.env.GOOGLE_EMAIL || 'security@iccvs.edu.in'}>`,
-            to: email,
-            subject: "Your Password Reset Code",
-            html: `<h2>Password Reset Request</h2><p>Your 6-digit verification code is: <strong>${resetToken}</strong></p><p>This code will expire in 15 minutes.</p>`
         });
 
-        console.log("Password Reset Sent!");
-        res.status(200).json({ message: "Password reset code sent to your email!" });
+        const transporter = await getGoogleTransporter();
+        if (transporter) {
+            await transporter.sendMail({
+                from: `"ICCVS Security" <${process.env.GOOGLE_EMAIL || 'security@iccvs.edu.in'}>`,
+                to: email,
+                subject: "Your Password Reset Code",
+                html: `<h2>Password Reset Request</h2><p>Your 6-digit verification code is: <strong>${resetToken}</strong></p><p>This code will expire in 15 minutes.</p>`
+            });
+        }
 
+        res.status(200).json({ message: "Password reset code sent to your email!" });
     } catch (err) {
         console.error("Reset Email Error:", err);
         res.status(500).json({ message: "Server error sending reset code: " + err.message });
@@ -256,12 +263,55 @@ router.post('/reset-password', validateResetPassword, async (req, res) => {
         user.password = hashedPassword;
         await user.save();
 
-        // Clear token upon success
+        // Log reset event
+        try {
+            await new History({
+                userId: user._id,
+                action: 'USER_PASSWORD_RESET',
+                details: { username: user.username, email: user.email },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {}
+
         resetTokens.delete(email);
 
         res.status(200).json({ message: "Password updated successfully! You can now login." });
     } catch (err) {
         res.status(500).json({ message: "Server error resetting password." });
+    }
+});
+
+// User CRUD (Admin-protected)
+// Get all users
+router.get('/users', verifyAdmin, async (req, res) => {
+    try {
+        const users = await User.find({}, '-password');
+        res.status(200).json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// Delete user
+router.delete('/users/:id', verifyAdmin, async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id);
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        // Log action
+        try {
+            await new History({
+                action: 'USER_DELETE',
+                details: { deletedUserId: req.params.id, username: user.username, email: user.email },
+                ipAddress: req.ip,
+                userAgent: req.headers['user-agent']
+            }).save();
+        } catch (logErr) {}
+
+        res.status(200).json({ message: "User deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 });
 

@@ -10,24 +10,18 @@ import hpp from 'hpp';
 import os from 'os';
 import dns from 'dns';
 import authRoutes from './routes/auth.js';
-import userRouter from './routes/auth.js';
-import leadRoutes from './routes/leadauth.js';
-import stepLeadRoutes from './routes/stepleads.js';
-import admissionRoutes from './routes/admission.js';
+import historyRoutes from './routes/history.js';
+import enquiryRoutes from './routes/enquiry.js';
 import contactRoutes from './routes/contact.js';
 import blogRoutes from './routes/blogs.js';
 import { sanitizeRequest } from './middleware/sanitize.js';
 
 // Models
-import Lead from './models/Lead.js';
-import AdmissionLead from './models/AdmissionLead.js';
-import StepLead from './models/StepLead.js';
-import AviationLead from './models/AviationLead.js';
-import ContactLead from './models/ContactLead.js';
-import ParisLead from './models/ParisLead.js';
-import PartnerLead from './models/PartnerLead.js';
-import Blog from './models/Blog.js';
 import User from './models/User.js';
+import History from './models/History.js';
+import Enquiry from './models/Enquiry.js';
+import Blog from './models/Blog.js';
+import Contact from './models/Contact.js';
 
 // Utils
 import { syncBackups } from './utils/offlineLogger.js';
@@ -119,13 +113,10 @@ const connectDB = async () => {
 
     const runSync = () => {
         const models = {
-            admission: AdmissionLead,
-            stepleads: StepLead,
-            contacts: ContactLead,
-            paris: ParisLead,
-            partner: PartnerLead,
+            enquiry: Enquiry,
+            contacts: Contact,
             users: User,
-            aviation: AviationLead
+            blogs: Blog
         };
         syncBackups(models);
     };
@@ -233,13 +224,10 @@ apiRouter.use((req, res, next) => {
 
 // Define sub-routes
 apiRouter.use('/auth', authRoutes);
-apiRouter.use('/leads', leadRoutes);
-apiRouter.use('/step-leads', stepLeadRoutes);
-apiRouter.use('/admission', admissionRoutes);
+apiRouter.use('/history', historyRoutes);
+apiRouter.use('/enquiry', enquiryRoutes);
 apiRouter.use('/contact', contactRoutes);
 apiRouter.use('/blogs', blogRoutes);
-
-// Compatibility Aliases
 apiRouter.use('/blog', blogRoutes);
 
 // Health Check / Ping
@@ -253,7 +241,7 @@ apiRouter.get('/ping', (req, res) => {
 });
 
 // Main Application Mounting
-app.use('/api/users', userRouter);
+app.use('/api/users', authRoutes);
 app.get('/api', (req, res) => res.send('Working now!'));
 app.use('/api', express.static('public'));
 app.use('/api', apiRouter);
