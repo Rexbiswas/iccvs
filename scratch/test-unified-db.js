@@ -37,7 +37,7 @@ async function runTest() {
         password: "hashedpassword123",
         firstName: "Test",
         lastName: "User",
-        phone: "9876543210"
+        phone: String(Math.floor(1000000000 + Math.random() * 9000000000))
     });
     await testUser.save();
     console.log("✅ User model works. Created ID:", testUser._id);
