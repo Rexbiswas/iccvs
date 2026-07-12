@@ -35,7 +35,7 @@ const blogs = [
         id: 4,
         title: "Building design careers at ICCVS",
         category: "Campus",
-        image: "https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG",
+        image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=compress&cs=tinysrgb&w=800&q=80",
         link: "/iccvs-360/blog",
         date: "Mar 20, 2026"
     }

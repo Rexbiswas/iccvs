@@ -19,148 +19,73 @@ const Blog = () => {
         title: '',
         excerpt: '',
         author: '',
-        category: 'Fashion',
+        category: 'IT & Coding',
         content: '',
-        image: 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+        image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     });
     const [searchQuery, setSearchQuery] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
-    const categories = ['All', 'Fashion', 'Interior', 'Graphic', 'Luxury', 'Career'];
+    const categories = ['All', 'IT & Coding', 'Accounting', 'Graphic Design', 'Data Analytics', 'Career'];
 
     const templates = {
-        Fashion: {
-            title: "Trend Report: [Seasonal Trend Name] 2026",
-            excerpt: "Analyzing the shift towards [Trend] and its impact on the upcoming fashion cycle.",
-            content: "## The Resurgence of [Trend]\nDesigners this season are focusing on...\n\n### Key Materiality\nWe are seeing a heavy use of [Material] which symbolizes...\n\n### Global Impact\nThis trend is more than just aesthetic; it reflects a deeper cultural shift towards..."
+        "IT & Coding": {
+            title: "Getting Started with [Programming Language] in 2026",
+            excerpt: "A beginner's roadmap to mastering [Language] and building your first real-world application.",
+            content: "## Why Learn [Language]?\nIn today's tech landscape, [Language] is essential for...\n\n### Practical Applications\nFrom backend servers to scripting, you can use it to...\n\n### Learning Path\nStart by understanding basic syntax, then move on to..."
         },
-        Interior: {
-            title: "Maximizing Small Spaces: [Concept] Approach",
-            excerpt: "How [Concept] is helping urban dwellers transform compact apartments into luxury living spaces.",
-            content: "## The Art of Space Optimization\nIn modern cities, space is a luxury. Here is how to...\n\n### Lighting Strategy\nNatural light plays a crucial role in...\n\n### Multipurpose Furniture\nChoosing pieces that serve dual functions like..."
+        Accounting: {
+            title: "Mastering Corporate Taxation with [Software/Tool]",
+            excerpt: "How [Tool] simplifies GST computation and commercial financial accounting.",
+            content: "## Modern Financial Accounting\nBusinesses need fast, accurate ledger management...\n\n### GST & Compliance\nFiling returns becomes straightforward when you use...\n\n### Best Practices\nEnsure you reconcile statements weekly to..."
         },
-        Graphic: {
-            title: "The Evolution of [Style Name] in Digital Branding",
-            excerpt: "Why [Style] is making a comeback in modern app interfaces and marketing campaigns.",
-            content: "## Defining the [Style] Aesthetic\nThis style is characterized by...\n\n### Why it Works Now\nIn a world of minimalist design, [Style] offers a breath of fresh air because...\n\n### Case Study\nLook at how [Brand Name] utilized this to increase engagement by..."
+        "Graphic Design": {
+            title: "Designing Print Layouts: Essential [Software] Techniques",
+            excerpt: "Learn how to use Desktop Publishing tools to design professional flyers, magazines, and print media.",
+            content: "## The Fundamentals of DTP\nPrint design requires attention to color models and bleeds...\n\n### Mastering Layouts\nGrid systems are your best friend when aligning...\n\n### Output Optimization\nAlways export in CMYK with appropriate resolution..."
+        },
+        "Data Analytics": {
+            title: "Predictive Analytics using SQL and [Analytics Tool]",
+            excerpt: "How to extract insights from large databases and present them in visual dashboards.",
+            content: "## The Power of Data\nCompanies are sitting on mountains of data, but without analytics...\n\n### Writing SQL Queries\nEfficient querying is the first step to...\n\n### Visualization\nUsing interactive charts helps stakeholders quickly grasp..."
         },
         Career: {
-            title: "5 Skills Every Junior [Designer Type] Needs in 2026",
-            excerpt: "Navigating the entry-level market with these essential technical and soft skills.",
-            content: "## The Entry-Level Landscape\nGetting your first job in design requires more than just a portfolio...\n\n### 1. [Skill Name]\nThis is critical because...\n\n### 2. [Skill Name]\nMastering this tool will set you apart from..."
+            title: "5 Portfolio Projects to Get Hired as a Software Developer in 2026",
+            excerpt: "Stand out in the entry-level IT market with these hands-on, practical coding projects.",
+            content: "## Building a Standout Portfolio\nGeneric calculator apps won't get you hired. You need real-world projects...\n\n### 1. Full-Stack Web App\nShow that you can connect a database to a clean UI...\n\n### 2. API Integration Project\nDemonstrate your ability to fetch, parse, and utilize external data..."
         }
     };
 
     const categoryImages = {
-        Fashion: [
-            "https://images.unsplash.com/photo-1539109132314-34a77ae7012?w=800&q=80",
-            "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
-            "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80",
-            "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
-            "https://images.unsplash.com/photo-1529139513075-1231982e614d?w=800&q=80",
-            "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80",
-            "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
-            "https://images.unsplash.com/photo-1564485371866-c5602058e469?w=800&q=80",
-            "https://images.unsplash.com/photo-1581044777072-4767793a62d1?w=800&q=80",
-            "https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80",
-            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
-            "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=800&q=80",
-            "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=80",
-            "https://images.unsplash.com/photo-1479064566235-aa6a00b63bb3?w=800&q=80",
-            "https://images.unsplash.com/photo-1537832816519-689ad163238b?w=800&q=80",
-            "https://images.unsplash.com/photo-1507702553912-a15641e827c8?w=800&q=80",
-            "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800&q=80",
-            "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
-            "https://images.unsplash.com/photo-1524041255072-7da0525d6b3b?w=800&q=80",
-            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80"
+        "IT & Coding": [
+            "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+            "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=800&q=80",
+            "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80",
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80"
         ],
-        Interior: [
-            "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
-            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
-            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
-            "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80",
-            "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=800&q=80",
-            "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80",
-            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
-            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
-            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
-            "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&q=80",
-            "https://images.unsplash.com/photo-1616594831818-83792033009d?w=800&q=80",
-            "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
-            "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=800&q=80",
-            "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?w=800&q=80",
-            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
-            "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80",
-            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
-            "https://images.unsplash.com/photo-1616489953149-80327f12e84b?w=800&q=80",
-            "https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=800&q=80",
-            "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&q=80"
+        Accounting: [
+            "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80",
+            "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=800&q=80",
+            "https://images.unsplash.com/photo-1586486855514-8c633cc6fa98?w=800&q=80",
+            "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=800&q=80"
         ],
-        Graphic: [
+        "Graphic Design": [
             "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-            "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&q=80",
-            "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80",
-            "https://images.unsplash.com/photo-1541462608141-ad60346369c0?w=800&q=80",
             "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",
-            "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80",
-            "https://images.unsplash.com/photo-1614036417651-efe591214971?w=800&q=80",
-            "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80",
-            "https://images.unsplash.com/photo-1557683316-973673baf926?w=800&q=80",
-            "https://images.unsplash.com/photo-1557682257-2f9c37a3a5f3?w=800&q=80",
-            "https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&q=80",
-            "https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?w=800&q=80",
-            "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?w=800&q=80",
-            "https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=800&q=80",
-            "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-            "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
-            "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
-            "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&q=80",
-            "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
-            "https://images.unsplash.com/photo-1550439062-609e1531270e?w=800&q=80"
-        ],
-        Luxury: [
-            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
-            "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=800&q=80",
-            "https://images.unsplash.com/photo-1560243563-062bff001d68?w=800&q=80",
-            "https://images.unsplash.com/photo-1556905055-8f358a7a4bb4?w=800&q=80",
-            "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?w=800&q=80",
-            "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&q=80",
-            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80",
-            "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&q=80",
-            "https://images.unsplash.com/photo-1551028150-64b9f398f678?w=800&q=80",
-            "https://images.unsplash.com/photo-1551201602-3f945eca1150?w=800&q=80",
-            "https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?w=800&q=80",
             "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=800&q=80",
-            "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80",
-            "https://images.unsplash.com/photo-1556905055-8f358a7a4bb4?w=800&q=80",
-            "https://images.unsplash.com/photo-1560243563-062bff001d68?w=800&q=80",
-            "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?w=800&q=80",
-            "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
-            "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?w=800&q=80",
-            "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&q=80",
-            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80"
+            "https://images.unsplash.com/photo-1541462608141-ad60346369c0?w=800&q=80"
+        ],
+        "Data Analytics": [
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+            "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1527474305487-b87b222841cc?w=800&q=80"
         ],
         Career: [
-            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-            "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
-            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
             "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
-            "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80",
-            "https://images.unsplash.com/photo-1521791136064-7986c2959d93?w=800&q=80",
-            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
             "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
-            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-            "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
-            "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80",
-            "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-            "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+            "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
         ]
     };
 
@@ -185,69 +110,69 @@ const Blog = () => {
     const [posts, setPosts] = useState([
         {
             id: "65ed3c2e1f4a5b6c7d8e9f01",
-            title: "Sustainable Couture: The Future of Fashion in 2026",
-            excerpt: "How ethical material sourcing and zero-waste patterns are redefining the global runway standards.",
-            category: "Fashion",
-            author: "Dr. Elena Rossi",
+            title: "The Rise of Python: Why It's the Most In-Demand Language in 2026",
+            excerpt: "Why Python continues to dominate fields from web development to machine learning and why every student should learn it.",
+            category: "IT & Coding",
+            author: "Sanjay Malhotra",
             date: "Mar 15, 2026",
             readTime: "6 min",
             likes: 124,
-            image: "https://images.pexels.com/photos/3735641/pexels-photo-3735641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80"
         },
         {
             id: "65ed3c2e1f4a5b6c7d8e9f02",
-            title: "Smart Spaces: Psychology of Color in Living Environments",
-            excerpt: "Exploring how interior shades influence mental well-being and productivity in modern urban homes.",
-            category: "Interior",
-            author: "Ar. Rahul Mehta",
+            title: "Tally Prime vs Excel: Which Tool is Essential for Modern Accounting?",
+            excerpt: "An in-depth comparison of Tally Prime and Advanced Excel for managing corporate finances and tax compliance.",
+            category: "Accounting",
+            author: "CA Rahul Mehta",
             date: "Mar 12, 2026",
             readTime: "8 min",
             likes: 89,
-            image: "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80"
         },
         {
             id: "65ed3c2e1f4a5b6c7d8e9f03",
-            title: "Typography & AI: Generative Design in Branding",
-            excerpt: "The intersection of algorithmic creativity and traditional type design in the age of neural networks.",
-            category: "Graphic",
-            author: "Liam Wright",
+            title: "Demystifying Data Analytics: Career Opportunities and Skills Required",
+            excerpt: "How data analysts are helping companies make smart decisions using SQL, Python, and PowerBI.",
+            category: "Data Analytics",
+            author: "Dr. Elena Rossi",
             date: "Mar 10, 2026",
-            readTime: "4 min",
+            readTime: "7 min",
             likes: 256,
-            image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
         },
         {
             id: "65ed3c2e1f4a5b6c7d8e9f04",
-            title: "Quiet Luxury: Branding Strategies for the New Era",
-            excerpt: "Why subtle elegance and heritage story-telling are winning over loud branding in the luxury market.",
-            category: "Luxury",
-            author: "Sophia Laurent",
+            title: "Graphic Design Essentials: Mastering Photoshop, Illustrator, and DTP",
+            excerpt: "Key tips for aspiring designers to create high-impact print layouts and digital assets using Desktop Publishing tools.",
+            category: "Graphic Design",
+            author: "Liam Wright",
             date: "Mar 05, 2026",
-            readTime: "7 min",
+            readTime: "5 min",
             likes: 112,
-            image: "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80"
         },
         {
             id: "65ed3c2e1f4a5b6c7d8e9f05",
-            title: "Designing Your Portfolio for Global Studios",
-            excerpt: "A comprehensive guide on what international creative directors look for in a junior design portfolio.",
+            title: "5 Portfolio Projects to Get Hired as a Software Developer in 2026",
+            excerpt: "Stand out in the entry-level IT market with these hands-on, practical coding projects.",
             category: "Career",
-            author: "Sanjay Malhotra",
+            author: "Sophia Laurent",
             date: "Feb 28, 2026",
             readTime: "12 min",
             likes: 342,
-            image: "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
         },
         {
             id: "65ed3c2e1f4a5b6c7d8e9f06",
-            title: "The Return of Hand-Drawn Illustration in Media",
-            excerpt: "Analyzing the resurgence of organic, hand-crafted textures in a predominantly digital advertising space.",
-            category: "Graphic",
-            author: "Elena Rossi",
+            title: "Automating the Workplace: The Power of VBA Macros and Advanced Excel",
+            excerpt: "How mastering Advanced Excel Macros can save hundreds of hours of manual data entry and report generation.",
+            category: "Data Analytics",
+            author: "Pranav Aggarwal",
             date: "Feb 20, 2026",
             readTime: "5 min",
             likes: 76,
-            image: "https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
         }
     ]);
 
@@ -460,7 +385,7 @@ const Blog = () => {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://ik.imagekit.io/fmldynl4j4/IMG_3440.JPG"
+                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=compress&cs=tinysrgb&w=1920&q=80"
                         alt="ICCVS Campus Life"
                         className="w-full h-full object-cover scale-105"
                         onError={handleImageError}

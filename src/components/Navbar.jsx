@@ -166,9 +166,13 @@ const Navbar = () => {
     // Updated detection: Pages with permanent dark themes or sections
     const darkPages = [
         '/course-apply-now',
-        '/iccvs-360/blog'
+        '/iccvs-360/blog',
+        '/blog'
     ];
-    const [isHeaderDark, setIsHeaderDark] = useState(darkPages.includes(location.pathname));
+    const isPathDark = (path) => {
+        return darkPages.some(p => path.includes(p)) || path.includes('blog') || path.includes('course-apply-now');
+    };
+    const [isHeaderDark, setIsHeaderDark] = useState(isPathDark(location.pathname));
 
     // GSAP SVG Animation REfs
     const svgRef = useRef(null);
@@ -194,7 +198,7 @@ const Navbar = () => {
                 setIsHeaderDark(isHero || isExpertFaculties || isWorkshopChronicles);
             } else if (is404) {
                 setIsHeaderDark(true);
-            } else if (darkPages.includes(location.pathname)) {
+            } else if (isPathDark(location.pathname)) {
                 setIsHeaderDark(currentScroll < 500);
             } else {
                 setIsHeaderDark(false);
