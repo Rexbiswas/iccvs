@@ -90,6 +90,8 @@ const FeaturedIn = () => {
                                 src={brand.url}
                                 alt={brand.name}
                                 className="w-full h-full object-contain mix-blend-multiply transition-all duration-500"
+                                loading="lazy"
+                                decoding="async"
                             />
                         </div>
                     ))}

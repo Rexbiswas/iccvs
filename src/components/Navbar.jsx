@@ -592,6 +592,8 @@ const Navbar = () => {
                             className="h-[60px] w-[60px] rounded-full object-cover border border-slate-200/50"
                             src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
                             alt="ICCVS Logo"
+                            fetchpriority="high"
+                            decoding="async"
                         />
                     </Link>
                 </div>
@@ -952,6 +954,8 @@ const Navbar = () => {
                                         src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
                                         alt="ICCVS Logo"
                                         className="h-[72px] w-[72px] rounded-full object-cover border border-white/20"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                 </Link>
 

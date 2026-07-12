@@ -25,7 +25,6 @@ export default defineConfig({
           // Separate vendor libraries to leverage browser caching
           'react-vendor': ['react', 'react-dom', 'react-helmet-async', '@emotion/react', '@emotion/styled'],
           'gsap': ['gsap'],
-          'three': ['three', '@react-three/fiber', '@react-three/drei'],
           'framer': ['framer-motion'],
           'utils': ['axios', 'lenis', 'react-router-dom'],
           'ui': ['@mui/material', '@mui/icons-material', 'lucide-react'],

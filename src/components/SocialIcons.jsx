@@ -22,6 +22,7 @@ const SocialIcons = ({ className = "", dark = false }) => {
                         href={social.link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={social.label}
                         whileHover="hover"
                         initial="initial"
                         className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center transition-all duration-500 relative group overflow-visible ${dark ? 'border-slate-200 bg-slate-50' : 'border-white/10 bg-white/5'} border`}

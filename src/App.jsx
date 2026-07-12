@@ -46,13 +46,13 @@ const AdvanceExcelDashboard = lazy(() => import('./pages/AdvanceExcelDashboard')
 
 
 // Components
-import RegistrationModal from './components/RegistrationModal';
-import AdmissionModal from './components/AdmissionModal';
-import AIChatbot from './components/AIChatbot';
 import FloatingActionPanel from './components/FloatingActionPanel';
 import { RegisterModalProvider } from './context/RegisterModalContext';
 import { AdmissionModalProvider } from './context/AdmissionModalContext';
 import { AuthProvider } from './context/AuthContext';
+
+const RegistrationModal = lazy(() => import('./components/RegistrationModal'));
+const AdmissionModal = lazy(() => import('./components/AdmissionModal'));
 
 
 const ScrollToTop = () => {
@@ -75,8 +75,10 @@ function App() {
                         <ScrollTriggerRefresher />
                         <Navbar />
                         <div className={`transition-all duration-1000 ease-out ${isLoaderActive ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100'}`}>
-                            <RegistrationModal />
-                            <AdmissionModal />
+                            <Suspense fallback={null}>
+                                <RegistrationModal />
+                                <AdmissionModal />
+                            </Suspense>
                             <CookieConsent />
 
                             <ScrollToTop />

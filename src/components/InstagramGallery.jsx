@@ -153,6 +153,7 @@ const InstagramGallery = () => {
                     href="https://www.instagram.com/insd_official" 
                     target="_blank" 
                     rel="noopener noreferrer" 
+                    aria-label="Follow us on Instagram"
                     className="group flex items-center gap-4 px-8 py-4 bg-white border border-slate-300 rounded-full hover:shadow-xl hover:border-primary/30 hover:text-primary transition-all duration-300"
                 >
                     <span className="font-bold tracking-widest uppercase text-sm">Follow Us</span>
@@ -172,10 +173,12 @@ const InstagramGallery = () => {
                             `}
                         >
                             {/* Image */}
-                            <img
+                             <img
                                 src={post.img}
-                                alt="Instagram Post"
+                                alt={post.caption}
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy"
+                                decoding="async"
                             />
 
                             {/* Overlay */}
@@ -195,6 +198,7 @@ const InstagramGallery = () => {
                                     href="https://www.instagram.com/insd_official" 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
+                                    aria-label={`View Instagram post: ${post.caption}`}
                                     className="px-6 py-2 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-full hover:scale-105 hover:shadow-lg transition-transform"
                                 >
                                     View Post

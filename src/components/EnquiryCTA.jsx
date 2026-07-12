@@ -41,6 +41,7 @@ const EnquiryCTA = ({ isFloatingPanel = false }) => {
     const content = (
         <motion.button
             onClick={handleNavigate}
+            aria-label="Quick Inquiry"
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 50 }}

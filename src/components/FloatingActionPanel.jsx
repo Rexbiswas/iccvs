@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackToTop from './BackToTop';
-import AIChatbot from './AIChatbot';
 import WhatsappCTA from './WhatsappCTA';
 import EnquiryCTA from './EnquiryCTA';
 import SocialPanel from './SocialPanel';
 import { useAdmissionModal } from '../context/AdmissionModalContext';
 import { useRegisterModal } from '../context/RegisterModalContext';
+
+const AIChatbot = lazy(() => import('./AIChatbot'));
 
 
 const FloatingActionPanel = () => {
@@ -101,7 +102,9 @@ const FloatingActionPanel = () => {
 
             {/* Headless AIChatbot for mobile event listening */}
             <div className="lg:hidden pointer-events-auto">
-                <AIChatbot showTrigger={false} isFloatingPanel />
+                <Suspense fallback={null}>
+                    <AIChatbot showTrigger={false} isFloatingPanel />
+                </Suspense>
             </div>
 
             {/* Scroll-Dependent Icons (Bot & Social) */}
@@ -123,7 +126,9 @@ const FloatingActionPanel = () => {
                             >
                                 {/* Desktop Bot */}
                                 <div className="hidden lg:block">
-                                    <AIChatbot isFloatingPanel />
+                                    <Suspense fallback={null}>
+                                        <AIChatbot isFloatingPanel />
+                                    </Suspense>
                                 </div>
                             </motion.div>
                         )}

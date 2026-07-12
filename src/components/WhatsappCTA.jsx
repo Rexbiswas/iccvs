@@ -43,6 +43,7 @@ const WhatsappCTA = ({ isFloatingPanel = false }) => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Chat with Admissions on WhatsApp"
             initial={isFloatingPanel ? {} : { opacity: 0, scale: 0.5, y: 50 }}
             animate={isFloatingPanel ? {} : { opacity: 1, scale: 1, y: 0 }}
             exit={isFloatingPanel ? {} : { opacity: 0, scale: 0.5, y: 50 }}

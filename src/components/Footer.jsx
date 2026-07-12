@@ -77,6 +77,8 @@ const Footer = ({ showTagline = false }) => {
                                     src="https://ik.imagekit.io/fmldynl4j4/ICCVS%20COMPUTER%20EDUCATION%20%2020260704_094136.jpg"
                                     alt="ICCVS Logo"
                                     className="h-[56px] w-[56px] rounded-full object-cover border border-white/10"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <p className="text-lg text-white/60 leading-relaxed font-light">
